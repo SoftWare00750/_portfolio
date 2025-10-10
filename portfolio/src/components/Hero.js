@@ -11,12 +11,13 @@ export default function Hero() {
             <span className="last-name">Otunla</span>
           </h1>
 
-          <p className="hero-sub perfect-align">
-            IT Systems & DevOps Administrator. I build reliable infrastructure,
-            optimize deployments, and solve tricky problems.
-          </p>
+          <p className="hero-sub-right-fixed">
+              Full Stack Web Developer 
+              </p>
+             <p className="hero-sub-right2"> <span>I handle the development, deployment</span> <br /> <span>and maintenance of your website, start to finish.</span> </p>
+          
         </div>
       </div>
     </section>
-  );
+  )
 }

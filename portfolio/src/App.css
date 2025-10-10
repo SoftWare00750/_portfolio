@@ -68,21 +68,32 @@
   border: none;
   color: var(--accent);     /* same as “Otunla” */
   cursor: pointer;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.2px;    /* slightly tighter text spacing */
   padding: 6px 10px;        /* 🔥 reduced padding for compact look */
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .nav-link:hover {
-  color: var(--white);
+  color: var(--white);       /* just fade color smoothly */
+  text-decoration: none;     /* no underline or dash */
+  border: none;              /* prevents border-bottom flashes */
+  box-shadow: none;          /* blocks any pseudo line or shadow */
 }
+
+.nav-link::after,
+.nav-link::before {
+  content: none !important;  /* 🧹 fully disables any pseudo-element line */
+}
+
+
            
                   /* Hero */
 /* HERO SECTION */
 .hero {
-  padding: 180px 0 100px;     /* 🔥 pushed lower to match navbar */
+  padding: 180px 0 100px;      /* position lower to match navbar */
   position: relative;
 }
 
@@ -100,8 +111,8 @@
 
 /* Name styling */
 .hero-name {
-  font-size: 79px;
-  line-height: 1;             /* 🔥 tighter spacing between lines */
+  font-size: 80px;
+  line-height: 0.80;           /* 🔥 tighter spacing between names */
   font-weight: 800;
   color: var(--white);
   margin: 0;
@@ -110,27 +121,50 @@
 
 .hero-name .first-name {
   display: block;
+ 
 }
 
 .hero-name .last-name {
   display: block;
-  color: var(--accent);        /* matches navbar + logo color */
-  margin-top: -12px;           /* 🔥 reduced gap between names */
+  color: var(--accent);
+  margin-top: -35px;           /* 🔥 moved Otunla higher */
 }
 
-/* IT Systems text aligned right — unchanged alignment */
-.hero-sub.right-fixed {
+/* 🔥 IT Systems text far right, paragraph wrapping */
+.hero-sub-right-fixed {
   position: absolute;
-  right: 0;                   /* stays far right */
-  top: 52%;                   /* same vertical center as before */
+  right: 0;                    /* far right alignment */
+  top: 52%;                    /* aligns to vertical middle between names */
   transform: translateY(-50%);
-  max-width: 600px;
+  max-width: 600px;            /* limits width for natural line breaks */
   font-size: 18px;
   color: var(--muted);
   text-align: right;
   line-height: 1.6;
-  padding-right: 60px;        /* small margin from right edge */
+  padding-right: 60px;         /* space from screen edge */
+  font-size: 30px;
+  font-weight: bold;
+ 
 }
+
+.hero-sub-right2 {
+  position: absolute;
+  right: 0;                    /* far right alignment */
+  margin-top: 7px;        /* aligns to vertical middle between names */
+  transform: translateY(-50%);
+  max-width: 600px;            /* limits width for natural line breaks */
+  font-size: 18px;
+  color: var(--muted);
+  text-align: left;
+  line-height: 1.6;
+  padding-right: 60px;         /* space from screen edge */
+  margin-right: -55px;
+  font-size: 19px;
+}
+
+
+
+
 
 
 
@@ -181,4 +215,9 @@
   width: 100%;
 }
 
+
+
+
+
+                          
                           

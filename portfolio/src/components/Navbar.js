@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const navItems = [
   { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-      { id: "skills", label: "Skills" },
-        { id: "projects", label: "Projects" },
+  { id: "projects", label: "Projects" },
+  { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
           { id: "contact", label: "Contact" },
           ];
 
