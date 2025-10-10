@@ -26,10 +26,9 @@ const navItems = [
 
                                                 return (
                                                     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
-                                                          <div className="container nav-inner">
+                                                          <div className=" nav-inner">
                                                                   <div className="brand" onClick={() => goTo("home")}>
                                                                             <div className="logo-circle">O</div>
-                                                                                      <span className="brand-name">Oluwadamilola Otunla</span>
                                                                                               </div>
 
                                                                                                       <nav className={`nav ${open ? "open" : ""}`}>
@@ -47,4 +46,3 @@ const navItems = [
                                                                                                                                                                                                             </header>
                                                                                                                                                                                                               );
                                                                                                                                                                                                               }
-                                                                                                                                                                                                              

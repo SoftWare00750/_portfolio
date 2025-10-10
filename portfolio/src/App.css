@@ -10,36 +10,129 @@
             html,body,#root{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
             body{background:linear-gradient(180deg,#071028 0%, #071827 100%); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
 
-            .container{max-width:1080px;margin:0 auto;padding:28px;}
+            .container{max-width:1400px;margin:0 auto;padding:60px;}
 
-            .navbar{position:fixed;top:0;left:0;width:100%;z-index:40;transition:all .25s ease}
-            .navbar .nav-inner{display:flex;align-items:center;justify-content:space-between}
-            .navbar.scrolled{backdrop-filter:blur(6px);background:rgba(6,10,18,.55);box-shadow:0 4px 18px rgba(0,0,0,.4)}
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 30px;                  /* sits slightly lower on the page */
+  left: 0;
+  width: 100%;
+  z-index: 40;
+  background: transparent;
+  transition: all 0.25s ease;
+}
 
-            .brand{display:flex;align-items:center;gap:12px;cursor:pointer}
-            .logo-circle{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#34d399);display:flex;align-items:center;justify-content:center;color:#052; font-weight:700}
-            .brand-name{color:var(--white);font-weight:600}
+/* navbar inner container */
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* spread logo & nav links */
+}
 
-            .nav{display:flex;gap:16px;align-items:center}
-            .nav-link{background:none;border:none;color:var(--muted);cursor:pointer;padding:8px 12px;border-radius:6px}
-            .nav-link:hover{color:var(--white);background:rgba(255,255,255,0.02)}
+/* logo on the left */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-            .nav-toggle{display:none;background:none;border:none}
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);   /* same color as “Otunla” */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #021;
+  font-weight: 700;
+  font-size: 18px;
+}
 
-            @media(max-width:820px){
-              .nav{position:fixed;right:12px;top:64px;background:rgba(6,10,18,.95);padding:12px;border-radius:8px;flex-direction:column;display:none}
-                .nav.open{display:flex}
-                  .nav-toggle{display:block}
-                  }
+/* 🔥 navigation links now aligned far right */
+/* NAV container */
+.nav {
+  margin-left: auto;        /* keeps it on far right */
+  display: flex;
+  gap: 14px;                /* 🔥 reduced from 24px to 14px */
+  align-items: center;
+}
 
+/* Each nav option */
+.nav-link {
+  background: none;
+  border: none;
+  color: var(--accent);     /* same as “Otunla” */
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.2px;    /* slightly tighter text spacing */
+  padding: 6px 10px;        /* 🔥 reduced padding for compact look */
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--white);
+}
+           
                   /* Hero */
-                  .hero{padding:120px 0 80px}
-                  .hero-inner{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
-                  .hero-text h1{font-size:34px;color:var(--white);margin:0 0 12px}
-                  .hero-text .sub{color:var(--muted);max-width:620px;font-size:16px;margin-bottom:18px}
-                  .hero-cta{display:flex;gap:12px}
-                  .btn{background:linear-gradient(90deg,var(--accent),#34d399);color:#032;font-weight:600;padding:10px 16px;border-radius:8px;text-decoration:none}
-                  .btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
+/* HERO SECTION */
+.hero {
+  padding: 180px 0 100px;     /* 🔥 pushed lower to match navbar */
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+}
+
+.hero-text {
+  color: var(--white);
+  position: relative;
+}
+
+/* Name styling */
+.hero-name {
+  font-size: 79px;
+  line-height: 1;             /* 🔥 tighter spacing between lines */
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+  position: relative;
+}
+
+.hero-name .first-name {
+  display: block;
+}
+
+.hero-name .last-name {
+  display: block;
+  color: var(--accent);        /* matches navbar + logo color */
+  margin-top: -12px;           /* 🔥 reduced gap between names */
+}
+
+/* IT Systems text aligned right — unchanged alignment */
+.hero-sub.right-fixed {
+  position: absolute;
+  right: 0;                   /* stays far right */
+  top: 52%;                   /* same vertical center as before */
+  transform: translateY(-50%);
+  max-width: 600px;
+  font-size: 18px;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.6;
+  padding-right: 60px;        /* small margin from right edge */
+}
+
+
 
                   /* profile card */
                   .profile-card{background:linear-gradient(180deg,#071127, #06101a);padding:18px;border-radius:12px;color:var(--white);display:flex;gap:12px;align-items:center;box-shadow:0 8px 30px rgba(2,6,23,.6)}
@@ -82,5 +175,10 @@
                         .contact-grid{grid-template-columns:1fr}
                           .projects-grid{grid-template-columns:1fr}
                           }
-                          
+
+                          .about-grid.single {
+  display: block;
+  width: 100%;
 }
+
+                          
