@@ -5,7 +5,7 @@ const navItems = [
   { id: "projects", label: "Projects" },
   { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-          { id: "contact", label: "Contact" },
+          { id: "contact", className: "contact-btn", label: "Contact Me" },
           ];
 
           export default function Navbar() {
@@ -26,22 +26,21 @@ const navItems = [
 
                                                 return (
                                                     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
-                                                          <div className=" nav-inner">
+                                                          <div className="nav-inner">
                                                                   <div className="brand" onClick={() => goTo("home")}>
                                                                             <div className="logo-circle">O</div>
                                                                                               </div>
 
                                                                                                       <nav className={`nav ${open ? "open" : ""}`}>
                                                                                                                 {navItems.map((n) => (
-                                                                                                                            <button key={n.id} className="nav-link" onClick={() => goTo(n.id)}>
+                                                                                                                            <button key={n.id} className={n.className ? n.className: "nav-link"} onClick={() => goTo(n.id)}>
                                                                                                                                           {n.label}
                                                                                                                                                       </button>
+                                                                                                                          
                                                                                                                                                                 ))}
                                                                                                                                                                         </nav>
 
-                                                                                                                                                                                <button className="nav-toggle" onClick={() => setOpen(!open)}>
-                                                                                                                                                                                          <span className="hamburger" />
-                                                                                                                                                                                                  </button>
+                                                                                                                                                                                
                                                                                                                                                                                                         </div>
                                                                                                                                                                                                             </header>
                                                                                                                                                                                                               );
