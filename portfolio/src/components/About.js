@@ -4,6 +4,7 @@ export default function About() {
   return (
       <section id="about" className="section">
             <div className="container">
+               <div className="about">
                     <h2 className="section-title">About</h2>
                             <div className="about-grid">
                                       <div>
@@ -19,6 +20,7 @@ export default function About() {
                                                                                                                                                                             <li>CI/CD pipelines, Docker and container workflows</li>
                                                                                                                                                                                         </ul>
                                                                                                                                                                                                   </div>
+                                                                                                                                                                                                           </div>
                                                                                                                                                                                                            </div>
                                                                                                                                                                                                                                                                                     </div>
                                                                                                                                                                                                                                                                                         </section>
