@@ -9,15 +9,13 @@ export default function About() {
                             <div className="about-grid">
                                       <div>
                                                   <p>
-                                                                I’m an IT Systems and DevOps Administrator with hands-on experience in server
-                                                                              management, network administration, virtualization (VMware, Hyper-V), and cloud
-                                                                                            platforms like AWS and OCI. I enjoy automating tasks, improving reliability, and
-                                                                                                          shipping improvements that make teams more productive.
+                                              I’m a Full Stack Developer experienced in building responsive websites and web applications. I create modern interfaces and develop scalable back-end systems. <p>I’m passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>                 
+                    
                                                                                                                       </p>
                                                                                                                                   <ul>
-                                                                                                                                                <li>Active Directory & Windows Server administration</li>
-                                                                                                                                                              <li>Linux server administration and shell scripting</li>
-                                                                                                                                                                            <li>CI/CD pipelines, Docker and container workflows</li>
+                                                                                                                                                <li>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwaind CSS</span> and <span className="skills1">Javascript</span> </li>
+                                                                                                                                                              <li>Back-end Systems with <span className="skills1">Laravel</span>, <span className="skills1">Node.js</span>, <span className="skills1">Django</span>, <span className="skills1">Spring</span> Frameworks, <span className="skills1">MySQL</span> and <span className="skills1">MongoDB</span> </li>
+                                                                                                                                                                            
                                                                                                                                                                                         </ul>
                                                                                                                                                                                                   </div>
                                                                                                                                                                                                            </div>
