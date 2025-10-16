@@ -1,35 +1,43 @@
 :root{
-    --bg:#0f1724;
-      --card:#0b1220;
-        --muted:#94a3b8;
-          --accent:#6ee7b7;
-            --white:#eef2ff;
-            }
-
-            *{box-sizing:border-box}
-            html,body,#root{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-            body{background:linear-gradient(180deg,#071028 0%, #071827 100%); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-
-            .container{width:96%;max-width:1400px;margin:0 auto;padding:60px;}
-            .site {
-  padding: 0 20px; /* reduces global side padding */
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#94a3b8;
+  --accent:#6ee7b7;
+  --white:#eef2ff;
 }
 
-/* NAVBAR */
+/* -------------------- Base reset -------------------- */
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; scroll-behavior:smooth;}
+body{
+  background:linear-gradient(180deg,#071028 0%, #071827 100%);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* -------------------- Containers -------------------- */
+.container{
+  width:96%;
+  max-width:1400px;
+  margin:0 auto;
+  padding:60px;
+}
+.site { padding: 0 20px; }
+
+/* -------------------- NAVBAR -------------------- */
 .navbar {
   display:flex;
   position: fixed;
-  top: 0px;                  /* sits slightly lower on the page */
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 40;
-  background:linear-gradient(180deg,#071028 0%, #071827 100%, 0.6);
+  background: rgba(7,16,39,0.85); /* more robust cross-browser */
   transition: all 0.25s ease;
   backdrop-filter: blur(7px);
- 
 }
 
-/* navbar inner container */
 .nav-inner {
   width:100%;
   max-width: 1400px;
@@ -37,147 +45,104 @@
   padding: 15px 35px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* spread logo & nav links */
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-/* logo on the left */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.brand { display:flex; align-items:center; gap:10px; }
+
+.logo-circle{
+  width:40px; height:40px; border-radius:50%;
+  background:var(--accent); display:flex; align-items:center; justify-content:center;
+  color:#021; font-weight:700; font-size:18px;
 }
 
-.logo-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--accent);   /* same color as “Otunla” */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #021;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-/* 🔥 navigation links now aligned far right */
-/* NAV container */
 .nav {
-  margin-left: auto;        /* keeps it on far right */
-  display: flex;
-  gap: 14px;                /* 🔥 reduced from 24px to 14px */
-  align-items: center;
-  padding-right: 5px;
+  margin-left:auto;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  padding-right:5px;
+  flex-wrap:wrap;
 }
 
-/* Each nav option */
-.nav-link {
-  background: none;
-  border: none;
-  color: var(--accent);     /* same as “Otunla” */
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0.2px;    /* slightly tighter text spacing */
-  padding: 6px 10px;        /* 🔥 reduced padding for compact look */
-  transition: color 0.2s ease;
-  text-decoration: none;
-  padding-right: 10px;
- 
+.nav-link{
+  background:none; border:none; color:var(--accent); cursor:pointer;
+  font-size:18px; font-weight:500; letter-spacing:0.2px;
+  padding:6px 10px; transition: color .2s ease; text-decoration:none;
+}
+.nav-link:hover{ color:var(--white); }
+
+.nav-link::after, .nav-link::before{ content:none !important; }
+
+.contact-btn{
+  padding:12px 23px; background-color:#62b6ff; color:white;
+  border-radius:120px; font-size:17px; font-weight:bold;
+  text-decoration:none; transition: all .3s ease, transform .25s ease;
+  border:2px solid transparent;
+}
+.contact-btn:hover{
+  background-color:transparent; border-color:#62b6ff; color:#62b6ff;
 }
 
-.nav-link:hover {
-  color: var(--white);       /* just fade color smoothly */
-  text-decoration: none;     /* no underline or dash */
-  border: none;              /* prevents border-bottom flashes */
-  box-shadow: none;          /* blocks any pseudo line or shadow */
-}
-
-.nav-link::after,
-.nav-link::before {
-  content: none !important;  /* 🧹 fully disables any pseudo-element line */
-}
-
-.contact-btn {
-  padding: 12px 23px;
-  background-color: #62b6ff; /* Light blue */
-  color: white;
-  border-radius: 120px ; /* Rounded rectangle */
-  font-size: 17px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease, transform 0.25s ease;
-  border: 2px solid transparent;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.contact-btn:hover {
-  background-color: transparent;
-  border-color: #62b6ff;
-  color: #62b6ff; /* Light blue text */
-}
-
-           
-                  /* Hero */
-/* HERO SECTION */
+/* -------------------- HERO -------------------- */
+/* Core hero layout (desktop-first). We keep hero-name left, details far-right. */
 .hero {
-  padding: 250px 0 155px;      /* position lower to match navbar */
+  padding: 250px 0 155px; /* desktop spacing */
   position: relative;
+  
 }
 
+/* Using a centered inner area the same max-width as container */
 .hero-inner {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 60px;
   position: relative;
 }
 
+/* Left column content */
 .hero-text {
   color: var(--white);
   position: relative;
+  z-index: 2;
 }
 
-/* Name styling */
+/* Name styling (desktop-first) */
 .hero-name {
-  font-size:clamp(50px, 8vw, 90px);
-  line-height: 0.80;           /* 🔥 tighter spacing between names */
+  font-size: clamp(50px, 8vw, 90px);
+  line-height: 0.80;
   font-weight: 1200;
   color: var(--white);
   margin: 0;
-  position: relative;
   margin-left: 5px;
 }
 
-.hero-name .first-name {
-  display: block;
- 
-}
-
+/* keep first & last as blocks for the stacked visual */
+.hero-name .first-name { display:block; }
 .hero-name .last-name {
-  display: block;
+  display:block;
   color: var(--accent);
-  margin-top: -35px;           /* 🔥 moved Otunla higher */
+  margin-top: -35px; /* raises the last name (desktop look) */
   letter-spacing: 2px;
-  text-shadow: 
-    2px 2px 0 #0a0a0a,      /* base shadow (same as bg for cut-out effect) */
-    4px 4px 6px rgba(0,0,0,0.5); /* outer depth */
+  text-shadow: 2px 2px 0 #0a0a0a, 4px 4px 6px rgba(0,0,0,0.5);
 }
 
-/* 🔥 IT Systems text far right, paragraph wrapping */
+
+/* Two pieces you had: the large tagline and the subtext */
 .hero-sub-right-fixed {
-  position: absolute;
-  right: 0;                    /* far right alignment */
-  top: 52%;                    /* aligns to vertical middle between names */
-  transform: translateY(-50%);
-  max-width: 600px;            /* limits width for natural line breaks */
   font-size: 37px;
-  color: var(--muted);
-  text-align: right;
-  line-height: 1.6;
-  padding-right: 0px;         /* space from screen edge */
-  font-weight: bold;
   color: var(--white);
- 
+  line-height: 1.2;
+  position: absolute; 
+  right: 0; /* far right alignment */ 
+  top: 52%; /* aligns to vertical middle between names */ 
+  transform: translateY(-50%); 
+  max-width: 600px; /* limits width for natural line breaks */ ; text-align: right; 
+   padding-right: 0px; 
+   /* space from screen edge */ 
+   font-weight: bold;
 }
 
 .hero-sub-right2 {
@@ -187,113 +152,183 @@
   transform: translateY(-50%);
   max-width: 600px;            /* limits width for natural line breaks */
   color: var(--muted);
-  text-align: left;
-  line-height: 1.6;
-  padding-right: 71px;         /* space from screen edge */
-  margin-right: -61px;
   font-size: 20px;
+  line-height: 1.6;
+  text-align: right;
+  position: absolute; 
+  right: 0; /* far right alignment */ 
+  margin-top: 7px; /* aligns to vertical middle between names */ 
+  transform: translateY(-50%); 
+  max-width: 600px; /* limits width for natural line breaks */ 
+ text-align: left; 
+ padding-right: 71px; 
+ /* space from screen edge */ 
+ margin-right: -61px; 
 }
 
+/* -------------------- PROFILE CARD -------------------- */
+.profile-card{
+  background:linear-gradient(180deg,#071127, #06101a);
+  padding:18px; border-radius:12px; color:var(--white);
+  display:flex; gap:12px; align-items:center;
+  box-shadow:0 8px 30px rgba(2,6,23,.6);
+  flex-wrap:wrap;
+}
+.profile-card img{width:88px;height:88px;border-radius:10px;object-fit:cover}
+.card-meta h3{margin:0;color:var(--white);font-size:18px}
+.card-meta p{margin:4px 0 0;color:var(--muted)}
 
-
-
-
-
-
-                  /* profile card */
-                  .profile-card{background:linear-gradient(180deg,#071127, #06101a);padding:18px;border-radius:12px;color:var(--white);display:flex;gap:12px;align-items:center;box-shadow:0 8px 30px rgba(2,6,23,.6)}
-                  .profile-card img{width:88px;height:88px;border-radius:10px;object-fit:cover}
-                  .card-meta h3{margin:0;color:var(--white);font-size:18px}
-                  .card-meta p{margin:4px 0 0;color:var(--muted)}
-
-                  /* Sections */
-                  .section{padding: 150px 0;}
-                  .section.alt{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
-                  .section-title{color:var(--white);margin:0 0 18px;font-size:40px; text-decoration: underline;
-                  text-decoration-color: var(--accent); text-underline-offset: 12px;}
-
-                  .about{margin-top: -300px;}
-                  .about-grid{display:grid;grid-template-columns:1fr 360px; gap:18px; font-size: 20px;}
-                  .skills-quick{background:rgba(255,255,255,0.02);padding:14px;border-radius:8px;color:var(--muted)}
-                  .skills-list{display:flex;flex-wrap:wrap;gap:10px}
-                  .skill-pill{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;color:var(--white)}
-
-                  /* Projects */
-                  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 480px));gap:30px ; padding:40px 0; grid-template-columns: repeat(2, minmax(300px, 500px)); justify-content: center; align-items:start;}
-                  .project-card:nth-child(1) {
-  margin-left:-90px;                
-  grid-column: 1;
-  grid-row: 1;
+/* -------------------- SECTIONS -------------------- */
+.section{padding: 150px 0;}
+.section.alt{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+.section-title{
+  color:var(--white); margin:0 0 18px; font-size:40px;
+  text-decoration: underline; text-decoration-color: var(--accent);
+  text-underline-offset: 12px;
 }
 
-.project-card:nth-child(2) {
-  grid-column: 2;
-  grid-row: 2; /* moves Project 2 one row down */
-  margin-left:-280px;
-  margin-top: 10px;
-}
-                  .project-card{background:rgba(255,255,255,0.02);border-radius:10px;overflow:hidden;display:flex;flex-direction:column; width:100%; max-width:480px; margin:0 auto; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease; }
-                  .project-card:hover {
-  transform: translateY(-5px);
-}
-                  .project-media img{width:100%;height:160px;object-fit:cover}
-                  .project-body{padding:14px}
-                  .project-body h3{margin:0 0 8px;color:var(--white)}
-                  .tech-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-                  .tech{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:6px}
-                  .featured-projects{padding: 300px 0 ;}
-                  
-                  /* Contact */
-                  .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
-                  .contact-form input, .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);margin-bottom:10px}
-                  .contact-form button{display:block}
+/* -------------------- ABOUT -------------------- */
+.about{margin-top: -200px;}
+.about-grid{display:grid;grid-template-columns:1fr 360px; gap:18px; font-size: 20px;}
+.about-grid.single { display:block; width:100%; }
 
-                  /* Footer */
-                  .footer{padding:20px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted)}
-                  .footer .container{display:flex;justify-content:space-between;align-items:center}
+/* -------------------- SKILLS -------------------- */
+.skills-quick{background:rgba(255,255,255,0.02);padding:14px;border-radius:8px;color:var(--muted)}
+.skills-list{display:flex;flex-wrap:wrap;gap:10px}
+.skill-pill{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;color:var(--white)}
+.skills1 { color: var(--accent); font-weight: 800; }
 
-                  /* Responsive */
-                  @media(max-width:980px){
-                    .hero-inner{grid-template-columns:1fr}
-                      .about-grid{grid-template-columns:1fr}
-                        .contact-grid{grid-template-columns:1fr}
-                          .projects-grid{grid-template-columns:1fr}
-                          .nav-inner {
-                                flex-direction: column;
-                                    gap: 15px;
-                                      }
-                                      .hero {
-                                            padding: 180px 0 100px;
-                                              }
-
-                                                .hero-sub-right-fixed,
-                                                  .hero-sub-right2 {
-                                                      position: static;
-                                                          text-align: left;
-                                                              margin-top: 25px;
-                                                                }
-                                            .section {
-                                                  padding: 80px 0;
-                                                    }
-                                            }                      
-
-                                      
-
-                          
-                          
-
-
-                          .about-grid.single {
-  display: block;
-  width: 100%;
-}
-.skills1 { 
-color: var(--accent); font-weight: 800;
+/* -------------------- PROJECTS -------------------- */
+/* Use auto-fit so cards collapse gracefully */
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+  padding:40px 0;
+  justify-items:center;
+  align-items:start;
 }
 
+/* If you still want special positional offsets for first two projects on large screens,
+   we only apply them on sufficiently wide screens to avoid breakage on mid-size laptops. */
+@media (min-width:1300px){
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(300px, 500px));
+    justify-content:center;
+  }
+  .project-card:nth-child(1) {
+    margin-left:-90px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .project-card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2;
+    margin-left:-280px;
+    margin-top: 10px;
+  }
+}
+
+.project-card{background:rgba(255,255,255,0.02);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;width:100%;max-width:480px;margin:0 auto;box-shadow:0 6px 24px rgba(0,0,0,0.4);transition: transform .3s ease;}
+.project-card:hover{transform: translateY(-5px)}
+.project-media img{width:100%;height:160px;object-fit:cover}
+.project-body{padding:14px}
+.project-body h3{margin:0 0 8px;color:var(--white)}
+.tech-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tech{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:6px}
+
+/* -------------------- CONTACT -------------------- */
+.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
+.contact-form input, .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);margin-bottom:10px}
+.contact-form button{display:block}
+
+/* -------------------- FOOTER -------------------- */
+.footer{padding:20px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+.footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+
+/* -------------------- RESPONSIVE (TABLETS & BELOW) -------------------- */
+
+/* Tablet: reflow nav and reduce hero spacing */
+@media (max-width:980px){
+  .nav-inner {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  /* Reduce hero vertical padding and make hero grid single column */
+  .hero {
+    padding: 180px 0 100px;
+    min-height: auto;
+  }
+
+  .hero-inner {
+    display: block; /* stack the content */
+    padding: 0 30px;
+  }
+
+  /* On tablets we switch the right details to block below the name */
 
 
+  .hero-sub-right-fixed, .hero-sub-right2 {
+    text-align: left;
+  }
 
+  .about-grid, .contact-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
 
-                          
-                          
+  .section { padding: 80px 0; }
+}
+
+/* -------------------- RESPONSIVE (PHONES / PORTRAIT) -------------------- */
+/* For smaller screens we stack EVERYTHING vertically and reduce sizes so the layout becomes downward-flowing. */
+@media (max-width:600px){
+  :root{
+    /* keep contrast but slightly larger muted for readability */
+  }
+
+  .container { padding: 30px 16px; width: 96%; }
+
+  .hero {
+    padding: 120px 0 60px;
+  }
+
+  .hero-inner { padding: 0 18px; display:block; }
+
+  /* Name scaled down, last name spacing adjusted to avoid overlap */
+  .hero-name {
+    font-size: clamp(28px, 10vw, 56px);
+    line-height: 1;
+    margin-left: 0;
+  }
+  .hero-name .last-name { margin-top: 0; display:block; }
+
+  .hero-sub-right-fixed {
+    font-size: clamp(18px, 4.5vw, 24px);
+    font-weight: 700;
+    text-align: left;
+  }
+  .hero-sub-right2 { font-size: 14px; text-align: left; color:var(--muted); }
+
+  /* Make nav links slightly smaller and wrap */
+  .nav-link { font-size: 16px; padding: 6px 8px; }
+  .contact-btn { font-size: 15px; padding: 10px 18px; }
+
+  /* Projects smaller images */
+  .project-media img { height: 140px; }
+
+  /* Tighten spacing for small screens */
+  .section { padding: 60px 0; }
+  .profile-card img { width:72px; height:72px; }
+  .section-title { font-size: clamp(20px, 6vw, 28px); }
+}
+
+/* -------------------- Accessibility / micro-improvements -------------------- */
+/* reduce large negative margins on mid screens to prevent content overflow */
+@media (max-width: 1400px) and (min-width: 981px) {
+  .project-card:nth-child(1) { margin-left: -40px; }
+  .project-card:nth-child(2) { margin-left: -120px; }
+}
+
+/* end of stylesheet */
