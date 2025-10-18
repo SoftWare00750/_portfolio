@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const navItems = [
   { id: "home", label: "Home" },
-  { id: "projects", label: "Projects" },
-  { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+      { id: "about", label: "About" },
+        { id: "skills", label: "Skills" },
           { id: "contact", className: "contact-btn", label: "Contact Me" },
           ];
 
@@ -29,19 +29,32 @@ const navItems = [
                                                           <div className="nav-inner">
                                                                   <div className="brand" onClick={() => goTo("home")}>
                                                                             <div className="logo-circle">O</div>
-                                                                                              </div>
+                                                                                    </div>
 
-                                                                                                      <nav className={`nav ${open ? "open" : ""}`}>
-                                                                                                                {navItems.map((n) => (
-                                                                                                                            <button key={n.id} className={n.className ? n.className: "nav-link"} onClick={() => goTo(n.id)}>
-                                                                                                                                          {n.label}
-                                                                                                                                                      </button>
-                                                                                                                          
-                                                                                                                                                                ))}
-                                                                                                                                                                        </nav>
+                                                                                            {/* Hamburger Icon */}
+                                                                                                    <div
+                                                                                                              className={`hamburger ${open ? "active" : ""}`}
+                                                                                                                        onClick={() => setOpen(!open)}
+                                                                                                                                >
+                                                                                                                                          <span></span>
+                                                                                                                                                    <span></span>
+                                                                                                                                                              <span></span>
+                                                                                                                                                                      </div>
 
-                                                                                                                                                                                
-                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                            </header>
-                                                                                                                                                                                                              );
-                                                                                                                                                                                                              }
+                                                                                                                                                                              {/* Navigation Menu */}
+                                                                                                                                                                                      <nav className={`nav ${open ? "open" : ""}`}>
+                                                                                                                                                                                                {navItems.map((n) => (
+                                                                                                                                                                                                            <button
+                                                                                                                                                                                                                          key={n.id}
+                                                                                                                                                                                                                                        className={n.className ? n.className : "nav-link"}
+                                                                                                                                                                                                                                                      onClick={() => goTo(n.id)}
+                                                                                                                                                                                                                                                                  >
+                                                                                                                                                                                                                                                                                {n.label}
+                                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                                                      ))}
+                                                                                                                                                                                                                                                                                                              </nav>
+                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                        </header>
+                                                                                                                                                                                                                                                                                                                          );
+                                                                                                                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                                                                                                                        

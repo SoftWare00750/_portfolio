@@ -15,6 +15,8 @@ export default function Hero() {
               Full Stack Web Developer 
               </p>
              <p className="hero-sub-right2"> <span>I handle the development, deployment</span> <br /> <span>and maintenance of your website, start to finish.</span> </p>
+
+             <img src="/assets/coder.png" alt="coder" className="hero-image" />
           
         </div>
       </div>
