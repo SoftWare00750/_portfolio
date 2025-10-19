@@ -10,7 +10,7 @@ export default function Projects() {
                                       {projects.map((p) => (
                                                   <article key={p.id} className="project-card">
                                                                 <div className="project-media">
-                                                                                <img src="assets/ecommerce.jpg" alt={p.title} />
+                                                                                <img src="/assets/project-1.jpg" alt={p.title} />
                                                                                               </div>
                                                                                                             <div className="project-body">
                                                                                                                             <h3>{p.title}</h3>
@@ -24,7 +24,7 @@ export default function Projects() {
                                                                                                                                                                                                                                                   ))}
                                                                                                                                                                                                                                                           </div>
                                                                                                                                                                                                                                                                 </div>
-                                                                                                                                                                                                                                                                    </section>
+                                                                                                                                                                                                                                                              </section>
                                                                                                                                                                                                                                                                       );
                                                                                                                                                                                                                                                                       }
                                                                                                                                                                                                                                                                       
