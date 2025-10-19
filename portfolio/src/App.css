@@ -41,7 +41,7 @@
                                                                                                                                          width:100%;
                                                                                                                                            max-width: 1400px;
                                                                                                                                              margin: 0 auto;
-                                                                                                                                               padding: 15px 35px;
+                                                                                                                                               padding: 10px 10px;
                                                                                                                                                  display: flex;
                                                                                                                                                    align-items: center;
                                                                                                                                                      justify-content: space-between; /* spread logo & nav links */
@@ -55,16 +55,16 @@
                                                                                                                                                            }
 
                                                                                                                                                            .logo-circle {
-                                                                                                                                                             width: 40px;
-                                                                                                                                                               height: 40px;
+                                                                                                                                                             width: 50px;
+                                                                                                                                                               height: 50px;
                                                                                                                                                                  border-radius: 50%;
                                                                                                                                                                    background: var(--accent);   /* same color as “Otunla” */
                                                                                                                                                                      display: flex;
                                                                                                                                                                        align-items: center;
                                                                                                                                                                          justify-content: center;
                                                                                                                                                                            color: #021;
-                                                                                                                                                                             font-weight: 700;
-                                                                                                                                                                               font-size: 18px;
+                                                                                                                                                                             font-weight: 800;
+                                                                                                                                                                               font-size: 30px;
                                                                                                                                                                                }
 
                                                                                                                                                                                /* 🔥 navigation links now aligned far right */
@@ -165,7 +165,7 @@
                                                                                                                                                                                                                                                                                                                       margin-top: -35px;           /* 🔥 moved Otunla higher */
                                                                                                                                                                                                                                                                                                                         letter-spacing: 2px;
                                                                                                                                                                                                                                                                                                                           text-shadow: 
-                          8997977                                                                                                                                                                                                                                                                                                    2px 2px 0 #0a0a0a,      /* base shadow (same as bg for cut-out effect) */
+                                                                                                                                                                                                                                                                                                                             2px 2px 0 #0a0a0a,      /* base shadow (same as bg for cut-out effect) */
                                                                                                                                                                                                                                                                                                                                   4px 4px 6px rgba(0,0,0,0.5); /* outer depth */
                                                                                                                                                                                                                                                                                                                                   }
 
@@ -196,9 +196,9 @@
                                                                                                                                                                                                                                                                                                                                                                        color: var(--muted);
                                                                                                                                                                                                                                                                                                                                                                          text-align: left;
                                                                                                                                                                                                                                                                                                                                                                            line-height: 1.6;
-                                                                                                                                                                                                                                                                                                                                                                             padding-right: 71px;         /* space from screen edge */
-                                                                                                                                                                                                                                                                                                                                                                               margin-right: -52px;
-                                                                                                                                                                                                                                                                                                                                                                                 font-size: 19px;
+                                                                                                                                                                                                                                                                                                                                                                             padding-right: 37px;         /* space from screen edge */
+                                                                                                                                                                                                                                                                                                                                                                               margin-right: -60px;
+                                                                                                                                                                                                                                                                                                                                                                                 font-size: 21px;
                                                                                                                                                                                                                                                                                                                                                                                  }
                                                                                                                                                                                                                                                                                                                                                                                  .hero-image {
  
@@ -207,10 +207,113 @@
   top: 340%;                /* places it below the hero details */
   transform: translateY(-50%);
   object-fit: contain;
-  height: 470%;
+  height: 490%;
   width: 75%;             /* retains original image size */
-  margin-right: 6px;
-}                                                                                                                                                                                                                                                                                                                                                                    
+  margin-right: -7px;
+}                  
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                    
+                                    /* PROJECTS SECTION */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 500px));
+  gap: 30px;
+  padding: 30px 0;
+  justify-content: center;
+}
+
+/* Project positioning */
+.project-card:nth-child(1) {
+  margin-left: -10px;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.project-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 2;
+  margin-left: -280px;
+  margin-top: 40px;
+}
+
+/* Project card base */
+.project-card {
+  position: relative;
+  width: 110%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  background: rgba(2, 6, 23, 0.2);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE stays full size */
+.project-media img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hidden overlay details (appear on hover) */
+.project-body {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.85); /* overlay color */
+  color: var(--white);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-card:hover .project-body {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Inside text styles */
+.project-body h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.tech-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.tech {
+  font-size: 12px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+/* Section spacing */
+#projects {
+  padding: 700px 0;
+}
+                                                            
 
 
 
@@ -229,39 +332,16 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .section-title{color:var(--white);margin:0 0 18px;font-size:40px; text-decoration: underline;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      text-decoration-color: var(--accent); text-underline-offset: 12px;}
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       .about{margin-top: -300px; margin-top: -140px;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .about-grid{display:grid;grid-template-columns:1fr 360px ;gap:18px; font-size: 19px; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .about2{margin-top:-12px;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .skills-quick{background:rgba(255,255,255,0.02);padding:14px;border-radius:8px;color:var(--muted)}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       .about{margin-top: -740px; ;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .about-grid{display:grid;grid-template-columns:1fr 370px ;gap:18px; font-size: 21px; width:84% }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .about2{margin-top:-10px;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .skills-quick{background:rgba(2,255,255,0.02);padding:14px;border-radius:8px;color:var(--muted)}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .skills-list{display:flex;flex-wrap:wrap;gap:10px}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .skill-pill{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;color:var(--white)}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .skills1{font-weight:bold; color:var(--accent);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               #skills{margin-top: -450px;}
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 /* Projects */
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px ; padding:30px 0; grid-template-columns: repeat(2, minmax(300px, 500px)); justify-content: center;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     .project-card:nth-child(1) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       margin-left:-10px;                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         grid-column: 1;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           grid-row: 1;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           }
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .project-card:nth-child(2) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             grid-column: 2;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               grid-row: 2; /* moves Project 2 one row down */
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 margin-left:-280px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   margin-top: 10px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     .project-card{background:rgba(255,255,255,0.02);border-radius:10px;overflow:hidden;display:flex;flex-direction:column; width:100%; max-width:500px; margin:0 auto; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease; }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       .project-card:hover {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         transform: translateY(-5px);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .project-media img{width:100%;height:160px;object-fit:cover}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             .project-body{padding:14px}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               .project-body h3{margin:0 0 8px;color:var(--white)}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 .tech-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   .tech{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:6px}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     #projects{padding: 550px 0 ;}
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      /* Skills */
 
@@ -314,11 +394,127 @@
 }
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          /* Contact */
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             .contact-form input, .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);margin-bottom:10px}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               .contact-form button{display:block}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           /* Contact Section */
+/* Contact Section */
+#contact {
+  padding: 160px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 /* Footer */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Accent Box */
+.contact-box {
+  background-color: var(--accent);
+  color: var(--bg); /* text same as background */
+  text-align: center;
+  width: 85%;
+  max-width: 650px;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Header Inside Box */
+#contact-header {
+  font-size: 44px;
+  font-weight: 900;
+  margin-bottom: 25px;
+}
+
+/* Enlarged Texts */
+.contact1,
+.contact2,
+.contact3 {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.contact1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.contact2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.contact3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Buttons */
+.contact-buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-btn {
+  background-color: var(--bg);
+  color: var(--accent);
+  border: none;
+  padding: 14px 34px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-box {
+    width: 90%;
+    padding: 40px 20px;
+  }
+
+  #contact-header {
+    font-size: 36px;
+  }
+
+  .contact1 {
+    font-size: 20px;
+  }
+
+  .contact2 {
+    font-size: 18px;
+  }
+
+  .contact3 {
+    font-size: 17px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         /* Footer */
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .footer{padding:20px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted)}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      .footer .container{display:flex;justify-content:space-between;align-items:center}
 

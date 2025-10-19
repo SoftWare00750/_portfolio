@@ -8,10 +8,20 @@ export default function Projects() {
                     <h2 className="section-title">Featured Projects</h2>
                             <div className="projects-grid">
                                       {projects.map((p) => (
-                                                  <article key={p.id} className="project-card">
-                                                                <div className="project-media">
-                                                                                <img src="/assets/project-1.jpg" alt={p.title} />
+                                       
+
+                                            
+
+                                       
+                                                                                
+                                                                               
+                                                                                                            <div className="project-card"> 
+
+                                                                                                                <div className="project-media">
+                                                   <img src="/assets/project-1.jpg" alt={p.title} />
+                                                                                
                                                                                               </div>
+                                                                                               <div className="project-box">
                                                                                                             <div className="project-body">
                                                                                                                             <h3>{p.title}</h3>
                                                                                                                                             <p>{p.desc}</p>
@@ -20,7 +30,9 @@ export default function Projects() {
                                                                                                                                                                                               </div>
                                                                                                                                                                                                               <a className="link" href={p.link}>View details</a>
                                                                                                                                                                                                                             </div>
-                                                                                                                                                                                                                                        </article>
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                        
                                                                                                                                                                                                                                                   ))}
                                                                                                                                                                                                                                                           </div>
                                                                                                                                                                                                                                                                 </div>
