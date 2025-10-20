@@ -10,7 +10,7 @@ export default function Hero() {
             <br />
             <span className="last-name">Otunla</span>
           </h1>
-          <span>
+          <span className="hero-sub">
           <p className="hero-sub-right-fixed">
               Full Stack Web Developer 
               </p>
