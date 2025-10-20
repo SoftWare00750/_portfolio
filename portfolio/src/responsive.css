@@ -4,12 +4,9 @@
 
 /* --- GLOBAL ADJUSTMENTS --- */
 @media (max-width: 1280px) {
-  .hero-sub-right-fixed {
-    position: static;
-    text-align: left;
-    max-width: 100%;
-    margin-top: 40px;
-  }
+
+  
+
   .hero-sub {
    position: static;
     text-align: left;
