@@ -105,9 +105,9 @@
                                                                                                                                                                                                                           content: none !important;  /* 🧹 fully disables any pseudo-element line */
                                                                                                                                                                                                                           }
 
-                                                                                                                                                                                                                          .contact-btn {
+                                                                                                                                                                                                                          .contact-button {
                                                                                                                                                                                                                             padding: 12px 23px;
-                                                                                                                                                                                                                              background-color: #62b6ff; /* Light blue */
+                                                                                                                                                                                                                              background-color: #1779cf; /* Light blue */
                                                                                                                                                                                                                                 color: white;
                                                                                                                                                                                                                                   border-radius: 120px ; /* Rounded rectangle */
                                                                                                                                                                                                                                     font-size: 17px;
@@ -118,9 +118,9 @@
                                                                                                                                                                                                                                               box-shadow: 0 0 0 rgba(0, 0, 0, 0);
                                                                                                                                                                                                                                               }
 
-                                                                                                                                                                                                                                              .contact-btn:hover {
+                                                                                                                                                                                                                                              .contact-button:hover {
                                                                                                                                                                                                                                                 background-color: transparent;
-                                                                                                                                                                                                                                                  border-color: #62b6ff;
+                                                                                                                                                                                                                                                  border-color: #095190;
                                                                                                                                                                                                                                                     color: #62b6ff; /* Light blue text */
                                                                                                                                                                                                                                                     }
 
@@ -420,13 +420,15 @@
   padding: 60px 40px;
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  
 }
 
 /* Main Header Inside Box */
 #contact-header {
   font-size: 44px;
   font-weight: 900;
-  margin-bottom: 25px;
+  margin-top: -10px;
+  margin-bottom: 4px;
 }
 
 /* Enlarged Texts */
@@ -435,6 +437,7 @@
 .contact3 {
   margin: 15px 0;
   line-height: 1.6;
+  margin-bottom: 5px;
 }
 
 .contact1 {
@@ -457,14 +460,14 @@
   margin-top: 35px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .contact-btn {
   background-color: var(--bg);
   color: var(--accent);
   border: none;
-  padding: 14px 34px;
+  padding: 18px 39px;
   border-radius: 10px;
   font-weight: 600;
   font-size: 16px;
@@ -474,7 +477,9 @@
 
 .contact-btn:hover {
   transform: translateY(-3px);
-  opacity: 0.9;
+  background-color: var(--bg);
+  color: var(--accent);
+  
 }
 
 /* Responsive */
