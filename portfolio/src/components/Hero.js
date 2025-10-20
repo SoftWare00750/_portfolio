@@ -10,12 +10,12 @@ export default function Hero() {
             <br />
             <span className="last-name">Otunla</span>
           </h1>
-
+          <span>
           <p className="hero-sub-right-fixed">
               Full Stack Web Developer 
               </p>
              <p className="hero-sub-right2"> <span>I handle the development, deployment</span> <br /> <span>and maintenance of your website, start to finish.</span> </p>
-
+            </span>
              <img src="/assets/coder.png" alt="coder" className="hero-image" />
           
         </div>
