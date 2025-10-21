@@ -5,11 +5,23 @@ export default function Footer() {
       <footer className="footer">
             <div className="container">
                   
-                            <div className="socials">
-                                      <a href="https://github.com/SoftWare00750?tab=repositories" aria-label="github">Github</a>
-                                               
-                                                        </div>
-                                                              </div>
+                         
+  <a
+    href="https://github.com/SoftWare00750?tab=repositories"
+    aria-label="github"
+    target="_blank"
+    rel="noopener noreferrer"
+   
+  >
+    <img
+      src= "/assets/github.png"
+      alt="GitHub"
+      className="github-icon"
+    />
+    
+  </a>
+</div>
+
                                                                   </footer>
                                                                     );
                                                                     }

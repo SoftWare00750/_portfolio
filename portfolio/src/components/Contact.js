@@ -8,7 +8,7 @@ export default function Contact() {
 
         <div className="contact-box">
           <h2 id="contact-header">Let's Connect</h2>
-          <h3 className="contact1">If you’d like to work together or have questions, reach out</h3>
+          <h3 className="contact1">If you would like to work together or have questions, reach out</h3>
           <h3 className="contact2">Drop me an email or chat with me!</h3>
           <p className="contact3">
             Whether you want something fixed or built,<br />
@@ -16,7 +16,7 @@ export default function Contact() {
           </p>
 
           <div className="contact-buttons">
-            <button className="contact-btn">Email Me</button>
+            <button className="contact-btn" onClick={() => window.location.href = "mailto:otunes7175@gmail.com"}>Email Me</button>
             <button className="contact-btn">Let's Chat</button>
           </div>
         </div>

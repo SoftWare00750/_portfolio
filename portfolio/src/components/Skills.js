@@ -1,16 +1,19 @@
 import React from "react";
 
 const skills = [
-  { name: "HTML", img: "/images/html.png" },
-  { name: "CSS", img: "/images/css.png" },
-  { name: "Tailwind CSS", img: "/images/windows-server.png" },
-  { name: "Javascript", img: "/images/javascript.png" },
+  { name: "HTML", img: "/assets/html.png" },
+  { name: "CSS", img: "/assets/css.png" },
+  { name: "Tailwind CSS", img: "/assets/tailwind.png" },
+  { name: "Javascript", img: "/assets/javascript.png" },
   
-  { name: "React", img: "/images/linux.png" },
-  { name: "Angular", img: "/images/vmware.png" },
-  { name: "Vercel", img: "/images/aws.png" },
-  { name: "Networking (VLAN/VPN/Firewalls)", img: "/images/networking.png" },
-  { name: "CI/CD, Docker, Git", img: "/images/devops.png" },
+  { name: "React", img: "/assets/react.png" },
+  { name: "Angular", img: "/assets/angular.png" },
+  { name: "Vercel", img: "/assets/vercel.png" },
+  { name: "Networking ", img: "/assets/networking.png" },
+  { name: "CI/CD", img: "/assets/cicd.png" },
+   { name: "Docker", img: "/assets/docker.png" },
+    { name: "Git", img: "/assets/git.png" },
+     { name: "Github", img: "/assets/github.png" },
 ];
 
 export default function Skills() {
