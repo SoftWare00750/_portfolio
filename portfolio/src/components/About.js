@@ -9,14 +9,14 @@ export default function About() {
                             <div className="about-grid">
                                       <div>
                                        
-                                             <p>I’m a Full Stack Developer experienced in building responsive websites and web applications.</p> <p className="about2">I create modern interfaces and develop scalable back-end systems.</p> <p className="about2">I’m passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>                 
+                                             <p>I’m a Frontend Developer experienced in building responsive websites and web applications.</p> <p className="about2">I create modern web interfaces, I’m passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>                 
                     
                                                                                                                      
-                                                                                                                                  <ul>
-                                                                                                                                                <li>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwaind CSS</span> and <span className="skills1">Javascript</span> </li>
-                                                                                                                                                              <li>Back-end Systems with <span className="skills1">Laravel</span>, <span className="skills1">Node.js</span>, <span className="skills1">Django</span>, <span className="skills1">Spring</span> Frameworks, <span className="skills1">MySQL</span> and <span className="skills1">MongoDB</span> </li>
+                                                                                                                                
+                                                                                                                                                <p>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwaind CSS</span>, <span className="skills1">Javascript</span>, 
+                                                                                                                                                 <span className="skills1"> React</span> and <span className="skills1">Angular</span> frameworks.  </p>
                                                                                                                                                                             
-                                                                                                                                                                                        </ul>
+                                                                                                                                                                                       
                                                                                                                                                                                                   </div>
                                                                                                                                                                                                            </div>
                                                                                                                                                                                                            </div>

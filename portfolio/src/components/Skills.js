@@ -1,15 +1,16 @@
 import React from "react";
 
 const skills = [
-  { name: "Windows Server", img: "/images/windows-server.png" },
-  { name: "Linux (Ubuntu, CentOS)", img: "/images/linux.png" },
-  { name: "VMware & Hyper-V", img: "/images/vmware.png" },
-  { name: "AWS & Oracle Cloud", img: "/images/aws.png" },
-  { name: "Networking (VLAN/VPN/Firewalls)", img: "/images/networking.png" },
-  { name: "CI/CD, Docker, Git", img: "/images/devops.png" },
   { name: "HTML", img: "/images/html.png" },
   { name: "CSS", img: "/images/css.png" },
+  { name: "Tailwind CSS", img: "/images/windows-server.png" },
   { name: "Javascript", img: "/images/javascript.png" },
+  
+  { name: "React", img: "/images/linux.png" },
+  { name: "Angular", img: "/images/vmware.png" },
+  { name: "Vercel", img: "/images/aws.png" },
+  { name: "Networking (VLAN/VPN/Firewalls)", img: "/images/networking.png" },
+  { name: "CI/CD, Docker, Git", img: "/images/devops.png" },
 ];
 
 export default function Skills() {
