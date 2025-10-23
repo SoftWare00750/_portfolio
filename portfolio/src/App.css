@@ -365,8 +365,8 @@
 }
 
 .skill-icon {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   object-fit: contain;
   margin-bottom: 0.5rem;
   transition: transform 0.3s ease;
@@ -384,12 +384,15 @@
   font-size: 0.9rem;
   font-weight: 500;
   transition: background 0.3s ease, color 0.3s ease;
+  margin-top: 20px;
+  margin-bottom: 17px;
 }
 
 .skill-item:hover .skill-pill {
   background: var(--accent, #6ee7b7);
   color: #0f172a;
 }
+
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          /* Contact */
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            /* Contact Section */
