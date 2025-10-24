@@ -18,7 +18,7 @@ export default function Projects() {
                                                                                                             <div className="project-card"> 
 
                                                                                                                 <div className="project-media">
-                                                   <img src="" alt={p.image} />
+                                                   <img src={p.image} alt="" />
                                                    
                                                                                 
                                                                                               </div>
