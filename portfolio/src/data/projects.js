@@ -4,15 +4,15 @@ const projects = [
               title: "Garage Website",
                   desc: "View different Cars, and see information about them.",
                       tech: ["Html", "Css", "React.js"],
-                          image: "/assets/mygarage.png",
+                          image: "./public/assets/mygarage.png",
                               link: "https://mygarage-ten.vercel.app/"
                                 },
                                   {
                                       id: "proj-2",
                                           title: "Nike Shoe store website",
                                               desc: "View different Nike shoes and purchase them.",
-                                                  tech: ["Html", "CSS", "React.js"],
-                                                   image: "/assets/nike.png",
+                                                  tech: ["Html", "Css", "React.js"],
+                                                   image: "./public/assets/nike.png",
                                                           link: "https://nike-landing-page-psi-gold.vercel.app/"
                                                             }
                                                             ];
