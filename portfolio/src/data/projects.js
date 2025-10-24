@@ -1,19 +1,19 @@
 const projects = [
       {
           id: "proj-1",
-              title: "Website deployment & CI/CD",
-                  desc: "Automated deployments for a client's website using GitHub Actions and Docker.",
-                      tech: ["Docker", "GitHub Actions", "Nginx"],
-                          image: "/assets/project-1.jpg",
-                              link: "#"
+              title: "Garage Website",
+                  desc: "View different Cars, and see information about them.",
+                      tech: ["Html", "Css", "React.js"],
+                          image: "/assets/mygarage.png",
+                              link: "https://mygarage-ten.vercel.app/"
                                 },
                                   {
                                       id: "proj-2",
-                                          title: "OCI Infrastructure setup",
-                                              desc: "Provisioned OCI compute and networking for a scalable web app.",
-                                                  tech: ["Oracle Cloud", "Terraform"],
-                                                   image: "/assets/project-2.jpg",
-                                                          link: "#"
+                                          title: "Nike Shoe store website",
+                                              desc: "View different Nike shoes and purchase them.",
+                                                  tech: ["Html", "CSS", "React.js"],
+                                                   image: "/assets/nike.png",
+                                                          link: "https://nike-landing-page-psi-gold.vercel.app/"
                                                             }
                                                             ];
 
