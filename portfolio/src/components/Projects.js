@@ -18,7 +18,8 @@ export default function Projects() {
                                                                                                             <div className="project-card"> 
 
                                                                                                                 <div className="project-media">
-                                                   <img src="/assets/project-1.jpg" alt={p.title} />
+                                                   <img src="/assets/mygarage.png" alt={p.image} />
+                                                   <img src="/assets/nike.png" alt={p.image} />
                                                                                 
                                                                                               </div>
                                                                                                <div className="project-box">
