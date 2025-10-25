@@ -1,5 +1,5 @@
-import mygarage from "../assets/mygarage.png";
-import nike from "../assets/nike.png";
+import mygarage from "./assets/mygarage.png";
+import nike from "./assets/nike.png";
 
 
 const projects = [
