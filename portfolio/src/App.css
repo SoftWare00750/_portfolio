@@ -220,8 +220,8 @@
                                     /* PROJECTS SECTION */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(50px, 100px));
-  gap: 50px;
+  grid-template-columns: repeat(2, minmax(50px, 450px));
+  gap: 50px;   
   padding: -40px 0;
   justify-content: center;
   margin-right: 30px;
