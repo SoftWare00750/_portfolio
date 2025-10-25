@@ -221,7 +221,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 500px));
-  gap: 30px;
+  gap: 50px;
   padding: 30px 0;
   justify-content: center;
 }
@@ -240,6 +240,12 @@
   margin-top: 40px;
 }
 
+.project-card:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+  margin-left: -400px;
+  
+}
 /* Project card base */
 .project-card {
   position: relative;
