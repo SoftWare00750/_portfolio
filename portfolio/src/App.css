@@ -229,6 +229,7 @@
 /* Project positioning */
 .project-card:nth-child(1) {
   margin-left: 15px;
+  margin-right: 10px;
   grid-column: 1;
   grid-row: 1;
 }
