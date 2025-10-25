@@ -221,7 +221,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 500px));
-  gap: 50px;
+  gap: 10px;
   padding: 30px 0;
   justify-content: center;
 }
