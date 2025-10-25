@@ -223,7 +223,7 @@
   grid-template-columns: repeat(2, minmax(50px, 450px));
   gap: 50px;   
   padding: -40px 0;
-  justify-content: center;
+  justify-content: left;
   margin-right: 30px;
 }
 
