@@ -222,7 +222,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(50px, 500px));
   gap: 50px;
-  padding: 5px 0;
+  padding: -20px 0;
   justify-content: center;
 }
 
