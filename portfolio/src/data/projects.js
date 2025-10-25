@@ -15,6 +15,14 @@ const projects = [
                                                   tech: ["Html", "Css", "React.js"],
                                                    image: "/assets/nike.png",
                                                           link: "https://nike-landing-page-psi-gold.vercel.app/"
+                                                            },
+                               {
+                                      id: "proj-3",
+                                          title: "E-commerce store",
+                                              desc: "Check out different items and purchase them.",
+                                                  tech: ["Html", "Css", "React.js"],
+                                                   image: "/assets/nike.png",
+                                                          link: "https://nike-landing-page-psi-gold.vercel.app/"
                                                             }
                                                             ];
 
