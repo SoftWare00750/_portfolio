@@ -228,7 +228,7 @@
 
 /* Project positioning */
 .project-card:nth-child(1) {
-  margin-left: -5px;
+  margin-left: 15px;
   grid-column: 1;
   grid-row: 1;
 }
