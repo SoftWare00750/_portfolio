@@ -327,7 +327,7 @@
   background-color: var(--bg);                                                                                                                                                                                                                                                                                                                                                   background: var(--card, #1e293b);
   color: var(--white, #fff);
   padding: 0.5rem 1rem;
-  border-radius: 999px;
+  border-radius: 400px;
   font-size: 0.9rem;
   font-weight: 500;
   margin-top: 10px;
