@@ -334,6 +334,11 @@
   margin-top: 10px;
 
 }
+.link-button :hover {
+  background: var(--accent, #6ee7b7);
+  color: #0f172a;
+
+}
 
 /* Section spacing */
 #projects {
