@@ -567,6 +567,7 @@
                                                 border: none;
                                                   border-radius: 6px;
                                                   display: flex;
+                                                  width: 10px;
                                                    gap: 15px; /* space between buttons */
                                                   justify-content: center; /* optional: center horizontally */
                                                    align-items: center; 
