@@ -572,26 +572,24 @@
                                                       }
 
                                                       .button1 {
-                                                         padding: 14px 30px;
+                                                         padding: 14px 50px;
                                                          border-radius: 6px;
                                                          border: none;
                                                          background-color: #007bff;
                                                          color: white;
                                                          text-align: left;
                                                          cursor: pointer; 
-                                                         width: 10px;
                                                          transition: 0.2s; 
                                                       }
 
                                                       .button2 {
-                                                         padding: 14px 30px;
+                                                         padding: 14px 50px;
                                                          border-radius: 6px;
                                                          border: none;
                                                          background-color: #007bff;
                                                          color: white;
                                                          text-align: left;
                                                          cursor: pointer; 
-                                                         width: 10px;
                                                          transition: 0.2s; 
 
                                                       }
