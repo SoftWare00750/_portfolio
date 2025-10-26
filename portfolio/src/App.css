@@ -74,7 +74,7 @@
                                                                                                                                                                                    display: flex;
                                                                                                                                                                                      gap: 18px;                /* 🔥 reduced from 24px to 14px */
                                                                                                                                                                                        align-items: center;
-                                                                                                                                                                                         padding-right: -1px;
+                                                                                                                                                                                         padding-right: 4px;
                                                                                                                                                                                          }
 
                                                                                                                                                                                          /* Each nav option */
