@@ -590,6 +590,7 @@
                                                          border: none;
                                                          background-color: #007bff;
                                                          color: white;
+                                                         text-align: left;
                                                          cursor: pointer; 
                                                          width: 10px;
                                                          transition: 0.2s; 
