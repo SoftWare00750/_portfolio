@@ -547,7 +547,6 @@
                                     color: #6ee7b7;
                                     background: transparent;
                                       border: 1px solid #0f1724b3;
-                                      opacity: 0.5;
                                         border-radius: 6px;
                                           font-size: 14px;
                                           }
@@ -559,13 +558,18 @@
                                         background: transparent;
                                           padding: 14px;
                                             border: 1px solid #0f1724b3;
-                                              opacity: 0.7;
                                               border-radius: 6px;
                                                font-size: 14px;
                                                margin-bottom: 20px;
 
                                           }
+                                          
+                                          input::placeholder,
+                                         textarea::placeholder {
 
+                                       color: #6ee7b7; 
+
+                                         }
                                            .button-group {
 
                                                  margin-bottom: 5px; 
