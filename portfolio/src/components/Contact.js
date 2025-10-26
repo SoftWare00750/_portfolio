@@ -84,7 +84,7 @@ export default function Contact() {
             <div className="button-group">
             <button className="button1" type="submit">Send</button>
 
-            <button className="button2" onClick={() => setIsChatOpen(!isChatOpen)} >
+            <button className="button2" onClick={() => setIsChatOpen(false)} >
                Cancel
                </button>
             </div>
