@@ -566,8 +566,7 @@
 
                                                  margin-bottom: 5px; 
                                                   display: flex;
-                                                  justify-content: center; /* optional: center horizontally */
-                                                   align-items: center;      
+                                                  justify-content: center; /* optional: center horizontally */      
                                                    gap: 15px; /* space between buttons */
                                                   
                                                       }
