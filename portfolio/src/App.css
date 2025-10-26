@@ -520,7 +520,7 @@
         right: 20px;
           width: 400px;
           height: 370px;
-            background-color:rgba(15, 23, 36, 0.4);
+            background-color:rgba(15, 23, 36, 0.7);
                 border-radius: 10px;
                 backdrop-filter: blur(10px);
                   padding: 15px;
@@ -567,7 +567,7 @@
                                           input::placeholder,
                                          textarea::placeholder {
 
-                                       color: #6ee7b7; 
+                                       color: #6ee7b7 !important; 
                                        opacity: 1;
                                          }
                                            .button-group {
