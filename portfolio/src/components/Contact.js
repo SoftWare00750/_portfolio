@@ -56,7 +56,7 @@ export default function Contact() {
       {/* Chat Box */}
       {isChatOpen && (
         <div className="chat-box">
-          <h3>Send a Message 💬</h3>
+          <h2>Send a Message 💬</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -82,6 +82,7 @@ export default function Contact() {
               required
             ></textarea>
             <button type="submit">Send</button>
+            <button type="close">Cancel</button>
           </form>
         </div>
       )}
