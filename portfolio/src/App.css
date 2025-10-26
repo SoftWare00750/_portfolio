@@ -568,7 +568,7 @@
                                          textarea::placeholder {
 
                                        color: #6ee7b7; 
-
+                                       opacity: 1;
                                          }
                                            .button-group {
 
