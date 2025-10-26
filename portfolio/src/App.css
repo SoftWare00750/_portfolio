@@ -564,8 +564,8 @@
 
                                           }
                                           
-                                          input::placeholder,
-                                         textarea::placeholder {
+                                          .chat-box input::placeholder,
+                                         .chat-box textarea::placeholder {
 
                                        color: #6ee7b7 !important; 
                                        opacity: 1;
