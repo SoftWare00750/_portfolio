@@ -324,17 +324,18 @@
 
 .link-button {
 
-                                                                                                                                                                                                                                                                                                                                                      background: var(--card, #1e293b);
+  background-color: var(--bg);                                                                                                                                                                                                                                                                                                                                                   background: var(--card, #1e293b);
   color: var(--white, #fff);
   padding: 0.5rem 1rem;
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: background 0.3s ease, color 0.3s ease;
   margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
 }
-.link-button :hover {
+.link-button:hover {
   background: var(--accent, #6ee7b7);
   color: #0f172a;
 
