@@ -520,7 +520,7 @@
         right: 20px;
           width: 400px;
           height: 370px;
-            background-color:rgba(var(--accent), 0.8);
+            background-color:rgba(110, 231, 183, 3);
               box-shadow: 0 4px 10px rgba(0,0,0,0.2);
                 border-radius: 10px;
                 backdrop-filter: blur(10px);
