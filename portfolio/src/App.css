@@ -568,7 +568,7 @@
                                                   display: flex;
                                                   justify-content: center; /* optional: center horizontally */      
                                                    gap: 15px; /* space between buttons */
-                                                  
+                                                  text-align: left;
                                                       }
 
                                                       .button1 {
