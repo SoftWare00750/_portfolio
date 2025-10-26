@@ -567,13 +567,14 @@
                                               border: none;
                                                   border-radius: 6px;
                                                   display: flex;
-                                                  width: 10px;
-                                                   gap: 15px; /* space between buttons */
                                                   justify-content: center; /* optional: center horizontally */
                                                    align-items: center; 
-                                                    padding: 14px 14px;
+                                                    padding: 14px 20px;
                                                       cursor: pointer;
                                                         transition: 0.2s;
+                                                       width: 10px;
+                                                   gap: 15px; /* space between buttons */
+                                                  
                                                         }
 
                                                         .chat-box button:hover {
