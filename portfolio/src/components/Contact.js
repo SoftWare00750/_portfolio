@@ -83,8 +83,7 @@ export default function Contact() {
             ></textarea>
             <div className="button-group">
             <button className="button1" type="submit">Send</button>
-            <button className="button2"   onClick={() => setIsChatOpen(false)} // closes chat
-            >Cancel</button>
+            <button className="button2" onClick={() => setIsChatOpen(!isChatOpen)}>Cancel</button>
             </div>
           </form>
         </div>
