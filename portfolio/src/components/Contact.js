@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Contact.css"; // optional for styling
+
 
 export default function Contact() {
   const [isChatOpen, setIsChatOpen] = useState(false);
