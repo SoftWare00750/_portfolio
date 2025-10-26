@@ -81,8 +81,10 @@ export default function Contact() {
               onChange={handleChange}
               required
             ></textarea>
-            <button type="submit">Send</button>
-            <button type="close">Cancel</button>
+            <div className="button-group">
+            <button className="button1" type="submit">Send</button>
+            <button className="button2" type="close">Cancel</button>
+            </div>
           </form>
         </div>
       )}
