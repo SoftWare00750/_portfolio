@@ -72,7 +72,7 @@
                                                                                                                                                                                .nav {
                                                                                                                                                                                  margin-left: auto;        /* keeps it on far right */
                                                                                                                                                                                    display: flex;
-                                                                                                                                                                                     gap: 14px;                /* 🔥 reduced from 24px to 14px */
+                                                                                                                                                                                     gap: 18px;                /* 🔥 reduced from 24px to 14px */
                                                                                                                                                                                        align-items: center;
                                                                                                                                                                                          padding-right: -1px;
                                                                                                                                                                                          }
