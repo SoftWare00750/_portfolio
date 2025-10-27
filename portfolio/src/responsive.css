@@ -163,7 +163,7 @@
   .hero-sub-right-fixed {
     position: static;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 22px;
   }
 
@@ -176,7 +176,7 @@
 
   .hero-image {
     width: 85%;
-    height: auto;
+    height: 90%;
     margin-top: 35px;
   }
 
