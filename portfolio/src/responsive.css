@@ -197,9 +197,9 @@
   }
 
   .hero-image {
-    width: 500px;
-    height: 200px;
-    margin-top: 35px;
+    width: 500%;
+    height: 300%;
+    margin-top:20px;
   }
 
   /* PROJECTS */
