@@ -91,6 +91,7 @@
   /* NAVBAR */
   .nav {
     display: none; /* hide regular nav links */
+    margin-bottom: -50px;
   }
 
   .hamburger {
@@ -167,6 +168,7 @@
     position: static;
     text-align: left;
     margin-top: 70px;
+    width: 20px;
   }
 
   .hero-image {
