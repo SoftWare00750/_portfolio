@@ -130,16 +130,16 @@
   }
 
   /* When open - animate lines into "X" */
-  .hamburger.open div {
+  .hamburger.active div {
     opacity: 0;
     }
 
-    .hamburger.open::before {
+    .hamburger.active::before {
       transform: rotate(45deg);
         top: 9px;
         }
 
-        .hamburger.open::after {
+        .hamburger.active::after {
           transform: rotate(-45deg);
             bottom: 8px;
             }
