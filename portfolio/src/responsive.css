@@ -148,7 +148,7 @@
     padding: 0 45px;
     padding-top: -70px;
     width: 40px;
-    padding-left:60px;
+    padding-left:-60px;
   }
 
   .hero-name {
@@ -170,7 +170,7 @@
     position: static;
     text-align: left;
     margin-top: 70px;
-    width: 2px;
+    width: 22px;
   }
 
   .hero-image {
