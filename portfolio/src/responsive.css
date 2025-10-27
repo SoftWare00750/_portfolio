@@ -9,12 +9,13 @@
     position: static;
     text-align: left;
     max-width: 100%;
-    margin-top: 60px;
+    margin-top: 70px;
+    margin-left: -20px; 
   }
 
   .hero-sub-right2 {
    position: static;
-    text-align: left;
+   text-align: left;
     max-width: 90%;
     margin-top: -10px;
   }
@@ -100,6 +101,7 @@
     height: 25px;
     position: relative;
     cursor: pointer;
+    z-index: 1000;
   }
 
   .hamburger::before,
@@ -120,14 +122,31 @@
 
   .hamburger div {
     top: 10px;
+    transform: translateY(-50%);
   }
 
   .hamburger::after {
     bottom: 0;
   }
 
+  /* When open - animate lines into "X" */
+  .hamburger.open div {
+    opacity: 0;
+    }
+
+    .hamburger.open::before {
+      transform: rotate(45deg);
+        top: 9px;
+        }
+
+        .hamburger.open::after {
+          transform: rotate(-45deg);
+            bottom: 8px;
+            }
+
+
   /* Dropdown menu when active */
-  .nav.active {
+  .nav.open {
     display: flex;
     flex-direction: column;
     position: absolute;
