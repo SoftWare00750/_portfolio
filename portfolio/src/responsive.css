@@ -144,7 +144,8 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    padding: 30px 45px;
+    padding: 0 45px;
+    padding-top: -20px
   }
 
   .hero-name {
