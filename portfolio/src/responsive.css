@@ -147,7 +147,6 @@
     align-items: left;
     padding: 0 45px;
     padding-top: -70px;
-    width: 40px;
     margin-left:-60px;
     padding-left:-60px;
   }
@@ -172,6 +171,7 @@
     text-align: left;
     margin-top: 70px;
     width: 22px;
+    margin-right:-40px;
   }
 
   .hero-image {
