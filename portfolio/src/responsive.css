@@ -193,13 +193,13 @@
     text-align: left;
     margin-top: 70px;
     margin-right:40px;
-    margin-left: 5px;
+    margin-left: 15px;
   }
 
   .hero-image {
-    width: 600%;
-    height:450%;
-    margin-top: -60px;
+    width: 700%;
+    height:500%;
+    margin-top: -80px;
   }
 
   /* PROJECTS */
