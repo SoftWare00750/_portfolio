@@ -206,7 +206,7 @@
   /* PROJECTS */
   #projects {
     align-items: left;
-    margin-bottom: -130px;
+    margin-bottom: 130px;
   }
   .projects-grid {
     display: flex;
