@@ -147,14 +147,14 @@
     align-items: left;
     padding: 0 45px;
     padding-top: -30px;
-    margin-top: -60px;
+    margin-top: -80px;
     margin-left:-60px;
     padding-left:-60px;
   }
 
   .hero-name {
     text-align: left;
-    font-size: 50px;
+    font-size: 60px;
     line-height: 1;
     padding-top: -70px;
     padding-left: -40px;
