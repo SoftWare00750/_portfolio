@@ -203,8 +203,9 @@
   }
 
   /* PROJECTS */
-  .projects {
+  #projects {
     align-items: left;
+    margin-top: -50px;
   }
   .projects-grid {
     display: flex;
@@ -222,7 +223,7 @@
     height: auto;
   }
 
-  .about {
+  #about {
     align-items:left;
   }
 
@@ -237,6 +238,7 @@
   .skills-grid {
     grid-template-columns: 1fr;
     text-align: left;
+    align-items: left;
   }
 }
 
