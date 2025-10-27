@@ -11,7 +11,7 @@
                                                                                body{background:linear-gradient(180deg,#071028 0%, #071827 100%); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
                                                                                
                                                                                ::before,
-                                                                                  *::after {
+                                                                                  ::after {
                                                                                      box-sizing: border-box;
                                                                                               } 
                                                                                         .container{width:96%;max-width:1400px;margin:0 auto;padding:60px;}
