@@ -145,7 +145,7 @@
     flex-direction: column;
     align-items: left;
     padding: 0 45px;
-    padding-top: -20px
+    padding-top: -70px
   }
 
   .hero-name {
@@ -166,7 +166,7 @@
   .hero-sub-right2 {
     position: static;
     text-align: left;
-    margin-top: 30px;
+    margin-top: 70px;
   }
 
   .hero-image {
