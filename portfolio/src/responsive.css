@@ -123,19 +123,6 @@
 }
   
 
-
-  .hamburger::before {
-    top: 0;
-  }
-
-  .hamburger div {
-    top: 10px;
-  }
-
-  .hamburger::after {
-    bottom: 0;
-  }
-
   /* Dropdown menu when active */
   .nav-dropdown {
    content: "";
