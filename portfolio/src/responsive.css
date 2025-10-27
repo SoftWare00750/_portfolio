@@ -45,12 +45,12 @@
   .hero-inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 0 30px;
+    align-items: left;
+    padding: 0 50px;
   }
 
   .hero-name {
-    text-align: center;
+    text-align: left;
     font-size: 70px;
     line-height: 0.9;
   }
