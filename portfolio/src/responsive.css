@@ -183,7 +183,7 @@
   .hero-sub-right-fixed {
     position: static;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 22px;
     margin-left:20px;
   }
@@ -203,10 +203,13 @@
   }
 
   /* PROJECTS */
+  .projects {
+    align-items: left;
+  }
   .projects-grid {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
   }
 
   .project-card {
@@ -217,6 +220,10 @@
   .project-media img {
     width: 100%;
     height: auto;
+  }
+
+  .about {
+    align-items:left;
   }
 
   /* CONTACT */
