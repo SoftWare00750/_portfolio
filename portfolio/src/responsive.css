@@ -184,6 +184,7 @@
     text-align: left;
     margin-top: 20px;
     font-size: 22px;
+    margin-right:10px;
   }
 
   .hero-sub-right2 {
@@ -226,7 +227,7 @@
   .about-grid,
   .skills-grid {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
   }
 }
 
