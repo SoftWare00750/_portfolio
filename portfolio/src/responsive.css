@@ -209,6 +209,7 @@
     align-items: left;
     margin-bottom: 130px;
     margin-top: -140px;
+    top: -80px;
   }
   .projects-grid {
     display: flex;
