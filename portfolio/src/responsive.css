@@ -234,6 +234,12 @@
     margin-left:-35px;
   }
 
+  #skills {
+    align-items:left;
+    margin-left:-35px;
+    margin-right:-70px;
+  }
+
   /* CONTACT */
   .contact-box {
     width: 95%;
