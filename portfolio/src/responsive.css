@@ -229,6 +229,9 @@
 
   #about {
     align-items:left;
+    margin-top:-100px;
+    margin-right:30px;
+    margin-left:-15px;
   }
 
   /* CONTACT */
