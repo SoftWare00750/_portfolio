@@ -163,7 +163,7 @@
     flex-direction: column;
     position: absolute;
     top: 60px;
-    right: -20px;
+    padding:60px;
     background: rgba(10, 20, 40, 0.9);
     border-radius: 10px;
     padding: 20px;
