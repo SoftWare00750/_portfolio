@@ -89,6 +89,10 @@
 
 /* --- MOBILE VIEW (HAMBURGER + STACKED) --- */
 @media (max-width: 768px) {
+ body {
+  overflow-x:hidden;
+ }
+ 
   /* NAVBAR */
   .nav {
     display: none; /* hide regular nav links */
@@ -98,7 +102,7 @@
   .navbar{
     margin-right:-80px;
     box-sizing:border-box;
-    overflow-x: hidden;
+    
   }
 
   .hamburger {
@@ -263,8 +267,8 @@
     text-align: left;
     align-items: left;
   }
-}
 
+}
 /* --- SMALL DEVICES (PHONES <480px) --- */
 @media (max-width: 480px) {
   .hero-name {
