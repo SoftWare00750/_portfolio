@@ -91,7 +91,7 @@
 @media (max-width: 768px) {
  body {
   overflow-x:hidden;
-  max-width:90%;
+  max-width:100%;
  }
  
   /* NAVBAR */
@@ -163,7 +163,7 @@
     flex-direction: column;
     position: absolute;
     top: 60px;
-    right: 15px;
+    right: 5px;
     background: rgba(10, 20, 40, 0.9);
     border-radius: 10px;
     padding: 20px;
