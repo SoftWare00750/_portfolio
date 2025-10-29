@@ -95,6 +95,10 @@
     margin-bottom: -50px;
   }
 
+  .navbar{
+    margin-right:-80px;
+  }
+
   .hamburger {
     display: block;
     width: 35px;
