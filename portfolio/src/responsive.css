@@ -102,7 +102,7 @@
     position: relative;
     cursor: pointer;
     z-index: 1000;
-    margin-right: 10px;
+    margin-right: 70px;
   }
 
   .hamburger::before,
