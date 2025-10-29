@@ -97,6 +97,7 @@
 
   .navbar{
     margin-right:-80px;
+    box-sizing:border-box;
   }
 
   .hamburger {
