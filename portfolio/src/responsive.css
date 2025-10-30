@@ -34,10 +34,7 @@
     gap: 40px;
   }
 
-  .project-card {
-    width: 100%;
-    margin: 0 auto;
-  }
+  
 }
 
 /* --- TABLET VIEW --- */
@@ -238,12 +235,12 @@
   }
 
   .project-card {
-    width: 90%;
+    width: 110%;
     margin: 20px 0;
   }
 
   .project-media img {
-    width: 100%;
+    width: 90%;
     height: auto;
   }
 
