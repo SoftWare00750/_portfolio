@@ -232,16 +232,17 @@
     display: flex;
     flex-direction: column;
     align-items: left;
+    margin-bottom: 20px;
   }
 
   .project-card {
-    width: 120%;
+    width: 140%;
     margin: 10px 0;
     margin-right: 10px;
   }
 
   .project-media img {
-    width: 80%;
+    width: 9%;
     height: auto;
   }
 
