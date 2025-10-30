@@ -228,6 +228,11 @@
     margin-right: 40px;
   
   }
+
+  #project-title {
+   margin-top: 10px;
+
+  }
   .projects-grid {
     display: flex;
     flex-direction: column;
