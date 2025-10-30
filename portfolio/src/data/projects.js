@@ -22,7 +22,7 @@ const projects = [
                                               desc: "Check out different items and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
                                                    image: "/assets/ecommerce.png",
-                                                          /"
+                                                          link: ""
                                                             }
                                                             ];
 
