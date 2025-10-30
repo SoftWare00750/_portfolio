@@ -177,7 +177,7 @@
   
   .hero {
 
-   margin-bottom:60px;
+   margin-bottom:90px;
 
   }
   
@@ -228,7 +228,7 @@
   /* PROJECTS */
   #projects {
     align-items: left; 
-    margin-top: -90px;
+    margin-top: -300px;
     margin-left:-65px;
     margin-right: 40px;
   
