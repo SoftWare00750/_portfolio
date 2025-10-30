@@ -21,8 +21,8 @@ const projects = [
                                           title: "E-commerce store",
                                               desc: "Check out different items and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
-                                                   image: "/assets/nike.png",
-                                                          link: "https://nike-landing-page-psi-gold.vercel.app/"
+                                                   image: "/assets/ecommerce.png",
+                                                          /"
                                                             }
                                                             ];
 
