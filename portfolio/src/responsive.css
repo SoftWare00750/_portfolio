@@ -237,6 +237,7 @@
   .project-card {
     width: 110%;
     margin: 50px 0;
+    margin-right: 10px;
   }
 
   .project-media img {
