@@ -433,7 +433,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 40px;
 }
 
 .contact-container {
@@ -453,7 +452,6 @@
   padding: 60px 40px;
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  margin-right: 20px;
   
 }
 
