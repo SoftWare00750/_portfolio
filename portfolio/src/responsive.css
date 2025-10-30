@@ -236,13 +236,13 @@
   }
 
   .project-card {
-    width: 120%;
+    width: 125%;
     margin: 10px 0;
     margin-right: 10px;
   }
 
   .project-media img {
-    width: 140%;
+    width: 120%;
     height: auto;
   }
 
