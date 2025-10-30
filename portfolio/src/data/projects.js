@@ -10,7 +10,7 @@ const projects = [
                                 },
                                   {
                                       id: "proj-2",
-                                          title: "Nike Shoe store website",
+                                          title: "Nike Shoe store",
                                               desc: "View different Nike shoes and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
                                                    image: "/assets/nike.png",
