@@ -260,6 +260,11 @@
   }
 
   /* CONTACT */
+  #contact {
+    margin-right:20px;
+
+  }
+  
   .contact-box {
     width: 95%;
     padding: 30px 15px;
