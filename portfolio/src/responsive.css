@@ -113,7 +113,7 @@
     position: relative;
     cursor: pointer;
     z-index: 1000;
-    margin-right: 70px;
+    margin-right: 40px;
   }
 
   .hamburger::before,
@@ -260,7 +260,7 @@
 
   /* CONTACT */
   #contact {
-    margin-right:30px;
+    margin-right:10px;
 
   }
   
