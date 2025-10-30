@@ -88,7 +88,7 @@
 @media (max-width: 768px) {
  body {
   overflow-x:hidden;
-  max-width:99vw;
+  max-width:100vw;
   margin-right:20px;
   margin-left:10px;
  }
@@ -220,7 +220,7 @@
 
   /* PROJECTS */
   #projects {
-    align-items: left;
+    align-items: left; 
     margin-bottom: 130px;
     margin-top: -600px;
     top: -180px;
@@ -257,6 +257,11 @@
     margin-left:-35px;
     margin-right:-5px;
   }
+
+  .skill-item {
+    align-items:center;
+  }
+
 
   /* CONTACT */
   #contact {
