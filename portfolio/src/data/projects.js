@@ -1,6 +1,6 @@
 import mygarage from ".../assets/mygarage.png" ;
 import nike  from ".../assets/nike.png" ;
-import ecommerce from ".../assets/ecommerce.png" ;
+import ecommerce from ".../assets/ecomerce.png" ;
 
 const projects = [
       {
@@ -24,7 +24,7 @@ const projects = [
                                           title: "E-commerce store",
                                               desc: "Check out different items and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
-                                                   image: ".../assets/ecommerce.png",
+                                                   image: ecommerce ,
                                                           link: "https://e-commercesite1.vercel.app/"
                                                             }
 
