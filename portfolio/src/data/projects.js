@@ -1,6 +1,3 @@
-import mygarage from ".../assets/mygarage.png" ;
-import nike  from ".../assets/nike.png" ;
-
 
 const projects = [
       {
@@ -8,16 +5,24 @@ const projects = [
               title: "Garage Website",
                   desc: "View different Cars, and see information about them.",
                       tech: ["Html", "Css", "React.js"],
-                          image: mygarage,
+                          image: "/assets/mygarage.png" ,
                               link: "https://mygarage-ten.vercel.app/"
                                 },
                                   {
                                       id: "proj-2",
-                                          title: "Nike Shoe store website",
+                                          title: "Nike Shoe store",
                                               desc: "View different Nike shoes and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
-                                                   image: nike,
+                                                   image: "/assets/nike.png",
                                                           link: "https://nike-landing-page-psi-gold.vercel.app/"
+                                                            },
+                               {
+                                      id: "proj-3",
+                                          title: "E-commerce store",
+                                              desc: "Check out different items and purchase them.",
+                                                  tech: ["Html", "Css", "React.js"],
+                                                   image: "/assets/ecommerce.png",
+                                                          link: ""
                                                             }
                                                             ];
 
