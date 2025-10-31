@@ -24,7 +24,7 @@ const projects = [
                                           title: "E-commerce store",
                                               desc: "Check out different items and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
-                                                   image: ecommerce ,
+                                                   image: ecommerce,
                                                           link: "https://e-commercesite1.vercel.app/"
                                                             }
 
