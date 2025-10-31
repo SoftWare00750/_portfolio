@@ -1,6 +1,7 @@
 import mygarage from ".../assets/mygarage.png" ;
+import ecommerce from ".../assets/e-commerce.png" ;
 import nike  from ".../assets/nike.png" ;
-import e-commerce  from ".../assets/e-commerce.png" ;
+
 const projects = [
       {
           id: "proj-1",
@@ -23,9 +24,10 @@ const projects = [
                                           title: "E-commerce store",
                                               desc: "Check out different items and purchase them.",
                                                   tech: ["Html", "Css", "React.js"],
-                                                   image: e-commerce,
+                                                   image: ecommerce,
                                                           link: "https://e-commercesite1.vercel.app/"
                                                             }
+
                                                             ];
 
                                                             export default projects;
