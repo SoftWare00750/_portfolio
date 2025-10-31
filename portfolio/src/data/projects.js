@@ -1,4 +1,4 @@
-import mygarage from "./assets/mygarage.png" ;
+import mygarage from "" ;
 import nike  from "./assets/nike.png" ;
 import ecommerce from "/data/ecomerce.png" ;
 
