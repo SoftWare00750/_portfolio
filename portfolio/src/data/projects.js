@@ -1,6 +1,6 @@
 import mygarage from ".../assets/mygarage.png" ;
-import ecommerce from ".../assets/ecommerce.png" ;
 import nike  from ".../assets/nike.png" ;
+import ecommerce from ".../assets/nike.png" ;
 
 const projects = [
       {
