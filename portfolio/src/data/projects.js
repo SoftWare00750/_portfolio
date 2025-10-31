@@ -19,6 +19,7 @@ const projects = [
                                                    image: nike,
                                                           link: "https://nike-landing-page-psi-gold.vercel.app/"
                                                             },
+                                                            
                                                             {
                                       id: "proj-3",
                                           title: "E-commerce store",
