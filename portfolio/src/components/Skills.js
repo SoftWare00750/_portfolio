@@ -8,12 +8,15 @@ const skills = [
   
   { name: "React", img: "/assets/react.png" },
   { name: "Angular", img: "/assets/angular.png" },
+  { name: "Vue", img: "/assets/vue.png"},
   { name: "Vercel", img: "/assets/vercel.png" },
   { name: "Networking ", img: "/assets/networking.png" },
   { name: "CI/CD", img: "/assets/cicd.png" },
    { name: "Docker", img: "/assets/docker.png" },
     { name: "Git", img: "/assets/git.png" },
      { name: "Github", img: "/assets/github.png" },
+     {name: "AWS", img: "/assets/aws.png" },
+     {name: "Oracle Cloud", img: "/assets/oracle.png"}
 ];
 
 export default function Skills() {

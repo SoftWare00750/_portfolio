@@ -14,7 +14,7 @@ export default function About() {
                                                                                                                      
                                                                                                                                 
                                                                                                                                                 <p>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwaind CSS</span>, <span className="skills1">Javascript</span>, 
-                                                                                                                                                 <span className="skills1"> React</span> and <span className="skills1">Angular</span> frameworks.  </p>
+                                                                                                                                                 <span className="skills1"> React</span>, <span className="skills1">Angular</span> and <span className="skills1">Vue</span> frameworks.  </p>
                                                                                                                                                                             
                                                                                                                                                                                        
                                                                                                                                                                                                   </div>
