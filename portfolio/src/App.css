@@ -704,6 +704,358 @@
   transform: scale(1.1);
 }
 
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  /* Navbar Mobile */
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .nav-inner {
+    padding: 10px 0;
+  }
+
+  .logo-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* Mobile Navigation Menu */
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(7, 16, 40, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-left: 0;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-button {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  /* Hero Section Mobile */
+  #home {
+    padding: 120px 0 60px;
+    margin-bottom: 60px;
+  }
+
+  .hero {
+    padding: 120px 0 60px;
+  }
+
+  .hero-inner {
+    padding: 0 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .hero-name .last-name {
+    margin-top: -15px;
+    font-size: 48px;
+  }
+
+  .hero-sub-right-fixed {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0;
+    margin: 20px 0;
+  }
+
+  .hero-sub-right2 {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    font-size: 16px;
+    text-align: center;
+    padding: 0;
+    margin: 15px 0;
+  }
+
+  .hero-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 30px auto 0;
+    display: block;
+  }
+
+  /* Projects Section Mobile */
+  #projects {
+    padding: 60px 0;
+    margin-top: 0;
+  }
+
+  .section-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .project-card {
+    width: 100%;
+    margin: 0 !important;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .project-card:nth-child(1),
+  .project-card:nth-child(2),
+  .project-card:nth-child(3) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .project-media img {
+    height: 200px;
+  }
+
+  /* About Section Mobile */
+  #about {
+    padding: 60px 0;
+    margin-top: 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .about-grid p {
+    text-align: center;
+  }
+
+  /* Skills Section Mobile */
+  #skills {
+    padding: 60px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    justify-items: center;
+    padding: 0 10px;
+  }
+
+  .skill-item {
+    margin: 0;
+    width: 100%;
+  }
+
+  .skill-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skill-pill {
+    font-size: 14px;
+    padding: 8px 12px;
+    margin-top: 10px;
+  }
+
+  /* Contact Section Mobile */
+  #contact {
+    padding: 60px 0;
+    margin-top: 0;
+  }
+
+  .contact-box {
+    width: 95%;
+    padding: 40px 25px;
+  }
+
+  #contact-header {
+    font-size: 32px;
+  }
+
+  .contact1 {
+    font-size: 18px;
+  }
+
+  .contact2 {
+    font-size: 16px;
+  }
+
+  .contact3 {
+    font-size: 15px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-btn {
+    width: 100%;
+    padding: 15px 20px;
+  }
+
+  /* Chat Box Mobile */
+  .chat-box {
+    width: calc(100% - 40px);
+    max-width: 350px;
+    right: 20px;
+    left: 20px;
+    margin: 0 auto;
+    height: auto;
+    max-height: 400px;
+  }
+
+  .chat-box textarea {
+    height: 100px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button1,
+  .button2 {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  /* Footer Mobile */
+  .footer {
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Section Spacing */
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 40px;
+  }
+
+  .hero-name .last-name {
+    font-size: 40px;
+  }
+
+  .hero-sub-right-fixed {
+    font-size: 20px;
+  }
+
+  .hero-sub-right2 {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
