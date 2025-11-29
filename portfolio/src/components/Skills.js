@@ -8,7 +8,7 @@ const skills = [
   
   { name: "React", img: "/assets/react.png" },
   { name: "Angular", img: "/assets/angular.png" },
-  { name: "Vue", img: "/assets/vue.png"},
+  { name: "Vue", img: "/assets/vue.png" },
   { name: "Vercel", img: "/assets/vercel.png" },
   { name: "Networking ", img: "/assets/networking.png" },
   { name: "CI/CD", img: "/assets/cicd.png" },
