@@ -552,11 +552,14 @@
 
   .hero-name {
     font-size: 48px;
+   
   }
 
   .hero-name .last-name {
     font-size: 48px;
     margin-top: -18px;
+    margin-left: 10px;
+    text-align: center;
   }
 
   .hero-sub-right-fixed {
