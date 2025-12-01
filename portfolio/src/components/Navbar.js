@@ -54,7 +54,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <div className="brand" onClick={() => goTo("home")}>
-          <div className="logo-circle">O</div>
+          <div className="logo-circle" ><p>O</p></div>
         </div>
 
         {/* Hamburger Icon */}
