@@ -552,7 +552,8 @@
 
   .hero-name {
     font-size: 48px;
-    margin-left: -30px;
+    margin-left: -40px;
+    text-align: center;
    
   }
 
