@@ -552,7 +552,7 @@
 
   .hero-name {
     font-size: 48px;
-    margin-left: -40px;
+    margin-left: -36px;
     text-align: center;
    
   }
@@ -560,7 +560,7 @@
   .hero-name .last-name {
     font-size: 48px;
     margin-top: -18px;
-    margin-left: -30px;
+   
     
     text-align: center;
   }
