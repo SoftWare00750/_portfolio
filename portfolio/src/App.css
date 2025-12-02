@@ -157,7 +157,8 @@
                                                                                                                                                                                                                                                                                                  .hero-name {
                                                                                                                                                                                                                                                                                                    font-size: 90px;
                                                                                                                                                                                                                                                                                                      line-height: 0.80;           /* 🔥 tighter spacing between names */
-                                                                                                                                                                                                                                                                                                       font-weight: 900;
+                                                                                                                                                                                                                                                                                                       font-weight: 1400;
+                                                                                                                                                                                                                                                                                                       font-weight: bolder;
                                                                                                                                                                                                                                                                                                          color: var(--white);
                                                                                                                                                                                                                                                                                                            margin: 0;
                                                                                                                                                                                                                                                                                                              position: relative;
@@ -428,8 +429,8 @@ margin-bottom: 30px;
 }
 
 .skill-icon {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   margin-bottom: 0.5rem;
   transition: transform 0.3s ease;
@@ -447,7 +448,7 @@ margin-bottom: 30px;
   font-size: 0.9rem;
   font-weight: 500;
   transition: 0.3s ease, color 0.3s ease;
-  margin-top: 20px;
+  margin-top: 13px;
   margin-bottom: 17px;
 }
 

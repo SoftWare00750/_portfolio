@@ -543,7 +543,7 @@
 
   /* HERO */
   #home {
-    padding: 120px 0 60px;
+    padding: 130px 0 9px;
   }
 
   .hero-inner {
@@ -552,7 +552,7 @@
 
   .hero-name {
     font-size: 48px;
-    margin-left: -50px;
+    margin-left: -23px;
     text-align: center;
    
   }
@@ -576,11 +576,16 @@
   }
 
   .hero-image {
-    max-width: 280px;
+    max-width: 800px;
     margin-top: 30px;
   }
 
   /* PROJECTS */
+
+  #projects{
+  padding: 1px 0;
+  }
+
   .section-title {
     font-size: 30px;
   }
@@ -612,6 +617,10 @@
   }
 
   /* ABOUT */
+  #about {
+   padding: 60px 0 4px;
+  }
+  
   .about-grid {
     font-size: 16px;
   }
