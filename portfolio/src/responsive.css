@@ -294,12 +294,11 @@
   .hero-sub-right-fixed {
     position: static;
     transform: none;
-  
     font-size: 24px;
     text-align: left;
     margin-left: -21px;
     margin-right: 5px;
-    padding:5px ;
+    padding:5px 0 ;
     
   }
 
