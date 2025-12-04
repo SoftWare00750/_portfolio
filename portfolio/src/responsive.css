@@ -294,7 +294,7 @@
   .hero-sub-right-fixed {
     position: static;
     transform: none;
-    max-width: 100%;
+  
     font-size: 24px;
     text-align: left;
     margin-left: -21px;
