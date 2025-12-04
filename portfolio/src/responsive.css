@@ -312,6 +312,7 @@
     max-width: 370px;
     height: 500px;
     margin: 90px 30px 0;
+    margin-left: -40px;
     display: block;
     
   }
