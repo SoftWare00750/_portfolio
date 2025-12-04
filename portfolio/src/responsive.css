@@ -285,6 +285,12 @@
     font-size: 56px;
   }
 
+  .last-name {
+   margin-left: -10px;
+ 
+ 
+  }
+
   .hero-sub-right-fixed {
     position: static;
     transform: none;
