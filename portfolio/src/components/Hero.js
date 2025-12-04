@@ -12,9 +12,9 @@ export default function Hero() {
           </h1>
           <span className="hero-sub">
           <p className="hero-sub-right-fixed">
-              Frontend Web Developer 
+              Frontend Developer 
               </p>
-             <p className="hero-sub-right2"> <span>I handle the development, deployment</span> <br /> <span>and maintenance of your Websites UI, start to finish.</span> </p>
+             <p className="hero-sub-right2"> <span>I handle the development, deployment</span> <br /> <span>and maintenance of your Website and App UI, start to finish.</span> </p>
             </span>
              <img src="/assets/coder.png" alt="coder" className="hero-image" />
           
