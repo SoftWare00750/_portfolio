@@ -286,7 +286,7 @@
   }
 
   .last-name {
-   margin-left: -55px;
+   margin-left: -65px;
  
  
   }
@@ -297,6 +297,7 @@
     max-width: 100%;
     font-size: 24px;
     text-align: left;
+    margin-left:-10px;
     padding:5px 0;
     font-size:24px 0 15px 0;
   }
@@ -307,6 +308,7 @@
     max-width: 100%;
     font-size: 16px;
     text-align: left;
+    margin-left: -10px;
     padding: -3px 0;
     max-width :4px 0;
   }
