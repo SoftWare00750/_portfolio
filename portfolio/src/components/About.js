@@ -17,7 +17,7 @@ export default function About() {
                                                                                                                                                  <span className="skills1"> React</span>, <span className="skills1">Angular</span> and <span className="skills1">Vue</span> frameworks.  
                                                                                                                                                  
                                                                                                                                             </p>
-                                                                                                                                            <p> Mobile Interfaces with <span clasName="skills1">React-native</span> for Cross platforms</p>
+                                                                                                                                            <p> Mobile Interfaces with <span className="skills1">React-native</span> for Cross platforms</p>
                                                                                                                                                                             
                                                                                                                                                                                        
                                                                                                                                                                                                   </div>
