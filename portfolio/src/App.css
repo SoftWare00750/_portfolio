@@ -209,6 +209,7 @@
                                                                                                                                                                                                                                                                                                                                                                            line-height: 1.6;
                                                                                                                                                                                                                                                                                                                                                                              padding-right: -3px;         /* space from screen edge */
                                                                                                                                                                                                                                                                                                                                                                                margin-right: -20px;
+                                                                                                                                                                                                                                                                                                                                                                               margin-left: -40px
                                                                                                                                                                                                                                                                                                                                                                                  font-size: 21px;
                                                                                                                                                                                                                                                                                                                                                                                  }
                                                                                                                                                                                                                                                                                                                                                                                  .hero-image {
@@ -257,8 +258,8 @@ margin-bottom: 30px;
 .project-card:nth-child(2) {
   grid-column: 2;
   grid-row: 2;
-  margin-left: -20px;
-  margin-top: 20px;
+  margin-left: 20px;
+  margin-top: 7px;
 }
 
 .project-card:nth-child(3) {
