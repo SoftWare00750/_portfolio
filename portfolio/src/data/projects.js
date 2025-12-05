@@ -24,8 +24,17 @@ const projects = [
                                                   tech: ["Html", "Css", "React.js"],
                                                    image: "../../assets/ecommerce.png",
                                                           link: "https://e-commercesite1.vercel.app/"
-                                                            }
+                                                            },
 
+                                                                                 {
+                                      id: "proj-4",
+                                          title: "Maglo Finance Web Application ",
+                                              desc: "Manage your finances, Monitor your profits and Create invoices for items .",
+                                                  tech: ["Html", "Css", "Next.js"],
+                                                   image: "../../assets/maglo.png",
+                                                          link: "https://maglo-three.vercel.app/"
+                                                            }
+                                    
                                                             ];
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          export default projects;
