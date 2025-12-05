@@ -278,6 +278,7 @@
   .hero-name {
     font-size: 56px;
     line-height: 0.9;
+    font-weight: bolder;
   }
 
   .hero-name .last-name {
@@ -285,34 +286,46 @@
     font-size: 56px;
   }
 
+  .last-name {
+   margin-left: -65px;
+ 
+ 
+  }
+
   .hero-sub-right-fixed {
     position: static;
     transform: none;
-    max-width: 100%;
-    font-size: 24px;
+    font-size: 26px;
     text-align: left;
-    padding: 0;
-    margin: 25px 0 15px 0;
+    margin-left: -21px;
+    margin-right: 5px;
+    padding:5px 0;
+    max-width:4px 0;
+    border-left: -8px;
+    
   }
 
   .hero-sub-right2 {
     position: static;
     transform: none;
     max-width: 100%;
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
-    padding: 0;
-    margin: 15px 0;
+    margin-left: -11px;
+    padding: -3px 0;
+    max-width :4px 0;
   }
 
   .hero-image {
     position: static;
     transform: none;
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    margin: 40px auto 0;
+    width: auto;
+    max-width: 370px;
+    height: 500px;
+    margin: 90px 30px 0;
+    margin-left: -60px;
     display: block;
+    
   }
 
   /* PROJECTS SECTION */
