@@ -1,5 +1,5 @@
 /* =========================
-   SCROLL ANIMATIONS
+   SCROLL ANIMATIONS - FIXED
    ========================= */
 
 /* Initial hidden states - elements before animation */
@@ -10,13 +10,15 @@
 
 .navbar.animate {
   transform: translateY(0);
+  /* Ensure navbar stays visible after animation */
+  position: fixed !important;
 }
 
 /* Hero animations */
 .hero-name {
   opacity: 0;
   transform: translateX(-100px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .hero-name.animate {
@@ -28,7 +30,7 @@
 .hero-sub-right2 {
   opacity: 0;
   transform: translateX(100px);
-  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+  transition: opacity 1.2s ease-out 0.4s, transform 1.2s ease-out 0.4s;
 }
 
 .hero-sub-right-fixed.animate,
@@ -39,20 +41,20 @@
 
 .hero-image {
   opacity: 0;
-  transform: translateX(-150px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transform: translateY(50px);
+  transition: opacity 1.4s ease-out 0.6s, transform 1.4s ease-out 0.6s;
 }
 
 .hero-image.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
-/* Section title animations */
+/* Section title animations - increased drop distance */
 .section-title {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(-80px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
 }
 
 .section-title.animate {
@@ -60,15 +62,15 @@
   transform: translateY(0);
 }
 
-/* Projects animations */
+/* Projects animations - Row 1: Left to Right, Row 2: Right to Left */
 .project-card {
   opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
-/* Top-left project */
+/* Row 1 Left card (proj-1) - slides from left */
 .project-card:nth-child(1) {
-  transform: translateX(-100px);
+  transform: translateX(-150px);
 }
 
 .project-card:nth-child(1).animate {
@@ -76,9 +78,10 @@
   transform: translateX(0);
 }
 
-/* Top-right project */
+/* Row 1 Right card (proj-3) - slides from left */
 .project-card:nth-child(3) {
-  transform: translateX(100px);
+  transform: translateX(-150px);
+  transition-delay: 0.2s;
 }
 
 .project-card:nth-child(3).animate {
@@ -86,22 +89,33 @@
   transform: translateX(0);
 }
 
-/* Bottom-right project */
+/* Row 2 Right card (proj-2) - slides from right */
 .project-card:nth-child(2) {
-  transform: translateX(100px);
+  transform: translateX(150px);
+  transition-delay: 0.4s;
 }
 
 .project-card:nth-child(2).animate {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 0.2s;
+}
+
+/* Row 2 Left card (proj-4) - slides from right */
+.project-card:nth-child(4) {
+  transform: translateX(150px);
+  transition-delay: 0.6s;
+}
+
+.project-card:nth-child(4).animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* About section animations */
 .about-text {
   opacity: 0;
   transform: translateX(-80px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .about-text.animate {
@@ -112,7 +126,7 @@
 .about-image {
   opacity: 0;
   transform: translateX(80px);
-  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+  transition: opacity 1.2s ease-out 0.3s, transform 1.2s ease-out 0.3s;
 }
 
 .about-image.animate {
@@ -123,8 +137,8 @@
 /* Skills animations - staggered drop-down effect */
 .skill-item {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .skill-item.animate {
@@ -133,38 +147,38 @@
 }
 
 /* Stagger delay for each skill item */
-.skill-item:nth-child(1) { transition-delay: 0.05s; }
-.skill-item:nth-child(2) { transition-delay: 0.1s; }
-.skill-item:nth-child(3) { transition-delay: 0.15s; }
-.skill-item:nth-child(4) { transition-delay: 0.2s; }
-.skill-item:nth-child(5) { transition-delay: 0.25s; }
-.skill-item:nth-child(6) { transition-delay: 0.3s; }
-.skill-item:nth-child(7) { transition-delay: 0.35s; }
-.skill-item:nth-child(8) { transition-delay: 0.4s; }
-.skill-item:nth-child(9) { transition-delay: 0.45s; }
-.skill-item:nth-child(10) { transition-delay: 0.5s; }
-.skill-item:nth-child(11) { transition-delay: 0.55s; }
-.skill-item:nth-child(12) { transition-delay: 0.6s; }
-.skill-item:nth-child(13) { transition-delay: 0.65s; }
-.skill-item:nth-child(14) { transition-delay: 0.7s; }
-.skill-item:nth-child(15) { transition-delay: 0.75s; }
+.skill-item:nth-child(1) { transition-delay: 0.1s; }
+.skill-item:nth-child(2) { transition-delay: 0.15s; }
+.skill-item:nth-child(3) { transition-delay: 0.2s; }
+.skill-item:nth-child(4) { transition-delay: 0.25s; }
+.skill-item:nth-child(5) { transition-delay: 0.3s; }
+.skill-item:nth-child(6) { transition-delay: 0.35s; }
+.skill-item:nth-child(7) { transition-delay: 0.4s; }
+.skill-item:nth-child(8) { transition-delay: 0.45s; }
+.skill-item:nth-child(9) { transition-delay: 0.5s; }
+.skill-item:nth-child(10) { transition-delay: 0.55s; }
+.skill-item:nth-child(11) { transition-delay: 0.6s; }
+.skill-item:nth-child(12) { transition-delay: 0.65s; }
+.skill-item:nth-child(13) { transition-delay: 0.7s; }
+.skill-item:nth-child(14) { transition-delay: 0.75s; }
+.skill-item:nth-child(15) { transition-delay: 0.8s; }
 
 /* Contact section animations */
 .contact-container {
   opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(50px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .contact-container.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 /* Footer fade-in animation */
 .footer {
   opacity: 0;
-  transition: opacity 1s ease-out;
+  transition: opacity 1.2s ease-out;
 }
 
 .footer.animate {
@@ -176,54 +190,56 @@
   /* Reduce translation distances on mobile */
   .hero-name {
     transform: translateX(-50px);
+    transition-duration: 1s;
   }
   
   .hero-sub-right-fixed,
   .hero-sub-right2 {
     transform: translateX(50px);
+    transition-duration: 1s;
   }
   
   .hero-image {
-    transform: translateX(-80px);
+    transform: translateY(30px);
+    transition-duration: 1s;
+  }
+  
+  .section-title {
+    transform: translateY(-50px);
   }
   
   .project-card:nth-child(1),
   .project-card:nth-child(2),
-  .project-card:nth-child(3) {
-    transform: translateY(30px);
+  .project-card:nth-child(3),
+  .project-card:nth-child(4) {
+    transform: translateY(40px);
+    transition-duration: 1s;
   }
   
   .project-card:nth-child(1).animate,
   .project-card:nth-child(2).animate,
-  .project-card:nth-child(3).animate {
+  .project-card:nth-child(3).animate,
+  .project-card:nth-child(4).animate {
     transform: translateY(0);
   }
   
   .about-text {
     transform: translateX(-40px);
+    transition-duration: 1s;
   }
   
   .about-image {
     transform: translateX(40px);
+    transition-duration: 1s;
   }
   
   .contact-container {
-    transform: translateX(-40px);
+    transform: translateY(30px);
+    transition-duration: 1s;
   }
   
-  /* Faster animations on mobile */
-  .hero-name,
-  .hero-sub-right-fixed,
-  .hero-sub-right2,
-  .hero-image,
-  .section-title,
-  .project-card,
-  .about-text,
-  .about-image,
-  .skill-item,
-  .contact-container,
-  .footer {
-    transition-duration: 0.6s;
+  .skill-item {
+    transition-duration: 0.7s;
   }
 }
 

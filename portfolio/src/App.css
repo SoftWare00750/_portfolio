@@ -16,7 +16,7 @@
                                                                                               } 
                                                                                         .container{width:96%;max-width:1400px;margin:0 auto;padding:60px;}
                                                                                                       .site {
-                                                                                                             padding: 0 20px; /* reduces global side padding */
+                                                                                                             padding: 0 20px;
                                                                                                                     }
                                                                                                                     
                                                                                            p, span, h1, h2, h3, h4, h5, h6, li, a, label {
@@ -27,7 +27,7 @@
                                                                                                                     .navbar {
                                                                                                                       display:flex;
                                                                                                                         position: fixed;
-                                                                                                                          top: 0;                  /* sits slightly lower on the page */
+                                                                                                                          top: 0;
                                                                                                                             left: 0;
                                                                                                                             right: 0;
                                                                                                                               width: 100%;   
@@ -35,8 +35,7 @@
                                                                                                                                   background:linear-gradient(180deg,#071028 0%, #071827 100%, 0.6);
                                                                                                                                     transition: all 0.25s ease;
                                                                                                                                       backdrop-filter: blur(7px);
-                                                                                                                                       box-sizing: border-box;     /* ✅ keeps padding inside width */
-                                                                                                                                               /* ✅ stops horizontal scroll caused by navbar */
+                                                                                                                                       box-sizing: border-box;
                                                                                                                                        
                                                                                                                                        }
 
@@ -48,7 +47,7 @@
                                                                                                                                                padding: 10px 10px;
                                                                                                                                                  display: flex;
                                                                                                                                                    align-items: center;
-                                                                                                                                                     justify-content: space-between; /* spread logo & nav links */
+                                                                                                                                                     justify-content: space-between;
                                                                                                                                                      }
 
                                                                                                                                                      /* logo on the left */
@@ -62,7 +61,7 @@
                                                                                                                                                              width: 50px;
                                                                                                                                                                height: 50px;
                                                                                                                                                                  border-radius: 50%;
-                                                                                                                                                                   background: var(--accent);   /* same color as “Otunla” */
+                                                                                                                                                                   background: var(--accent);
                                                                                                                                                                      display: flex;
                                                                                                                                                                        align-items: center;
                                                                                                                                                                          justify-content: center;
@@ -71,12 +70,11 @@
                                                                                                                                                                                font-size: 30px;
                                                                                                                                                                                }
 
-                                                                                                                                                                               /* 🔥 navigation links now aligned far right */
-                                                                                                                                                                               /* NAV container */
+                                                                                                                                                                               /* navigation links */
                                                                                                                                                                                .nav {
-                                                                                                                                                                                 margin-left: auto;        /* keeps it on far right */
+                                                                                                                                                                                 margin-left: auto;
                                                                                                                                                                                    display: flex;
-                                                                                                                                                                                     gap: 18px;                /* 🔥 reduced from 24px to 14px */
+                                                                                                                                                                                     gap: 18px;
                                                                                                                                                                                        align-items: center;
                                                                                                                                                                                          padding-right: 4px;
                                                                                                                                                                                          }
@@ -85,12 +83,12 @@
                                                                                                                                                                                         .nav-link {
                                                                                                                                                                                            background: none;
                                                                                                                                                                                              border: none;
-                                                                                                                                                                                               color: var(--accent);     /* same as “Otunla” */
+                                                                                                                                                                                               color: var(--accent);
                                                                                                                                                                                                  cursor: pointer;
                                                                                                                                                                                                    font-size: 18px;
                                                                                                                                                                                                      font-weight: bold;
-                                                                                                                                                                                                       letter-spacing: 0.2px;    /* slightly tighter text spacing */
-                                                                                                                                                                                                         padding: 6px 10px;        /* 🔥 reduced padding for compact look */
+                                                                                                                                                                                                       letter-spacing: 0.2px;
+                                                                                                                                                                                                         padding: 6px 10px;
                                                                                                                                                                                                            transition: color 0.2s ease;
                                                                                                                                                                                                              text-decoration: none;
                                                                                                                                                                                                                padding-right: 9px;
@@ -98,22 +96,22 @@
                                                                                                                                                                                                                 }
 
                                                                                                                                                                                                                 .nav-link:hover {
-                                                                                                                                                                                                                  color: var(--white);       /* just fade color smoothly */
-                                                                                                                                                                                                                    text-decoration: none;     /* no underline or dash */
-                                                                                                                                                                                                                      border: none;              /* prevents border-bottom flashes */
-                                                                                                                                                                                                                        box-shadow: none;          /* blocks any pseudo line or shadow */
+                                                                                                                                                                                                                  color: var(--white);
+                                                                                                                                                                                                                    text-decoration: none;
+                                                                                                                                                                                                                      border: none;
+                                                                                                                                                                                                                        box-shadow: none;
                                                                                                                                                                                                                         }
 
                                                                                                                                                                                                                         .nav-link::after,
                                                                                                                                                                                                                         .nav-link::before {
-                                                                                                                                                                                                                          content: none !important;  /* 🧹 fully disables any pseudo-element line */
+                                                                                                                                                                                                                          content: none !important;
                                                                                                                                                                                                                           }
 
                                                                                                                                                                                                                           .contact-button {
                                                                                                                                                                                                                             padding: 12px 23px;
-                                                                                                                                                                                                                              background-color: #1779cf; /* Light blue */
+                                                                                                                                                                                                                              background-color: #1779cf;
                                                                                                                                                                                                                                 color: white;
-                                                                                                                                                                                                                                  border-radius: 120px ; /* Rounded rectangle */
+                                                                                                                                                                                                                                  border-radius: 120px;
                                                                                                                                                                                                                                     font-size: 17px;
                                                                                                                                                                                                                                       font-weight: bold;
                                                                                                                                                                                                                                         text-decoration: none;
@@ -125,16 +123,16 @@
                                                                                                                                                                                                                                               .contact-button:hover {
                                                                                                                                                                                                                                                 background-color: transparent;
                                                                                                                                                                                                                                                   border-color: #095190;
-                                                                                                                                                                                                                                                    color: #62b6ff; /* Light blue text */
+                                                                                                                                                                                                                                                    color: #62b6ff;
                                                                                                                                                                                                                                                     }
 
                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                                                                                  /* Hero */
                                                                                                                                                                                                                                                                                  /* HERO SECTION */
                                                                                                                                                                                                                                                                                  #home {
-                                                                                                                                                                                                                                                                                      padding: 212px 0 152px;      /* position lower to match navbar */
+                                                                                                                                                                                                                                                                                      padding: 212px 0 152px;
                                                                                                                                                                                                                                                                                      position: relative; 
-                                                                                                                                                                                                                                                                                     margin-bottom: 920px;
+                                                                                                                                                                                                                                                                                     margin-bottom: 450px;
                                                                                                                                                                                                                                                                                      margin-top: -30px;
                                                                                                                                                                                                                                                                                                    
                                                                                                                                                                                                                                                                                  }
@@ -156,7 +154,7 @@
                                                                                                                                                                                                                                                                                                  /* Name styling */
                                                                                                                                                                                                                                                                                                  .hero-name {
                                                                                                                                                                                                                                                                                                    font-size: 90px;
-                                                                                                                                                                                                                                                                                                     line-height: 0.80;           /* 🔥 tighter spacing between names */
+                                                                                                                                                                                                                                                                                                     line-height: 0.80;
                                                                                                                                                                                                                                                                                                        font-weight: 1400;
                                                                                                                                                                                                                                                                                                        font-weight: bolder;
                                                                                                                                                                                                                                                                                                          color: var(--white);
@@ -174,27 +172,27 @@
                                                                                                                                                                                                                                                                                                                 .hero-name .last-name {
                                                                                                                                                                                                                                                                                                                   display: block;
                                                                                                                                                                                                                                                                                                                     color: var(--accent);
-                                                                                                                                                                                                                                                                                                                      margin-top: -35px;           /* 🔥 moved Otunla higher */
+                                                                                                                                                                                                                                                                                                                      margin-top: -35px;
                                                                                                                                                                                                                                                                                                                       margin-right: -200px;
                                                                                                                                                                                                                                                                                                                         letter-spacing: 2px;
                                                                                                                                                                                                                                                                                                                           text-shadow: 
-                                                                                                                                                                                                                                                                                                                             2px 2px 0 #0a0a0a,      /* base shadow (same as bg for cut-out effect) */
-                                                                                                                                                                                                                                                                                                                                  4px 4px 6px rgba(0,0,0,0.5); /* outer depth */
+                                                                                                                                                                                                                                                                                                                             2px 2px 0 #0a0a0a,
+                                                                                                                                                                                                                                                                                                                                  4px 4px 6px rgba(0,0,0,0.5);
                                                                                                                                                                                                                                                                                                                                   }
 
-                                                                                                                                                                                                                                                                                                                                  /* 🔥 IT Systems text far right, paragraph wrapping */
+                                                                                                                                                                                                                                                                                                                                  /* IT Systems text far right, paragraph wrapping */
                                                                                                                                                                                                                                                                                                                                   .hero-sub-right-fixed {
                                                                                                                                                                                                                                                                                                                                     position: absolute;
                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                      right: 5px;                    /* far right alignment */
-                                                                                                                                                                                                                                                                                                                                        top: 38%;                    /* aligns to vertical middle between names */
+                                                                                                                                                                                                                                                                                                                                      right: 5px;
+                                                                                                                                                                                                                                                                                                                                        top: 38%;
                                                                                                                                                                                                                                                                                                                                           transform: translateY(-50%);
-                                                                                                                                                                                                                                                                                                                                            max-width: 1000px;            /* limits width for natural line breaks */
+                                                                                                                                                                                                                                                                                                                                            max-width: 1000px;
                                                                                                                                                                                                                                                                                                                                               font-size: 37px;
                                                                                                                                                                                                                                                                                                                                                 color: var(--muted);
                                                                                                                                                                                                                                                                                                                                                   text-align: left;
                                                                                                                                                                                                                                                                                                                                                     line-height: 1.5;
-                                                                                                                                                                                                                                                                                                                                                      padding-right: -20px;         /* space from screen edge */
+                                                                                                                                                                                                                                                                                                                                                      padding-right: -20px;
                                                                                                                                                                                                                                                                                                                                                       margin-right: 80px;
                                                                                                                                                                                                                                                                                                                                                      padding-right: 78px;
                                                                                                                                                                                                                                                                                                                                                         font-weight: bold;
@@ -205,29 +203,29 @@
 
                                                                                                                                                                                                                                                                                                                                                            .hero-sub-right2 {
                                                                                                                                                                                                                                                                                                                                                              position: absolute;
-                                                                                                                                                                                                                                                                                                                                                                right: 0;                 /* far right alignment */
-                                                                                                                                                                                                                                                                                                                                                                 margin-top: 9px;        /* aligns to vertical middle between names */
+                                                                                                                                                                                                                                                                                                                                                                right: 0;
+                                                                                                                                                                                                                                                                                                                                                                 margin-top: 9px;
                                                                                                                                                                                                                                                                                                                                                                    transform: translateY(-50%);
-                                                                                                                                                                                                                                                                                                                                                                     max-width: 600px;            /* limits width for natural line breaks */
+                                                                                                                                                                                                                                                                                                                                                                     max-width: 600px;
                                                                                                                                                                                                                                                                                                                                                                        color: var(--muted);
                                                                                                                                                                                                                                                                                                                                                                          text-align: left;
                                                                                                                                                                                                                                                                                                                                                                            line-height: 1.6;
-                                                                                                                                                                                                                                                                                                                                                                             padding-right: 5px;         /* space from screen edge */
+                                                                                                                                                                                                                                                                                                                                                                             padding-right: 5px;
                                                                                                                                                                                                                                                                                                                                                                                margin-right: -80px;
                                                                                                                                                                                                                                                                                                                                                                               
                                                                                                                                                                                                                                                                                                                                                                                  font-size: 21px;
                                                                                                                                                                                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                                                                                                                                                                                 .hero-image {
- 
+
+/* FIXED: Hero image now positioned right below hero-sub-right2 */
+.hero-image {
   position: absolute;
-  right: 0;                /* aligns image to the far right */
-  top: 330%;                /* places it below the hero details */
+  right: 0;
+  top: 165%;  /* Moved higher - was 330% */
   transform: translateY(-50%);
   object-fit: contain;
   height: 480%;
-  width: auto;             /* retains original image size */
+  width: auto;
   margin-right: -7px;
-  
 }                  
 
 
@@ -275,6 +273,15 @@ margin-bottom: 30px;
   margin-bottom: -50px;
   
 }
+
+/* NEW: proj-4 positioning */
+.project-card:nth-child(4) {
+  grid-column: 1;
+  grid-row: 2;
+  margin-left: 15px;
+  margin-top: 8px;
+}
+
 /* Project card base */
 .project-card {
   position: relative;
@@ -305,7 +312,7 @@ margin-bottom: 30px;
 .project-body {
   position: absolute;
   inset: 0;
-  background: rgba(2, 6, 23, 0.85); /* overlay color */
+  background: rgba(2, 6, 23, 0.85);
   color: var(--white);
   padding: 20px;
   opacity: 0;
@@ -346,8 +353,7 @@ margin-bottom: 30px;
 }
 
 .link-button {
-
-  background-color: var(--bg);                                                                                                                                                                                                                                                                                                                                                   background: var(--card, #1e293b);
+  background: var(--card, #1e293b);
   color: var(--white, #fff);
   padding: 0.5rem 1rem;
   border-radius: 400px;
@@ -356,12 +362,11 @@ margin-bottom: 30px;
   margin-top: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-
 }
+
 .link-button:hover {
   background: var(--accent, #6ee7b7);
   color: #0f172a;
-
 }
 
 /* Section spacing */
@@ -369,8 +374,6 @@ margin-bottom: 30px;
   padding: 2px 0;
   margin-top: -355px;
   margin-bottom: 10px;
-  
- 
 }
                                                             
 
@@ -465,7 +468,6 @@ margin-bottom: 30px;
 
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          /* Contact */
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           /* Contact Section */
 /* Contact Section */
 #contact {
   padding: 5px 0;
@@ -485,7 +487,7 @@ margin-bottom: 30px;
 /* Accent Box */
 .contact-box {
   background-color: var(--accent);
-  color: var(--bg); /* text same as background */
+  color: var(--bg);
   text-align: center;
   width: 85%;
   max-width: 650px;
@@ -614,8 +616,8 @@ margin-bottom: 30px;
 
                                                  margin-bottom: 5px; 
                                                   display: flex;
-                                                  justify-content: center; /* optional: center horizontally */      
-                                                   gap: 15px; /* space between buttons */
+                                                  justify-content: center;      
+                                                   gap: 15px;
                                                   text-align: left;
                                                       }
 
@@ -718,360 +720,3 @@ margin-bottom: 30px;
 .github-icon:hover {
   transform: scale(1.1);
 }
-
-
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  /* Prevent horizontal scroll */
-  body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  .container {
-    width: 100%;
-    padding: 30px 20px;
-  }
-
-  /* Navbar Mobile */
-  .navbar {
-    padding: 0 15px;
-  }
-
-  .nav-inner {
-    padding: 10px 0;
-  }
-
-  .logo-circle {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-  }
-
-  /* Show hamburger on mobile */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 200;
-  }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-
-  /* Mobile Navigation Menu */
-  .nav {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: rgba(7, 16, 40, 0.98);
-    backdrop-filter: blur(10px);
-    flex-direction: column;
-    padding: 20px;
-    gap: 15px;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    margin-left: 0;
-  }
-
-  .nav.open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-link {
-    font-size: 18px;
-    padding: 12px;
-    text-align: center;
-    width: 100%;
-  }
-
-  .contact-button {
-    width: 100%;
-    padding: 15px 20px;
-    text-align: center;
-  }
-
-  /* Hero Section Mobile */
-  #home {
-    padding: 120px 0 60px;
-    margin-bottom: 60px;
-  }
-
-  .hero {
-    padding: 120px 0 60px;
-  }
-
-  .hero-inner {
-    padding: 0 20px;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero-name {
-    font-size: 48px;
-    line-height: 1;
-  }
-
-  .hero-name .last-name {
-    margin-top: -15px;
-    font-size: 48px;
-  }
-
-  .hero-sub-right-fixed {
-    position: static;
-    transform: none;
-    max-width: 100%;
-    font-size: 24px;
-    text-align: center;
-    padding: 20px 0;
-    margin: 20px 0;
-  }
-
-  .hero-sub-right2 {
-    position: static;
-    transform: none;
-    max-width: 100%;
-    font-size: 16px;
-    text-align: center;
-    padding: 0;
-    margin: 15px 0;
-  }
-
-  .hero-image {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 30px auto 0;
-    display: block;
-  }
-
-  /* Projects Section Mobile */
-  #projects {
-    padding: 60px 0;
-    margin-top: 0;
-  }
-
-  .section-title {
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0;
-    justify-content: center;
-    margin: 0;
-  }
-
-  .project-card {
-    width: 100%;
-    margin: 0 !important;
-    grid-column: 1 !important;
-    grid-row: auto !important;
-  }
-
-  .project-card:nth-child(1),
-  .project-card:nth-child(2),
-  .project-card:nth-child(3) {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  .project-media img {
-    height: 200px;
-  }
-
-  /* About Section Mobile */
-  #about {
-    padding: 60px 0;
-    margin-top: 0;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    width: 100%;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .about-grid p {
-    text-align: center;
-  }
-
-  /* Skills Section Mobile */
-  #skills {
-    padding: 60px 0;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    justify-items: center;
-    padding: 0 10px;
-  }
-
-  .skill-item {
-    margin: 0;
-    width: 100%;
-  }
-
-  .skill-icon {
-    width: 80px;
-    height: 80px;
-  }
-
-  .skill-pill {
-    font-size: 14px;
-    padding: 8px 12px;
-    margin-top: 10px;
-  }
-
-  /* Contact Section Mobile */
-  #contact {
-    padding: 60px 0;
-    margin-top: 0;
-  }
-
-  .contact-box {
-    width: 95%;
-    padding: 40px 25px;
-  }
-
-  #contact-header {
-    font-size: 32px;
-  }
-
-  .contact1 {
-    font-size: 18px;
-  }
-
-  .contact2 {
-    font-size: 16px;
-  }
-
-  .contact3 {
-    font-size: 15px;
-  }
-
-  .contact-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .contact-btn {
-    width: 100%;
-    padding: 15px 20px;
-  }
-
-  /* Chat Box Mobile */
-  .chat-box {
-    width: calc(100% - 40px);
-    max-width: 350px;
-    right: 20px;
-    left: 20px;
-    margin: 0 auto;
-    height: auto;
-    max-height: 400px;
-  }
-
-  .chat-box textarea {
-    height: 100px;
-  }
-
-  .button-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .button1,
-  .button2 {
-    width: 100%;
-    padding: 12px 20px;
-  }
-
-  /* Footer Mobile */
-  .footer {
-    padding: 30px 0;
-    text-align: center;
-  }
-
-  .footer .container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  /* Section Spacing */
-  .section {
-    padding: 60px 0;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 480px) {
-  .hero-name {
-    font-size: 40px;
-  }
-
-  .hero-name .last-name {
-    font-size: 40px;
-  }
-
-  .hero-sub-right-fixed {
-    font-size: 20px;
-  }
-
-  .hero-sub-right2 {
-    font-size: 14px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-icon {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
