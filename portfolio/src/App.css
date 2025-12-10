@@ -218,7 +218,7 @@
 
 /* FIXED: Hero image now positioned right below hero-sub-right2 */
 .hero-image {
-  position: static;
+  position: absolute;
   right: 0;
   top: 165%;  /* Moved higher - was 330% */
   transform: translateY(-50%);
@@ -371,7 +371,7 @@ margin-bottom: 30px;
 
 /* Section spacing */
 #projects {  
-  padding: 2px 0;
+  padding: 15px 0;
   margin-top: -355px;
   margin-bottom: 10px;
 }
