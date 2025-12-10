@@ -218,7 +218,7 @@
 
 /* FIXED: Hero image now positioned right below hero-sub-right2 */
 .hero-image {
-  position: relative;
+  position: static;
   right: 0;
   top: 165%;  /* Moved higher - was 330% */
   transform: translateY(-50%);
