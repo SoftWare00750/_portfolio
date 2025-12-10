@@ -220,7 +220,7 @@
 .hero-image {
   position: absolute;
   right: 0;
-  top: 165%;  /* Moved higher - was 330% */
+  top: 160%;  /* Moved higher - was 330% */
   transform: translateY(-50%);
   object-fit: contain;
   height: 480%;
@@ -438,8 +438,8 @@ margin-bottom: 30px;
 }
 
 .skill-icon {
-  width: 200px;
-  height: 200px;
+  width: auto;
+  height: 400px;
   object-fit: contain;
   margin-bottom: 0.5rem;
   transition: transform 0.3s ease;
@@ -457,7 +457,7 @@ margin-bottom: 30px;
   font-size: 0.9rem;
   font-weight: 500;
   transition: 0.3s ease, color 0.3s ease;
-  margin-top: 10px;
+  margin-top: 3px;
   margin-bottom: 20px;
 }
 
