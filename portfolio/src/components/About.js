@@ -7,7 +7,7 @@ export default function About() {
                <div className="about">
                     <h2 className="section-title">About</h2>
                             <div className="about-grid">
-                                      <div>
+                                      <div className="about-text">
                                        
                                              <p>I’m a Frontend Developer experienced in building responsive websites, web aNd mobile applications.</p> <p className="about2">I create modern web and mobile interfaces, I’m passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>                 
                     
