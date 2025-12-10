@@ -6,8 +6,12 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import useScrollAnimation from "./hooks/useScrollAnimation";
 
 function App() {
+  // Initialize scroll animations
+  useScrollAnimation();
+
   return (
     <div className="site">
       <Navbar />

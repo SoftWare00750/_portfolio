@@ -1,0 +1,248 @@
+/* =========================
+   SCROLL ANIMATIONS
+   ========================= */
+
+/* Initial hidden states - elements before animation */
+.navbar {
+  transform: translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.animate {
+  transform: translateY(0);
+}
+
+/* Hero animations */
+.hero-name {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero-name.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-sub-right-fixed,
+.hero-sub-right2 {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.hero-sub-right-fixed.animate,
+.hero-sub-right2.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-image {
+  opacity: 0;
+  transform: translateX(-150px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.hero-image.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Section title animations */
+.section-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Projects animations */
+.project-card {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Top-left project */
+.project-card:nth-child(1) {
+  transform: translateX(-100px);
+}
+
+.project-card:nth-child(1).animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Top-right project */
+.project-card:nth-child(3) {
+  transform: translateX(100px);
+}
+
+.project-card:nth-child(3).animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Bottom-right project */
+.project-card:nth-child(2) {
+  transform: translateX(100px);
+}
+
+.project-card:nth-child(2).animate {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+
+/* About section animations */
+.about-text {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-text.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-image {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.about-image.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Skills animations - staggered drop-down effect */
+.skill-item {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.skill-item.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for each skill item */
+.skill-item:nth-child(1) { transition-delay: 0.05s; }
+.skill-item:nth-child(2) { transition-delay: 0.1s; }
+.skill-item:nth-child(3) { transition-delay: 0.15s; }
+.skill-item:nth-child(4) { transition-delay: 0.2s; }
+.skill-item:nth-child(5) { transition-delay: 0.25s; }
+.skill-item:nth-child(6) { transition-delay: 0.3s; }
+.skill-item:nth-child(7) { transition-delay: 0.35s; }
+.skill-item:nth-child(8) { transition-delay: 0.4s; }
+.skill-item:nth-child(9) { transition-delay: 0.45s; }
+.skill-item:nth-child(10) { transition-delay: 0.5s; }
+.skill-item:nth-child(11) { transition-delay: 0.55s; }
+.skill-item:nth-child(12) { transition-delay: 0.6s; }
+.skill-item:nth-child(13) { transition-delay: 0.65s; }
+.skill-item:nth-child(14) { transition-delay: 0.7s; }
+.skill-item:nth-child(15) { transition-delay: 0.75s; }
+
+/* Contact section animations */
+.contact-container {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.contact-container.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Footer fade-in animation */
+.footer {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.footer.animate {
+  opacity: 1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Reduce translation distances on mobile */
+  .hero-name {
+    transform: translateX(-50px);
+  }
+  
+  .hero-sub-right-fixed,
+  .hero-sub-right2 {
+    transform: translateX(50px);
+  }
+  
+  .hero-image {
+    transform: translateX(-80px);
+  }
+  
+  .project-card:nth-child(1),
+  .project-card:nth-child(2),
+  .project-card:nth-child(3) {
+    transform: translateY(30px);
+  }
+  
+  .project-card:nth-child(1).animate,
+  .project-card:nth-child(2).animate,
+  .project-card:nth-child(3).animate {
+    transform: translateY(0);
+  }
+  
+  .about-text {
+    transform: translateX(-40px);
+  }
+  
+  .about-image {
+    transform: translateX(40px);
+  }
+  
+  .contact-container {
+    transform: translateX(-40px);
+  }
+  
+  /* Faster animations on mobile */
+  .hero-name,
+  .hero-sub-right-fixed,
+  .hero-sub-right2,
+  .hero-image,
+  .section-title,
+  .project-card,
+  .about-text,
+  .about-image,
+  .skill-item,
+  .contact-container,
+  .footer {
+    transition-duration: 0.6s;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .hero-name,
+  .hero-sub-right-fixed,
+  .hero-sub-right2,
+  .hero-image,
+  .section-title,
+  .project-card,
+  .about-text,
+  .about-image,
+  .skill-item,
+  .contact-container,
+  .footer {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
