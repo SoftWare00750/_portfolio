@@ -19,32 +19,56 @@ export default function Navbar() {
   }, []);
 
   const goTo = (id) => {
+    // Close mobile menu
     setOpen(false);
+    
     const el = document.getElementById(id);
     if (el) {
-      const navbarHeight = 70; // Fixed navbar height
+      // Get the navbar height
+      const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 70;
+      
+      // Calculate the position accounting for navbar and any section padding
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      
+      // Offset adjustments for each section based on your CSS
+      let offset = navbarHeight;
       
       if (id === "home") {
-        // Scroll to very top for home
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      } else {
-        // For other sections, scroll with navbar offset
-        const elementPosition = el.offsetTop;
-        window.scrollTo({
-          top: elementPosition - navbarHeight - 20,
-          behavior: "smooth"
-        });
+        offset = 0; // Scroll to very top for home
+      } else if (id === "projects") {
+        offset = navbarHeight + 100; // Account for large top padding
+      } else if (id === "about") {
+        offset = navbarHeight + 80;
+      } else if (id === "skills") {
+        offset = navbarHeight + 80;
+      } else if (id === "contact") {
+        offset = navbarHeight + 60;
       }
+      
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth"
+      });
     }
+  };
+
+  // Handle clicks with proper event handling
+  const handleNavClick = (id, e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    goTo(id);
   };
 
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        <div className="brand" onClick={() => goTo("home")}>
+        <div 
+          className="brand" 
+          onClick={(e) => handleNavClick("home", e)}
+          style={{ cursor: 'pointer' }}
+        >
           <div className="logo-circle"><p>O</p></div>
         </div>
 
@@ -64,7 +88,8 @@ export default function Navbar() {
             <button
               key={n.id}
               className={n.className ? n.className : "nav-link"}
-              onClick={() => goTo(n.id)}
+              onClick={(e) => handleNavClick(n.id, e)}
+              type="button"
             >
               {n.label}
             </button>
