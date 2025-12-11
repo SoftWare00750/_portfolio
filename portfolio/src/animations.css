@@ -1,24 +1,29 @@
-/* =========================
+\/* =========================
    SCROLL ANIMATIONS - FIXED
    ========================= */
 
 /* Initial hidden states - elements before animation */
 .navbar {
   transform: translateY(-100%);
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .navbar.animate {
   transform: translateY(0);
-  /* Ensure navbar stays visible after animation */
+  /* Ensure navbar stays at top after animation */
   position: fixed !important;
+  top: 0 !important;
 }
 
-/* Hero animations */
+/* Hero animations - slower and smoother */
 .hero-name {
   opacity: 0;
-  transform: translateX(-100px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transform: translateX(-80px);
+  transition: opacity 1.8s ease-out, transform 1.8s ease-out;
 }
 
 .hero-name.animate {
@@ -29,8 +34,8 @@
 .hero-sub-right-fixed,
 .hero-sub-right2 {
   opacity: 0;
-  transform: translateX(100px);
-  transition: opacity 1.2s ease-out 0.4s, transform 1.2s ease-out 0.4s;
+  transform: translateX(80px);
+  transition: opacity 1.8s ease-out 0.5s, transform 1.8s ease-out 0.5s;
 }
 
 .hero-sub-right-fixed.animate,
@@ -41,8 +46,8 @@
 
 .hero-image {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1.4s ease-out 0.6s, transform 1.4s ease-out 0.6s;
+  transform: translateY(40px);
+  transition: opacity 2s ease-out 0.8s, transform 2s ease-out 0.8s;
 }
 
 .hero-image.animate {
@@ -50,11 +55,11 @@
   transform: translateY(0);
 }
 
-/* Section title animations - increased drop distance */
+/* Section title animations - slower and smoother */
 .section-title {
   opacity: 0;
   transform: translateY(-80px);
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  transition: opacity 1.4s ease-out, transform 1.4s ease-out;
 }
 
 .section-title.animate {
@@ -62,15 +67,15 @@
   transform: translateY(0);
 }
 
-/* Projects animations - Row 1: Left to Right, Row 2: Right to Left */
+/* Projects animations - slower with smooth easing */
 .project-card {
   opacity: 0;
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transition: opacity 1.6s ease-out, transform 1.6s ease-out;
 }
 
 /* Row 1 Left card (proj-1) - slides from left */
 .project-card:nth-child(1) {
-  transform: translateX(-150px);
+  transform: translateX(-120px);
 }
 
 .project-card:nth-child(1).animate {
@@ -80,8 +85,8 @@
 
 /* Row 1 Right card (proj-3) - slides from left */
 .project-card:nth-child(3) {
-  transform: translateX(-150px);
-  transition-delay: 0.2s;
+  transform: translateX(-120px);
+  transition-delay: 0.3s;
 }
 
 .project-card:nth-child(3).animate {
@@ -91,8 +96,8 @@
 
 /* Row 2 Right card (proj-2) - slides from right */
 .project-card:nth-child(2) {
-  transform: translateX(150px);
-  transition-delay: 0.4s;
+  transform: translateX(120px);
+  transition-delay: 0.6s;
 }
 
 .project-card:nth-child(2).animate {
@@ -102,8 +107,8 @@
 
 /* Row 2 Left card (proj-4) - slides from right */
 .project-card:nth-child(4) {
-  transform: translateX(150px);
-  transition-delay: 0.6s;
+  transform: translateX(120px);
+  transition-delay: 0.9s;
 }
 
 .project-card:nth-child(4).animate {
@@ -111,11 +116,11 @@
   transform: translateX(0);
 }
 
-/* About section animations */
+/* About section animations - slower */
 .about-text {
   opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transform: translateX(-60px);
+  transition: opacity 1.6s ease-out, transform 1.6s ease-out;
 }
 
 .about-text.animate {
@@ -125,8 +130,8 @@
 
 .about-image {
   opacity: 0;
-  transform: translateX(80px);
-  transition: opacity 1.2s ease-out 0.3s, transform 1.2s ease-out 0.3s;
+  transform: translateX(60px);
+  transition: opacity 1.6s ease-out 0.4s, transform 1.6s ease-out 0.4s;
 }
 
 .about-image.animate {
@@ -134,11 +139,11 @@
   transform: translateX(0);
 }
 
-/* Skills animations - staggered drop-down effect */
+/* Skills animations - slower staggered drop-down effect */
 .skill-item {
   opacity: 0;
-  transform: translateY(-30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(-25px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .skill-item.animate {
@@ -146,28 +151,28 @@
   transform: translateY(0);
 }
 
-/* Stagger delay for each skill item */
+/* Stagger delay for each skill item - slower */
 .skill-item:nth-child(1) { transition-delay: 0.1s; }
-.skill-item:nth-child(2) { transition-delay: 0.15s; }
-.skill-item:nth-child(3) { transition-delay: 0.2s; }
-.skill-item:nth-child(4) { transition-delay: 0.25s; }
-.skill-item:nth-child(5) { transition-delay: 0.3s; }
-.skill-item:nth-child(6) { transition-delay: 0.35s; }
-.skill-item:nth-child(7) { transition-delay: 0.4s; }
-.skill-item:nth-child(8) { transition-delay: 0.45s; }
-.skill-item:nth-child(9) { transition-delay: 0.5s; }
-.skill-item:nth-child(10) { transition-delay: 0.55s; }
-.skill-item:nth-child(11) { transition-delay: 0.6s; }
-.skill-item:nth-child(12) { transition-delay: 0.65s; }
-.skill-item:nth-child(13) { transition-delay: 0.7s; }
-.skill-item:nth-child(14) { transition-delay: 0.75s; }
-.skill-item:nth-child(15) { transition-delay: 0.8s; }
+.skill-item:nth-child(2) { transition-delay: 0.2s; }
+.skill-item:nth-child(3) { transition-delay: 0.3s; }
+.skill-item:nth-child(4) { transition-delay: 0.4s; }
+.skill-item:nth-child(5) { transition-delay: 0.5s; }
+.skill-item:nth-child(6) { transition-delay: 0.6s; }
+.skill-item:nth-child(7) { transition-delay: 0.7s; }
+.skill-item:nth-child(8) { transition-delay: 0.8s; }
+.skill-item:nth-child(9) { transition-delay: 0.9s; }
+.skill-item:nth-child(10) { transition-delay: 1s; }
+.skill-item:nth-child(11) { transition-delay: 1.1s; }
+.skill-item:nth-child(12) { transition-delay: 1.2s; }
+.skill-item:nth-child(13) { transition-delay: 1.3s; }
+.skill-item:nth-child(14) { transition-delay: 1.4s; }
+.skill-item:nth-child(15) { transition-delay: 1.5s; }
 
-/* Contact section animations */
+/* Contact section animations - slower */
 .contact-container {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1.6s ease-out, transform 1.6s ease-out;
 }
 
 .contact-container.animate {
@@ -175,10 +180,10 @@
   transform: translateY(0);
 }
 
-/* Footer fade-in animation */
+/* Footer fade-in animation - slower */
 .footer {
   opacity: 0;
-  transition: opacity 1.2s ease-out;
+  transition: opacity 1.8s ease-out;
 }
 
 .footer.animate {
@@ -190,22 +195,23 @@
   /* Reduce translation distances on mobile */
   .hero-name {
     transform: translateX(-50px);
-    transition-duration: 1s;
+    transition-duration: 1.5s;
   }
   
   .hero-sub-right-fixed,
   .hero-sub-right2 {
     transform: translateX(50px);
-    transition-duration: 1s;
+    transition-duration: 1.5s;
   }
   
   .hero-image {
     transform: translateY(30px);
-    transition-duration: 1s;
+    transition-duration: 1.5s;
   }
   
   .section-title {
     transform: translateY(-50px);
+    transition-duration: 1.2s;
   }
   
   .project-card:nth-child(1),
@@ -213,7 +219,7 @@
   .project-card:nth-child(3),
   .project-card:nth-child(4) {
     transform: translateY(40px);
-    transition-duration: 1s;
+    transition-duration: 1.4s;
   }
   
   .project-card:nth-child(1).animate,
@@ -225,21 +231,21 @@
   
   .about-text {
     transform: translateX(-40px);
-    transition-duration: 1s;
+    transition-duration: 1.4s;
   }
   
   .about-image {
     transform: translateX(40px);
-    transition-duration: 1s;
+    transition-duration: 1.4s;
   }
   
   .contact-container {
     transform: translateY(30px);
-    transition-duration: 1s;
+    transition-duration: 1.4s;
   }
   
   .skill-item {
-    transition-duration: 0.7s;
+    transition-duration: 1s;
   }
 }
 

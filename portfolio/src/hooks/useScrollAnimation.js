@@ -17,6 +17,7 @@ export const useScrollAnimation = () => {
       const heroName = document.querySelector('.hero-name');
       const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
       const heroSub2 = document.querySelector('.hero-sub-right2');
+      const heroImage = document.querySelector('.hero-image');
 
       if (heroName) {
         setTimeout(() => heroName.classList.add('animate'), 300);
@@ -27,16 +28,34 @@ export const useScrollAnimation = () => {
       if (heroSub2) {
         setTimeout(() => heroSub2.classList.add('animate'), 500);
       }
+      if (heroImage) {
+        setTimeout(() => heroImage.classList.add('animate'), 700);
+      }
     };
 
     // Observer for scroll-triggered animations
     const createScrollObserver = () => {
       const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '5px 0px -5px 0px' // Trigger 5px before element comes into view
       };
 
-      const observer = new IntersectionObserver((entries) => {
+      const elementObserverOptions = {
+        threshold: 0,
+        rootMargin: '2px 0px -2px 0px' // Trigger 2px before element comes into view
+      };
+
+      // Observer for sections (5px offset)
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      }, observerOptions);
+
+      // Observer for elements within sections (2px offset)
+      const elementObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate');
@@ -60,68 +79,41 @@ export const useScrollAnimation = () => {
             }
           }
         });
-      }, observerOptions);
+      }, elementObserverOptions);
 
-      // Observe all section titles
+      // Observe all section titles with section observer
       const sectionTitles = document.querySelectorAll('.section-title');
-      sectionTitles.forEach(title => observer.observe(title));
+      sectionTitles.forEach(title => sectionObserver.observe(title));
 
-      // Observe projects grid
+      // Observe content grids with element observer
       const projectsGrid = document.querySelector('.projects-grid');
-      if (projectsGrid) observer.observe(projectsGrid);
+      if (projectsGrid) elementObserver.observe(projectsGrid);
 
-      // Observe about section
       const aboutGrid = document.querySelector('.about-grid');
-      if (aboutGrid) observer.observe(aboutGrid);
+      if (aboutGrid) elementObserver.observe(aboutGrid);
 
-      // Observe skills grid
       const skillsGrid = document.querySelector('.skills-grid');
-      if (skillsGrid) observer.observe(skillsGrid);
+      if (skillsGrid) elementObserver.observe(skillsGrid);
 
-      // Observe contact section
       const contactContainer = document.querySelector('.contact-container');
-      if (contactContainer) observer.observe(contactContainer);
+      if (contactContainer) elementObserver.observe(contactContainer);
 
-      // Observe footer
       const footer = document.querySelector('.footer');
-      if (footer) observer.observe(footer);
+      if (footer) elementObserver.observe(footer);
 
-      return observer;
-    };
-
-    // Special handler for hero image on scroll
-    const handleHeroImageScroll = () => {
-      const heroImage = document.querySelector('.hero-image');
-      if (!heroImage) return;
-
-      const scrollHandler = () => {
-        if (window.scrollY >= 20 && !heroImage.classList.contains('animate')) {
-          heroImage.classList.add('animate');
-          window.removeEventListener('scroll', scrollHandler);
-        }
-      };
-
-      window.addEventListener('scroll', scrollHandler);
-      
-      // Check immediately in case already scrolled
-      if (window.scrollY >= 20) {
-        heroImage.classList.add('animate');
-      }
-
-      return scrollHandler;
+      return { sectionObserver, elementObserver };
     };
 
     // Initialize all animations
     animateNavbar();
     animateHero();
-    const observer = createScrollObserver();
-    const scrollHandler = handleHeroImageScroll();
+    const observers = createScrollObserver();
 
     // Cleanup
     return () => {
-      observer.disconnect();
-      if (scrollHandler) {
-        window.removeEventListener('scroll', scrollHandler);
+      if (observers) {
+        observers.sectionObserver.disconnect();
+        observers.elementObserver.disconnect();
       }
     };
   }, []);

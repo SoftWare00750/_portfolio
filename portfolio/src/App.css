@@ -7,16 +7,19 @@
                                                       }
 
                                                       *{box-sizing:border-box}
-                                                                   html,body,#root{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;  width:100%;  }
-                                                                               body{background:linear-gradient(180deg,#071028 0%, #071827 100%); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+                                                                   html,body,#root{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;  width:100%; overflow-x: hidden;  }
+                                                                               body{background:linear-gradient(180deg,#071028 0%, #071827 100%); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x: hidden; position: relative;}
                                                                                
                                                                                ::before,
                                                                                   ::after {
                                                                                      box-sizing: border-box;
                                                                                               } 
-                                                                                        .container{width:96%;max-width:1400px;margin:0 auto;padding:60px;}
+                                                                                        .container{width:96%;max-width:1400px;margin:0 auto;padding:60px; overflow-x: hidden;}
                                                                                                       .site {
                                                                                                              padding: 0 20px;
+                                                                                                             overflow-x: hidden;
+                                                                                                             width: 100%;
+                                                                                                             position: relative;
                                                                                                                     }
                                                                                                                     
                                                                                            p, span, h1, h2, h3, h4, h5, h6, li, a, label {
@@ -216,11 +219,11 @@
                                                                                                                                                                                                                                                                                                                                                                                  font-size: 21px;
                                                                                                                                                                                                                                                                                                                                                                                  }
 
-/* FIXED: Hero image now positioned right below hero-sub-right2 */
+/* Hero image positioned below hero-sub-right2 */
 .hero-image {
   position: absolute;
   right: 0;
-  top: 160%;  /* Moved higher - was 330% */
+  top: 160%;
   transform: translateY(-50%);
   object-fit: contain;
   height: 480%;
@@ -274,7 +277,7 @@ margin-bottom: 30px;
   
 }
 
-/* NEW: proj-4 positioning */
+/* proj-4 positioning */
 .project-card:nth-child(4) {
   grid-column: 1;
   grid-row: 2;
