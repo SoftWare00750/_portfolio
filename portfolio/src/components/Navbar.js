@@ -22,31 +22,22 @@ export default function Navbar() {
     setOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      // Get the navbar height
-      const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 70;
-      
-      // Calculate the position accounting for navbar and any section padding
-      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-      
-      // Offset adjustments for each section based on your CSS
-      let offset = navbarHeight;
+      const navbarHeight = 70; // Fixed navbar height
       
       if (id === "home") {
-        offset = 0; // Scroll to very top for home
-      } else if (id === "projects") {
-        offset = navbarHeight + 100; // Account for large top padding
-      } else if (id === "about") {
-        offset = navbarHeight + 80;
-      } else if (id === "skills") {
-        offset = navbarHeight + 80;
-      } else if (id === "contact") {
-        offset = navbarHeight + 60;
+        // Scroll to very top for home
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      } else {
+        // For other sections, scroll with navbar offset
+        const elementPosition = el.offsetTop;
+        window.scrollTo({
+          top: elementPosition - navbarHeight - 20,
+          behavior: "smooth"
+        });
       }
-      
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: "smooth"
-      });
     }
   };
 
@@ -54,7 +45,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <div className="brand" onClick={() => goTo("home")}>
-          <div className="logo-circle" ><p>O</p></div>
+          <div className="logo-circle"><p>O</p></div>
         </div>
 
         {/* Hamburger Icon */}
