@@ -423,11 +423,12 @@ margin-bottom: 30px;
 
  .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.0rem;
   justify-items: center;
   align-items: center;
-  margin-top: 2.5rem; 
+  margin-top: -3rem; 
+  
  
 }
 
@@ -437,14 +438,14 @@ margin-bottom: 30px;
   align-items: center;
   text-align: center;
   margin-right:104px;
-  margin-bottom: 60px;
+  margin-bottom: -8px;
 }
 
 .skill-icon {
   width: 400px;
   height: 300px;
   object-fit: contain;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.4rem;
   transition: transform 0.3s ease;
 }
 
@@ -460,8 +461,8 @@ margin-bottom: 30px;
   font-size: 0.9rem;
   font-weight: 500;
   transition: 0.3s ease, color 0.3s ease;
-  margin-top: -9px;
-  margin-bottom: 30px;
+  margin-top: -60px;
+  margin-bottom: 20px;
 }
 
 .skill-item:hover .skill-pill {
