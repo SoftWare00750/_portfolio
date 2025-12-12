@@ -42,7 +42,7 @@
 }
 
 .hero-image {
-  opacity: 1; /* Start with opacity 0 (invisible) */
+  opacity: 0; /* Start with opacity 0 (invisible) */
   transform: translateY(-3px); /* Start 3px above the original position */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and transform */
 }

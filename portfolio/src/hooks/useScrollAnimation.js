@@ -19,7 +19,7 @@ export const useScrollAnimation = () => {
       }
     };
 
-    // Observer for scroll-triggered animations
+    // Observer for scroll-triggered animations (excluding navbar)
     const createScrollObserver = () => {
       const observerOptions = {
         threshold: 0.1,
@@ -52,27 +52,23 @@ export const useScrollAnimation = () => {
         });
       }, observerOptions);
 
-      // Observe all section titles
+      // Observe all section titles (excluding navbar)
       const sectionTitles = document.querySelectorAll('.section-title');
       sectionTitles.forEach(title => observer.observe(title));
 
-      // Observe projects grid
+      // Observe specific sections excluding the navbar
       const projectsGrid = document.querySelector('.projects-grid');
       if (projectsGrid) observer.observe(projectsGrid);
 
-      // Observe about section
       const aboutGrid = document.querySelector('.about-grid');
       if (aboutGrid) observer.observe(aboutGrid);
 
-      // Observe skills grid
       const skillsGrid = document.querySelector('.skills-grid');
       if (skillsGrid) observer.observe(skillsGrid);
 
-      // Observe contact section
       const contactContainer = document.querySelector('.contact-container');
       if (contactContainer) observer.observe(contactContainer);
 
-      // Observe footer
       const footer = document.querySelector('.footer');
       if (footer) observer.observe(footer);
 
