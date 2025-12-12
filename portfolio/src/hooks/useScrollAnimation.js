@@ -1,7 +1,14 @@
 import { useEffect } from 'react';
 
 export const useScrollAnimation = () => {
-  
+  useEffect(() => {
+    // Animate navbar on page load
+    const animateNavbar = () => {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) {
+        navbar.classList.add('animate'); // Add the animate class to the navbar on load
+      }
+    };
 
     // Animate hero section on page load
     const animateHero = () => {
@@ -20,18 +27,18 @@ export const useScrollAnimation = () => {
       }
     };
 
-    // Observer for scroll-triggered animations
+    // Observer for scroll-triggered animations for other sections
     const createScrollObserver = () => {
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -80px 0px'
+        rootMargin: '0px 0px -80px 0px',
       };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate');
-            
+
             // For parent containers, animate children
             if (entry.target.classList.contains('about-grid')) {
               const aboutText = entry.target.querySelector('.about-text');
@@ -57,67 +64,68 @@ export const useScrollAnimation = () => {
       const sectionTitles = document.querySelectorAll('.section-title');
       sectionTitles.forEach(title => observer.observe(title));
 
-      // Observe projects grid
+      // Observe specific sections
       const projectsGrid = document.querySelector('.projects-grid');
       if (projectsGrid) observer.observe(projectsGrid);
 
-      // Observe about section
       const aboutGrid = document.querySelector('.about-grid');
       if (aboutGrid) observer.observe(aboutGrid);
 
-      // Observe skills grid
       const skillsGrid = document.querySelector('.skills-grid');
       if (skillsGrid) observer.observe(skillsGrid);
 
-      // Observe contact section
       const contactContainer = document.querySelector('.contact-container');
       if (contactContainer) observer.observe(contactContainer);
 
-      // Observe footer
       const footer = document.querySelector('.footer');
       if (footer) observer.observe(footer);
 
       return observer;
     };
 
-    // Special handler for hero image on scroll
+    // Special handler for hero image to animate when scrolled to the bottom of `.nav-sub-right-fixed`
     const handleHeroImageScroll = () => {
       const heroImage = document.querySelector('.hero-image');
-      if (!heroImage) return null;
+      const navSubRightFixed = document.querySelector('.nav-sub-right-fixed');
+      if (!heroImage || !navSubRightFixed) return null;
 
-      const scrollHandler = () => {
-        if (window.scrollY >= 20 && !heroImage.classList.contains('animate')) {
-          heroImage.classList.add('animate');
-          window.removeEventListener('scroll', scrollHandler);
-        }
+      const observerOptions = {
+        threshold: 1.0, // Trigger when 100% of `.nav-sub-right-fixed` is in view
       };
 
-      window.addEventListener('scroll', scrollHandler);
-      
-      // Check immediately in case already scrolled
-      if (window.scrollY >= 20) {
-        heroImage.classList.add('animate');
-      }
+      // IntersectionObserver to trigger the animation when `.nav-sub-right-fixed` is in view
+      const heroImageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Animate hero image when the bottom of `.nav-sub-right-fixed` is in view
+            heroImage.classList.add('animate');
+            // Disconnect the observer after triggering the animation
+            heroImageObserver.disconnect();
+          }
+        });
+      }, observerOptions);
 
-      return scrollHandler;
+      heroImageObserver.observe(navSubRightFixed);
+
+      return heroImageObserver;
     };
 
     // Initialize all animations
     animateNavbar();
     animateHero();
     const observer = createScrollObserver();
-    const scrollHandler = handleHeroImageScroll();
+    const heroImageObserver = handleHeroImageScroll();
 
     // Cleanup
     return () => {
       if (observer) {
         observer.disconnect();
       }
-      if (scrollHandler) {
-        window.removeEventListener('scroll', scrollHandler);
+      if (heroImageObserver) {
+        heroImageObserver.disconnect();
       }
     };
-  }, []);
+  }, []); // Empty dependency array to ensure this runs once after the component mounts
 };
 
 export default useScrollAnimation;
