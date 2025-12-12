@@ -77,17 +77,18 @@ body {
   display: flex;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 2px;   /* Adjusted by 2px */
+  right: 2px;  /* Adjusted by 2px */
   z-index: 100;
-  background: transparent; /* Set background to transparent */
+  background: transparent;
   transition: all 0.25s ease;
-  backdrop-filter: blur(7px); /* Keep the blur effect */
+  backdrop-filter: blur(7px);
   box-sizing: border-box;
   padding: 0;
   padding-left: -7px;
   margin: 0;
 }
+
 
                                                                                                                                        
                                                                                                                                        
