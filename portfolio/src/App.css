@@ -77,7 +77,7 @@ body {
   display: flex;
   position: fixed;
   top: 0;
-  left: 2px;   /* Adjusted by 2px */
+  left: 20px;   /* Adjusted by 2px */
   right: 2px;  /* Adjusted by 2px */
   z-index: 100;
   background: transparent;

@@ -2,12 +2,6 @@ import { useEffect } from 'react';
 
 export const useScrollAnimation = () => {
   useEffect(() => {
-    // Animate navbar on page load with proper timing
-    const heroImage = document.querySelector('.hero-image');
-window.onload = () => {
-  heroImage.classList.add('animate');
-};
-
     // Animate hero section on page load
     const animateHero = () => {
       const heroName = document.querySelector('.hero-name');
@@ -29,7 +23,7 @@ window.onload = () => {
     const createScrollObserver = () => {
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -80px 0px'
+        rootMargin: '0px 0px -80px 0px',
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -85,44 +79,46 @@ window.onload = () => {
       return observer;
     };
 
-    // Special handler for hero image on scroll
+    // Special handler for hero image on scroll (immediately when in view)
     const handleHeroImageScroll = () => {
       const heroImage = document.querySelector('.hero-image');
       if (!heroImage) return null;
 
-      const scrollHandler = () => {
-        if (window.scrollY >= 20 && !heroImage.classList.contains('animate')) {
-          heroImage.classList.add('animate');
-          window.removeEventListener('scroll', scrollHandler);
-        }
+      const observerOptions = {
+        threshold: 0.1, // Trigger when 10% of the element is in view
       };
 
-      window.addEventListener('scroll', scrollHandler);
-      
-      // Check immediately in case already scrolled
-      if (window.scrollY >= 20) {
-        heroImage.classList.add('animate');
-      }
+      // IntersectionObserver to trigger the animation when the hero image is in view
+      const heroImageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            // Disconnect the observer after triggering the animation
+            heroImageObserver.disconnect();
+          }
+        });
+      }, observerOptions);
 
-      return scrollHandler;
+      heroImageObserver.observe(heroImage);
+
+      return heroImageObserver;
     };
 
     // Initialize all animations
-    animateNavbar();
     animateHero();
     const observer = createScrollObserver();
-    const scrollHandler = handleHeroImageScroll();
+    const heroImageObserver = handleHeroImageScroll();
 
     // Cleanup
     return () => {
       if (observer) {
         observer.disconnect();
       }
-      if (scrollHandler) {
-        window.removeEventListener('scroll', scrollHandler);
+      if (heroImageObserver) {
+        heroImageObserver.disconnect();
       }
     };
-  }, []);
+  }, []); // Empty dependency array to ensure this runs once after the component mounts
 };
 
 export default useScrollAnimation;
