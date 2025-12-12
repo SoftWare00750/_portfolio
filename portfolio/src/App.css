@@ -73,23 +73,22 @@ body {
                                                                                            }                         
 
                                                                                                                     /* NAVBAR */
-                                                                                                                    .navbar {
-                                                                                                                    
-display: flex;
+ .navbar {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0; /* Use right instead of width: 100% */
+  right: 0;
   z-index: 100;
-  background: linear-gradient(180deg, #071028 0%, #071827 100%);
+  background: transparent; /* Set background to transparent */
   transition: all 0.25s ease;
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px); /* Keep the blur effect */
   box-sizing: border-box;
   padding: 0;
+  padding-left: -7px;
   margin: 0;
-  /* DON'T use width: 100% or max-width: 100vw */
-  
 }
+
                                                                                                                                        
                                                                                                                                        
 
@@ -274,7 +273,7 @@ display: flex;
 .hero-image {
   position: absolute;
   right: 0;
-  top: 700%;
+  top: 300%;
   transform: translateY(-50%);
   object-fit: contain;
   height: 480%;
