@@ -41,12 +41,7 @@
   transform: translateX(0);
 }
 
-/* Hero image animation - ensure it shows */
-.hero-image {
-  opacity: 1 !important;
-  display: block !important;
-  visibility: visible !important;
-}
+
 
 
 .hero-image.animate {
