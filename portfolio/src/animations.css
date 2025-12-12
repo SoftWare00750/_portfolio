@@ -10,6 +10,9 @@
   width: 100%;
   left: 0;
   right: 0;
+  /* ADDED: Prevent layout shifts */
+  position: fixed;
+  will-change: transform;
 }
 
 .navbar.animate {
@@ -43,15 +46,14 @@
 
 .hero-image {
   opacity: 0;
-  transform: translateY(-10px); /* Start 10px ABOVE original position */
+  transform: translateY(-10px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .hero-image.animate {
   opacity: 1;
-  transform: translateY(0); /* Slide DOWN to original position */
+  transform: translateY(0);
 }
-
 
 /* Section title animations */
 .section-title {
@@ -285,7 +287,7 @@
     transform: none;
   }
   
-  .hero-image.animate {
-    transform: translateY(-50%);
+  .navbar {
+    transform: translateY(0);
   }
 }

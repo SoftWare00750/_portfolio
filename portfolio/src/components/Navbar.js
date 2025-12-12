@@ -37,42 +37,41 @@ export default function Navbar() {
       return;
     }
 
-    // Get navbar height for offset calculation
-    const navbar = document.querySelector('.navbar');
-    const navbarHeight = navbar ? navbar.offsetHeight : 70;
-    
-    // Get section's position relative to document
-    const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-    
-    // Calculate scroll position with appropriate offset for each section
-    let scrollPosition;
-    
-    switch(sectionId) {
-      case "projects":
-        // Projects needs less offset since it has margin-top
-        scrollPosition = sectionTop - navbarHeight - 50;
-        break;
-      case "about":
-        // About section positioning
-        scrollPosition = sectionTop - navbarHeight - 40;
-        break;
-      case "skills":
-        // Skills section positioning
-        scrollPosition = sectionTop - navbarHeight - 40;
-        break;
-      case "contact":
-        // Contact section positioning
-        scrollPosition = sectionTop - navbarHeight - 30;
-        break;
-      default:
-        scrollPosition = sectionTop - navbarHeight - 20;
-    }
-    
-    // Perform smooth scroll
-    window.scrollTo({
-      top: scrollPosition,
-      behavior: "smooth"
-    });
+    // Wait for any animations to complete before calculating position
+    setTimeout(() => {
+      // Get navbar height for offset calculation
+      const navbar = document.querySelector('.navbar');
+      const navbarHeight = navbar ? navbar.offsetHeight : 70;
+      
+      // Get section's position relative to document
+      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+      
+      // Calculate scroll position with appropriate offset for each section
+      let scrollPosition;
+      
+      switch(sectionId) {
+        case "projects":
+          scrollPosition = sectionTop - navbarHeight - 50;
+          break;
+        case "about":
+          scrollPosition = sectionTop - navbarHeight - 40;
+          break;
+        case "skills":
+          scrollPosition = sectionTop - navbarHeight - 40;
+          break;
+        case "contact":
+          scrollPosition = sectionTop - navbarHeight - 30;
+          break;
+        default:
+          scrollPosition = sectionTop - navbarHeight - 20;
+      }
+      
+      // Perform smooth scroll
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth"
+      });
+    }, 100); // Small delay to ensure animations are complete
   };
 
   return (
