@@ -26,7 +26,7 @@ export const useScrollAnimation = () => {
       if (heroSub2) {
         setTimeout(() => heroSub2.classList.add('animate'), 600);
       }
-      // ADDED: Immediately add animate class to hero image (no scroll trigger)
+      // Immediately add animate class to hero image (no scroll trigger)
       if (heroImage) {
         heroImage.classList.add('animate');
       }
@@ -87,65 +87,22 @@ export const useScrollAnimation = () => {
 
       return observer;
     };
-    const handleHeroImageScroll = () => {
-      const heroImage = document.querySelector('.hero-image');
-      const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
-      
-      if (!heroImage || !heroSubFixed) {
-        console.log('Hero image or hero-sub-right-fixed not found');
-        return null;
-      }
 
-      let hasAnimated = false;
-
-      const checkScroll = () => {
-        if (hasAnimated) return;
-
-        // Get the bottom position of hero-sub-right-fixed
-        const heroSubFixedRect = heroSubFixed.getBoundingClientRect();
-        const heroSubFixedBottom = heroSubFixedRect.bottom;
-
-        // Trigger animation when we've scrolled 10px past the bottom of hero-sub-right-fixed
-        // heroSubFixedBottom will be negative when we've scrolled past it
-        if (heroSubFixedBottom < -10) {
-          console.log('Animating hero image!');
-          heroImage.classList.add('animate');
-          hasAnimated = true;
-          window.removeEventListener('scroll', checkScroll);
-        }
-      };
-
-      window.addEventListener('scroll', checkScroll);
-      // Check immediately in case already scrolled
-      checkScroll();
-
-      return checkScroll;
-    };
-
-     const timer = setTimeout(() => {
+    // Initialize all animations after a brief delay
+    const timer = setTimeout(() => {
       animateNavbar();
       animateHero();
       const observer = createScrollObserver();
-      const heroImageScrollHandler = handleHeroImageScroll();
 
       // Store for cleanup
       window.__scrollObserver = observer;
-      window.__heroImageScrollHandler = heroImageScrollHandler;
     }, 100);
-    
-
-    // REMOVED: Hero image scroll handler - no longer needed
-    // Hero image now animates immediately on page load
-
-    // Initialize all animations
-    animateNavbar();
-    animateHero();
-    const observer = createScrollObserver();
 
     // Cleanup
     return () => {
-      if (observer) {
-        observer.disconnect();
+      clearTimeout(timer);
+      if (window.__scrollObserver) {
+        window.__scrollObserver.disconnect();
       }
     };
   }, []);
