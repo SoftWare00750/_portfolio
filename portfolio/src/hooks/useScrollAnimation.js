@@ -6,7 +6,7 @@ export const useScrollAnimation = () => {
     const animateNavbar = () => {
       const navbar = document.querySelector('.navbar');
       if (navbar) {
-        navbar.classList.add('animate'); // Add the animate class to the navbar on load
+        navbar.classList.add('animate');
       }
     };
 
@@ -15,6 +15,7 @@ export const useScrollAnimation = () => {
       const heroName = document.querySelector('.hero-name');
       const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
       const heroSub2 = document.querySelector('.hero-sub-right2');
+      const heroImage = document.querySelector('.hero-image');
 
       if (heroName) {
         setTimeout(() => heroName.classList.add('animate'), 400);
@@ -24,6 +25,10 @@ export const useScrollAnimation = () => {
       }
       if (heroSub2) {
         setTimeout(() => heroSub2.classList.add('animate'), 600);
+      }
+      // ADDED: Immediately add animate class to hero image (no scroll trigger)
+      if (heroImage) {
+        heroImage.classList.add('animate');
       }
     };
 
@@ -82,51 +87,68 @@ export const useScrollAnimation = () => {
 
       return observer;
     };
-
-    // Special handler for hero image to animate when scrolling 6px below `.navbar`
     const handleHeroImageScroll = () => {
       const heroImage = document.querySelector('.hero-image');
-      const navbar = document.querySelector('.navbar');
-      if (!heroImage || !navbar) return null;
+      const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
+      
+      if (!heroImage || !heroSubFixed) {
+        console.log('Hero image or hero-sub-right-fixed not found');
+        return null;
+      }
 
-      const observerOptions = {
-        threshold: 0, // Trigger when any part of the element comes into view
-        rootMargin: '0px 0px -6px 0px', 
-        // Bottom margin of -6px → triggers when the viewport is 6px *below* the navbar
+      let hasAnimated = false;
+
+      const checkScroll = () => {
+        if (hasAnimated) return;
+
+        // Get the bottom position of hero-sub-right-fixed
+        const heroSubFixedRect = heroSubFixed.getBoundingClientRect();
+        const heroSubFixedBottom = heroSubFixedRect.bottom;
+
+        // Trigger animation when we've scrolled 10px past the bottom of hero-sub-right-fixed
+        // heroSubFixedBottom will be negative when we've scrolled past it
+        if (heroSubFixedBottom < -10) {
+          console.log('Animating hero image!');
+          heroImage.classList.add('animate');
+          hasAnimated = true;
+          window.removeEventListener('scroll', checkScroll);
+        }
       };
 
-      const heroImageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Animate hero image when 6px below the navbar
-            heroImage.classList.add('animate');
-            // Disconnect the observer after triggering the animation
-            heroImageObserver.disconnect();
-          }
-        });
-      }, observerOptions);
+      window.addEventListener('scroll', checkScroll);
+      // Check immediately in case already scrolled
+      checkScroll();
 
-      heroImageObserver.observe(navbar); // Observe the `.navbar`
-
-      return heroImageObserver;
+      return checkScroll;
     };
+
+     const timer = setTimeout(() => {
+      animateNavbar();
+      animateHero();
+      const observer = createScrollObserver();
+      const heroImageScrollHandler = handleHeroImageScroll();
+
+      // Store for cleanup
+      window.__scrollObserver = observer;
+      window.__heroImageScrollHandler = heroImageScrollHandler;
+    }, 100);
+    
+
+    // REMOVED: Hero image scroll handler - no longer needed
+    // Hero image now animates immediately on page load
 
     // Initialize all animations
     animateNavbar();
     animateHero();
     const observer = createScrollObserver();
-    const heroImageObserver = handleHeroImageScroll();
 
     // Cleanup
     return () => {
       if (observer) {
         observer.disconnect();
       }
-      if (heroImageObserver) {
-        heroImageObserver.disconnect();
-      }
     };
-  }, []); // Empty dependency array to ensure this runs once after the component mounts
+  }, []);
 };
 
 export default useScrollAnimation;

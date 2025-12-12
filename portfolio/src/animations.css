@@ -42,18 +42,15 @@
 }
 
 .hero-image {
-  opacity: 0; /* Start with opacity 0 (invisible) */
-  transform: translateY(-3px); /* Start 3px above the original position */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and transform */
+  opacity: 0;
+  transform: translateY(-10px); /* Start 10px ABOVE original position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* When the animation is triggered */
 .hero-image.animate {
-  opacity: 1; /* Fade in to full opacity */
-  transform: translateY(0); /* Move to its original position */
-  transition: opacity 0.5s ease, transform 0.5s ease; 
+  opacity: 1;
+  transform: translateY(0); /* Slide DOWN to original position */
 }
-
 
 
 /* Section title animations */

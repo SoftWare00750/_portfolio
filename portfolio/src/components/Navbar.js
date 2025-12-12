@@ -18,7 +18,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // FIXED: Proper scroll function with correct offsets
   const scrollToSection = (sectionId) => {
     // Close mobile menu
     setOpen(false);
@@ -29,31 +28,49 @@ export default function Navbar() {
       return;
     }
 
-    // Get navbar height
+    // Special handling for home - scroll to top
+    if (sectionId === "home") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+      return;
+    }
+
+    // Get navbar height for offset calculation
     const navbar = document.querySelector('.navbar');
     const navbarHeight = navbar ? navbar.offsetHeight : 70;
     
-    // Get section position
-    const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+    // Get section's position relative to document
+    const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
     
-    // Different offsets for different sections
-    let offset = navbarHeight;
+    // Calculate scroll position with appropriate offset for each section
+    let scrollPosition;
     
-    if (sectionId === "home") {
-      offset = 0; // Scroll to very top
-    } else if (sectionId === "projects") {
-      offset = navbarHeight + 20; // Extra space for projects
-    } else if (sectionId === "about") {
-      offset = navbarHeight + 20;
-    } else if (sectionId === "skills") {
-      offset = navbarHeight + 20;
-    } else if (sectionId === "contact") {
-      offset = navbarHeight + 20;
+    switch(sectionId) {
+      case "projects":
+        // Projects needs less offset since it has margin-top
+        scrollPosition = sectionTop - navbarHeight - 50;
+        break;
+      case "about":
+        // About section positioning
+        scrollPosition = sectionTop - navbarHeight - 40;
+        break;
+      case "skills":
+        // Skills section positioning
+        scrollPosition = sectionTop - navbarHeight - 40;
+        break;
+      case "contact":
+        // Contact section positioning
+        scrollPosition = sectionTop - navbarHeight - 30;
+        break;
+      default:
+        scrollPosition = sectionTop - navbarHeight - 20;
     }
     
-    // Scroll with smooth behavior
+    // Perform smooth scroll
     window.scrollTo({
-      top: sectionPosition - offset,
+      top: scrollPosition,
       behavior: "smooth"
     });
   };
