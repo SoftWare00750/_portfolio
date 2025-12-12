@@ -274,7 +274,7 @@ display: flex;
 .hero-image {
   position: absolute;
   right: 0;
-  top: 160%;
+  top: 120%;
   transform: translateY(-50%);
   object-fit: contain;
   height: 480%;
