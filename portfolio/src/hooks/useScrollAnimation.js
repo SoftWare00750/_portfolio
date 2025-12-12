@@ -3,15 +3,10 @@ import { useEffect } from 'react';
 export const useScrollAnimation = () => {
   useEffect(() => {
     // Animate navbar on page load with proper timing
-    const animateNavbar = () => {
-      const navbar = document.querySelector('.navbar');
-      if (navbar) {
-        // Small delay to ensure DOM is ready
-        setTimeout(() => {
-          navbar.classList.add('animate');
-        }, 150);
-      }
-    };
+    const heroImage = document.querySelector('.hero-image');
+window.onload = () => {
+  heroImage.classList.add('animate');
+};
 
     // Animate hero section on page load
     const animateHero = () => {
