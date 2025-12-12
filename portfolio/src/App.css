@@ -86,7 +86,7 @@ body {
   backdrop-filter: blur(7px);
   box-sizing: border-box;
   padding: 0;
-  padding-left: -7px;
+  padding-left: -30px;
   margin-right: 20px;
   margin: 0;
 }
