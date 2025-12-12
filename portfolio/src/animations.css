@@ -43,12 +43,11 @@
 
 /* Hero image animation - ensure it shows */
 .hero-image {
-  opacity: 0;
-  transform: translateX(-150px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  /* Ensure image is visible once animated */
-  will-change: transform, opacity;
+  opacity: 1 !important;
+  display: block !important;
+  visibility: visible !important;
 }
+
 
 .hero-image.animate {
   opacity: 1;
