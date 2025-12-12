@@ -11,15 +11,27 @@ export default function Hero() {
             <span className="last-name">Otunla</span>
           </h1>
           <span className="hero-sub">
-          <p className="hero-sub-right-fixed">
+            <p className="hero-sub-right-fixed">
               Frontend Developer 
-              </p>
-             <p className="hero-sub-right2"> <span>I handle the development, deployment</span> <br /> <span>and maintenance of your Website and App's UI, start to finish.</span> </p>
-            </span>
-             <img src="/assets/coder.png" alt="coder" className="hero-image"/>
-          
+            </p>
+            <p className="hero-sub-right2">
+              <span>I handle the development, deployment</span>
+              <br />
+              <span>and maintenance of your Website and App's UI, start to finish.</span>
+            </p>
+          </span>
+          {/* FIXED: Correct path with error handling */}
+          <img 
+            src="/assets/coder.png" 
+            alt="coder" 
+            className="hero-image"
+            onError={(e) => {
+              console.error('Hero image failed to load:', e.target.src);
+              e.target.style.display = 'none';
+            }}
+          />
         </div>
       </div>
     </section>
-  )
+  );
 }

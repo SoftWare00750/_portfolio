@@ -18,58 +18,58 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const goTo = (id) => {
+  // FIXED: Proper scroll function with correct offsets
+  const scrollToSection = (sectionId) => {
     // Close mobile menu
     setOpen(false);
     
-    const el = document.getElementById(id);
-    if (el) {
-      // Get the navbar height
-      const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 70;
-      
-      // Calculate the position accounting for navbar and any section padding
-      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-      
-      // Offset adjustments for each section based on your CSS
-      let offset = navbarHeight;
-      
-      if (id === "home") {
-        offset = 0; // Scroll to very top for home
-      } else if (id === "projects") {
-        offset = navbarHeight + 100; // Account for large top padding
-      } else if (id === "about") {
-        offset = navbarHeight + 80;
-      } else if (id === "skills") {
-        offset = navbarHeight + 80;
-      } else if (id === "contact") {
-        offset = navbarHeight + 60;
-      }
-      
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: "smooth"
-      });
+    const section = document.getElementById(sectionId);
+    if (!section) {
+      console.error(`Section with id "${sectionId}" not found`);
+      return;
     }
-  };
 
-  // Handle clicks with proper event handling
-  const handleNavClick = (id, e) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    // Get navbar height
+    const navbar = document.querySelector('.navbar');
+    const navbarHeight = navbar ? navbar.offsetHeight : 70;
+    
+    // Get section position
+    const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+    
+    // Different offsets for different sections
+    let offset = navbarHeight;
+    
+    if (sectionId === "home") {
+      offset = 0; // Scroll to very top
+    } else if (sectionId === "projects") {
+      offset = navbarHeight + 20; // Extra space for projects
+    } else if (sectionId === "about") {
+      offset = navbarHeight + 20;
+    } else if (sectionId === "skills") {
+      offset = navbarHeight + 20;
+    } else if (sectionId === "contact") {
+      offset = navbarHeight + 20;
     }
-    goTo(id);
+    
+    // Scroll with smooth behavior
+    window.scrollTo({
+      top: sectionPosition - offset,
+      behavior: "smooth"
+    });
   };
 
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
+        {/* Logo - Click to go home */}
         <div 
           className="brand" 
-          onClick={(e) => handleNavClick("home", e)}
+          onClick={() => scrollToSection("home")}
           style={{ cursor: 'pointer' }}
         >
-          <div className="logo-circle"><p>O</p></div>
+          <div className="logo-circle">
+            <p>O</p>
+          </div>
         </div>
 
         {/* Hamburger Icon */}
@@ -84,14 +84,15 @@ export default function Navbar() {
 
         {/* Navigation Menu */}
         <nav className={`nav ${open ? "open" : ""}`}>
-          {navItems.map((n) => (
+          {navItems.map((item) => (
             <button
-              key={n.id}
-              className={n.className ? n.className : "nav-link"}
-              onClick={(e) => handleNavClick(n.id, e)}
+              key={item.id}
+              className={item.className || "nav-link"}
+              onClick={() => scrollToSection(item.id)}
               type="button"
+              aria-label={`Navigate to ${item.label}`}
             >
-              {n.label}
+              {item.label}
             </button>
           ))}
         </nav>
