@@ -15,7 +15,6 @@ export const useScrollAnimation = () => {
       const heroName = document.querySelector('.hero-name');
       const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
       const heroSub2 = document.querySelector('.hero-sub-right2');
-      const heroImage = document.querySelector('.hero-image');
 
       if (heroName) {
         setTimeout(() => heroName.classList.add('animate'), 400);
@@ -26,10 +25,7 @@ export const useScrollAnimation = () => {
       if (heroSub2) {
         setTimeout(() => heroSub2.classList.add('animate'), 600);
       }
-      // Immediately add animate class to hero image (no scroll trigger)
-      if (heroImage) {
-        heroImage.classList.add('animate');
-      }
+      // Hero image will be animated by scroll observer
     };
 
     // Observer for scroll-triggered animations for other sections
@@ -71,6 +67,10 @@ export const useScrollAnimation = () => {
       // Observe all section titles
       const sectionTitles = document.querySelectorAll('.section-title');
       sectionTitles.forEach(title => observer.observe(title));
+
+      // Observe hero image for scroll animation
+      const heroImage = document.querySelector('.hero-image');
+      if (heroImage) observer.observe(heroImage);
 
       // Observe specific sections
       const projectsGrid = document.querySelector('.projects-grid');
