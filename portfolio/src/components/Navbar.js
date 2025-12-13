@@ -22,29 +22,27 @@ export default function Navbar() {
     // Close mobile menu immediately
     setOpen(false);
     
-    // Special handling for home - scroll to top
-    if (sectionId === "home") {
-      // Force scroll to top with multiple methods
-      setTimeout(() => {
-        // Method 1: Direct window.scrollTo
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth"
-        });
-        
-        // Method 2: Fallback in case smooth scroll fails
-        setTimeout(() => {
-          if (window.pageYOffset > 10) {
-            window.scrollTo(0, 0);
-          }
-        }, 1000);
-      }, 50);
-      return;
-    }
-
     // Small delay to let menu close
     setTimeout(() => {
+      // Special handling for home - scroll to top
+      if (sectionId === "home") {
+        const homeSection = document.getElementById("home");
+        if (homeSection) {
+          homeSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        } else {
+          // Fallback to window scroll
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }
+        return;
+      }
+
       const section = document.getElementById(sectionId);
       
       if (!section) {
