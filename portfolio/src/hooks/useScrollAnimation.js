@@ -64,32 +64,9 @@ export const useScrollAnimation = () => {
         });
       }, observerOptions);
 
-      // Special observer for hero image with different threshold
-      const heroImageOptions = {
-        threshold: 0,
-        rootMargin: '3px 0px -100% 0px', // Only trigger when 20px past the top
-      };
-
-      const heroImageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          // Only animate when scrolling DOWN and image is 20px past viewport top
-          if (!entry.isIntersecting && entry.boundingClientRect.top < -3) {
-            const heroImage = document.querySelector('.hero-image');
-            if (heroImage && !heroImage.classList.contains('animate')) {
-              heroImage.classList.add('animate');
-              heroImageObserver.unobserve(entry.target);
-            }
-          }
-        });
-      }, heroImageOptions);
-
       // Observe all section titles
       const sectionTitles = document.querySelectorAll('.section-title');
       sectionTitles.forEach(title => observer.observe(title));
-
-      // Observe hero image with special observer
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) heroImageObserver.observe(heroImage);
 
       // Observe specific sections
       const projectsGrid = document.querySelector('.projects-grid');
@@ -107,18 +84,52 @@ export const useScrollAnimation = () => {
       const footer = document.querySelector('.footer');
       if (footer) observer.observe(footer);
 
-      return { observer, heroImageObserver };
+      return observer;
+    };
+
+    // Hero image scroll handler - triggers after scrolling past hero-sub-right-fixed
+    const handleHeroImageScroll = () => {
+      const heroImage = document.querySelector('.hero-image');
+      const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
+      
+      if (!heroImage || !heroSubFixed) {
+        return;
+      }
+
+      let hasAnimated = false;
+
+      const checkScroll = () => {
+        if (hasAnimated) return;
+
+        // Get the bottom position of hero-sub-right-fixed
+        const heroSubFixedRect = heroSubFixed.getBoundingClientRect();
+        const heroSubFixedBottom = heroSubFixedRect.bottom;
+
+        // Trigger animation when we've scrolled past the bottom of hero-sub-right-fixed
+        if (heroSubFixedBottom < 0) {
+          heroImage.classList.add('animate');
+          hasAnimated = true;
+          window.removeEventListener('scroll', checkScroll);
+        }
+      };
+
+      window.addEventListener('scroll', checkScroll);
+      // Check immediately in case already scrolled
+      checkScroll();
+
+      return checkScroll;
     };
 
     // Initialize all animations after a brief delay
     const timer = setTimeout(() => {
       animateNavbar();
       animateHero();
-      const observers = createScrollObserver();
+      const observer = createScrollObserver();
+      const heroImageScrollHandler = handleHeroImageScroll();
 
       // Store for cleanup
-      window.__scrollObserver = observers.observer;
-      window.__heroImageObserver = observers.heroImageObserver;
+      window.__scrollObserver = observer;
+      window.__heroImageScrollHandler = heroImageScrollHandler;
     }, 100);
 
     // Cleanup
@@ -127,8 +138,8 @@ export const useScrollAnimation = () => {
       if (window.__scrollObserver) {
         window.__scrollObserver.disconnect();
       }
-      if (window.__heroImageObserver) {
-        window.__heroImageObserver.disconnect();
+      if (window.__heroImageScrollHandler) {
+        window.removeEventListener('scroll', window.__heroImageScrollHandler);
       }
     };
   }, []);
