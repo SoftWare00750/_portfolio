@@ -98,16 +98,31 @@ export const useScrollAnimation = () => {
       if (hasAnimated) return;
 
       const heroImage = document.querySelector('.hero-image');
-      if (!heroImage) return;
+      if (!heroImage) {
+        console.log('Hero image element not found');
+        return;
+      }
 
-      const scrollY = window.pageYOffset || window.scrollY;
+      // Get the actual position of the hero image on the page
+      const imageRect = heroImage.getBoundingClientRect();
+      const imageTopRelativeToViewport = imageRect.top;
+      const windowHeight = window.innerHeight;
       
-      // Trigger after just 2px of scrolling down
-      if (scrollY > 2) {
-        console.log('ANIMATING HERO IMAGE at scrollY:', scrollY);
+      // Animate when the TOP of the image is visible in the viewport
+      // or when it's about to enter (within 100px of bottom of viewport)
+      const isImageVisible = imageTopRelativeToViewport < windowHeight - 100;
+      
+      console.log('Hero image check:', {
+        imageTop: imageTopRelativeToViewport,
+        windowHeight: windowHeight,
+        isVisible: isImageVisible,
+        scrollY: window.pageYOffset
+      });
+      
+      if (isImageVisible) {
+        console.log('ANIMATING HERO IMAGE NOW!');
         heroImage.classList.add('animate');
         hasAnimated = true;
-        // Remove listener after animating since we don't need it anymore
         window.removeEventListener('scroll', handleHeroImageScroll);
       }
     };
