@@ -24,12 +24,21 @@ export default function Navbar() {
     
     // Special handling for home - scroll to top
     if (sectionId === "home") {
-      // Small delay to let menu close on mobile
+      // Force scroll to top with multiple methods
       setTimeout(() => {
+        // Method 1: Direct window.scrollTo
         window.scrollTo({
           top: 0,
+          left: 0,
           behavior: "smooth"
         });
+        
+        // Method 2: Fallback in case smooth scroll fails
+        setTimeout(() => {
+          if (window.pageYOffset > 10) {
+            window.scrollTo(0, 0);
+          }
+        }, 1000);
       }, 50);
       return;
     }
