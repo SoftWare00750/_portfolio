@@ -67,13 +67,13 @@ export const useScrollAnimation = () => {
       // Special observer for hero image with different threshold
       const heroImageOptions = {
         threshold: 0,
-        rootMargin: '20px 0px -100% 0px', // Only trigger when 20px past the top
+        rootMargin: '3px 0px -100% 0px', // Only trigger when 20px past the top
       };
 
       const heroImageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           // Only animate when scrolling DOWN and image is 20px past viewport top
-          if (!entry.isIntersecting && entry.boundingClientRect.top < -20) {
+          if (!entry.isIntersecting && entry.boundingClientRect.top < -3) {
             const heroImage = document.querySelector('.hero-image');
             if (heroImage && !heroImage.classList.contains('animate')) {
               heroImage.classList.add('animate');
