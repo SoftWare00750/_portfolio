@@ -97,9 +97,11 @@ export const useScrollAnimation = () => {
       const heroImage = document.querySelector('.hero-image');
       
       if (!heroImage) {
+        console.log('Hero image not found!');
         return null;
       }
 
+      console.log('Hero image found, setting up scroll handler');
       let hasAnimated = false;
 
       const checkScroll = () => {
@@ -112,10 +114,17 @@ export const useScrollAnimation = () => {
         const viewportHeight = window.innerHeight;
         
         // Trigger when user scrolls down 60% of one viewport height
-        // This should be early in the hero section, after initial text
         const triggerPoint = viewportHeight * 0.6;
         
+        console.log('Scroll check:', {
+          scrollY: scrollY,
+          viewportHeight: viewportHeight,
+          triggerPoint: triggerPoint,
+          shouldTrigger: scrollY > triggerPoint
+        });
+        
         if (scrollY > triggerPoint) {
+          console.log('ANIMATING HERO IMAGE NOW!');
           heroImage.classList.add('animate');
           hasAnimated = true;
           window.removeEventListener('scroll', checkScroll);
@@ -123,6 +132,7 @@ export const useScrollAnimation = () => {
       };
 
       window.addEventListener('scroll', checkScroll);
+      console.log('Scroll listener added');
       // Check immediately in case already scrolled
       checkScroll();
 
