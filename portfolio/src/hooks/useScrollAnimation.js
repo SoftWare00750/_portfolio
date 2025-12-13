@@ -93,6 +93,7 @@ export const useScrollAnimation = () => {
 
     // Special scroll handler for hero-image
     let hasAnimated = false;
+    let initialCheck = true; // Flag to skip initial check
     
     const handleHeroImageScroll = () => {
       if (hasAnimated) return;
@@ -103,24 +104,25 @@ export const useScrollAnimation = () => {
         return;
       }
 
+      // Skip the initial check on page load
+      if (initialCheck) {
+        initialCheck = false;
+        console.log('Initial check - skipping animation');
+        return;
+      }
+
       // Get the actual position of the hero image on the page
       const imageRect = heroImage.getBoundingClientRect();
       const imageTopRelativeToViewport = imageRect.top;
-      const windowHeight = window.innerHeight;
-      
-      // Animate when the TOP of the image is visible in the viewport
-      // or when it's about to enter (within 100px of bottom of viewport)
-      const isImageVisible = imageTopRelativeToViewport < windowHeight - 100;
       
       console.log('Hero image check:', {
         imageTop: imageTopRelativeToViewport,
-        windowHeight: windowHeight,
-        isVisible: isImageVisible,
         scrollY: window.pageYOffset
       });
       
-      if (isImageVisible) {
-        console.log('ANIMATING HERO IMAGE NOW!');
+      // Animate when imageTopRelativeToViewport reaches 400px or less
+      if (imageTopRelativeToViewport <= 400) {
+        console.log('ANIMATING HERO IMAGE NOW! imageTop:', imageTopRelativeToViewport);
         heroImage.classList.add('animate');
         hasAnimated = true;
         window.removeEventListener('scroll', handleHeroImageScroll);
