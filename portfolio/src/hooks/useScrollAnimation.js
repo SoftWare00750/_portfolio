@@ -64,13 +64,32 @@ export const useScrollAnimation = () => {
         });
       }, observerOptions);
 
+      // Special observer for hero image with different threshold
+      const heroImageOptions = {
+        threshold: 0,
+        rootMargin: '20px 0px -100% 0px', // Only trigger when 20px past the top
+      };
+
+      const heroImageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // Only animate when scrolling DOWN and image is 20px past viewport top
+          if (!entry.isIntersecting && entry.boundingClientRect.top < -20) {
+            const heroImage = document.querySelector('.hero-image');
+            if (heroImage && !heroImage.classList.contains('animate')) {
+              heroImage.classList.add('animate');
+              heroImageObserver.unobserve(entry.target);
+            }
+          }
+        });
+      }, heroImageOptions);
+
       // Observe all section titles
       const sectionTitles = document.querySelectorAll('.section-title');
       sectionTitles.forEach(title => observer.observe(title));
 
-      // Observe hero image for scroll animation
+      // Observe hero image with special observer
       const heroImage = document.querySelector('.hero-image');
-      if (heroImage) observer.observe(heroImage);
+      if (heroImage) heroImageObserver.observe(heroImage);
 
       // Observe specific sections
       const projectsGrid = document.querySelector('.projects-grid');
@@ -88,17 +107,18 @@ export const useScrollAnimation = () => {
       const footer = document.querySelector('.footer');
       if (footer) observer.observe(footer);
 
-      return observer;
+      return { observer, heroImageObserver };
     };
 
     // Initialize all animations after a brief delay
     const timer = setTimeout(() => {
       animateNavbar();
       animateHero();
-      const observer = createScrollObserver();
+      const observers = createScrollObserver();
 
       // Store for cleanup
-      window.__scrollObserver = observer;
+      window.__scrollObserver = observers.observer;
+      window.__heroImageObserver = observers.heroImageObserver;
     }, 100);
 
     // Cleanup
@@ -106,6 +126,9 @@ export const useScrollAnimation = () => {
       clearTimeout(timer);
       if (window.__scrollObserver) {
         window.__scrollObserver.disconnect();
+      }
+      if (window.__heroImageObserver) {
+        window.__heroImageObserver.disconnect();
       }
     };
   }, []);
