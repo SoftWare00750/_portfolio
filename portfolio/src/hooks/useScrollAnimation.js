@@ -25,7 +25,6 @@ export const useScrollAnimation = () => {
       if (heroSub2) {
         setTimeout(() => heroSub2.classList.add('animate'), 600);
       }
-      // Hero image will be animated by scroll observer
     };
 
     // Observer for scroll-triggered animations for other sections
@@ -93,50 +92,24 @@ export const useScrollAnimation = () => {
     };
 
     // Special scroll handler for hero-image
-    const createHeroImageScrollHandler = () => {
+    let hasAnimated = false;
+    
+    const handleHeroImageScroll = () => {
+      if (hasAnimated) return;
+
       const heroImage = document.querySelector('.hero-image');
+      if (!heroImage) return;
+
+      const scrollY = window.pageYOffset || window.scrollY;
       
-      if (!heroImage) {
-        console.log('Hero image not found!');
-        return null;
+      // Trigger after just 2px of scrolling down
+      if (scrollY > 2) {
+        console.log('ANIMATING HERO IMAGE at scrollY:', scrollY);
+        heroImage.classList.add('animate');
+        hasAnimated = true;
+        // Remove listener after animating since we don't need it anymore
+        window.removeEventListener('scroll', handleHeroImageScroll);
       }
-
-      console.log('Hero image found, setting up scroll handler');
-      let hasAnimated = false;
-
-      const checkScroll = () => {
-        if (hasAnimated) return;
-
-        // Get current scroll position from top of page
-        const scrollY = window.pageYOffset || window.scrollY;
-        
-        // Get viewport height
-        const viewportHeight = window.innerHeight;
-        
-        // Trigger when user scrolls down 60% of one viewport height
-        const triggerPoint = viewportHeight * 0.6;
-        
-        console.log('Scroll check:', {
-          scrollY: scrollY,
-          viewportHeight: viewportHeight,
-          triggerPoint: triggerPoint,
-          shouldTrigger: scrollY > triggerPoint
-        });
-        
-        if (scrollY > triggerPoint) {
-          console.log('ANIMATING HERO IMAGE NOW!');
-          heroImage.classList.add('animate');
-          hasAnimated = true;
-          window.removeEventListener('scroll', checkScroll);
-        }
-      };
-
-      window.addEventListener('scroll', checkScroll);
-      console.log('Scroll listener added');
-      // Check immediately in case already scrolled
-      checkScroll();
-
-      return checkScroll;
     };
 
     // Initialize all animations after a brief delay
@@ -144,11 +117,16 @@ export const useScrollAnimation = () => {
       animateNavbar();
       animateHero();
       const observer = createScrollObserver();
-      const heroImageScrollHandler = createHeroImageScrollHandler();
 
-      // Store for cleanup - store the handler reference correctly
+      // Add scroll listener for hero image
+      window.addEventListener('scroll', handleHeroImageScroll, { passive: true });
+      console.log('Hero image scroll listener attached');
+      
+      // Check immediately in case already scrolled
+      handleHeroImageScroll();
+
+      // Store for cleanup
       window.__scrollObserver = observer;
-      window.__heroImageScrollHandlerRef = heroImageScrollHandler;
     }, 100);
 
     // Cleanup
@@ -157,9 +135,8 @@ export const useScrollAnimation = () => {
       if (window.__scrollObserver) {
         window.__scrollObserver.disconnect();
       }
-      if (window.__heroImageScrollHandlerRef) {
-        window.removeEventListener('scroll', window.__heroImageScrollHandlerRef);
-      }
+      window.removeEventListener('scroll', handleHeroImageScroll);
+      console.log('Cleanup: scroll listener removed');
     };
   }, []);
 };
