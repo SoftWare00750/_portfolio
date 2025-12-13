@@ -19,7 +19,7 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    // Close mobile menu
+    // Close mobile menu immediately
     setOpen(false);
     
     // Special handling for home - scroll to top
@@ -31,12 +31,17 @@ export default function Navbar() {
       return;
     }
 
-    // Small delay to ensure mobile menu closes
-    setTimeout(() => {
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
       const section = document.getElementById(sectionId);
       
       if (!section) {
         console.error(`Section with id "${sectionId}" not found`);
+        // Try direct anchor navigation as fallback
+        const anchor = document.querySelector(`#${sectionId}`);
+        if (anchor) {
+          anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         return;
       }
 
@@ -44,16 +49,29 @@ export default function Navbar() {
       const navbar = document.querySelector('.navbar');
       const navbarHeight = navbar ? navbar.offsetHeight : 70;
       
-      // Get absolute position of section
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 80;
+      // Calculate position - use offsetTop for more reliable positioning
+      const sectionTop = section.offsetTop;
       
-      // Scroll to position
+      // Apply offset based on section
+      let additionalOffset = 80;
+      if (sectionId === "projects") {
+        additionalOffset = 150; // Accounts for negative margin-top
+      } else if (sectionId === "about") {
+        additionalOffset = 100;
+      } else if (sectionId === "skills") {
+        additionalOffset = 150; // Accounts for negative margin-top
+      } else if (sectionId === "contact") {
+        additionalOffset = 80;
+      }
+      
+      const targetPosition = sectionTop - navbarHeight - additionalOffset;
+      
+      // Scroll to calculated position
       window.scrollTo({
-        top: offsetPosition,
+        top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
         behavior: "smooth"
       });
-    }, 50);
+    });
   };
 
   return (
