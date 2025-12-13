@@ -108,20 +108,18 @@ export const useScrollAnimation = () => {
       const imageTopRelativeToViewport = imageRect.top;
       const windowHeight = window.innerHeight;
       
-      // Animate when the image top reaches the middle of the viewport (50%)
-      // This ensures user has scrolled down into the hero section
-      const triggerPoint = windowHeight * 0.5; // Middle of screen
-      const shouldAnimate = imageTopRelativeToViewport < triggerPoint;
+      // Animate when the TOP of the image is visible in the viewport
+      // or when it's about to enter (within 100px of bottom of viewport)
+      const isImageVisible = imageTopRelativeToViewport < windowHeight - 100;
       
       console.log('Hero image check:', {
         imageTop: imageTopRelativeToViewport,
         windowHeight: windowHeight,
-        triggerPoint: triggerPoint,
-        shouldAnimate: shouldAnimate,
+        isVisible: isImageVisible,
         scrollY: window.pageYOffset
       });
       
-      if (shouldAnimate) {
+      if (isImageVisible) {
         console.log('ANIMATING HERO IMAGE NOW!');
         heroImage.classList.add('animate');
         hasAnimated = true;
