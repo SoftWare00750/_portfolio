@@ -24,10 +24,13 @@ export default function Navbar() {
     
     // Special handling for home - scroll to top
     if (sectionId === "home") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      // Small delay to let menu close on mobile
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }, 50);
       return;
     }
 
