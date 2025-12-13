@@ -19,16 +19,10 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    // Close mobile menu
+    // Close mobile menu immediately
     setOpen(false);
     
-    const section = document.getElementById(sectionId);
-    if (!section) {
-      console.error(`Section with id "${sectionId}" not found`);
-      return;
-    }
-
-    // Special handling for home - scroll to top
+    // Special case for home - scroll to absolute top
     if (sectionId === "home") {
       window.scrollTo({
         top: 0,
@@ -37,41 +31,63 @@ export default function Navbar() {
       return;
     }
 
-    // Wait for any animations to complete before calculating position
+    // Small delay to ensure DOM is ready
     setTimeout(() => {
-      // Get navbar height for offset calculation
+      const section = document.getElementById(sectionId);
+      if (!section) {
+        console.error(`Section with id "${sectionId}" not found`);
+        return;
+      }
+
+      // Get navbar height
       const navbar = document.querySelector('.navbar');
       const navbarHeight = navbar ? navbar.offsetHeight : 70;
       
-      // Get section's position relative to document
-      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+      // Get the section's absolute position in the document
+      const sectionRect = section.getBoundingClientRect();
+      const sectionTop = sectionRect.top + window.pageYOffset;
       
-      // Calculate scroll position with appropriate offset for each section
-      let scrollPosition;
+      // Calculate custom offsets for each section based on their CSS
+      let finalOffset;
       
       switch(sectionId) {
         case "projects":
-          scrollPosition = sectionTop - navbarHeight - 50;
+          // Projects has margin-top: -60px and needs extra space
+          finalOffset = sectionTop - navbarHeight - 80;
           break;
+          
         case "about":
-          scrollPosition = sectionTop - navbarHeight - 40;
+          // About has margin-top: -10px
+          finalOffset = sectionTop - navbarHeight - 100;
           break;
+          
         case "skills":
-          scrollPosition = sectionTop - navbarHeight - 40;
+          // Skills has margin-top: -130px
+          finalOffset = sectionTop - navbarHeight - 50;
           break;
+          
         case "contact":
-          scrollPosition = sectionTop - navbarHeight - 30;
+          // Contact section
+          finalOffset = sectionTop - navbarHeight - 80;
           break;
+          
         default:
-          scrollPosition = sectionTop - navbarHeight - 20;
+          finalOffset = sectionTop - navbarHeight - 60;
       }
       
-      // Perform smooth scroll
+      // Perform the scroll
       window.scrollTo({
-        top: scrollPosition,
+        top: Math.max(0, finalOffset), // Prevent negative scroll
         behavior: "smooth"
       });
-    }, 100); // Small delay to ensure animations are complete
+      
+      console.log(`Scrolling to ${sectionId}:`, {
+        sectionTop,
+        navbarHeight,
+        finalOffset,
+        currentScroll: window.pageYOffset
+      });
+    }, 100);
   };
 
   return (
