@@ -146,9 +146,9 @@ export const useScrollAnimation = () => {
       const observer = createScrollObserver();
       const heroImageScrollHandler = createHeroImageScrollHandler();
 
-      // Store for cleanup
+      // Store for cleanup - store the handler reference correctly
       window.__scrollObserver = observer;
-      window.__heroImageScrollHandler = heroImageScrollHandler;
+      window.__heroImageScrollHandlerRef = heroImageScrollHandler;
     }, 100);
 
     // Cleanup
@@ -157,8 +157,8 @@ export const useScrollAnimation = () => {
       if (window.__scrollObserver) {
         window.__scrollObserver.disconnect();
       }
-      if (window.__heroImageScrollHandler) {
-        window.removeEventListener('scroll', window.__heroImageScrollHandler);
+      if (window.__heroImageScrollHandlerRef) {
+        window.removeEventListener('scroll', window.__heroImageScrollHandlerRef);
       }
     };
   }, []);
