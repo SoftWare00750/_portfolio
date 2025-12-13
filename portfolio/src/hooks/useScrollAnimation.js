@@ -36,13 +36,16 @@ export const useScrollAnimation = () => {
     const createScrollObserver = () => {
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -300px 0px',
+        rootMargin: '0px 0px -80px 0px',
       };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate');
+            
+            // Once animated, stop observing to prevent re-triggering
+            observer.unobserve(entry.target);
 
             // For parent containers, animate children
             if (entry.target.classList.contains('about-grid')) {

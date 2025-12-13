@@ -19,10 +19,10 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    // Close mobile menu immediately
+    // Close mobile menu
     setOpen(false);
     
-    // Special case for home - scroll to absolute top
+    // Special handling for home - scroll to top
     if (sectionId === "home") {
       window.scrollTo({
         top: 0,
@@ -31,9 +31,10 @@ export default function Navbar() {
       return;
     }
 
-    // Small delay to ensure DOM is ready
+    // Small delay to ensure mobile menu closes
     setTimeout(() => {
       const section = document.getElementById(sectionId);
+      
       if (!section) {
         console.error(`Section with id "${sectionId}" not found`);
         return;
@@ -43,53 +44,16 @@ export default function Navbar() {
       const navbar = document.querySelector('.navbar');
       const navbarHeight = navbar ? navbar.offsetHeight : 70;
       
-      // Get the section's absolute position in the document
-      const sectionRect = section.getBoundingClientRect();
-      const sectionTop = sectionRect.top + window.pageYOffset;
+      // Get absolute position of section
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 80;
       
-      // Calculate custom offsets for each section
-      // These are tuned based on your actual CSS margins and padding
-      let finalOffset;
-      
-      switch(sectionId) {
-        case "projects":
-          // Projects: The section title should be visible below navbar
-          finalOffset = sectionTop - navbarHeight - 30;
-          break;
-          
-        case "about":
-          // About section
-          finalOffset = sectionTop - navbarHeight - 60;
-          break;
-          
-        case "skills":
-          // Skills has large negative margin
-          finalOffset = sectionTop - navbarHeight - 20;
-          break;
-          
-        case "contact":
-          // Contact section
-          finalOffset = sectionTop - navbarHeight - 50;
-          break;
-          
-        default:
-          finalOffset = sectionTop - navbarHeight - 40;
-      }
-      
-      // Perform the scroll
+      // Scroll to position
       window.scrollTo({
-        top: Math.max(0, finalOffset),
+        top: offsetPosition,
         behavior: "smooth"
       });
-      
-      console.log(`Scrolling to ${sectionId}:`, {
-        sectionTop,
-        navbarHeight,
-        finalOffset,
-        actualScrollTo: Math.max(0, finalOffset),
-        currentScroll: window.pageYOffset
-      });
-    }, 100);
+    }, 50);
   };
 
   return (
