@@ -38,6 +38,11 @@ export const useScrollAnimation = () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
+            // Skip hero-image - it has its own scroll handler
+            if (entry.target.classList.contains('hero-image')) {
+              return;
+            }
+            
             entry.target.classList.add('animate');
             
             // Once animated, stop observing to prevent re-triggering
@@ -87,13 +92,13 @@ export const useScrollAnimation = () => {
       return observer;
     };
 
-    // Hero image scroll handler - triggers after scrolling past hero-sub-right-fixed
-    const handleHeroImageScroll = () => {
+    // Special scroll handler for hero-image
+    const createHeroImageScrollHandler = () => {
       const heroImage = document.querySelector('.hero-image');
       const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
       
       if (!heroImage || !heroSubFixed) {
-        return;
+        return null;
       }
 
       let hasAnimated = false;
@@ -101,12 +106,16 @@ export const useScrollAnimation = () => {
       const checkScroll = () => {
         if (hasAnimated) return;
 
-        // Get the bottom position of hero-sub-right-fixed
-        const heroSubFixedRect = heroSubFixed.getBoundingClientRect();
-        const heroSubFixedBottom = heroSubFixedRect.bottom;
-
-        // Trigger animation when we've scrolled past the bottom of hero-sub-right-fixed
-        if (heroSubFixedBottom < 0) {
+        // Get the position of hero-sub-right-fixed
+        const heroSubRect = heroSubFixed.getBoundingClientRect();
+        const heroSubBottom = heroSubRect.bottom + window.pageYOffset;
+        
+        // Get current scroll position
+        const scrollY = window.pageYOffset || window.scrollY;
+        
+        // Trigger animation when scrolled 300px past the bottom of hero-sub-right-fixed
+        // This ensures we're still in hero section but have scrolled enough
+        if (scrollY > heroSubBottom + 300) {
           heroImage.classList.add('animate');
           hasAnimated = true;
           window.removeEventListener('scroll', checkScroll);
@@ -125,7 +134,7 @@ export const useScrollAnimation = () => {
       animateNavbar();
       animateHero();
       const observer = createScrollObserver();
-      const heroImageScrollHandler = handleHeroImageScroll();
+      const heroImageScrollHandler = createHeroImageScrollHandler();
 
       // Store for cleanup
       window.__scrollObserver = observer;
