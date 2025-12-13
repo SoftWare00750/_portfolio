@@ -95,9 +95,8 @@ export const useScrollAnimation = () => {
     // Special scroll handler for hero-image
     const createHeroImageScrollHandler = () => {
       const heroImage = document.querySelector('.hero-image');
-      const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
       
-      if (!heroImage || !heroSubFixed) {
+      if (!heroImage) {
         return null;
       }
 
@@ -106,16 +105,17 @@ export const useScrollAnimation = () => {
       const checkScroll = () => {
         if (hasAnimated) return;
 
-        // Get the position of hero-sub-right-fixed
-        const heroSubRect = heroSubFixed.getBoundingClientRect();
-        const heroSubBottom = heroSubRect.bottom + window.pageYOffset;
-        
-        // Get current scroll position
+        // Get current scroll position from top of page
         const scrollY = window.pageYOffset || window.scrollY;
         
-        // Trigger animation when scrolled 300px past the bottom of hero-sub-right-fixed
-        // This ensures we're still in hero section but have scrolled enough
-        if (scrollY > heroSubBottom + 300) {
+        // Get viewport height
+        const viewportHeight = window.innerHeight;
+        
+        // Trigger when user scrolls down 60% of one viewport height
+        // This should be early in the hero section, after initial text
+        const triggerPoint = viewportHeight * 0.6;
+        
+        if (scrollY > triggerPoint) {
           heroImage.classList.add('animate');
           hasAnimated = true;
           window.removeEventListener('scroll', checkScroll);
