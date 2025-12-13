@@ -47,37 +47,38 @@ export default function Navbar() {
       const sectionRect = section.getBoundingClientRect();
       const sectionTop = sectionRect.top + window.pageYOffset;
       
-      // Calculate custom offsets for each section based on their CSS
+      // Calculate custom offsets for each section
+      // These are tuned based on your actual CSS margins and padding
       let finalOffset;
       
       switch(sectionId) {
         case "projects":
-          // Projects has margin-top: -60px and needs extra space
-          finalOffset = sectionTop - navbarHeight - 80;
+          // Projects: The section title should be visible below navbar
+          finalOffset = sectionTop - navbarHeight - 30;
           break;
           
         case "about":
-          // About has margin-top: -10px
-          finalOffset = sectionTop - navbarHeight - 100;
+          // About section
+          finalOffset = sectionTop - navbarHeight - 60;
           break;
           
         case "skills":
-          // Skills has margin-top: -130px
-          finalOffset = sectionTop - navbarHeight - 50;
+          // Skills has large negative margin
+          finalOffset = sectionTop - navbarHeight - 20;
           break;
           
         case "contact":
           // Contact section
-          finalOffset = sectionTop - navbarHeight - 80;
+          finalOffset = sectionTop - navbarHeight - 50;
           break;
           
         default:
-          finalOffset = sectionTop - navbarHeight - 60;
+          finalOffset = sectionTop - navbarHeight - 40;
       }
       
       // Perform the scroll
       window.scrollTo({
-        top: Math.max(0, finalOffset), // Prevent negative scroll
+        top: Math.max(0, finalOffset),
         behavior: "smooth"
       });
       
@@ -85,6 +86,7 @@ export default function Navbar() {
         sectionTop,
         navbarHeight,
         finalOffset,
+        actualScrollTo: Math.max(0, finalOffset),
         currentScroll: window.pageYOffset
       });
     }, 100);
