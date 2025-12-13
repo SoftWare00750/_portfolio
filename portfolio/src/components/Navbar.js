@@ -31,47 +31,38 @@ export default function Navbar() {
       return;
     }
 
-    // Use requestAnimationFrame to ensure DOM is ready
-    requestAnimationFrame(() => {
+    // Small delay to let menu close
+    setTimeout(() => {
       const section = document.getElementById(sectionId);
       
       if (!section) {
         console.error(`Section with id "${sectionId}" not found`);
-        // Try direct anchor navigation as fallback
-        const anchor = document.querySelector(`#${sectionId}`);
-        if (anchor) {
-          anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
         return;
       }
 
-      // Get navbar height
-      const navbar = document.querySelector('.navbar');
-      const navbarHeight = navbar ? navbar.offsetHeight : 70;
-      
-      // Calculate position - use offsetTop for more reliable positioning
-      const sectionTop = section.offsetTop;
-      
-      // Apply offset based on section
-      let additionalOffset = 80;
-      if (sectionId === "projects") {
-        additionalOffset = 150; // Accounts for negative margin-top
-      } else if (sectionId === "about") {
-        additionalOffset = 100;
-      } else if (sectionId === "skills") {
-        additionalOffset = 150; // Accounts for negative margin-top
-      } else if (sectionId === "contact") {
-        additionalOffset = 80;
-      }
-      
-      const targetPosition = sectionTop - navbarHeight - additionalOffset;
-      
-      // Scroll to calculated position
-      window.scrollTo({
-        top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
-        behavior: "smooth"
+      // Use scrollIntoView for more reliable scrolling
+      section.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
       });
-    });
+      
+      // Then adjust for navbar height
+      setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 70;
+        const scrolledY = window.pageYOffset;
+        
+        // Additional offset for spacing
+        const additionalOffset = 20;
+        
+        if (scrolledY) {
+          window.scrollTo({
+            top: scrolledY - navbarHeight - additionalOffset,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }, 50);
   };
 
   return (
