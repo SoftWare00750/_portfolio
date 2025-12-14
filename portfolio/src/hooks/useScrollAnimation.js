@@ -28,9 +28,32 @@ export const useScrollAnimation = () => {
       if (heroSub2) {
         setTimeout(() => heroSub2.classList.add('animate'), 600);
       }
-      // Animate hero-image on page load with delay
+      
+      // FIXED: Force hero-image to be visible first, then animate
       if (heroImage) {
-        setTimeout(() => heroImage.classList.add('animate'), 800);
+        // Ensure the image is loaded before animating
+        if (heroImage.complete) {
+          // Image already loaded
+          setTimeout(() => {
+            heroImage.style.opacity = '0'; // Set initial state
+            heroImage.classList.add('animate');
+          }, 800);
+        } else {
+          // Wait for image to load
+          heroImage.addEventListener('load', () => {
+            setTimeout(() => {
+              heroImage.style.opacity = '0';
+              heroImage.classList.add('animate');
+            }, 800);
+          });
+          
+          // Fallback in case image fails to load
+          heroImage.addEventListener('error', () => {
+            console.error('Hero image failed to load');
+            heroImage.style.display = 'block';
+            heroImage.style.opacity = '1';
+          });
+        }
       }
     };
 
@@ -96,7 +119,7 @@ export const useScrollAnimation = () => {
     // Initialize all animations after a brief delay
     const timer = setTimeout(() => {
       animateNavbar();
-      animateHero(); // This now includes hero-image animation
+      animateHero();
       createScrollObserver();
     }, 100);
 
