@@ -44,16 +44,16 @@
   transform: translateX(0);
 }
 
-/* FIXED: Hero image animation that preserves positioning transform */
+/* UPDATED: Hero image drops down from 5px above */
 .hero-image {
   opacity: 0;
-  transition: opacity 0.6s ease-out;
-  /* Don't use transform here - it conflicts with App.css positioning */
+  transform: translateY(-5px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .hero-image.animate {
   opacity: 1;
-  /* transform is NOT changed - keeps the translateY(-50%) from App.css */
+  transform: translateY(0);
 }
 
 /* Section title animations */
@@ -202,15 +202,16 @@
     transform: translateX(50px);
   }
   
-  /* Hero image - simpler animation for mobile - only fade */
+  /* Hero image - slide from left on mobile too */
   .hero-image {
     opacity: 0;
-    transition: opacity 0.6s ease-out;
+    transform: translateX(-150px);
+    transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
   }
   
   .hero-image.animate {
     opacity: 1;
-    /* No transform change on mobile either */
+    transform: translateX(0);
   }
   
   /* All projects animate from bottom on mobile */

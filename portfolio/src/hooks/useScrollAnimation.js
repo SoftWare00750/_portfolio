@@ -1,145 +1,111 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export const useScrollAnimation = () => {
-  const setupComplete = useRef(false);
-  
   useEffect(() => {
-    try {
-      // Prevent double-execution in React StrictMode
-      if (setupComplete.current) {
-        return;
+    console.log('🔵 useScrollAnimation effect started');
+    
+    // Animate navbar on page load
+    const animateNavbar = () => {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) {
+        navbar.classList.add('animate');
       }
-      
-      setupComplete.current = true;
-      
-      // Animate navbar on page load
-      const animateNavbar = () => {
-        const navbar = document.querySelector('.navbar');
-        if (navbar) {
-          navbar.classList.add('animate');
-        }
+    };
+
+    // Animate hero section on page load (including hero-image)
+    const animateHero = () => {
+      const heroName = document.querySelector('.hero-name');
+      const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
+      const heroSub2 = document.querySelector('.hero-sub-right2');
+      const heroImage = document.querySelector('.hero-image');
+
+      if (heroName) {
+        setTimeout(() => heroName.classList.add('animate'), 400);
+      }
+      if (heroSubFixed) {
+        setTimeout(() => heroSubFixed.classList.add('animate'), 600);
+      }
+      if (heroSub2) {
+        setTimeout(() => heroSub2.classList.add('animate'), 600);
+      }
+      // Animate hero-image on page load with delay
+      if (heroImage) {
+        setTimeout(() => heroImage.classList.add('animate'), 800);
+      }
+    };
+
+    // Observer for scroll-triggered animations for other sections
+    const createScrollObserver = () => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px',
       };
 
-      // Animate hero section on page load
-      const animateHero = () => {
-        const heroName = document.querySelector('.hero-name');
-        const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
-        const heroSub2 = document.querySelector('.hero-sub-right2');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            
+            // Once animated, stop observing to prevent re-triggering
+            observer.unobserve(entry.target);
 
-        if (heroName) {
-          setTimeout(() => heroName.classList.add('animate'), 400);
-        }
-        if (heroSubFixed) {
-          setTimeout(() => heroSubFixed.classList.add('animate'), 600);
-        }
-        if (heroSub2) {
-          setTimeout(() => heroSub2.classList.add('animate'), 600);
-        }
-      };
-
-      // Observer for scroll-triggered animations for other sections
-      const createScrollObserver = () => {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -80px 0px',
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Skip hero-image - it has its own scroll handler
-              if (entry.target.classList.contains('hero-image')) {
-                return;
-              }
-              
-              entry.target.classList.add('animate');
-              observer.unobserve(entry.target);
-
-              // For parent containers, animate children
-              if (entry.target.classList.contains('about-grid')) {
-                const aboutText = entry.target.querySelector('.about-text');
-                const aboutImage = entry.target.querySelector('.about-image');
-                if (aboutText) aboutText.classList.add('animate');
-                if (aboutImage) aboutImage.classList.add('animate');
-              }
-
-              if (entry.target.classList.contains('skills-grid')) {
-                const skillItems = entry.target.querySelectorAll('.skill-item');
-                skillItems.forEach(item => item.classList.add('animate'));
-              }
-
-              if (entry.target.classList.contains('projects-grid')) {
-                const projectCards = entry.target.querySelectorAll('.project-card');
-                projectCards.forEach(card => card.classList.add('animate'));
-              }
+            // For parent containers, animate children
+            if (entry.target.classList.contains('about-grid')) {
+              const aboutText = entry.target.querySelector('.about-text');
+              const aboutImage = entry.target.querySelector('.about-image');
+              if (aboutText) aboutText.classList.add('animate');
+              if (aboutImage) aboutImage.classList.add('animate');
             }
-          });
-        }, observerOptions);
 
-        // Observe all section titles
-        const sectionTitles = document.querySelectorAll('.section-title');
-        sectionTitles.forEach(title => observer.observe(title));
+            if (entry.target.classList.contains('skills-grid')) {
+              const skillItems = entry.target.querySelectorAll('.skill-item');
+              skillItems.forEach(item => item.classList.add('animate'));
+            }
 
-        // Observe specific sections
-        const projectsGrid = document.querySelector('.projects-grid');
-        if (projectsGrid) observer.observe(projectsGrid);
+            if (entry.target.classList.contains('projects-grid')) {
+              const projectCards = entry.target.querySelectorAll('.project-card');
+              projectCards.forEach(card => card.classList.add('animate'));
+            }
+          }
+        });
+      }, observerOptions);
 
-        const aboutGrid = document.querySelector('.about-grid');
-        if (aboutGrid) observer.observe(aboutGrid);
+      // Observe all section titles
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => observer.observe(title));
 
-        const skillsGrid = document.querySelector('.skills-grid');
-        if (skillsGrid) observer.observe(skillsGrid);
+      // Observe specific sections
+      const projectsGrid = document.querySelector('.projects-grid');
+      if (projectsGrid) observer.observe(projectsGrid);
 
-        const contactContainer = document.querySelector('.contact-container');
-        if (contactContainer) observer.observe(contactContainer);
+      const aboutGrid = document.querySelector('.about-grid');
+      if (aboutGrid) observer.observe(aboutGrid);
 
-        const footer = document.querySelector('.footer');
-        if (footer) observer.observe(footer);
+      const skillsGrid = document.querySelector('.skills-grid');
+      if (skillsGrid) observer.observe(skillsGrid);
 
-        return observer;
-      };
+      const contactContainer = document.querySelector('.contact-container');
+      if (contactContainer) observer.observe(contactContainer);
 
-      // Hero image scroll animation - triggers at 400px
-      let hasAnimated = false;
-      
-      const handleHeroImageScroll = () => {
-        if (hasAnimated) return;
+      const footer = document.querySelector('.footer');
+      if (footer) observer.observe(footer);
 
-        const heroImage = document.querySelector('.hero-image');
-        if (!heroImage) return;
+      return observer;
+    };
 
-        const imageRect = heroImage.getBoundingClientRect();
-        const imageTopRelativeToViewport = imageRect.top;
-        const scrollY = window.pageYOffset;
-        
-        // Animate when imageTop reaches 400px or less AND user has scrolled
-        if (imageTopRelativeToViewport <= 700 && scrollY > 0) {
-          heroImage.classList.add('animate');
-          hasAnimated = true;
-          window.removeEventListener('scroll', handleHeroImageScroll);
-        }
-      };
+    // Initialize all animations after a brief delay
+    const timer = setTimeout(() => {
+      animateNavbar();
+      animateHero(); // This now includes hero-image animation
+      createScrollObserver();
+    }, 100);
 
-      // Initialize all animations
-      const timer = setTimeout(() => {
-        animateNavbar();
-        animateHero();
-        createScrollObserver();
-        
-        // Attach scroll listener for hero image
-        window.addEventListener('scroll', handleHeroImageScroll, { passive: true });
-      }, 100);
-
-      // Cleanup
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener('scroll', handleHeroImageScroll);
-      };
-      
-    } catch (error) {
-      console.error('Error in useScrollAnimation:', error);
-    }
-  }, []);
+    // Cleanup function
+    return () => {
+      console.log('🔴 Cleanup running');
+      clearTimeout(timer);
+    };
+  }, []); // Empty dependency array - only run once
 };
 
 export default useScrollAnimation;
