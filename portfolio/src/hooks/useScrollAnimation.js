@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 
 export const useScrollAnimation = () => {
   useEffect(() => {
+    console.log('🔵 useScrollAnimation effect started');
+    
     // Animate navbar on page load
     const animateNavbar = () => {
       const navbar = document.querySelector('.navbar');
@@ -91,41 +93,42 @@ export const useScrollAnimation = () => {
       return observer;
     };
 
-    // Special scroll handler for hero-image
+    // Special scroll handler for hero-image - MOVED INSIDE useEffect
     let hasAnimated = false;
-    let initialCheck = true; // Flag to skip initial check
     
     const handleHeroImageScroll = () => {
-      if (hasAnimated) return;
-
-      const heroImage = document.querySelector('.hero-image');
-      if (!heroImage) {
-        console.log('Hero image element not found');
+      if (hasAnimated) {
+        console.log('Already animated, skipping');
         return;
       }
 
-      // Skip the initial check on page load
-      if (initialCheck) {
-        initialCheck = false;
-        console.log('Initial check - skipping animation');
+      const heroImage = document.querySelector('.hero-image');
+      if (!heroImage) {
+        console.log('Hero image not found');
         return;
       }
 
       // Get the actual position of the hero image on the page
       const imageRect = heroImage.getBoundingClientRect();
       const imageTopRelativeToViewport = imageRect.top;
+      const scrollY = window.pageYOffset;
       
-      console.log('Hero image check:', {
-        imageTop: imageTopRelativeToViewport,
-        scrollY: window.pageYOffset
-      });
+      // Log every scroll event for debugging
+      console.log('📜 Scroll event - imageTop:', imageTopRelativeToViewport, 'scrollY:', scrollY);
       
-      // Animate when imageTopRelativeToViewport reaches 400px or less
-      if (imageTopRelativeToViewport <= 400) {
-        console.log('ANIMATING HERO IMAGE NOW! imageTop:', imageTopRelativeToViewport);
+      // Animate ONLY when imageTopRelativeToViewport is 400px or less AND scrolled
+      if (imageTopRelativeToViewport <= 400 && scrollY > 0) {
+        console.log('✅ TRIGGERING ANIMATION! imageTop:', imageTopRelativeToViewport);
         heroImage.classList.add('animate');
+        
+        // Debug: Check if class was added and what the computed style is
+        console.log('Classes after adding animate:', heroImage.className);
+        console.log('Computed opacity:', window.getComputedStyle(heroImage).opacity);
+        console.log('Computed transform:', window.getComputedStyle(heroImage).transform);
+        
         hasAnimated = true;
         window.removeEventListener('scroll', handleHeroImageScroll);
+        console.log('✅ Animation complete, listener removed');
       }
     };
 
@@ -133,29 +136,22 @@ export const useScrollAnimation = () => {
     const timer = setTimeout(() => {
       animateNavbar();
       animateHero();
-      const observer = createScrollObserver();
+      createScrollObserver(); // Just call it, don't store it
 
       // Add scroll listener for hero image
       window.addEventListener('scroll', handleHeroImageScroll, { passive: true });
-      console.log('Hero image scroll listener attached');
-      
-      // Check immediately in case already scrolled
-      handleHeroImageScroll();
+      console.log('✅ Hero image scroll listener attached');
 
-      // Store for cleanup
-      window.__scrollObserver = observer;
     }, 100);
 
-    // Cleanup
+    // Cleanup function
     return () => {
+      console.log('🔴 Cleanup running');
       clearTimeout(timer);
-      if (window.__scrollObserver) {
-        window.__scrollObserver.disconnect();
-      }
       window.removeEventListener('scroll', handleHeroImageScroll);
-      console.log('Cleanup: scroll listener removed');
+      console.log('🔴 Scroll listener removed in cleanup');
     };
-  }, []);
+  }, []); // Empty dependency array - only run once
 };
 
 export default useScrollAnimation;

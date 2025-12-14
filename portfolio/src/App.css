@@ -279,14 +279,17 @@ body {
 .hero-image {
   position: absolute;
   right: 0;
-  top: 200%;
-  transform: translateY(-50%);
-  object-fit: cover;
-  height: 500%;
+  top: 450px;
+  transform: translateY(0);
+  object-fit: contain;
+  height: auto;
+  max-height: 500px;
   width: auto; 
+  max-width: 400px;
   margin-right: -7px;
   margin-top: 30px;
-}                  
+}
+                  
 
 
 
