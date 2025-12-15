@@ -5,6 +5,7 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className="hero-inner">
         <div className="hero-text">
+         <div className="hero-text1">
           <h1 className="hero-name">
             <span className="first-name">Oluwadamilola</span>
             <br />
@@ -20,6 +21,7 @@ export default function Hero() {
               <span>and maintenance of your Website and App's UI, start to finish.</span>
             </p>
           </span>
+          </div>
           {/* FIXED: Correct path with error handling */}
           <img 
             src="/assets/coder.png" 

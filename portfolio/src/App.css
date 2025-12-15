@@ -210,6 +210,11 @@ body {
                                                                                                                                                                                                                                                                                                  position: relative;
                                                                                                                                                                                                                                                                                                  }
 
+                                                                                                                                                                                                                                                                                                 .hero-text1 {
+                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                   margin-top:50px;
+                                                                                                                                                                                                                                                                                                 }
+
                                                                                                                                                                                                                                                                                                  /* Name styling */
                                                                                                                                                                                                                                                                                                  .hero-name {
                                                                                                                                                                                                                                                                                                    font-size: 90px;
@@ -278,16 +283,16 @@ body {
 /* Hero image positioned below hero-sub-right2 */
 .hero-image {
   position: absolute;
-  right: 0;
-  top: 450px;
+  right: 60px;
+  left: 460px;
+  top: 400px;
   transform: translateY(0);
   object-fit: contain;
-  height: auto;
-  max-height: 500px;
+  height: 1000px;
   width: auto; 
-  max-width: 400px;
-  margin-right: -7px;
-  margin-top: 30px;
+  margin-left: -40px;
+  margin-right: 40px;
+  margin-top: -50px;
 }
                   
 
@@ -434,7 +439,7 @@ margin-bottom: 30px;
 
 /* Section spacing */
 #projects {  
-  padding: 15px 0;
+  padding: -5px 0;
   margin-top: -60px;
   margin-bottom: 10px;
 }
@@ -470,7 +475,7 @@ margin-bottom: 30px;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          .about-grid{display:grid;grid-template-columns:1fr 370px ;gap:18px; font-size: 21px; width:84% }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          .about2{margin-top:-10px;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .about-image{width: auto; height: 130%; margin-top: -40px; margin-left: 90px;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         .about-image{width: 220%; height: 140%; margin-top: -80px; margin-left: 90px;}
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .skills-quick{background:rgba(2,255,255,0.02);padding:14px;border-radius:8px;color:var(--muted)}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              .skills-list{display:flex;flex-wrap:wrap;gap:4px}

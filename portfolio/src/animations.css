@@ -45,15 +45,21 @@
 }
 
 /* UPDATED: Hero image drops down from 5px above */
+/* Hero image - subtle slide-down when scrolled to */
+/* Hero image - slides down from 50px above with slower animation */
 .hero-image {
   opacity: 0;
-  transform: translateY(-5px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(-50px); /* Start 50px above final position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Slower 1 second animation */
+  /* Ensure element is detectable by IntersectionObserver */
+  visibility: visible !important;
+  display: block !important;
+  min-height: 1px;
 }
 
 .hero-image.animate {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0); /* Slide down to normal position */
 }
 
 /* Section title animations */
@@ -203,16 +209,8 @@
   }
   
   /* Hero image - slide from left on mobile too */
-  .hero-image {
-    opacity: 0;
-    transform: translateX(-150px);
-    transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
-  }
-  
-  .hero-image.animate {
-    opacity: 1;
-    transform: translateX(0);
-  }
+ /* Hero image - FIXED: ensure it starts visible then animates */
+
   
   /* All projects animate from bottom on mobile */
   .project-card:nth-child(1),
