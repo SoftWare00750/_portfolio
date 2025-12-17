@@ -197,7 +197,13 @@
   .navbar {
     padding: 0 15px;
     max-width: 100vw;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to allow dropdown */
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
   }
 
   .nav-inner {
@@ -219,6 +225,7 @@
     cursor: pointer;
     z-index: 200;
     width: 28px;
+    position: relative;
   }
 
   .hamburger span {
@@ -242,7 +249,7 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* Mobile Navigation Dropdown */
+  /* Mobile Navigation Dropdown - FIXED */
   .nav {
     position: fixed;
     top: 70px;
@@ -257,10 +264,12 @@
     transform: translateY(-150%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     margin-left: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     z-index: 99;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
   .nav.open {
@@ -275,12 +284,14 @@
     text-align: center;
     width: 100%;
     display: block;
+    cursor: pointer;
   }
 
   .contact-button {
     width: 100%;
     padding: 15px 20px;
     text-align: center;
+    cursor: pointer;
   }
 
   /* ===== HERO SECTION MOBILE ===== */
@@ -418,11 +429,16 @@
     display: block;
   }
 
-  /* ===== SKILLS SECTION MOBILE ===== */
+  /* ===== SKILLS SECTION MOBILE - FIXED ===== */
   #skills {
     padding: 60px 0;
-    margin-top: 0;
+    margin-top: -100px;
     margin-bottom: 0;
+  }
+  
+  #skills .section-title {
+    margin-top: -50px;
+    margin-bottom: 40px;
   }
 
   .skills-grid {
@@ -660,7 +676,15 @@
     max-width: 250px;
   }
 
-  /* SKILLS */
+  /* SKILLS - ADJUSTED */
+  #skills {
+    margin-top: -120px;
+  }
+  
+  #skills .section-title {
+    margin-top: -60px;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -757,6 +781,15 @@
 
   .project-media img {
     height: 160px;
+  }
+
+  /* SKILLS - EXTRA SMALL */
+  #skills {
+    margin-top: -140px;
+  }
+  
+  #skills .section-title {
+    margin-top: -70px;
   }
 
   .skills-grid {
