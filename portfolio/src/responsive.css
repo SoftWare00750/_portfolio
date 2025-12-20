@@ -114,7 +114,7 @@
 
   .hero-image {
     position: relative;
-    width: 100%;
+    width: 300%;
     max-width: 450px;
     height: auto;
     margin: 50px auto 0;
@@ -197,7 +197,13 @@
   .navbar {
     padding: 0 15px;
     max-width: 100vw;
-    overflow: hidden;
+    overflow: visible;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
   }
 
   .nav-inner {
@@ -219,6 +225,7 @@
     cursor: pointer;
     z-index: 200;
     width: 28px;
+    position: relative;
   }
 
   .hamburger span {
@@ -257,10 +264,12 @@
     transform: translateY(-150%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-    margin-left: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    margin-left: 3px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     z-index: 99;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
   .nav.open {
@@ -275,12 +284,14 @@
     text-align: center;
     width: 100%;
     display: block;
+    cursor: pointer;
   }
 
   .contact-button {
     width: 100%;
     padding: 15px 20px;
     text-align: center;
+    cursor: pointer;
   }
 
   /* ===== HERO SECTION MOBILE ===== */
@@ -333,9 +344,8 @@
   .hero-image {
     position: static;
     transform: none;
-    width: auto;
-    max-width: 1000px;
-    height: 700px;
+    width: auto; 
+    height: 800px;
     margin: 90px 30px 0;
     margin-left: -60px;
     display: block;
@@ -421,8 +431,13 @@
   /* ===== SKILLS SECTION MOBILE ===== */
   #skills {
     padding: 60px 0;
-    margin-top: 0;
+    margin-top: -40px;
     margin-bottom: 0;
+  }
+  
+  #skills .section-title {
+    margin-top: 0px;
+    margin-bottom: 40px;
   }
 
   .skills-grid {
@@ -430,6 +445,7 @@
     gap: 25px;
     justify-items: center;
     padding: 0;
+    margin-top: 30px;
   }
 
   .skill-item {
@@ -661,9 +677,18 @@
   }
 
   /* SKILLS */
+  #skills {
+    margin-top: -50px;
+  }
+  
+  #skills .section-title {
+    margin-top: 0px;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    margin-top: 30px;
   }
 
   .skill-icon {
@@ -759,9 +784,19 @@
     height: 160px;
   }
 
+  /* SKILLS - EXTRA SMALL */
+  #skills {
+    margin-top: -60px;
+  }
+  
+  #skills .section-title {
+    margin-top: 0px;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 25px;
+    margin-top: 30px;
   }
 
   .skill-icon {
