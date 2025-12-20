@@ -196,7 +196,7 @@
   /* ===== NAVBAR MOBILE ===== */
   .navbar {
     padding: 0 19px;
-    margin-left: 3px;
+    margin-left: 2px;
     max-width: 100vw;
     overflow: visible;
     box-sizing: border-box;
@@ -346,9 +346,9 @@
   .hero-image {
     position: static;
     transform: none;
+    margin-top: 15px;
     width: auto; 
-    height: 60%;
-   
+    height: 70%;
     margin-left: -60px;
     display: block;
   }
