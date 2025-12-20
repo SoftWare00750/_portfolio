@@ -19,20 +19,22 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    // Close mobile menu immediately
+    // Close mobile menu first
     setOpen(false);
     
-    // Use requestAnimationFrame for smoother execution
-    requestAnimationFrame(() => {
-      // Special handling for home - scroll to top
-      if (sectionId === "home") {
+    // Special handling for home - scroll to top
+    if (sectionId === "home") {
+      setTimeout(() => {
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
         });
-        return;
-      }
+      }, 100);
+      return;
+    }
 
+    // Wait a bit for menu to close, then scroll
+    setTimeout(() => {
       const section = document.getElementById(sectionId);
       
       if (!section) {
@@ -40,39 +42,32 @@ export default function Navbar() {
         return;
       }
 
-      // Get navbar height for offset
+      // Get navbar height
       const navbar = document.querySelector('.navbar');
       const navbarHeight = navbar ? navbar.offsetHeight : 70;
       
-      // Get section position
-      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-      
-      // Calculate scroll position with offset
-      const offsetPosition = sectionTop - navbarHeight - 20;
+      // Calculate position
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
 
-      // Smooth scroll to position
+      // Scroll to the section
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
-    });
+    }, 100);
   };
 
-  // Close menu when clicking outside
+  // Prevent body scroll when menu is open
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      const navbar = document.querySelector('.navbar');
-      if (open && navbar && !navbar.contains(event.target)) {
-        setOpen(false);
-      }
-    };
-
     if (open) {
-      document.addEventListener('click', handleClickOutside);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
     }
-
+    
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [open]);
 
@@ -112,6 +107,7 @@ export default function Navbar() {
               key={item.id}
               className={item.className || "nav-link"}
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 scrollToSection(item.id);
               }}
