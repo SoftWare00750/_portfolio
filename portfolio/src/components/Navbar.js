@@ -22,24 +22,14 @@ export default function Navbar() {
     // Close mobile menu immediately
     setOpen(false);
     
-    // Small delay to let menu close
-    setTimeout(() => {
+    // Use requestAnimationFrame for smoother execution
+    requestAnimationFrame(() => {
       // Special handling for home - scroll to top
       if (sectionId === "home") {
-        const homeSection = document.getElementById("home");
-        if (homeSection) {
-          homeSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-        } else {
-          // Fallback to window scroll
-          window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          });
-        }
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
         return;
       }
 
@@ -50,30 +40,41 @@ export default function Navbar() {
         return;
       }
 
-      // Use scrollIntoView for more reliable scrolling
-      section.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
+      // Get navbar height for offset
+      const navbar = document.querySelector('.navbar');
+      const navbarHeight = navbar ? navbar.offsetHeight : 70;
       
-      // Then adjust for navbar height
-      setTimeout(() => {
-        const navbar = document.querySelector('.navbar');
-        const navbarHeight = navbar ? navbar.offsetHeight : 70;
-        const scrolledY = window.pageYOffset;
-        
-        // Additional offset for spacing
-        const additionalOffset = 20;
-        
-        if (scrolledY) {
-          window.scrollTo({
-            top: scrolledY - navbarHeight - additionalOffset,
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
-    }, 50);
+      // Get section position
+      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+      
+      // Calculate scroll position with offset
+      const offsetPosition = sectionTop - navbarHeight - 20;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    });
   };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const navbar = document.querySelector('.navbar');
+      if (open && navbar && !navbar.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [open]);
 
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
@@ -92,7 +93,12 @@ export default function Navbar() {
         {/* Hamburger Icon */}
         <div
           className={`hamburger ${open ? "active" : ""}`}
-          onClick={() => setOpen(!open)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen(!open);
+          }}
+          aria-label="Toggle menu"
+          role="button"
         >
           <span></span>
           <span></span>
@@ -105,7 +111,10 @@ export default function Navbar() {
             <button
               key={item.id}
               className={item.className || "nav-link"}
-              onClick={() => scrollToSection(item.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                scrollToSection(item.id);
+              }}
               type="button"
               aria-label={`Navigate to ${item.label}`}
             >
