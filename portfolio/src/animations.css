@@ -1,16 +1,11 @@
 /* =========================
-   SCROLL ANIMATIONS
+   DESKTOP ANIMATIONS - SLOW & BUTTERY SMOOTH
    ========================= */
 
-/* Initial hidden states - elements before animation */
+/* Navbar animation - Smooth slide down */
 .navbar {
   transform: translateY(-100%);
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Prevent navbar from causing scrollbar issues */
-  width: 100%;
-  left: 0;
-  right: 0;
-  /* ADDED: Prevent layout shifts */
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   position: fixed;
   will-change: transform;
 }
@@ -19,11 +14,12 @@
   transform: translateY(0);
 }
 
-/* Hero animations */
+/* Hero animations - Slow and elegant */
 .hero-name {
   opacity: 0;
   transform: translateX(-100px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-name.animate {
@@ -35,7 +31,8 @@
 .hero-sub-right2 {
   opacity: 0;
   transform: translateX(100px);
-  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, 
+              transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
 }
 
 .hero-sub-right-fixed.animate,
@@ -44,14 +41,12 @@
   transform: translateX(0);
 }
 
-/* UPDATED: Hero image drops down from 5px above */
-/* Hero image - subtle slide-down when scrolled to */
-/* Hero image - slides down from 50px above with slower animation */
+/* Hero image - Slow graceful slide */
 .hero-image {
   opacity: 0;
-  transform: translateY(-50px); /* Start 50px above final position */
-  transition: opacity 1s ease-out, transform 1s ease-out; /* Slower 1 second animation */
-  /* Ensure element is detectable by IntersectionObserver */
+  transform: translateY(-60px);
+  transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, 
+              transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
   visibility: visible !important;
   display: block !important;
   min-height: 1px;
@@ -59,14 +54,15 @@
 
 .hero-image.animate {
   opacity: 1;
-  transform: translateY(0); /* Slide down to normal position */
+  transform: translateY(0);
 }
 
-/* Section title animations */
+/* Section titles - Slow smooth fade */
 .section-title {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(-30px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-title.animate {
@@ -74,15 +70,16 @@
   transform: translateY(0);
 }
 
-/* Projects animations - handle all 4 projects */
+/* Projects animations - Slow elegant slides */
 .project-card {
   opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* proj-1: Top-left */
 .project-card:nth-child(1) {
-  transform: translateX(-100px);
+  transform: translateX(-120px);
 }
 
 .project-card:nth-child(1).animate {
@@ -92,7 +89,7 @@
 
 /* proj-2: Bottom-right */
 .project-card:nth-child(2) {
-  transform: translateX(100px);
+  transform: translateX(120px);
 }
 
 .project-card:nth-child(2).animate {
@@ -103,7 +100,7 @@
 
 /* proj-3: Top-right */
 .project-card:nth-child(3) {
-  transform: translateX(100px);
+  transform: translateX(120px);
 }
 
 .project-card:nth-child(3).animate {
@@ -113,7 +110,7 @@
 
 /* proj-4: Bottom-left */
 .project-card:nth-child(4) {
-  transform: translateX(-100px);
+  transform: translateX(-120px);
 }
 
 .project-card:nth-child(4).animate {
@@ -122,11 +119,12 @@
   transition-delay: 0.2s;
 }
 
-/* About section animations */
+/* About section animations - Slow smooth slides */
 .about-text {
   opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-100px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-text.animate {
@@ -136,8 +134,9 @@
 
 .about-image {
   opacity: 0;
-  transform: translateX(80px);
-  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+  transform: translateX(100px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.25s, 
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
 }
 
 .about-image.animate {
@@ -145,11 +144,12 @@
   transform: translateX(0);
 }
 
-/* Skills animations - staggered drop-down effect */
+/* Skills animations - Slow cascading effect */
 .skill-item {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(-40px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skill-item.animate {
@@ -157,7 +157,7 @@
   transform: translateY(0);
 }
 
-/* Stagger delay for each skill item */
+/* Stagger delays for smooth cascade */
 .skill-item:nth-child(1) { transition-delay: 0.05s; }
 .skill-item:nth-child(2) { transition-delay: 0.1s; }
 .skill-item:nth-child(3) { transition-delay: 0.15s; }
@@ -174,29 +174,32 @@
 .skill-item:nth-child(14) { transition-delay: 0.7s; }
 .skill-item:nth-child(15) { transition-delay: 0.75s; }
 
-/* Contact section animations */
+/* Contact section - Slow smooth rise */
 .contact-container {
   opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-container.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
-/* Footer fade-in animation */
+/* Footer - Slow gentle fade */
 .footer {
   opacity: 0;
-  transition: opacity 1s ease-out;
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer.animate {
   opacity: 1;
 }
 
-/* Mobile optimizations */
+/* =========================
+   MOBILE OPTIMIZATIONS - SLIGHTLY SLOWER, SMOOTH
+   ========================= */
 @media (max-width: 768px) {
   /* Reduce translation distances on mobile */
   .hero-name {
@@ -208,9 +211,9 @@
     transform: translateX(50px);
   }
   
-  /* Hero image - slide from left on mobile too */
- /* Hero image - FIXED: ensure it starts visible then animates */
-
+  .hero-image {
+    transform: translateY(-30px);
+  }
   
   /* All projects animate from bottom on mobile */
   .project-card:nth-child(1),
@@ -252,20 +255,75 @@
     transform: translateY(0);
   }
   
-  /* Faster animations on mobile */
+  .skill-item {
+    transform: translateY(-20px);
+  }
+  
+  /* SLIGHTLY SLOWER animations on mobile - 0.6s-0.8s for smoothness */
+  .navbar {
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
   .hero-name,
   .hero-sub-right-fixed,
-  .hero-sub-right2,
-  .hero-image,
-  .section-title,
-  .project-card,
-  .about-text,
-  .about-image,
-  .skill-item,
-  .contact-container,
-  .footer {
-    transition-duration: 0.6s;
+  .hero-sub-right2 {
+    transition-duration: 0.8s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
+  
+  .hero-image {
+    transition-duration: 0.9s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .section-title {
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .project-card {
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .about-text,
+  .about-image {
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .skill-item {
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .contact-container {
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .footer {
+    transition-duration: 0.8s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  /* Slightly reduced skill stagger delays on mobile */
+  .skill-item:nth-child(1) { transition-delay: 0.04s; }
+  .skill-item:nth-child(2) { transition-delay: 0.08s; }
+  .skill-item:nth-child(3) { transition-delay: 0.12s; }
+  .skill-item:nth-child(4) { transition-delay: 0.16s; }
+  .skill-item:nth-child(5) { transition-delay: 0.2s; }
+  .skill-item:nth-child(6) { transition-delay: 0.24s; }
+  .skill-item:nth-child(7) { transition-delay: 0.28s; }
+  .skill-item:nth-child(8) { transition-delay: 0.32s; }
+  .skill-item:nth-child(9) { transition-delay: 0.36s; }
+  .skill-item:nth-child(10) { transition-delay: 0.4s; }
+  .skill-item:nth-child(11) { transition-delay: 0.44s; }
+  .skill-item:nth-child(12) { transition-delay: 0.48s; }
+  .skill-item:nth-child(13) { transition-delay: 0.52s; }
+  .skill-item:nth-child(14) { transition-delay: 0.56s; }
+  .skill-item:nth-child(15) { transition-delay: 0.6s; }
 }
 
 /* Reduced motion for accessibility */
@@ -282,12 +340,12 @@
   .skill-item,
   .contact-container,
   .footer {
-    transition: none;
-    opacity: 1;
-    transform: none;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
   
   .navbar {
-    transform: translateY(0);
+    transform: translateY(0) !important;
   }
 }
