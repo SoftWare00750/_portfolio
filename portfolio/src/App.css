@@ -85,14 +85,14 @@ body {
   right: 3px;  /* Adjusted by 2px */
   z-index: 100;
   background-color: rgba(6, 23, 51, 0.1);
-  margin-left: -17px;
+  margin-left: -19px;
   
   transition: all 0.25s ease;
   backdrop-filter: blur(9px);
   box-sizing: border-box;
  
   
-}
+ }
 
 
                                                                                                                                        
