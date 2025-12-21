@@ -22,6 +22,30 @@ html {
   scroll-behavior: smooth !important;
 }
 
+/* Force default browser scrollbar - remove custom styling */
+html::-webkit-scrollbar {
+  width: auto;
+  height: auto;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: auto;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: auto;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+
 body {
   overflow: hidden; /* Prevent body from adding second scrollbar */
   width: 100%;
