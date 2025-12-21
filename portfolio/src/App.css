@@ -62,9 +62,46 @@ body {
                                                                                      box-sizing: border-box;
                                                                                               } 
                                                                                         .container{width:96%;max-width:1400px;margin:0 auto;padding:60px; overflow-x: hidden;}
-                                                                                        html {
-                                                                                         scroll-behavior: auto !important; /* Disable smooth scroll temporarily */
-                                                                                                             }
+                                                                                        
+                                                                                  
+                                                                                      
+
+                                                                                          /* REPLACE WITH THIS: */
+                                                                                          html {
+                                                                                            scroll-behavior: smooth !important;
+                                                                                              overflow-x: hidden;
+                                                                                                width: 100%;
+                                                                                                }
+
+                                                                                                /* Also ensure body allows scrolling */
+                                                                                                body {
+                                                                                                  overflow-x: hidden;
+                                                                                                    overflow-y: scroll !important; /* Make sure vertical scroll works */
+                                                                                                      width: 100%;
+                                                                                                        position: relative;
+                                                                                                        }
+
+                                                                                                        /* Add scroll margin to all sections */
+                                                                                                        section {
+                                                                                                          scroll-margin-top: 90px;
+                                                                                                          }
+
+                                                                                                          /* Mobile specific */
+                                                                                                          @media (max-width: 768px) {
+                                                                                                            html {
+                                                                                                                scroll-behavior: smooth !important;
+                                                                                                                  }
+                                                                                                                    
+                                                                                                                      body {
+                                                                                                                          overflow-y: scroll !important;
+                                                                                                                              position: relative;
+                                                                                                                                }
+                                                                                                                                  
+                                                                                                                                    section {
+                                                                                                                                        scroll-margin-top: 80px;
+                                                                                                                                          }
+                                                                                                                                          }
+                                                                                                             
                                                                                                       .site {
                                                                                                              padding: 0 20px;
                                                                                                              overflow-x: hidden;
