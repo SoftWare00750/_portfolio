@@ -464,6 +464,322 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: var(--muted);
 }
 
+/* ===== PROJECTS SECTION - UPDATED FOR MIXED LAYOUTS ===== */
+#projects {
+  margin-top: -60px;
+  margin-bottom: 30px;
+  padding: -5px 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 400px));
+  gap: 50px 80px;
+  padding: -40px 0;
+  justify-content: left;
+  margin-right: 30px;
+}
+
+/* Project positioning - 3 column layout */
+.project-card:nth-child(1) {
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 30px;
+  margin-bottom: -50px;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.project-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-bottom: -50px;
+}
+
+.project-card:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+  margin-left: 10px;
+  margin-top: 30px;
+  margin-bottom: -50px;
+}
+
+.project-card:nth-child(4) {
+  grid-column: 1;
+  grid-row: 2;
+  margin-left: 15px;
+  margin-top: 8px;
+}
+
+.project-card:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.project-card:nth-child(6) {
+  grid-column: 3;
+  grid-row: 2;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+/* Project card base - works for both types */
+.project-card {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  background: rgba(2, 6, 23, 0.2);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Landscape cards (web projects) */
+.project-card.web {
+  aspect-ratio: 16/9;
+  max-width: 500px;
+}
+
+.project-card.web .project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Portrait cards (mobile projects) */
+.project-card.mobile {
+  aspect-ratio: 9/16;
+  max-width: 280px;
+}
+
+.project-card.mobile .project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-media {
+  width: 100%;
+  height: 100%;
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay for both card types */
+.project-body {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.92);
+  color: var(--white);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-card:hover .project-body {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Portrait card specific body layout */
+.project-card.mobile .project-body {
+  padding: 15px 12px;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.project-card.mobile .project-body h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.project-card.mobile .project-body p {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Web card title and description */
+.project-body h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.project-body p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Tech stack badges */
+.tech-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 15px;
+}
+
+.tech {
+  font-size: 12px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.project-card.mobile .tech {
+  font-size: 10px;
+  padding: 4px 6px;
+}
+
+/* Link button */
+.link-button {
+  background: var(--card, #1e293b);
+  color: var(--white, #fff);
+  padding: 0.5rem 1rem;
+  border-radius: 400px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.link-button:hover {
+  background: var(--accent, #6ee7b7);
+  color: #0f172a;
+}
+
+.project-card.mobile .link-button {
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(50px, 450px));
+    gap: 60px;
+  }
+
+  .project-card:nth-child(1),
+  .project-card:nth-child(2),
+  .project-card:nth-child(3),
+  .project-card:nth-child(4),
+  .project-card:nth-child(5),
+  .project-card:nth-child(6) {
+    margin: 0 !important;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(50px, 1fr));
+    gap: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .project-card.web {
+    max-width: 100%;
+  }
+
+  .project-card.mobile {
+    max-width: 250px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 0;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto !important;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .project-card.mobile {
+    max-width: 280px;
+  }
+
+  .project-card.web {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card.mobile {
+    max-width: 240px;
+  }
+
+  .project-card.mobile .project-body {
+    padding: 12px 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .project-card.mobile .project-body h3 {
+    font-size: 16px;
+  }
+
+  .project-card.mobile .project-body p {
+    font-size: 12px;
+  }
+
+  .project-card.mobile .tech {
+    font-size: 9px;
+    padding: 3px 5px;
+  }
+
+  .project-card.mobile .link-button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
 /* ===== SECTIONS ===== */
 .section {
   padding: 150px 0;
