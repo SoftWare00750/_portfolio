@@ -9,7 +9,7 @@ export default function About() {
           <div className="about-grid">
             <div className="about-text">
               <p>I'm a Frontend Developer experienced in building responsive websites, web and mobile applications.</p>
-              <p className="about2">I create modern web and mobile interfaces, I'm passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>
+              <p><p className="about2">I create modern web and mobile interfaces, I'm passionate about clean code, performance, and delivering reliable, user-focused solutions.</p></p>
               <p>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwind CSS</span>, <span className="skills1">Javascript</span>, <span className="skills1">React</span>, <span className="skills1">Angular</span> and <span className="skills1">Vue</span> frameworks.</p>
               <p>Mobile Interfaces with <span className="skills1">React-native</span> for Cross platforms</p>
             </div>
