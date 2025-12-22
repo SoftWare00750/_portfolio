@@ -37,7 +37,7 @@ const projects = [
   },
   {
     id: "proj-5",
-    title: "Fitness Tracker Mobile App",
+    title: "Food Discovery App, Dishcovery",
     desc: "Track your workouts, set goals, and monitor your fitness progress on the go.",
     tech: ["React Native", "Expo", "Firebase"],
     image: "../../assets/fitness-app.png",
@@ -46,10 +46,10 @@ const projects = [
   },
   {
     id: "proj-6",
-    title: "Food Delivery Mobile App",
+    title: "Social Media App, Hapyness",
     desc: "Order your favorite meals with real-time tracking and seamless payment integration.",
     tech: ["React Native", "Expo", "REST API"],
-    image: "../../assets/food-app.png",
+    image: "../../assets/Hapyness.png",
     link: "https://github.com/yourusername/food-delivery",
     type: "mobile" // portrait
   }
