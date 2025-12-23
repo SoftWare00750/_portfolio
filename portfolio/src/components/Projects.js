@@ -13,7 +13,15 @@ export default function Projects() {
               className={`project-card ${p.type || 'web'}`}
             > 
               <div className="project-media">
-                <img src={p.image} alt={p.title}/>
+                <img 
+                  src={p.image} 
+                  alt={p.title}
+                  onLoad={() => console.log(`✅ LOADED: ${p.title} - ${p.image}`)}
+                  onError={(e) => {
+                    console.error(`❌ FAILED: ${p.title} - ${p.image}`);
+                    console.error('Full error:', e);
+                  }}
+                />
               </div>
               <div className="project-box">
                 <div className="project-body">

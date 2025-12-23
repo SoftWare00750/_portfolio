@@ -292,6 +292,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ===== PROJECTS SECTION ===== */
+/* ===== PROJECTS SECTION - FORCE MOBILE CARDS VISIBLE ===== */
 #projects {
   margin-top: -60px;
   margin-bottom: 30px;
@@ -300,7 +301,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 50px;
   padding: 40px 0;
   justify-items: center;
@@ -309,48 +310,84 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin: 0 auto;
 }
 
-/* Base card styles */
+/* FORCE ALL CARDS TO BE VISIBLE */
 .project-card {
   position: relative;
   width: 100%;
   max-width: 450px;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: visible !important; /* CHANGED: Force visible */
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   background: rgba(2, 6, 23, 0.2);
   transition: transform 0.3s ease;
   backdrop-filter: blur(10px);
   cursor: pointer;
+  display: block !important; /* FORCE display */
+  visibility: visible !important; /* FORCE visible */
+  opacity: 1 !important; /* FORCE opaque */
 }
 
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
+  height: auto;
 }
 
-/* Mobile projects - portrait */
+/* Mobile projects - portrait - FORCE VISIBILITY */
 .project-card.mobile {
   aspect-ratio: 9/16;
   max-width: 280px;
+  height: auto;
+  min-height: 400px !important; /* FORCE minimum height */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
 }
 
-/* Image container */
+/* FORCE IMAGE CONTAINER VISIBLE */
 .project-media {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   position: relative;
-  overflow: hidden;
+  overflow: visible !important; /* CHANGED */
+  display: block !important;
+  visibility: visible !important;
+  background: rgba(50, 50, 50, 0.3); /* Debug background */
 }
 
+/* FORCE IMAGES VISIBLE */
 .project-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Mobile card images - EXTRA FORCE */
+.project-card.mobile .project-media {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.project-card.mobile .project-media img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  object-fit: cover !important;
 }
 
 /* Overlay on hover */
@@ -368,6 +405,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 10; /* Above image */
 }
 
 .project-card:hover .project-body {
@@ -451,29 +489,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-size: 0.85rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1400px) {
+/* Responsive */
+@media (max-width: 1200px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-  }
-}
-
-@media (max-width: 992px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .project-card.web {
-    max-width: 100%;
-  }
-
-  .project-card.mobile {
-    max-width: 250px;
-    justify-self: center;
   }
 }
 
@@ -481,55 +501,15 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 35px;
-    padding: 0;
-    justify-content: center;
-    margin: 0;
   }
-
+  
   .project-card {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto !important;
-    grid-column: 1 !important;
-    grid-row: auto !important;
+    max-width: 100%;
+    margin: 0 auto;
   }
-
+  
   .project-card.mobile {
     max-width: 280px;
-  }
-
-  .project-card.web {
-    max-width: 500px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card.mobile {
-    max-width: 240px;
-  }
-
-  .project-card.mobile .project-body {
-    padding: 12px 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .project-card.mobile .project-body h3 {
-    font-size: 16px;
-  }
-
-  .project-card.mobile .project-body p {
-    font-size: 12px;
-  }
-
-  .project-card.mobile .tech {
-    font-size: 9px;
-    padding: 3px 5px;
-  }
-
-  .project-card.mobile .link-button {
-    padding: 8px 16px;
-    font-size: 0.8rem;
   }
 }
 
