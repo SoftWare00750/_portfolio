@@ -364,7 +364,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* FORCE IMAGES VISIBLE */
 .project-media img {
-  width: 100% !important;
+  width: 1% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
@@ -385,7 +385,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-media img {
-  width: auto!important;
+  width: 100%!important;
   height: 120% !important;
   display: block !important;
   visibility: visible !important;
