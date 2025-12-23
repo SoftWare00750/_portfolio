@@ -295,23 +295,25 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 #projects {
   margin-top: -60px;
   margin-bottom: 30px;
-  padding: -5px 0;
+  padding: 40px 0;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px 80px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px;
   padding: 40px 0;
-  justify-content: center;
+  justify-items: center;
   align-items: start;
-  margin-right: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* Project card base - FIXED to properly show both types */
+/* Base card styles */
 .project-card {
   position: relative;
   width: 100%;
+  max-width: 450px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
@@ -319,58 +321,29 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   transition: transform 0.3s ease;
   backdrop-filter: blur(10px);
   cursor: pointer;
-  justify-self: center;
 }
 
-/* Landscape cards (web projects) */
+/* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
-  max-width: 400px;
-  width: 100%;
 }
 
-.project-card.web .project-media {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.project-card.web .project-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Portrait cards (mobile projects) - FIXED */
+/* Mobile projects - portrait */
 .project-card.mobile {
   aspect-ratio: 9/16;
   max-width: 280px;
-  width: 100%;
-  height: auto;
-}
-
-.project-card.mobile .project-media {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.project-card.mobile .project-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
 }
 
+/* Image container */
 .project-media {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .project-media img {
@@ -380,7 +353,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   display: block;
 }
 
-/* Overlay for both card types */
+/* Overlay on hover */
 .project-body {
   position: absolute;
   inset: 0;
@@ -402,29 +375,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   visibility: visible;
 }
 
-/* Portrait card specific body layout */
-.project-card.mobile .project-body {
-  padding: 15px 12px;
-  justify-content: space-between;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.project-card.mobile .project-body h3 {
-  font-size: 18px;
-  margin: 0 0 10px;
-}
-
-.project-card.mobile .project-body p {
-  font-size: 13px;
-  line-height: 1.4;
-  margin-bottom: 12px;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-}
-
-/* Web card title and description */
 .project-body h3 {
   margin: 0 0 8px;
   font-size: 20px;
@@ -437,14 +387,32 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-bottom: 12px;
 }
 
-/* Tech stack badges */
+.project-card.mobile .project-body {
+  padding: 15px 12px;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.project-card.mobile .project-body h3 {
+  font-size: 18px;
+}
+
+.project-card.mobile .project-body p {
+  font-size: 13px;
+  line-height: 1.4;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Tech badges */
 .tech-list {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 12px;
-  margin-bottom: 15px;
+  margin: 12px 0;
 }
 
 .tech {
@@ -481,7 +449,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .project-card.mobile .link-button {
   padding: 10px 20px;
   font-size: 0.85rem;
-  margin-top: 10px;
 }
 
 /* Responsive adjustments */
