@@ -302,8 +302,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 50px;
-  padding: 40px 0;
+  gap: 70px;
+  padding: 30px 0;
   justify-items: center;
   align-items: start;
   max-width: 1400px;
@@ -313,9 +313,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* FORCE ALL CARDS TO BE VISIBLE */
 .project-card {
   position: relative;
-  width: 100%;
+  width: 60%;
   max-width: 450px;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: visible !important; /* CHANGED: Force visible */
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   background: rgba(2, 6, 23, 0.2);
@@ -330,6 +330,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
+  width: 110%;
+  gap: 10px;
+  border-radius: 13px;
   height: auto;
 }
 
@@ -374,16 +377,16 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Mobile card images - EXTRA FORCE */
 .project-card.mobile .project-media {
-  width: 100% !important;
-  height: 100% !important;
+  width: auto !important;
+  height: 107% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
 }
 
 .project-card.mobile .project-media img {
-  width: 100% !important;
-  height: 100% !important;
+  width: 90% !important;
+  height: 90% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -426,7 +429,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-body {
-  padding: 15px 12px;
+  padding: 10px 8px;
   justify-content: space-between;
   padding-top: 25px;
   padding-bottom: 25px;
