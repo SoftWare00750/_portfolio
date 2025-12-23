@@ -37,10 +37,9 @@ const projects = [
   },
   {
     id: "proj-5",
-    title: "ttps://via.placeholder.com/270x480/6ee7b7/0f1724?text=Dishcovery+AppFood Discovery App, Dishcovery",
+    title: "Food Discovery App, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
-    // TEMPORARY: Using placeholder until you add the real image
     image: "/assets/dishcovery.png",
     link: "https://github.com/yourusername/dishcovery",
     type: "mobile"
@@ -50,8 +49,7 @@ const projects = [
     title: "Social Media App, Hapyness",
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "REST API"],
-    // TEMPORARY: Using placeholder until you add the real image
-    image: "/assets/hapyness.jpg",
+    image: '/assets/hapyness.jpg',
     link: "https://github.com/yourusername/hapyness",
     type: "mobile"
   }
