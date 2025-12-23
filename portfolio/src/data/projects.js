@@ -38,19 +38,21 @@ const projects = [
   {
     id: "proj-5",
     title: "Food Discovery App, Dishcovery",
-    desc: "Track your workouts, set goals, and monitor your fitness progress on the go.",
+    desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
-    image: "/assets/dishcovery.png",  // FIXED: Changed to absolute path
-    link: "https://github.com/yourusername/fitness-tracker",
+    // TEMPORARY: Using placeholder until you add the real image
+    image: "https://via.placeholder.com/270x480/6ee7b7/0f1724?text=Dishcovery+App",
+    link: "https://github.com/yourusername/dishcovery",
     type: "mobile"
   },
   {
     id: "proj-6",
     title: "Social Media App, Hapyness",
-    desc: "Order your favorite meals with real-time tracking and seamless payment integration.",
+    desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "REST API"],
-    image: "/assets/hapyness.jpg",  // FIXED: Changed to absolute path
-    link: "https://github.com/yourusername/food-delivery",
+    // TEMPORARY: Using placeholder until you add the real image
+    image: "https://via.placeholder.com/270x480/6ee7b7/0f1724?text=Hapyness+App",
+    link: "https://github.com/yourusername/hapyness",
     type: "mobile"
   }
 ];
