@@ -40,7 +40,7 @@ const projects = [
     title: "Food Discovery App, Dishcovery",
     desc: "Track your workouts, set goals, and monitor your fitness progress on the go.",
     tech: ["React Native", "Expo", "Firebase"],
-    image: "/assets/Dishcovery.png",  // FIXED: Changed to absolute path
+    image: "/assets/dishcovery.png",  // FIXED: Changed to absolute path
     link: "https://github.com/yourusername/fitness-tracker",
     type: "mobile"
   },
@@ -49,7 +49,7 @@ const projects = [
     title: "Social Media App, Hapyness",
     desc: "Order your favorite meals with real-time tracking and seamless payment integration.",
     tech: ["React Native", "Expo", "REST API"],
-    image: "/assets/Hapyness.jpg",  // FIXED: Changed to absolute path
+    image: "/assets/hapyness.jpg",  // FIXED: Changed to absolute path
     link: "https://github.com/yourusername/food-delivery",
     type: "mobile"
   }
