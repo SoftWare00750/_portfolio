@@ -1,66 +1,237 @@
 /* =========================
-   OPTIMIZED RESPONSIVE DESIGN WITH ANIMATION FIXES
+   OPTIMIZED RESPONSIVE DESIGN WITH SMOOTH DESKTOP SCALING
    ========================= */
 
-/* --- LARGE TABLETS & SMALL DESKTOPS (1280px) --- */
-@media (max-width: 1280px) {
+/* --- EXTRA LARGE DESKTOPS (1600px+) --- */
+@media (min-width: 1600px) {
   .container {
-    padding: 40px 30px;
+    max-width: 1600px;
+    padding: 80px;
   }
 
   .hero-inner {
-    padding: 0 40px;
+    max-width: 1600px;
   }
 
   .hero-name {
-    font-size: 75px;
+    font-size: 100px;
   }
 
   .hero-sub-right-fixed {
-    font-size: 32px;
-    max-width: 550px;
+    font-size: 42px;
+    max-width: 700px;
   }
 
   .hero-sub-right2 {
-    font-size: 19px;
+    font-size: 24px;
+  }
+
+  .projects-grid {
+    max-width: 1600px;
+    gap: 80px;
+  }
+
+  .section-title {
+    font-size: 48px;
+  }
+
+  .about-grid {
+    font-size: 24px;
+  }
+
+  .skills-grid {
+    max-width: 1600px;
+  }
+}
+
+/* --- LARGE DESKTOPS (1440px) --- */
+@media (max-width: 1440px) and (min-width: 1281px) {
+  .container {
+    max-width: 1400px;
+    padding: 60px 50px;
+  }
+
+  .hero-inner {
+    max-width: 1400px;
+    padding: 0 50px;
+  }
+
+  .hero-name {
+    font-size: 85px;
+  }
+
+  .hero-sub-right-fixed {
+    font-size: 36px;
+    max-width: 600px;
+    padding-right: 60px;
+  }
+
+  .hero-sub-right2 {
+    font-size: 20px;
   }
 
   .hero-image {
-    height: 450%;
+    height: 950px;
+    right: 70px;
   }
 
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-    margin-right: 0;
+    gap: 65px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .project-card.web {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1.2fr 350px;
+    gap: 25px;
+    width: 90%;
+    font-size: 20px;
+  }
+
+  .about-image {
+    width: 200%;
+    height: 130%;
+    margin-top: -70px;
+    margin-left: 70px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .skill-item {
+    margin-right: 80px;
+  }
+}
+
+/* --- LARGE TABLETS & SMALL DESKTOPS (1280px) --- */
+@media (max-width: 1280px) and (min-width: 993px) {
+  .container {
+    max-width: 1200px;
+    padding: 50px 40px;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    padding: 0 40px;
+  }
+
+  .hero-name {
+    font-size: 78px;
+  }
+
+  .hero-name .last-name {
+    margin-top: -32px;
+  }
+
+  .hero-sub-right-fixed {
+    font-size: 33px;
+    max-width: 550px;
+    padding-right: 70px;
+    margin-right: 70px;
+  }
+
+  .hero-sub-right2 {
+    font-size: 19px;
+    margin-right: -70px;
+  }
+
+  .hero-image {
+    height: 900px;
+    right: 50px;
+    left: 440px;
+  }
+
+  #projects {
+    margin-top: -50px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 55px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
   }
 
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
   .project-card:nth-child(4) {
-    margin: 0 !important;
     grid-column: auto;
     grid-row: auto;
   }
 
   .about-grid {
-    grid-template-columns: 1fr;
-    width: 100%;
+    grid-template-columns: 1fr 340px;
+    width: 95%;
+    font-size: 19px;
+    gap: 20px;
   }
 
   .about-image {
-    margin-left: 0;
-    margin-top: 20px;
-    max-width: 100%;
+    width: 200%;
+    height: 130%;
+    margin-top: -75px;
+    margin-left: 80px;
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 1.1rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .skill-item {
-    margin-right: 0;
+    margin-right: 70px;
+  }
+
+  .skill-icon {
+    width: 350px;
+    height: 270px;
+  }
+
+  .skill-pill {
+    margin-top: -55px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .contact-box {
+    width: 80%;
+    max-width: 600px;
+    padding: 55px 38px;
+  }
+
+  #contact-header {
+    font-size: 42px;
+  }
+
+  .contact1 {
+    font-size: 23px;
+  }
+
+  .contact2 {
+    font-size: 21px;
+  }
+
+  .contact3 {
+    font-size: 19px;
   }
 }
 

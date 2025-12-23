@@ -377,26 +377,30 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Mobile card images - EXTRA FORCE */
 .project-card.mobile .project-media {
-  width: auto !important;
-  height: 80% !important;
+  width: 100% !important;
+  height: 100% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
 }
 
 .project-card.mobile .project-media img {
-  width: 100%!important;
-  height: 140% !important;
+  width: 100% !important;
+  height: 100% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
   object-fit: cover !important;
 }
 
-/* Overlay on hover */
+/* Overlay on hover - MATCHES FULL CARD HEIGHT */
 .project-body {
   position: absolute;
   inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(2, 6, 23, 0.92);
   color: var(--white);
   padding: 20px;
@@ -408,7 +412,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 10; /* Above image */
+  z-index: 10;
+  height: 100%;
+  width: 100%;
 }
 
 .project-card:hover .project-body {
@@ -428,23 +434,23 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-bottom: 12px;
 }
 
+/* Mobile overlay - FULL HEIGHT MATCH */
 .project-card.mobile .project-body {
-  padding: 30px 8px;
-  justify-content: space-between;
-  padding-top: -20px;
-  padding-bottom: 0px;
+  padding: 25px 15px;
+  justify-content: space-evenly;
+  height: 100%;
 }
 
 .project-card.mobile .project-body h3 {
   font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .project-card.mobile .project-body p {
   font-size: 13px;
   line-height: 1.4;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+  flex-grow: 0;
+  margin-bottom: 10px;
 }
 
 /* Tech badges */
