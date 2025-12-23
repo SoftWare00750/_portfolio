@@ -429,7 +429,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-body {
-  padding: 6px 8px;
+  padding: 2px 8px;
   justify-content: space-between;
   padding-top: 25px;
   padding-bottom: 25px;
