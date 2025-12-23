@@ -353,8 +353,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* FORCE IMAGE CONTAINER VISIBLE */
 .project-media {
-  width: 100% !important;
-  height: 100% !important;
+  width: auto !important;
+  height: 90% !important;
   position: relative;
   overflow: visible !important; /* CHANGED */
   display: block !important;
@@ -364,8 +364,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* FORCE IMAGES VISIBLE */
 .project-media img {
-  width: 100% !important;
-  height: 100% !important;
+  width: auto !important;
+  height: 90% !important;
   object-fit: cover !important;
   display: block !important;
   visibility: visible !important;
@@ -378,7 +378,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Mobile card images - EXTRA FORCE */
 .project-card.mobile .project-media {
   width: auto !important;
-  height: 107% !important;
+  height: 90% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
