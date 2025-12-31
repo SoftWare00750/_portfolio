@@ -21,7 +21,6 @@ const skills = [
      {name: "Wordpress", img: "/assets/wordpress.png"},
       {name: "Webflow", img: "/assets/webflow.png"},
        {name: "Shopify", img: "/assets/shopify.png"}
-
 ];
 
 export default function Skills() {
