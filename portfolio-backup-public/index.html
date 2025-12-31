@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+                  <meta name="theme-color" content="#0f1724" />
+                      <meta
+                            name="description"
+                                  content="Damilola's — Frontend Dev Portfolio"
+                                      />
+                                          <meta property="og:title" content="Damilola's — Portfolio" />
+                                              <meta
+                                                    property="og:description"
+                                                          content="Showcasing my work in Frontend Development."
+                                                              />
+                                                                  <meta property="og:image" content="%PUBLIC_URL%/assets/preview.png" />
+                                                                      <meta property="og:type" content="website" />
+                                                                          <title>Damilola's | Portfolio</title>
+
+                                                                              <!-- Fonts -->
+                                                                                  <link
+                                                                                        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+                                                                                              rel="stylesheet"
+                                                                                                  />
+                                                                                                    </head>
+
+                                                                                                      <body>
+                                                                                                          <noscript>You need to enable JavaScript to run this app.</noscript>
+
+                                                                                                              <!-- React app mounts here -->
+                                                                                                                  <div id="root"></div>
+
+                                                                                                                      <!-- Optional: Smooth scroll behavior for internal links -->
+                                                                                                                          <script>
+                                                                                                                                document.addEventListener("DOMContentLoaded", function () {
+                                                                                                                                        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                                                                                                                                                  anchor.addEventListener("click", function (e) {
+                                                                                                                                                              e.preventDefault();
+                                                                                                                                                                          document
+                                                                                                                                                                                        .querySelector(this.getAttribute("href"))
+                                                                                                                                                                                                      .scrollIntoView({ behavior: "smooth" });
+                                                                                                                                                                                                                });
+                                                                                                                                                                                                                        });
+                                                                                                                                                                                                                              });
+                                                                                                                                                                                                                                  </script>
+                                                                                                                                                                                                                                    </body>
+                                                                                                                                                                                                                                    </html>
+                                                                                                                                                                                                                                    
