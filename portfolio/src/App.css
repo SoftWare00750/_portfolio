@@ -478,11 +478,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding: 4px 6px;
 }
 
-#proj-7 {
+#proj-8 {
    margin-right: 7px;
 }
 
-#proj-8 {
+#proj-9 {
 margin-top: -20px;
 
 }
@@ -514,18 +514,18 @@ margin-top: -20px;
 /* Add this to your App.css file - Mobile card positioning adjustments */
 
 /* Move proj-6 (Dishcovery) closer to Taskflow - shift left */
-#proj-7 {
+#proj-8 {
   margin-right: 7px;
   margin-left: -80px; /* Move significantly left */
 }
 
 /* Move proj-7 (Hapyness) higher and align with Maglo */
-#proj-8 {
+#proj-9 {
   margin-top: -420px; /* Move up significantly to align with Maglo row */
   margin-left: 20px; /* Slight right adjustment for better spacing */
 }
 
-#proj-7 {
+#proj-8 {
    margin-right: 7px;
    /* FORCE: Move Dishcovery left to align with Taskflow */
    margin-left: -180px !important;
@@ -533,7 +533,7 @@ margin-top: -20px;
    left: -50px;
 }
 
-#proj-8 {
+#proj-9 {
   margin-top: -20px;
   /* FORCE: Move Hapyness up to align with Maglo */
   margin-top: -420px !important;
@@ -543,29 +543,29 @@ margin-top: -20px;
 
 /* Responsive adjustments */
 @media (max-width: 1280px) {
-  #proj-7 {
+  #proj-8 {
     margin-left: -60px;
   }
   
-  #proj-8 {
+  #proj-9 {
     margin-top: -380px;
   }
 }
 
 @media (max-width: 992px) {
-  #proj-7 {
+  #proj-8 {
     margin-left: -40px;
   }
   
-  #proj-8 {
+  #proj-9 {
     margin-top: -320px;
   }
 }
 
 /* On mobile, reset to normal stacking */
 @media (max-width: 768px) {
-  #proj-7,
-  #proj-8 {
+  #proj-8,
+  #proj-9 {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-top: 0 !important;

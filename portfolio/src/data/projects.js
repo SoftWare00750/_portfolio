@@ -55,8 +55,20 @@ const projects = [
     type: "web"
   },
 
-  {
+ {
     id: "proj-7",
+    title: "Advertisement website, MusicFestival",
+    desc: "Check out information about the coming Music Festival",
+    tech: ["Wordpress"],
+    image: "/assets/musicfestival.jpeg",
+    link: "https://musicfestival.infinityfreeapp.com/",
+    type: "web"
+  },
+
+
+
+  {
+    id: "proj-8",
     title: "Food Discovery App, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
@@ -65,7 +77,7 @@ const projects = [
     type: "mobile"
   },
   {
-    id: "proj-8",
+    id: "proj-9",
     title: "Social Media App, Hapyness",
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "REST API"],
