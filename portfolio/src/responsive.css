@@ -432,35 +432,62 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* CRITICAL FIX: Nav menu - Simple and direct approach */
+  /* Force desktop nav to hide on mobile */
   .nav {
+    display: none !important;
+  }
+  
+  /* Mobile nav menu - Fresh start with no conflicts */
+  .nav.open {
+    /* Force display and visibility */
+    display: flex !important;
+    visibility: visible !important;
+    
+    /* Position */
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
     width: 100%;
-    background: rgba(7, 16, 40, 0.98);
-    backdrop-filter: blur(10px);
+    z-index: 99;
+    
+    /* Layout */
     flex-direction: column;
     padding: 20px;
     gap: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    z-index: 99;
-    margin-left: 0 !important;
     
-    /* Closed state - slide up and hide */
-    display: flex !important;
-    transform: translateY(-100%) !important;
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  /* Open state - slide down and show */
-  .nav.open {
+    /* Styling */
+    background: rgba(7, 16, 40, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    
+    /* Animation - override everything */
     transform: translateY(0) !important;
     opacity: 1 !important;
-    pointer-events: auto;
+    margin-left: 0 !important;
+    
+    /* Ensure smooth appearance */
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  /* Keyframe for smooth dropdown */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Nav items styling */
+  .nav.open .nav-link,
+  .nav.open .contact-button {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .nav-link {
@@ -919,12 +946,8 @@
   }
 
   /* Nav menu adjustment for smaller screens */
-  .nav {
-    top: 65px;
-  }
-  
   .nav.open {
-    max-height: 450px;
+    top: 65px;
   }
 
   /* HERO */
