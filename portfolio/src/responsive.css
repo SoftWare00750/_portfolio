@@ -432,8 +432,8 @@
   }
 
   .nav {
-    position: absolute;
-    top: 100px;
+    position: fixed;
+    top: 0px;
     left: 0;
     right: 0;
     background: rgba(7, 16, 40, 0.98);
