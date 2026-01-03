@@ -431,7 +431,7 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-   .nav {
+    .nav {
     position: fixed;
     top: 70px;
     left: 0;
@@ -448,7 +448,7 @@
     transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease, visibility 0.3s ease;
     margin-left: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    z-index: 99;
+    z-index: 999;
   }
 
   .nav.open {
@@ -457,7 +457,6 @@
     opacity: 1;
     visibility: visible;
   }
-
   .nav-link {
     font-size: 18px;
     padding: 12px;
