@@ -388,6 +388,7 @@
     margin-left: 0;
     width: 100%;
     max-width: 100vw;
+    z-index: 100;
   }
 
   .nav-inner {
@@ -408,7 +409,6 @@
     cursor: pointer;
     z-index: 200;
     width: 28px;
-    position: relative;
   }
 
   .hamburger span {
@@ -432,13 +432,13 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
+  /* CRITICAL FIX: Nav menu visibility and positioning */
   .nav {
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
     width: 100%;
-    margin-left: 0;
     background: rgba(7, 16, 40, 0.98);
     backdrop-filter: blur(10px);
     flex-direction: column;
@@ -448,14 +448,16 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    margin-left: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     z-index: 99;
+    display: flex !important; /* Force display */
   }
 
   .nav.open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .nav-link {
@@ -463,13 +465,18 @@
     padding: 12px;
     text-align: center;
     width: 100%;
-    display: block;
+    display: block !important; /* Force display */
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   .contact-button {
     width: 100%;
     padding: 15px 20px;
     text-align: center;
+    display: block !important; /* Force display */
   }
 
   /* ===== HERO SECTION MOBILE ===== */
@@ -538,18 +545,16 @@
     display: block;
   }
 
-  /* ===== PROJECTS SECTION MOBILE - FIXED SCROLLBAR ===== */
+  /* ===== PROJECTS SECTION MOBILE - FIXED ===== */
   #projects {
     padding: 50px 0;
     margin-top: 0;
     margin-bottom: 0;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
 
   #projects .container {
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow-x: hidden; /* Remove scrollbar */
     padding: 30px 15px;
   }
 
@@ -565,36 +570,33 @@
     padding: 0;
     justify-content: center;
     margin: 0;
-    overflow: visible;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
   }
 
+  /* CRITICAL FIX: Mobile card heights and overlay */
   .project-card {
     width: 100%;
     max-width: 100%;
     margin: 0 auto !important;
-    overflow: hidden;
+    height: auto; /* Let content determine height */
   }
 
   .project-card.web {
     width: 100%;
     max-width: 100%;
+    aspect-ratio: 16/9;
   }
 
+  /* Mobile cards - height matches image */
   .project-card.mobile {
     max-width: 280px;
     margin: 0 auto !important;
+    aspect-ratio: 9/16; /* Maintain portrait ratio */
+    height: auto;
   }
 
-  .project-card.mobile .project-body {
-    padding: 25px 15px;
-    justify-content: space-evenly;
-    height: 116%;
-    width: 119%;
-    margin-left: -3px;
-    margin-top: -7px;
-
-  } 
-  /* Reset all custom positioning on mobile */
+  /* Reset all custom positioning for mobile */
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
@@ -610,26 +612,121 @@
     top: 0 !important;
   }
 
+  /* Image container fills card */
   .project-media {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
     overflow: hidden;
   }
 
   .project-media img {
-    height: 200px;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Web card images */
+  .project-card.web .project-media img {
+    height: 100%;
     object-fit: cover;
   }
 
+  /* Mobile card images - match card height */
+  .project-card.mobile .project-media {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   .project-card.mobile .project-media img {
-    height: 380px;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+
+  /* Overlay covers entire card including image */
+  .project-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(2, 6, 23, 0.92);
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .project-card:hover .project-body {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile card overlay - matches full height */
+  .project-card.mobile .project-body {
+    padding: 20px 15px;
+    justify-content: space-evenly;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
   }
 
   .project-body h3 {
     font-size: 18px;
+    margin-bottom: 10px;
   }
 
   .project-body p {
     font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .project-card.mobile .project-body h3 {
+    font-size: 17px;
+  }
+
+  .project-card.mobile .project-body p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .tech-list {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .tech {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .project-card.mobile .tech {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .link-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .project-card.mobile .link-button {
+    padding: 9px 16px;
+    font-size: 13px;
   }
 
   /* ===== ABOUT SECTION MOBILE ===== */
@@ -870,10 +967,6 @@
     padding: 40px 0;
   }
 
-  #projects .container {
-    padding: 25px 12px;
-  }
-
   .section-title {
     font-size: 28px;
     text-align: center;
@@ -883,30 +976,8 @@
     gap: 25px;
   }
 
-  .project-media img {
-    height: 170px;
-  }
-
-  .project-card.mobile .project-media img {
-    height: 320px;
-  }
-
-  .project-body h3 {
-    font-size: 16px;
-  }
-
-  .project-body p {
-    font-size: 13px;
-  }
-
-  .tech {
-    font-size: 10px;
-    padding: 4px 6px;
-  }
-
-  .link-button {
-    padding: 8px 16px;
-    font-size: 13px;
+  .project-card.mobile {
+    max-width: 260px;
   }
 
   /* ABOUT */
@@ -1047,12 +1118,8 @@
     font-size: 26px;
   }
 
-  .project-media img {
-    height: 150px;
-  }
-
-  .project-card.mobile .project-media img {
-    height: 280px;
+  .project-card.mobile {
+    max-width: 240px;
   }
 
   /* SKILLS - EXTRA SMALL */
