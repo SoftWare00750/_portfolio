@@ -432,8 +432,8 @@
   }
 
   .nav {
-    position: relative;
-    top: 70px;
+    position: fixed;
+    top: 100px;
     left: 0;
     right: 0;
     background: rgba(7, 16, 40, 0.98);
@@ -451,7 +451,7 @@
   }
 
   .nav.open {
-    transform: translateY(0);
+    transform: translateY(1);
     opacity: 1;
     visibility: visible;
   }
