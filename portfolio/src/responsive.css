@@ -433,28 +433,31 @@
   }
 
     .nav {
-    position: relative;
+    position: fixed;
     top: 70px;
     left: 0;
     right: 0;
+    width: 100vw;
     background: rgba(7, 16, 40, 0.98);
     backdrop-filter: blur(10px);
     flex-direction: column;
     padding: 0;
-    gap: 15px;
+    gap: 0;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease, visibility 0.3s ease;
-    margin-left: 0;
+    transition: max-height 0.4s ease, padding 0.4s ease, gap 0.4s ease, opacity 0.3s ease, visibility 0.3s ease;
+    margin: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     z-index: 999;
+    display: flex !important;
   }
 
   .nav.open {
     max-height: 500px;
     padding: 20px;
+    gap: 15px;
     opacity: 1;
     visibility: visible;
   }
