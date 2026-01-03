@@ -432,7 +432,7 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* CRITICAL FIX: Nav menu visibility and positioning */
+  /* CRITICAL FIX: Nav menu with proper slide-down animation */
   .nav {
     position: fixed;
     top: 70px;
@@ -444,18 +444,25 @@
     flex-direction: column;
     padding: 20px;
     gap: 15px;
-    transform: translateY(-150%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    margin-left: 0;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     z-index: 99;
-    display: flex !important; /* Force display */
+    display: flex !important;
+    margin-left: 0 !important;
+    
+    /* Override animation transform */
+    transform: none !important;
+    
+    /* Closed state - using max-height for smooth dropdown */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.3s ease;
   }
 
+  /* Open state */
   .nav.open {
-    transform: translateY(0) !important;
+    max-height: 500px;
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -465,7 +472,7 @@
     padding: 12px;
     text-align: center;
     width: 100%;
-    display: block !important; /* Force display */
+    display: block !important;
     color: var(--accent);
     background: none;
     border: none;
@@ -476,7 +483,7 @@
     width: 100%;
     padding: 15px 20px;
     text-align: center;
-    display: block !important; /* Force display */
+    display: block !important;
   }
 
   /* ===== HERO SECTION MOBILE ===== */
@@ -550,11 +557,11 @@
     padding: 50px 0;
     margin-top: 0;
     margin-bottom: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
   }
 
   #projects .container {
-    overflow-x: hidden; /* Remove scrollbar */
+    overflow-x: hidden;
     padding: 30px 15px;
   }
 
@@ -570,16 +577,15 @@
     padding: 0;
     justify-content: center;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     width: 100%;
   }
 
-  /* CRITICAL FIX: Mobile card heights and overlay */
   .project-card {
     width: 100%;
     max-width: 100%;
     margin: 0 auto !important;
-    height: auto; /* Let content determine height */
+    height: auto;
   }
 
   .project-card.web {
@@ -588,15 +594,13 @@
     aspect-ratio: 16/9;
   }
 
-  /* Mobile cards - height matches image */
   .project-card.mobile {
     max-width: 280px;
     margin: 0 auto !important;
-    aspect-ratio: 9/16; /* Maintain portrait ratio */
+    aspect-ratio: 9/16;
     height: auto;
   }
 
-  /* Reset all custom positioning for mobile */
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
@@ -612,7 +616,6 @@
     top: 0 !important;
   }
 
-  /* Image container fills card */
   .project-media {
     width: 100% !important;
     height: 100% !important;
@@ -627,13 +630,11 @@
     display: block;
   }
 
-  /* Web card images */
   .project-card.web .project-media img {
     height: 100%;
     object-fit: cover;
   }
 
-  /* Mobile card images - match card height */
   .project-card.mobile .project-media {
     width: 100% !important;
     height: 100% !important;
@@ -645,7 +646,6 @@
     object-fit: cover;
   }
 
-  /* Overlay covers entire card including image */
   .project-body {
     position: absolute;
     top: 0;
@@ -672,7 +672,6 @@
     visibility: visible;
   }
 
-  /* Mobile card overlay - matches full height */
   .project-card.mobile .project-body {
     padding: 20px 15px;
     justify-content: space-evenly;
@@ -921,6 +920,15 @@
 
   .hamburger span {
     width: 26px;
+  }
+
+  /* Nav menu adjustment for smaller screens */
+  .nav {
+    top: 65px;
+  }
+  
+  .nav.open {
+    max-height: 450px;
   }
 
   /* HERO */
