@@ -77,18 +77,8 @@ export default function Navbar() {
           <span></span>
         </button>
 
-        {/* Navigation - with inline fallback for mobile */}
-        <nav 
-          className={`nav ${open ? "open" : ""}`}
-          style={{
-            // Inline styles as fallback - only apply on mobile
-            ...(window.innerWidth <= 768 && open ? {
-              display: 'flex',
-              maxHeight: '500px',
-              padding: '20px'
-            } : {})
-          }}
-        >
+        {/* Navigation - REMOVED INLINE STYLES */}
+        <nav className={`nav ${open ? "open" : ""}`}>
           <button 
             className="nav-link" 
             onClick={() => handleNavClick("home")}
