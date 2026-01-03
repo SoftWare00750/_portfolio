@@ -585,6 +585,15 @@
     margin: 0 auto !important;
   }
 
+  .project-card.mobile .project-body {
+    padding: 25px 15px;
+    justify-content: space-evenly;
+    height: 116%;
+    width: 119%;
+    margin-left: -3px;
+    margin-top: -7px;
+
+  } 
   /* Reset all custom positioning on mobile */
   .project-card:nth-child(1),
   .project-card:nth-child(2),
