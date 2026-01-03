@@ -201,15 +201,6 @@
    MOBILE OPTIMIZATIONS - SLIGHTLY SLOWER
    ========================= */
 @media (max-width: 768px) {
-  /* CRITICAL: Completely disable nav animations on mobile */
-  .nav,
-  .nav.open {
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-    opacity: 1 !important;
-  }
-  
   /* Reduce translation distances on mobile */
   .hero-name {
     transform: translateX(-50px);
@@ -347,12 +338,5 @@
   
   .navbar {
     transform: translateY(0) !important;
-  }
-  
-  /* Nav stays unaffected by animations */
-  .nav,
-  .nav.open {
-    transition: none !important;
-    animation: none !important;
   }
 }
