@@ -1,3 +1,5 @@
+
+
 :root {
   --bg: #0f1724;
   --card: #0b1220;
@@ -1143,3 +1145,83 @@ textarea::placeholder {
                                                                                                                                                                                                                                               top: 65px !important;
                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                 }
+
+                                                                                                                                                                                                                                                /* ===== MOBILE NAV FIX - OVERRIDES EVERYTHING ===== */
+/* SAFE: Only applies to mobile (≤768px), desktop navbar (>768px) is unaffected */
+
+@media (max-width: 768px) and (min-width: 1px) {
+  /* CRITICAL: Override the existing mobile nav styles */
+  
+  /* Default state - completely hidden */
+  .nav {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: rgba(7, 16, 40, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+    z-index: 99 !important;
+    
+    /* Hide by default */
+    display: none !important;
+    transform: translateY(0) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    
+    /* Layout when visible */
+    flex-direction: column !important;
+    padding: 20px !important;
+    gap: 15px !important;
+    margin-left: 0 !important;
+  }
+  
+  /* Open state - show menu */
+  .nav.open {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    animation: mobileNavSlideDown 0.3s ease forwards !important;
+  }
+  
+  @keyframes mobileNavSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Ensure nav items are visible when menu is open */
+  .nav.open .nav-link,
+  .nav.open .contact-button {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .nav .nav-link {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px !important;
+    font-size: 18px !important;
+  }
+  
+  .nav .contact-button {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 15px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav,
+  .nav.open {
+    top: 65px !important;
+  }
+}
