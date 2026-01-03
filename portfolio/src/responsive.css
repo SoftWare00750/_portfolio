@@ -382,7 +382,7 @@
     padding: 0 15px;
   }
 
-  /* ===== NAVBAR MOBILE ===== */
+  /* ===== NAVBAR MOBILE - FIXED ===== */
   .navbar {
     padding: 0 15px;
     margin-left: 0;
@@ -403,15 +403,20 @@
 
   .hamburger {
     display: flex !important;
+    z-index: 201 !important;
   }
 
   .nav {
     position: fixed;
-    top: 70px;
+    top: 69px;
     left: 0;
     right: 0;
     width: 100%;
     margin-left: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
   }
 
   .nav.open {
@@ -486,11 +491,19 @@
     display: block;
   }
 
-  /* ===== PROJECTS SECTION MOBILE ===== */
+  /* ===== PROJECTS SECTION MOBILE - FIXED SCROLLBAR ===== */
   #projects {
     padding: 50px 0;
     margin-top: 0;
     margin-bottom: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  #projects .container {
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 30px 15px;
   }
 
   .section-title {
@@ -505,12 +518,14 @@
     padding: 0;
     justify-content: center;
     margin: 0;
+    overflow: visible;
   }
 
   .project-card {
     width: 100%;
     max-width: 100%;
     margin: 0 auto !important;
+    overflow: visible;
   }
 
   .project-card.web {
@@ -538,6 +553,10 @@
     top: 0 !important;
   }
 
+  .project-media {
+    overflow: visible !important;
+  }
+
   .project-media img {
     height: 200px;
     width: 100%;
@@ -546,6 +565,11 @@
 
   .project-card.mobile .project-media img {
     height: 380px;
+  }
+
+  .project-body {
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .project-body h3 {
@@ -789,9 +813,15 @@
     margin: 35px auto 0;
   }
 
-  /* PROJECTS */
+  /* PROJECTS - FIXED */
   #projects {
     padding: 40px 0;
+    overflow: visible;
+  }
+
+  #projects .container {
+    padding: 25px 10px;
+    overflow: visible;
   }
 
   .section-title {
@@ -801,6 +831,7 @@
 
   .projects-grid {
     gap: 25px;
+    overflow: visible;
   }
 
   .project-media img {
