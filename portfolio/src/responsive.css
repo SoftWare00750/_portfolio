@@ -382,7 +382,7 @@
     padding: 0 15px;
   }
 
-  /* ===== NAVBAR MOBILE - FIXED ===== */
+  /* ===== NAVBAR MOBILE ===== */
   .navbar {
     padding: 0 15px;
     margin-left: 0;
@@ -402,112 +402,8 @@
     font-size: 26px;
   }
 
-  .hamburger {
-    display: flex !important;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 200;
-    width: 28px;
-  }
-
-  .hamburger span {
-    width: 28px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    display: block;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-
-  /* Force desktop nav to hide on mobile */
-  .nav {
-    display: none !important;
-  }
-  
-  /* Mobile nav menu - Fresh start with no conflicts */
-  .nav.open {
-    /* Force display and visibility */
-    display: flex !important;
-    visibility: visible !important;
-    
-    /* Position */
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 99;
-    
-    /* Layout */
-    flex-direction: column;
-    padding: 20px;
-    gap: 15px;
-    
-    /* Styling */
-    background: rgba(7, 16, 40, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    
-    /* Animation - override everything */
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-    margin-left: 0 !important;
-    
-    /* Ensure smooth appearance */
-    animation: slideDown 0.3s ease forwards;
-  }
-  
-  /* Keyframe for smooth dropdown */
-  @keyframes slideDown {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  /* Nav items styling */
-  .nav.open .nav-link,
-  .nav.open .contact-button {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  .nav-link {
-    font-size: 18px;
-    padding: 12px;
-    text-align: center;
-    width: 100%;
-    display: block !important;
-    color: var(--accent);
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .contact-button {
-    width: 100%;
-    padding: 15px 20px;
-    text-align: center;
-    display: block !important;
-  }
+  /* NOTE: Mobile nav styling is handled in App.css */
+  /* Do NOT add nav display rules here to avoid conflicts */
 
   /* ===== HERO SECTION MOBILE ===== */
   #home {
@@ -575,7 +471,7 @@
     display: block;
   }
 
-  /* ===== PROJECTS SECTION MOBILE - FIXED ===== */
+  /* ===== PROJECTS SECTION MOBILE ===== */
   #projects {
     padding: 50px 0;
     margin-top: 0;
@@ -935,19 +831,6 @@
     width: 40px;
     height: 40px;
     font-size: 22px;
-  }
-
-  .hamburger {
-    width: 26px;
-  }
-
-  .hamburger span {
-    width: 26px;
-  }
-
-  /* Nav menu adjustment for smaller screens */
-  .nav.open {
-    top: 65px;
   }
 
   /* HERO */
