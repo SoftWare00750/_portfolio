@@ -432,9 +432,9 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-    .nav {
+   .nav {
     position: fixed;
-    top: 70px;
+    top: 80px;
     left: 0;
     right: 0;
     width: 100vw;
@@ -461,14 +461,7 @@
     opacity: 1;
     visibility: visible;
   }
-  .nav-link {
-    font-size: 18px;
-    padding: 12px;
-    text-align: center;
-    width: 100%;
-    display: block;
-  }
-
+  
   .contact-button {
     width: 100%;
     padding: 15px 20px;
