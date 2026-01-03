@@ -112,7 +112,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   overflow: hidden;
 }
 
-/* DESKTOP: Hide hamburger by default */
 .hamburger {
   display: none;
 }
@@ -146,7 +145,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-size: 30px;
 }
 
-/* DESKTOP NAV */
 .nav {
   margin-left: auto;
   display: flex;
@@ -327,6 +325,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   opacity: 1 !important;
 }
 
+/* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
   width: 110%;
@@ -335,6 +334,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   height: auto;
 }
 
+/* Mobile projects - portrait */
 .project-card.mobile {
   aspect-ratio: 9/16;
   max-width: 280px;
@@ -506,6 +506,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-size: 0.85rem;
 }
 
+/* Responsive adjustments */
 @media (max-width: 1280px) {
   #proj-9 {
     margin-left: -60px;
@@ -533,6 +534,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   }
 }
 
+/* ===== PROFILE CARD ===== */
 .profile-card {
   background: linear-gradient(180deg, #071127, #06101a);
   padding: 18px;
@@ -562,6 +564,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: var(--muted);
 }
 
+/* ===== SECTIONS ===== */
 .section {
   padding: 150px 0;
 }
@@ -579,6 +582,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   text-underline-offset: 12px;
 }
 
+/* ===== ABOUT SECTION ===== */
 #about {
   margin-top: -10px;
   padding: 20px 0 50px;
@@ -625,6 +629,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: var(--accent);
 }
 
+/* ===== SKILLS SECTION ===== */
 #skills {
   padding: 60px;
   margin-top: -130px;
@@ -678,6 +683,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: #0f172a;
 }
 
+/* ===== CONTACT SECTION ===== */
 #contact {
   padding: 5px 0;
   display: flex;
@@ -759,6 +765,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: var(--accent);
 }
 
+/* ===== CHAT BOX ===== */
 .chat-box {
   position: fixed;
   bottom: 20px;
@@ -848,6 +855,7 @@ textarea::placeholder {
   }
 }
 
+/* ===== FOOTER ===== */
 .footer {
   padding: -18px 0;
   border-top: -2px solid rgba(255, 255, 255, 0.02);
@@ -886,9 +894,9 @@ textarea::placeholder {
   transform: scale(1.1);
 }
 
-/* ===== MOBILE NAV - WORKING VERSION ===== */
+/* ===== MOBILE NAVIGATION - WORKING VERSION ===== */
 @media (max-width: 768px) {
-  /* SHOW HAMBURGER */
+  /* Show hamburger */
   .hamburger {
     display: flex !important;
     flex-direction: column;
@@ -919,54 +927,52 @@ textarea::placeholder {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* HIDE NAV BY DEFAULT */
+  /* Hide nav by default - SIMPLIFIED */
   .nav {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 99;
-    background: rgba(7, 16, 40, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    flex-direction: column;
-    margin-left: 0;
-    padding: 0;
-    gap: 0;
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 99 !important;
     
-    /* Hidden state */
-    display: none;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    opacity: 0;
+    background: rgba(7, 16, 40, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+    
+    flex-direction: column !important;
+    margin-left: 0 !important;
+    
+    /* CRITICAL: Default hidden */
+    max-height: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    
+    transition: max-height 0.4s ease, padding 0.4s ease !important;
   }
 
-  /* SHOW NAV WHEN OPEN */
+  /* Show nav when open - SIMPLIFIED */
   .nav.open {
-    display: flex !important;
-    height: auto;
-    padding: 20px;
-    gap: 15px;
-    visibility: visible;
-    opacity: 1;
+    max-height: 500px !important;
+    padding: 20px !important;
   }
 
   .nav .nav-link,
   .nav .contact-button {
-    display: block;
-    width: 100%;
-    text-align: center;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 
   .nav .nav-link {
-    font-size: 18px;
-    padding: 12px;
+    font-size: 18px !important;
+    padding: 12px !important;
+    margin: 5px 0 !important;
   }
 
   .nav .contact-button {
-    padding: 15px 20px;
+    padding: 15px 20px !important;
+    margin: 10px 0 !important;
   }
   
   #proj-9,
@@ -992,9 +998,8 @@ textarea::placeholder {
 }
 
 @media (max-width: 480px) {
-  .nav,
-  .nav.open {
-    top: 65px;
+  .nav {
+    top: 65px !important;
   }
 }
 

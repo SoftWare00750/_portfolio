@@ -10,48 +10,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (open && !event.target.closest('.navbar')) {
-        setOpen(false);
-      }
-    };
-
-    if (open) {
-      document.addEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [open]);
-
-  const toggleMenu = (e) => {
-    e.stopPropagation();
-    setOpen(!open);
+  const toggleMenu = () => {
+    setOpen(prevOpen => !prevOpen);
   };
 
   const scrollToSection = (sectionId) => {
-    // Close menu first
     setOpen(false);
     
-    // Small delay to let menu close
     setTimeout(() => {
       const section = document.getElementById(sectionId);
-      
-      if (!section) {
-        console.error("Section not found:", sectionId);
-        return;
-      }
+      if (!section) return;
 
-      // Scroll to section
       section.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start' 
       });
       
-      // Adjust for navbar height
       setTimeout(() => {
         const navbarHeight = 90;
         const currentScroll = window.pageYOffset;
@@ -66,7 +40,6 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        {/* Logo */}
         <div 
           className="brand" 
           onClick={() => scrollToSection("home")}
@@ -77,7 +50,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Hamburger */}
         <div
           className={`hamburger ${open ? "active" : ""}`}
           onClick={toggleMenu}
@@ -87,7 +59,6 @@ export default function Navbar() {
           <span></span>
         </div>
 
-        {/* Navigation */}
         <nav className={`nav ${open ? "open" : ""}`}>
           <button 
             className="nav-link" 
