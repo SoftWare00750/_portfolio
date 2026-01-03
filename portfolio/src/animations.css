@@ -201,20 +201,13 @@
    MOBILE OPTIMIZATIONS - SLIGHTLY SLOWER
    ========================= */
 @media (max-width: 768px) {
-  /* Disable nav animations on mobile - let responsive.css handle it */
-  .nav {
+  /* CRITICAL: Completely disable nav animations on mobile */
+  .nav,
+  .nav.open {
     transform: none !important;
     transition: none !important;
     animation: none !important;
-  }
-  
-  /* Mobile nav is controlled by .open class only */
-  .nav:not(.open) {
-    display: none !important;
-  }
-  
-  .nav.open {
-    display: flex !important;
+    opacity: 1 !important;
   }
   
   /* Reduce translation distances on mobile */
@@ -354,5 +347,12 @@
   
   .navbar {
     transform: translateY(0) !important;
+  }
+  
+  /* Nav stays unaffected by animations */
+  .nav,
+  .nav.open {
+    transition: none !important;
+    animation: none !important;
   }
 }
