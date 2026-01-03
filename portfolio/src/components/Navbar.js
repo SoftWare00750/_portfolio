@@ -10,45 +10,41 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    if (!open) return;
+  const scrollToSection = (sectionId) => {
+    console.log("Clicked:", sectionId);
     
-    const handleClickOutside = (e) => {
-      if (!e.target.closest('.navbar')) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [open]);
-
-  const handleToggle = (e) => {
-    e.stopPropagation();
-    setOpen(prev => !prev);
-  };
-
-  const handleNavClick = (sectionId) => {
+    // Close menu
     setOpen(false);
     
-    setTimeout(() => {
+    // Try multiple methods to scroll
+    const scrollMethods = () => {
       const section = document.getElementById(sectionId);
-      if (!section) return;
+      console.log("Section found:", section);
+      
+      if (!section) {
+        console.error("Section not found:", sectionId);
+        return;
+      }
 
+      // Method 1: scrollIntoView (most reliable)
       section.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start' 
       });
       
+      // Adjust for navbar after scrollIntoView
       setTimeout(() => {
         const navbarHeight = 90;
+        const currentScroll = window.pageYOffset;
         window.scrollTo({
-          top: window.pageYOffset - navbarHeight,
+          top: currentScroll - navbarHeight,
           behavior: 'smooth'
         });
       }, 100);
-    }, 150);
+    };
+
+    // Execute after a short delay
+    setTimeout(scrollMethods, 150);
   };
 
   return (
@@ -57,7 +53,7 @@ export default function Navbar() {
         {/* Logo */}
         <div 
           className="brand" 
-          onClick={() => handleNavClick("home")}
+          onClick={() => scrollToSection("home")}
           style={{ cursor: 'pointer' }}
         >
           <div className="logo-circle">
@@ -66,46 +62,44 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger */}
-        <button
+        <div
           className={`hamburger ${open ? "active" : ""}`}
-          onClick={handleToggle}
-          aria-label="Toggle menu"
-          aria-expanded={open}
+          onClick={() => setOpen(!open)}
         >
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </div>
 
-        {/* Navigation - REMOVED INLINE STYLES */}
+        {/* Navigation */}
         <nav className={`nav ${open ? "open" : ""}`}>
           <button 
             className="nav-link" 
-            onClick={() => handleNavClick("home")}
+            onClick={() => scrollToSection("home")}
           >
             Home
           </button>
           <button 
             className="nav-link" 
-            onClick={() => handleNavClick("projects")}
+            onClick={() => scrollToSection("projects")}
           >
             Projects
           </button>
           <button 
             className="nav-link" 
-            onClick={() => handleNavClick("about")}
+            onClick={() => scrollToSection("about")}
           >
             About
           </button>
           <button 
             className="nav-link" 
-            onClick={() => handleNavClick("skills")}
+            onClick={() => scrollToSection("skills")}
           >
             Skills
           </button>
           <button 
             className="contact-button" 
-            onClick={() => handleNavClick("contact")}
+            onClick={() => scrollToSection("contact")}
           >
             Contact Me
           </button>
