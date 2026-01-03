@@ -403,26 +403,73 @@
 
   .hamburger {
     display: flex !important;
-    z-index: 201 !important;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+    width: 28px;
+    position: relative;
+  }
+
+  .hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
   }
 
   .nav {
     position: fixed;
-    top: 69px;
+    top: 70px;
     left: 0;
     right: 0;
     width: 100%;
     margin-left: 0;
-    transform: translateY(-100%);
+    background: rgba(7, 16, 40, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    transform: translateY(-150%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    z-index: 99;
   }
 
   .nav.open {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+
+  .contact-button {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
   }
 
   /* ===== HERO SECTION MOBILE ===== */
@@ -525,7 +572,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0 auto !important;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .project-card.web {
@@ -538,6 +585,7 @@
     margin: 0 auto !important;
   }
 
+  /* Reset all custom positioning on mobile */
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
@@ -554,7 +602,7 @@
   }
 
   .project-media {
-    overflow: visible !important;
+    overflow: hidden;
   }
 
   .project-media img {
@@ -565,11 +613,6 @@
 
   .project-card.mobile .project-media img {
     height: 380px;
-  }
-
-  .project-body {
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 
   .project-body h3 {
@@ -813,15 +856,13 @@
     margin: 35px auto 0;
   }
 
-  /* PROJECTS - FIXED */
+  /* PROJECTS */
   #projects {
     padding: 40px 0;
-    overflow: visible;
   }
 
   #projects .container {
-    padding: 25px 10px;
-    overflow: visible;
+    padding: 25px 12px;
   }
 
   .section-title {
@@ -831,7 +872,6 @@
 
   .projects-grid {
     gap: 25px;
-    overflow: visible;
   }
 
   .project-media img {
