@@ -10,29 +10,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setOpen(prevOpen => !prevOpen);
+  };
+
   const scrollToSection = (sectionId) => {
-    console.log("Clicked:", sectionId);
-    
-    // Close menu
     setOpen(false);
     
-    // Try multiple methods to scroll
-    const scrollMethods = () => {
+    setTimeout(() => {
       const section = document.getElementById(sectionId);
-      console.log("Section found:", section);
-      
-      if (!section) {
-        console.error("Section not found:", sectionId);
-        return;
-      }
+      if (!section) return;
 
-      // Method 1: scrollIntoView (most reliable)
       section.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start' 
       });
       
-      // Adjust for navbar after scrollIntoView
       setTimeout(() => {
         const navbarHeight = 90;
         const currentScroll = window.pageYOffset;
@@ -41,16 +34,12 @@ export default function Navbar() {
           behavior: 'smooth'
         });
       }, 100);
-    };
-
-    // Execute after a short delay
-    setTimeout(scrollMethods, 150);
+    }, 150);
   };
 
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        {/* Logo */}
         <div 
           className="brand" 
           onClick={() => scrollToSection("home")}
@@ -61,17 +50,15 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Hamburger */}
         <div
           className={`hamburger ${open ? "active" : ""}`}
-          onClick={() => setOpen(!open)}
+          onClick={toggleMenu}
         >
           <span></span>
           <span></span>
           <span></span>
         </div>
 
-        {/* Navigation */}
         <nav className={`nav ${open ? "open" : ""}`}>
           <button 
             className="nav-link" 
