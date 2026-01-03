@@ -10,11 +10,26 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setOpen(prevOpen => !prevOpen);
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (!open) return;
+    
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.navbar')) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [open]);
+
+  const handleToggle = (e) => {
+    e.stopPropagation();
+    setOpen(prev => !prev);
   };
 
-  const scrollToSection = (sectionId) => {
+  const handleNavClick = (sectionId) => {
     setOpen(false);
     
     setTimeout(() => {
@@ -28,9 +43,8 @@ export default function Navbar() {
       
       setTimeout(() => {
         const navbarHeight = 90;
-        const currentScroll = window.pageYOffset;
         window.scrollTo({
-          top: currentScroll - navbarHeight,
+          top: window.pageYOffset - navbarHeight,
           behavior: 'smooth'
         });
       }, 100);
@@ -40,9 +54,10 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
+        {/* Logo */}
         <div 
           className="brand" 
-          onClick={() => scrollToSection("home")}
+          onClick={() => handleNavClick("home")}
           style={{ cursor: 'pointer' }}
         >
           <div className="logo-circle">
@@ -50,43 +65,57 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div
+        {/* Hamburger */}
+        <button
           className={`hamburger ${open ? "active" : ""}`}
-          onClick={toggleMenu}
+          onClick={handleToggle}
+          aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
 
-        <nav className={`nav ${open ? "open" : ""}`}>
+        {/* Navigation - with inline fallback for mobile */}
+        <nav 
+          className={`nav ${open ? "open" : ""}`}
+          style={{
+            // Inline styles as fallback - only apply on mobile
+            ...(window.innerWidth <= 768 && open ? {
+              display: 'flex',
+              maxHeight: '500px',
+              padding: '20px'
+            } : {})
+          }}
+        >
           <button 
             className="nav-link" 
-            onClick={() => scrollToSection("home")}
+            onClick={() => handleNavClick("home")}
           >
             Home
           </button>
           <button 
             className="nav-link" 
-            onClick={() => scrollToSection("projects")}
+            onClick={() => handleNavClick("projects")}
           >
             Projects
           </button>
           <button 
             className="nav-link" 
-            onClick={() => scrollToSection("about")}
+            onClick={() => handleNavClick("about")}
           >
             About
           </button>
           <button 
             className="nav-link" 
-            onClick={() => scrollToSection("skills")}
+            onClick={() => handleNavClick("skills")}
           >
             Skills
           </button>
           <button 
             className="contact-button" 
-            onClick={() => scrollToSection("contact")}
+            onClick={() => handleNavClick("contact")}
           >
             Contact Me
           </button>
