@@ -432,7 +432,7 @@
   }
 
   .nav {
-    position: fixed;
+    position: relative;
     top: 70px;
     left: 0;
     right: 0;
