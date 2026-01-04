@@ -421,7 +421,7 @@
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    gap: 3px !important;
+    gap: 5px !important;
     max-height: none !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -437,7 +437,7 @@
   .nav-link {
     font-size: 25px !important;
     font-style: bold;
-    padding: 5px 6px !important;
+    padding: 6px 7px !important;
     text-align: left !important;
     width: auto !important;
     display: inline-block !important;
