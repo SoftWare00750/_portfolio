@@ -435,10 +435,10 @@
 
   /* Smaller nav links */
   .nav-link {
-    font-size: 15px !important;
+    font-size: 25px !important;
     font-style: bold;
     padding: 5px 6px !important;
-    text-align: center !important;
+    text-align: left !important;
     width: auto !important;
     display: inline-block !important;
     white-space: nowrap;
