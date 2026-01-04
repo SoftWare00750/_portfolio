@@ -420,7 +420,7 @@
     backdrop-filter: none !important;
     box-shadow: none !important;
     padding: 5 !important;
-    margin: 0 !important;
+    margin: 8 !important;
     gap: 5px !important;
     max-height: none !important;
     opacity: 1 !important;
@@ -437,7 +437,7 @@
   .nav-link {
     font-size: 25px !important;
     font-style: bold;
-    padding: 6px 7px !important;
+    padding: 7px 8px !important;
     text-align: left !important;
     width: auto !important;
     display: inline-block !important;
