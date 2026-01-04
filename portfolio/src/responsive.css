@@ -430,11 +430,13 @@
     transition: none !important;
     flex: 1;
     justify-content: flex-end;
+    margin-right: 3px;
   }
 
   /* Smaller nav links */
   .nav-link {
-    font-size: 11px !important;
+    font-size: 13px !important;
+    font-style: bold;
     padding: 5px 6px !important;
     text-align: center !important;
     width: auto !important;
