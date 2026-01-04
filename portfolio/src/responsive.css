@@ -419,7 +419,7 @@
     background: transparent !important;
     backdrop-filter: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    padding: 5 !important;
     margin: 0 !important;
     gap: 5px !important;
     max-height: none !important;
