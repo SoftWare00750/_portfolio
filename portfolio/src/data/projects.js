@@ -92,7 +92,7 @@ const projects = [
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "REST API"],
     image: "/assets/hapyness.jpg",
-    link: "https://github.com/yourusername/hapyness",
+    link: "https://www.dropbox.com/scl/fi/podixkq4crasma6mczn2i/Hapyness-android.apk?rlkey=ch8a7fevorcdbseeklpsj45us&st=22beqqrh&dl=0",
     type: "mobile"
   }
 ];
