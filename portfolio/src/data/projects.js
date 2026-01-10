@@ -65,17 +65,7 @@ const projects = [
     type: "web"
   },
 
-  {
-    id: "proj-8",
-    title: "E-commerce website, Gildan",
-    desc: "Check out for different clothing outfits",
-    tech: ["Shopify"],
-    image: "/assets/gildan.png",
-    link: "https://gildan-store-2.myshopify.com/",
-    type: "web"
-  },
-
-
+  
 
   {
     id: "proj-9",
