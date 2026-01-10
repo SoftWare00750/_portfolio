@@ -15,7 +15,7 @@ export default function Navbar() {
     
     // Close menu first
     setOpen(false);
-    console.log("🔵 Menu closed, open state:", false);
+    console.log("🔵 Menu closed");
     
     // Wait for menu to close, then scroll
     setTimeout(() => {
@@ -45,78 +45,112 @@ export default function Navbar() {
     }, 150);
   };
 
-  // Add console log for hamburger clicks
   const toggleMenu = () => {
     console.log("🍔 Hamburger clicked! Current state:", open);
     setOpen(!open);
     console.log("🍔 New state will be:", !open);
   };
 
-  // Debug: Log whenever 'open' state changes
   useEffect(() => {
     console.log("📱 Menu open state changed to:", open);
-    console.log("📱 Nav element classes:", document.querySelector('.nav')?.className);
   }, [open]);
 
   return (
-    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="nav-inner">
-        {/* Logo */}
-        <div 
-          className="brand" 
-          onClick={() => scrollToSection("home")}
-          style={{ cursor: 'pointer' }}
-        >
-          <div className="logo-circle">
-            <p>O</p>
+    <>
+      {/* NAVBAR - Fixed at top */}
+      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="nav-inner">
+          {/* Logo */}
+          <div 
+            className="brand" 
+            onClick={() => scrollToSection("home")}
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="logo-circle">
+              <p>O</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation - Hidden on mobile */}
+          <nav className="nav-desktop">
+            <button 
+              className="nav-link" 
+              onClick={() => scrollToSection("home")}
+            >
+              Home
+            </button>
+            <button 
+              className="nav-link" 
+              onClick={() => scrollToSection("projects")}
+            >
+              Projects
+            </button>
+            <button 
+              className="nav-link" 
+              onClick={() => scrollToSection("about")}
+            >
+              About
+            </button>
+            <button 
+              className="nav-link" 
+              onClick={() => scrollToSection("skills")}
+            >
+              Skills
+            </button>
+            <button 
+              className="contact-button" 
+              onClick={() => scrollToSection("contact")}
+            >
+              Contact Me
+            </button>
+          </nav>
+
+          {/* Hamburger - Visible on mobile only */}
+          <div
+            className={`hamburger ${open ? "active" : ""}`}
+            onClick={toggleMenu}
+            style={{ cursor: 'pointer' }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
+      </header>
 
-        {/* Hamburger - with debug logging */}
-        <div
-          className={`hamburger ${open ? "active" : ""}`}
-          onClick={toggleMenu}
-          style={{ cursor: 'pointer' }}
+      {/* MOBILE DROPDOWN MENU - OUTSIDE navbar, independent element */}
+      <nav className={`nav-mobile ${open ? "open" : ""}`}>
+        <button 
+          className="nav-link" 
+          onClick={() => scrollToSection("home")}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        {/* Navigation - with conditional 'open' class */}
-        <nav className={`nav ${open ? "open" : ""}`}>
-          <button 
-            className="nav-link" 
-            onClick={() => scrollToSection("home")}
-          >
-            Home
-          </button>
-          <button 
-            className="nav-link" 
-            onClick={() => scrollToSection("projects")}
-          >
-            Projects
-          </button>
-          <button 
-            className="nav-link" 
-            onClick={() => scrollToSection("about")}
-          >
-            About
-          </button>
-          <button 
-            className="nav-link" 
-            onClick={() => scrollToSection("skills")}
-          >
-            Skills
-          </button>
-          <button 
-            className="contact-button" 
-            onClick={() => scrollToSection("contact")}
-          >
-            Contact Me
-          </button>
-        </nav>
-      </div>
-    </header>
+          Home
+        </button>
+        <button 
+          className="nav-link" 
+          onClick={() => scrollToSection("projects")}
+        >
+          Projects
+        </button>
+        <button 
+          className="nav-link" 
+          onClick={() => scrollToSection("about")}
+        >
+          About
+        </button>
+        <button 
+          className="nav-link" 
+          onClick={() => scrollToSection("skills")}
+        >
+          Skills
+        </button>
+        <button 
+          className="contact-button" 
+          onClick={() => scrollToSection("contact")}
+        >
+          Contact Me
+        </button>
+      </nav>
+    </>
   );
 }
