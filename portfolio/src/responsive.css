@@ -619,12 +619,7 @@
   }
 }
 
-/* Debug helper - remove after testing */
-@media (max-width: 768px) {
-  .nav-mobile.open {
-    outline: 3px solid lime; /* You should see this green border */
-  }
-}
+
   /* ===== HERO SECTION MOBILE ===== */
   #home {
     padding: 100px 0 60px;
