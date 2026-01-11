@@ -1,6 +1,6 @@
 const projects = [
   {
-    id: "proj-1",
+    id: "proj-5",
     title: "Garage Website",
     desc: "View different Cars, and see information about them.",
     tech: ["React.js", "Css", "Html"],
@@ -9,7 +9,7 @@ const projects = [
     type: "web"
   },
   {
-    id: "proj-2",
+    id: "proj-6",
     title: "Nike Shoe store website",
     desc: "View different Nike shoes and purchase them.",
     tech: ["React.js", "Css", "Html"],
@@ -18,35 +18,45 @@ const projects = [
     type: "web"
   },
   {
-    id: "proj-3",
+    id: "proj-1",
     title: "E-commerce store, GETIT",
     desc: "Check out different items and purchase them.",
-    tech: ["React.js", "Css", "Html"],
+    tech: ["React.js", "Css", "Node.js"],
     image: "/assets/ecommerce.png",
     link: "https://e-commercesite1.vercel.app/",
     type: "web"
   },
   {
-    id: "proj-4",
+    id: "proj-2",
     title: "Maglo Finance Web Application",
     desc: "Manage your finances, Monitor your profits and Create invoices for items.",
-    tech: ["Next.js", "Tailwind Css", "Html"],
+    tech: ["Next.js", "Tailwind Css", "Django"],
     image: "/assets/maglo.png",
     link: "https://maglo-three.vercel.app/",
     type: "web"
   },
   {
-    id: "proj-5",
+    id: "proj-3",
     title: "Task Management App, Taskflow",
     desc: "Manage your Tasks, per day, per week, per month, per year.",
-    tech: ["Vue.js", "Html", "Tailwind CSS"],
+    tech: ["Vue.js", "Tailwind CSS"],
     image: "/assets/taskflow.png",
     link: "https://taskflow-frontend-dun.vercel.app/",
     type: "web"
   },
 
   {
-    id: "proj-6",
+    id: "proj-4",
+    title: "Food Recipe Discovery Site, Dishcovery",
+    desc: "Discover new recipes and track your favorite meals with this intuitive mobile app",
+    tech: ["React.js", "CSS", "node.js"],
+    image: "/assets/dishcovery1.png",
+    link: "https://dishcovery-cmbl.vercel.app/",
+    type: "web"
+  },
+
+  {
+    id: "proj-7",
     title: "E-commerce site, ShopHub",
     desc: "Shop and buy what you need",
     tech: ["Wordpress"],
@@ -56,7 +66,7 @@ const projects = [
   },
 
  {
-    id: "proj-7",
+    id: "proj-8",
     title: "Advertisement website, MusicFestival",
     desc: "Check out information about the coming Music Festival",
     tech: ["Wordpress"],
