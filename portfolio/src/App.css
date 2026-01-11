@@ -338,7 +338,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   width: auto;
   gap: 17px;
   border-radius: 13px;
-  height: 110%;
+  height: 100%;
 }
 
 /* Mobile projects - portrait */
@@ -368,7 +368,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-media img {
-  width: 100% !important;
+  width: 90% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
