@@ -335,10 +335,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
-  width: 110%;
+  width: 91%;
   gap: 10px;
   border-radius: 13px;
-  height: auto;
+  height: 100%;
 }
 
 /* Mobile projects - portrait */
@@ -358,7 +358,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-media {
-  width: 100% !important;
+  width: 91% !important;
   height: 100% !important;
   position: relative;
   overflow: visible !important;
@@ -417,7 +417,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   text-align: center;
   z-index: 10;
   height: 100%;
-  width: 100%;
+  width: 91%;
 }
 
 .project-card:hover .project-body {
