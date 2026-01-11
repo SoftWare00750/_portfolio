@@ -354,7 +354,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   transform: translateY(-5px);
 }
 
-/*.project-media {
+.project-media {
   width: 100% !important;
   height: 100% !important;
   position: relative;
@@ -362,7 +362,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   display: block !important;
   visibility: visible !important;
   background: rgba(50, 50, 50, 0.3);
-}*/
+}
 
 .project-media img {
   width: 91% !important;
