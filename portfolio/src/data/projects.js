@@ -9,7 +9,7 @@ const projects = [
     type: "web"
  
   },
-  
+
   {
     id: "proj-2",
     title: "Maglo Finance Web Application",
@@ -96,7 +96,7 @@ const projects = [
     title: "Social Media App, Hapyness",
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "REST API"],
-    image: "/assets/hapyness.jpg",
+    image: "/assets/hapyness.png",
     link: "https://www.dropbox.com/scl/fi/podixkq4crasma6mczn2i/Hapyness-android.apk?rlkey=ch8a7fevorcdbseeklpsj45us&st=22beqqrh&dl=0",
     type: "mobile"
   }
