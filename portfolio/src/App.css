@@ -355,13 +355,13 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-media {
-  width: 100% !important;
+  width: 110% !important;
   height: 100% !important;
   position: relative;
   overflow: visible !important;
   display: block !important;
   visibility: visible !important;
-  background: rgba(50, 50, 50, 0.3);
+  
 }
 
 .project-media img {
