@@ -335,10 +335,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
-  width: 94%;
+  width: 100%;
   gap: 10px;
   border-radius: 13px;
-  height: 100%;
+  height: auto;
 }
 
 /* Mobile projects - portrait */
