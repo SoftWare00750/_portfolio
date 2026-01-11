@@ -344,10 +344,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Mobile projects - portrait */
 .project-card.mobile {
   aspect-ratio: 9/16;
-  max-width: 280px;
+  width:100%;
   margin-left: -20px;
   margin-top: -40px;
-  height: 460px;
+  height: 310px;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -389,7 +389,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .project-card.mobile .project-media img {
   width: 70% !important;
-  height: 300px !important;
+  height: 310px !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
