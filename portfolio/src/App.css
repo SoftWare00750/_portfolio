@@ -318,8 +318,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .project-card {
   position: relative;
-  width: 30%;
-  max-width: 450px;
   border-radius: 8px;
   overflow: visible !important;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
@@ -335,7 +333,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
-  width: 80%;
+  width: 91%;
   gap: 17px;
   border-radius: 13px;
   height: 100%;
