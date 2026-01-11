@@ -1,23 +1,5 @@
 const projects = [
   {
-    id: "proj-5",
-    title: "Garage Website",
-    desc: "View different Cars, and see information about them.",
-    tech: ["React.js", "Css", "Html"],
-    image: "/assets/mygarage.png",
-    link: "https://mygarage-ten.vercel.app/",
-    type: "web"
-  },
-  {
-    id: "proj-6",
-    title: "Nike Shoe store website",
-    desc: "View different Nike shoes and purchase them.",
-    tech: ["React.js", "Css", "Html"],
-    image: "/assets/nike.png",
-    link: "https://nike-landing-page-psi-gold.vercel.app/",
-    type: "web"
-  },
-  {
     id: "proj-1",
     title: "E-commerce store, GETIT",
     desc: "Check out different items and purchase them.",
@@ -25,7 +7,9 @@ const projects = [
     image: "/assets/ecommerce.png",
     link: "https://e-commercesite1.vercel.app/",
     type: "web"
+ 
   },
+  
   {
     id: "proj-2",
     title: "Maglo Finance Web Application",
@@ -34,7 +18,9 @@ const projects = [
     image: "/assets/maglo.png",
     link: "https://maglo-three.vercel.app/",
     type: "web"
+
   },
+
   {
     id: "proj-3",
     title: "Task Management App, Taskflow",
@@ -52,6 +38,26 @@ const projects = [
     tech: ["React.js", "CSS", "node.js"],
     image: "/assets/dishcovery1.png",
     link: "https://dishcovery-cmbl.vercel.app/",
+    type: "web"
+  },
+
+  {
+    id: "proj-5",
+    title: "Garage Website",
+    desc: "View different Cars, and see information about them.",
+    tech: ["React.js", "Css", "Html"],
+    image: "/assets/mygarage.png",
+    link: "https://mygarage-ten.vercel.app/",
+    type: "web"
+  },
+
+  {
+    id: "proj-6",
+    title: "Nike Shoe store website",
+    desc: "View different Nike shoes and purchase them.",
+    tech: ["React.js", "Css", "Html"],
+    image: "/assets/nike.png",
+    link: "https://nike-landing-page-psi-gold.vercel.app/",
     type: "web"
   },
 
@@ -75,8 +81,6 @@ const projects = [
     type: "web"
   },
 
-  
-
   {
     id: "proj-9",
     title: "Food Discovery App, Dishcovery",
@@ -86,6 +90,7 @@ const projects = [
     link: "https://www.dropbox.com/scl/fi/2imtqaf8uo9rmu34ynypf/Dishcovery-android.apk?rlkey=5btikx7obm275uj872rta7xsw&st=ngiucmuj&dl=0",
     type: "mobile"
   },
+
   {
     id: "proj-10",
     title: "Social Media App, Hapyness",
