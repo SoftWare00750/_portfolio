@@ -1,14 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
+  // Scroll detection
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if click is outside both the dropdown and hamburger
+      if (
+        open &&
+        navRef.current &&
+        hamburgerRef.current &&
+        !navRef.current.contains(event.target) &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        console.log("🖱️ Clicked outside - closing menu");
+        setOpen(false);
+      }
+    };
+
+    // Add event listener when menu is open
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside); // For mobile touch
+    }
+
+    // Cleanup
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [open]);
+
+  // Close dropdown when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (open) {
+        console.log("📜 Scrolled - closing menu");
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [open]);
 
   const scrollToSection = (sectionId) => {
     console.log("🔵 Clicked:", sectionId);
@@ -107,6 +157,7 @@ export default function Navbar() {
 
           {/* Hamburger - Visible on mobile only */}
           <div
+            ref={hamburgerRef}
             className={`hamburger ${open ? "active" : ""}`}
             onClick={toggleMenu}
             style={{ cursor: 'pointer' }}
@@ -119,7 +170,10 @@ export default function Navbar() {
       </header>
 
       {/* MOBILE DROPDOWN MENU - OUTSIDE navbar, independent element */}
-      <nav className={`nav-mobile ${open ? "open" : ""}`}>
+      <nav 
+        ref={navRef}
+        className={`nav-mobile ${open ? "open" : ""}`}
+      >
         <button 
           className="nav-link" 
           onClick={() => scrollToSection("home")}
