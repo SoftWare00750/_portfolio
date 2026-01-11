@@ -162,11 +162,7 @@
     margin: 0 auto;
   }
 
-  .project-card {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 !important;
-  }
+  
 
   .project-card:nth-child(1),
   .project-card:nth-child(2),
