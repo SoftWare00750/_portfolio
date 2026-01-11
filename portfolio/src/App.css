@@ -318,9 +318,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .project-card {
   position: relative;
-  width: 20%;
-  max-width: 450px;
-  border-radius: 8px;
   overflow: visible !important;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   background: rgba(2, 6, 23, 0.2);
