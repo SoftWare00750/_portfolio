@@ -335,7 +335,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
-  width: 100%;
+  width: 110%;
   gap: 10px;
   border-radius: 13px;
   height: auto;
@@ -417,7 +417,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   text-align: center;
   z-index: 10;
   height: 100%;
-  width: 91%;
+  width: 100%;
 }
 
 .project-card:hover .project-body {
