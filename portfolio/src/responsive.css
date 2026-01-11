@@ -87,6 +87,12 @@
     max-width: 100%;
   }
 
+  .project-media img {
+  width: 100% !important;
+  height: 109% !important;
+
+  }
+
   .about-grid {
     grid-template-columns: 1.2fr 350px;
     gap: 25px;
@@ -163,8 +169,7 @@
   }
 
   .project-card {
-    width: 100%;
-    max-width: 100%;
+    width: 91%;
     margin: 0 !important;
   }
 
