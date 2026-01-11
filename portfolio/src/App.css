@@ -368,7 +368,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-media img {
-  width: 90% !important;
+  width: 91% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
@@ -388,8 +388,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-media img {
-  width: 100% !important;
-  height: 460px !important;
+  width: 70% !important;
+  height: 300px !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -417,7 +417,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   text-align: center;
   z-index: 10;
   height: 100%;
-  width: 100%;
+  width: 91%;
 }
 
 .project-card:hover .project-body {
