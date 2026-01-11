@@ -344,7 +344,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Mobile projects - portrait */
 .project-card.mobile {
   aspect-ratio: 9/16;
-  width: 65%;
+  width: 70%;
   margin-left: 20px;
   margin-top: 40px;
   height: 310px;
@@ -380,7 +380,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-media {
-  width: 65% !important;
+  width: 70% !important;
   height: 310px !important;
   display: block !important;
   visibility: visible !important;
@@ -388,8 +388,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-media img {
-  width: 65% !important;
-  height: 310px !important;
+  width: 70% !important;
+  height: 360px !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -440,8 +440,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .project-card.mobile .project-body {
   padding: 25px 15px;
   justify-content: space-evenly;
-  height: 310px;
-  width: 65%;
+  height: 116%;
+  width: 119%;
   margin-left: -3px;
   margin-top: -7px;
 }
