@@ -385,8 +385,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-media img {
-  width: 100% !important;
-  height: 460px !important;
+  width: 80% !important;
+  height: 320px !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
