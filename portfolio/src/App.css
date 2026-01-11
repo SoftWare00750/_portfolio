@@ -332,7 +332,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Web projects - landscape */
 .project-card.web {
   aspect-ratio: 16/9;
-  width: 114%;
+  width: 113%;
   gap: 10px;
   border-radius: 13px;
   height: auto;
@@ -365,8 +365,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-media img {
-  width: 93% !important;
-  height: 102% !important;
+  width: 91% !important;
+  height: 100% !important;
   object-fit: cover !important;
   display: block !important;
   visibility: visible !important;
