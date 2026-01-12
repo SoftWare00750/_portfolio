@@ -365,7 +365,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-media img {
-  width: 91% !important;
+  width: 93% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
@@ -385,8 +385,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .project-media img {
-  width: 80% !important;
-  height: 390px !important;
+  width: 84% !important;
+  height: 392px !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
