@@ -284,32 +284,39 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-size: 21px;
 }
 
-.hero-image {
-  position: absolute;
-  right: 60px;
-  left: 460px;
-  top: 400px;
-  transform: translateY(0);
-  object-fit: contain;
-  height: 1000px;
-  width: auto;
-  margin-left: -40px;
-  margin-right: 40px;
-  margin-top: -50px;
+/* Update the container to ensure relative positioning works for the button */
+.name-section {
+  position: relative;
+  z-index: 10; /* Ensures the button stays above background elements */
+  margin-bottom: 30px; 
 }
 
 .mywork {
   position: relative;
+  z-index: 20; /* Keep it above the hero-image */
+  display: inline-block; /* Ensure it respects padding/margins */
+  margin-top: 25px; /* Give it some space from the name */
   padding: 12px 23px;
   background-color: transparent;
   color: white;
   border-radius: 120px;
   font-size: 17px;
   font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease, transform 0.25s ease;
   border: 2px solid white;
   cursor: pointer;
+  /* Remove anything that might hide it */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+.hero-image {
+  position: absolute;
+  right: 60px;
+  top: 150px; /* Reduced from 400px so it doesn't push everything down */
+  height: 600px; /* Reduced from 1000px which was likely causing overflow issues */
+  width: auto;
+  z-index: 1; /* Keep image behind the text/button */
 }
 
 .mywork:hover {
@@ -318,8 +325,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   border-color: #095190;
 
 }
-
-
 
 /* ===== PROJECTS SECTION ===== */
 #projects {
