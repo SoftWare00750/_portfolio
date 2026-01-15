@@ -106,7 +106,7 @@ const projects = [
     id: "proj-10",
     title: "Social Media App, Hapyness",
     desc: "Connect with friends and share your happy moments through this social platform.",
-    tech: ["React Native", "Expo", "REST API"],
+    tech: ["React Native", "Expo", "Node.js"],
     image: "/assets/hapyness.png",
     link: "https://www.dropbox.com/scl/fi/podixkq4crasma6mczn2i/Hapyness-android.apk?rlkey=ch8a7fevorcdbseeklpsj45us&st=22beqqrh&dl=0",
     type: "mobile"
