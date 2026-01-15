@@ -6,11 +6,19 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-text">
          <div className="hero-text1">
-          <h1 className="hero-name">
-            <span className="first-name">Oluwadamilola</span>
-            <br />
-            <span className="last-name">Otunla</span>
-          </h1>
+            <div className="name-section">
+              <h1 className="hero-name">
+                <span className="first-name">Oluwadamilola</span>
+                <br />
+                <span className="last-name">Otunla</span>
+              </h1>
+              <button
+              className="mywork" 
+              onClick={() => scrollToSection("projects")}
+              >
+               My Work
+              </button>
+            </div>
           <span className="hero-sub">
             <p className="hero-sub-right-fixed">
               Frontend Developer 

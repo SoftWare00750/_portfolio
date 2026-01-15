@@ -298,6 +298,28 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -50px;
 }
 
+.mywork {
+  padding: 12px 23px;
+  background-color: transparent;
+  color: white;
+  border-radius: 120px;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease, transform 0.25s ease;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.mywork:hover {
+   
+  background-color: #095190;
+  border-color: #095190;
+
+}
+
+
+
 /* ===== PROJECTS SECTION ===== */
 #projects {
   margin-top: -60px;

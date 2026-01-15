@@ -122,6 +122,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation - Hidden on mobile */}
+          
           <nav className="nav-desktop">
             <button 
               className="nav-link" 
