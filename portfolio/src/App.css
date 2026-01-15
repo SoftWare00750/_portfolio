@@ -282,6 +282,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding-right: 5px;
   margin-right: -80px;
   font-size: 21px;
+  z-index: 11;
 }
 
 .hero-image {
@@ -307,7 +308,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .mywork {
-  position: absolute;
+  position: relative;
   padding: 20px 32px;
   background-color: transparent;
   color: var(--white);
@@ -319,7 +320,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   border: 2px solid var(--white);
   cursor: pointer;
   margin-top: -15px;
-  margin-left: 0;
   z-index: 10;
 }
 
