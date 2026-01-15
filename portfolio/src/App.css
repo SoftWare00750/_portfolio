@@ -386,7 +386,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .project-card.mobile .project-media img {
   width: 100% !important; /* Make image fill the card width */
-  height: 104% !important;
+  height: 105% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -437,7 +437,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .project-card.mobile .project-body {
  padding: 25px 15px;
   justify-content: space-evenly;
-  height: 104%;          /* Match card height */
+  height: 105%;          /* Match card height */
   width: 100%;           /* Match card width */
   margin-left: 0;        /* Reset offsets */
   margin-top: 0;         /* Reset offsets */
