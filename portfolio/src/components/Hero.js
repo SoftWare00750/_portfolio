@@ -25,7 +25,7 @@ export default function Hero() {
             </p>
             <p className="hero-sub-right2">
               <span>I handle the development, deployment</span>
-              <br />
+              <br /> 
               <span>and maintenance of your Website and App's UI, start to finish.</span>
             </p>
           </span>
