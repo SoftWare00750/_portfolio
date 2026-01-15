@@ -529,9 +529,14 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 /* Mobile Grid - Centered layout for mobile cards */
 .projects-grid.mobile-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 260px));
-  gap: 6px;
+  display: grid;
+  /* Use 1fr to let them breathe or stick to fixed if necessary */
+  grid-template-columns: repeat(auto-fit, 260px); 
+  /* Reduced gap */
+  gap: 2px; 
   justify-content: center;
+  /* Ensure no padding is forcing them apart */
+  padding: 0;
 }
 
 /* Project Cards */
