@@ -476,19 +476,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding: 4px 6px;
 }
 
-#proj-9 {
-   margin-right: 7px;
-   margin-left: -180px !important;
-   position: relative;
-   left: -50px;
-   margin-top: -5px;
-}
-
-#proj-10 {
-  position: relative;
-  margin-top: -20px;
-  top: 15px;
-}
 
 /* ===== PROJECTS SECTION WITH CATEGORIES ===== */
 #projects {
