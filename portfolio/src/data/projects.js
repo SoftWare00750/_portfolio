@@ -41,6 +41,17 @@ const projects = [
     type: "web"
   },
 
+ {
+    id: "proj-4b",
+    title: "Gym Website, Gymino",
+    desc: "Learn about Gyms and register for a plan for ypur fitness",
+    tech: ["React.js", "CSS",],
+    image: "/assets/gymino.png",
+    link: "https://gym-website-ten-sable.vercel.app/",
+    type: "web"
+  },
+
+
   {
     id: "proj-5",
     title: "Garage Website",
