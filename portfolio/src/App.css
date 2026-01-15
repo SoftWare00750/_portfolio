@@ -299,6 +299,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .mywork {
+  position: absolute;
   padding: 12px 23px;
   background-color: transparent;
   color: white;
@@ -312,7 +313,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .mywork:hover {
-   
+
   background-color: #095190;
   border-color: #095190;
 
