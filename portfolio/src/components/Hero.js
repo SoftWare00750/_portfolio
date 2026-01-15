@@ -1,6 +1,12 @@
 import React from "react";
 
 export default function Hero() {
+   const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section id="home" className="hero">
       <div className="hero-inner">

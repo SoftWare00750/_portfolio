@@ -298,25 +298,37 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -50px;
 }
 
+
+.name-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px; /* Space between name and button */
+}
+
 .mywork {
   position: relative;
-  padding: 12px 23px;
+  padding: 14px 32px;
   background-color: transparent;
-  color: white;
+  color: var(--white);
   border-radius: 120px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease, transform 0.25s ease;
-  border: 2px solid white;
+  border: 2px solid var(--white);
   cursor: pointer;
+  margin-top: 15px;
+  margin-left: 0;
+  z-index: 10;
 }
 
 .mywork:hover {
-
-  background-color: #095190;
-  border-color: #095190;
-
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(110, 231, 183, 0.4);
 }
 
 

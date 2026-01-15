@@ -694,6 +694,19 @@
     display: block;
   }
 
+  .name-section {
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mywork {
+    padding: 12px 28px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+
+
   /* ===== PROJECTS SECTION MOBILE ===== */
  /* ===== PROJECTS SECTION MOBILE - NO HORIZONTAL SCROLL ===== */
   #projects {
@@ -1141,6 +1154,12 @@
   .category-heading {
     font-size: 24px;
     margin-bottom: 25px;
+  }
+
+  .mywork {
+    padding: 10px 24px;
+    font-size: 15px;
+    margin-top: 8px;
   }
 
   .project-category {
