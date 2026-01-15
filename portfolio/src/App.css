@@ -318,7 +318,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   transition: all 0.3s ease, transform 0.25s ease;
   border: 2px solid var(--white);
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: -15px;
   margin-left: 0;
   z-index: 10;
 }
