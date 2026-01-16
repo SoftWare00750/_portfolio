@@ -275,6 +275,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   right: 0;
   transform: translateY(-30%);
   max-width: 600px;
+  margin-bottom: 10px;
   color: var(--muted);
   text-align: left;
   line-height: 1.6;
