@@ -11,48 +11,52 @@ import useScrollAnimation from "./hooks/useScrollAnimation";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [assetsLoaded, setAssetsLoaded] = useState(false);
 
   // Initialize scroll animations
   useScrollAnimation();
 
   useEffect(() => {
-    // Track when all assets are loaded
-    const handleLoad = () => {
-      setAssetsLoaded(true);
+    // Set minimum loading time to 3 seconds
+    const minLoadTime = 3000;
+    const startTime = Date.now();
+
+    // Function to check if everything is ready
+    const checkIfReady = () => {
+      const elapsed = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadTime - elapsed);
+
+      // Wait for minimum time AND document ready
+      setTimeout(() => {
+        setLoading(false);
+      }, remainingTime);
     };
 
-    // Wait for window to fully load
+    // Check document ready state
     if (document.readyState === 'complete') {
-      setAssetsLoaded(true);
+      // Already loaded
+      checkIfReady();
     } else {
-      window.addEventListener('load', handleLoad);
-    }
+      // Wait for load event
+      window.addEventListener('load', checkIfReady);
+      
+      // Fallback: force show after max 5 seconds
+      const maxWaitTimer = setTimeout(() => {
+        setLoading(false);
+      }, 5000);
 
-    return () => window.removeEventListener('load', handleLoad);
+      return () => {
+        window.removeEventListener('load', checkIfReady);
+        clearTimeout(maxWaitTimer);
+      };
+    }
   }, []);
 
-  useEffect(() => {
-    if (assetsLoaded) {
-      // Minimum display time: 3.5 seconds
-      // Add 0.5s buffer to ensure loading screen is visible
-      const minDisplayTime = 3500;
-      const bufferTime = 500;
-      
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, minDisplayTime + bufferTime);
-
-      return () => clearTimeout(timer);
-    }
-  }, [assetsLoaded]);
-
-  // ALWAYS show loading screen first
+  // CRITICAL: Show loading screen FIRST, before any content
   if (loading) {
     return <LoadingScreen />;
   }
 
-  // Show main content after loading
+  // Only show main content after loading completes
   return (
     <div className="site">
       <Navbar />

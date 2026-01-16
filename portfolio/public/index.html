@@ -1,49 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
-                  <meta name="theme-color" content="#0f1724" />
-                      <meta
-                            name="description"
-                                  content="Damilola's — Frontend Dev Portfolio"
-                                      />
-                                          <meta property="og:title" content="Damilola's — Portfolio" />
-                                              <meta
-                                                    property="og:description"
-                                                          content="Showcasing my work in Frontend Development."
-                                                              />
-                                                                  <meta property="og:image" content="%PUBLIC_URL%/assets/preview.png" />
-                                                                      <meta property="og:type" content="website" />
-                                                                          <title>Damilola's | Portfolio</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f1724" />
+    <meta name="description" content="Damilola's — Frontend Dev Portfolio" />
+    <meta property="og:title" content="Damilola's — Portfolio" />
+    <meta property="og:description" content="Showcasing my work in Frontend Development." />
+    <meta property="og:image" content="%PUBLIC_URL%/assets/preview.png" />
+    <meta property="og:type" content="website" />
+    <title>Damilola's | Portfolio</title>
 
-                                                                              <!-- Fonts -->
-                                                                                  <link
-                                                                                        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-                                                                                              rel="stylesheet"
-                                                                                                  />
-                                                                                                    </head>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-                                                                                                      <body>
-                                                                                                          <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- CRITICAL: Inline loading screen styles to prevent flash -->
+    <style>
+      /* Hide body content initially to prevent flash */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      
+      /* Fallback loading screen in case React doesn't load immediately */
+      #loading-fallback {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(180deg, #071028 0%, #071827 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+      }
+      
+      #loading-fallback h1 {
+        color: #6ee7b7;
+        font-size: 4rem;
+        font-weight: bold;
+        font-family: 'Inter', system-ui, sans-serif;
+        margin: 0 0 3rem 0;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      
+      .fallback-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(238, 242, 255, 0.2);
+        border-top: 4px solid #eef2ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
 
-                                                                                                              <!-- React app mounts here -->
-                                                                                                                  <div id="root"></div>
+      @media (max-width: 768px) {
+        #loading-fallback h1 {
+          font-size: 1.8rem;
+        }
+        .fallback-spinner {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    </style>
+  </head>
 
-                                                                                                                      <!-- Optional: Smooth scroll behavior for internal links -->
-                                                                                                                          <script>
-                                                                                                                                document.addEventListener("DOMContentLoaded", function () {
-                                                                                                                                        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                                                                                                                                                  anchor.addEventListener("click", function (e) {
-                                                                                                                                                              e.preventDefault();
-                                                                                                                                                                          document
-                                                                                                                                                                                        .querySelector(this.getAttribute("href"))
-                                                                                                                                                                                                      .scrollIntoView({ behavior: "smooth" });
-                                                                                                                                                                                                                });
-                                                                                                                                                                                                                        });
-                                                                                                                                                                                                                              });
-                                                                                                                                                                                                                                  </script>
-                                                                                                                                                                                                                                    </body>
-                                                                                                                                                                                                                                    </html>
-                                                                                                                                                                                                                                    
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Fallback loading screen (shown before React loads) -->
+    <div id="loading-fallback">
+      <h1>Loading...</h1>
+      <div class="fallback-spinner"></div>
+    </div>
+
+    <!-- React app mounts here -->
+    <div id="root"></div>
+
+    <!-- Remove fallback once React loads -->
+    <script>
+      // Hide fallback loading screen once React starts rendering
+      window.addEventListener('DOMContentLoaded', function() {
+        // Check if React has mounted
+        const checkReactMounted = setInterval(function() {
+          const root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            const fallback = document.getElementById('loading-fallback');
+            if (fallback) {
+              fallback.style.display = 'none';
+            }
+            clearInterval(checkReactMounted);
+          }
+        }, 50);
+        
+        // Fallback: hide after 2 seconds even if React hasn't mounted
+        setTimeout(function() {
+          const fallback = document.getElementById('loading-fallback');
+          if (fallback) {
+            fallback.style.display = 'none';
+          }
+          clearInterval(checkReactMounted);
+        }, 2000);
+      });
+
+      // Smooth scroll behavior for internal links
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document
+              .querySelector(this.getAttribute("href"))
+              .scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
