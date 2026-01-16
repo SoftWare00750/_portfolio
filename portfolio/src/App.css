@@ -210,7 +210,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 #home {
   padding: 212px 0 152px;
   position: relative;
-  
+  margin-bottom: 900px;
   margin-top: -30px;
 }
 
@@ -312,7 +312,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   background-color: transparent;
   color: var(--white);
   border-radius: 120px;
-  transform: translateY(10px);
+  transform: translateY(-50%);
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
