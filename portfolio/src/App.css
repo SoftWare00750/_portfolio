@@ -258,7 +258,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right-fixed {
   position: absolute;
   right: 5px;
-  top: 29%;            /* This is the anchor point for the first line */
+  top: 27%;            /* This is the anchor point for the first line */
   transform: translateY(-50%);
   max-width: 1000px;
   font-size: 37px;
