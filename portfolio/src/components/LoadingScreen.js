@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const LoadingScreen = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   
+  // Move texts array outside component to avoid dependency issues
   const texts = [
     "Web Developer",
     "Frontend Developer",
@@ -19,7 +20,7 @@ const LoadingScreen = () => {
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [texts.length]); // Add texts.length to dependencies
 
   return (
     <div style={{
