@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
+// Move texts array outside component to avoid dependency warning
+const texts = [
+  "Web Developer",
+  "Frontend Developer",
+  "Mobile Developer",
+  "React.js",
+  "Angular.js",
+  "Vue.js",
+  "React-native"
+];
+
 const LoadingScreen = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  
-  const texts = [
-    "Web Developer",
-    "Frontend Developer",
-    "Mobile Developer",
-    "React.js",
-    "Angular.js",
-    "Vue.js",
-    "React-native"
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,7 +20,7 @@ const LoadingScreen = () => {
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, []); // Now this is safe - texts is stable
 
   return (
     <>
