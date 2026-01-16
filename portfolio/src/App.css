@@ -315,7 +315,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   top: 40px;            /* This moves it DOWN specifically */
   
   /* Reduced Width/Footprint */
-  padding: 10px 22px;   /* Reduced from 20px 32px to make it more compact */
+  padding: 20px 29px;   /* Reduced from 20px 32px to make it more compact */
   width: fit-content;   /* Ensures the button only takes up as much space as the text */
   margin: 0;            /* Removes any stray margins pushing against other elements */
   
