@@ -16,31 +16,35 @@ function App() {
   useScrollAnimation();
 
   useEffect(() => {
-    // Simulate loading time - adjust duration as needed
+    // Reduced loading time to 2 seconds for faster experience
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3500); // Shows loading screen for 3.5 seconds
+    }, 2000); // Changed from 3500ms to 2000ms (2 seconds)
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Show loading screen while loading
-  if (loading) {
-    return <LoadingScreen />;
-  }
-
-  // Show main content after loading
   return (
     <div className="site">
-      <Navbar />
-      <main>
-        <Hero />
-        <Projects />
-        <About />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
+      {/* Show loading screen as overlay when loading */}
+      {loading && <LoadingScreen />}
+      
+      {/* Main content is always rendered but visible after loading */}
+      <div style={{ 
+        opacity: loading ? 0 : 1, 
+        transition: 'opacity 0.5s ease-in-out',
+        pointerEvents: loading ? 'none' : 'auto'
+      }}>
+        <Navbar />
+        <main>
+          <Hero />
+          <Projects />
+          <About />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

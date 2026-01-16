@@ -1,91 +1,114 @@
 import React, { useState, useEffect } from 'react';
 
+const LOADING_TEXTS = [
+  "Web Developer",
+  "Frontend Developer",
+  "Mobile Developer",
+  "React.js",
+  "Angular.js",
+  "Vue.js",
+  "React-native"
+];
+
 const LoadingScreen = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  
-  // Move texts array outside component to avoid dependency issues
-  const texts = [
-    "Web Developer",
-    "Frontend Developer",
-    "Mobile Developer",
-    "React.js",
-    "Angular.js",
-    "Vue.js",
-    "React-native"
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 500);
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
+    }, 300);
 
     return () => clearInterval(interval);
-  }, [texts.length]); // Add texts.length to dependencies
+  }, []);
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      background: 'linear-gradient(180deg, #071028 0%, #071827 100%)',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 9999,
-      overflow: 'hidden'
-    }}>
-      {/* Rotating Text */}
-      <h1 style={{
-        color: '#6ee7b7',
-        fontSize: '2.5rem',
-        fontWeight: 'bold',
-        fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-        marginBottom: '3rem',
-        textAlign: 'center',
-        transition: 'opacity 0.3s ease',
-        minHeight: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 20px'
-      }}>
-        {texts[currentTextIndex]}
-      </h1>
-
-      {/* Loading Spinner */}
-      <div style={{
-        width: '60px',
-        height: '60px',
-        border: '4px solid rgba(238, 242, 255, 0.2)',
-        borderTop: '4px solid #eef2ff',
-        borderRadius: '50%',
-        animation: 'spin 1s linear infinite'
-      }}></div>
-
-      {/* Keyframes for spinner animation */}
+    <>
+      {/* 1. Global CSS for animations and media queries 
+          (In a real app, move this to a .css file) 
+      */}
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
 
+        @keyframes fadeOut {
+          to {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
         @media (max-width: 768px) {
-          h1 {
+          .loading-title {
             font-size: 1.8rem !important;
-            margin-bottom: 4.5rem;
+            margin-bottom: 2rem !important;
           }
         }
 
         @media (max-width: 480px) {
-          h1 {
+          .loading-title {
             font-size: 1.5rem !important;
           }
         }
       `}</style>
-    </div>
+
+      {/* 2. Main Container */}
+      <div style={containerStyle}>
+        
+        {/* Rotating Text */}
+        <h1 className="loading-title" style={textStyle}>
+          {LOADING_TEXTS[currentTextIndex]}
+        </h1>
+
+        {/* Loading Spinner */}
+        <div style={spinnerStyle}></div>
+        
+      </div>
+    </>
   );
+};
+
+// --- Styles ---
+
+const containerStyle = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100vw',
+  height: '100vh',
+  background: 'linear-gradient(180deg, #071028 0%, #071827 100%)',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: 10000,
+  overflow: 'hidden',
+  // Use animation property here
+  animation: 'fadeOut 0.5s ease-out 2s forwards' 
+};
+
+const textStyle = {
+  color: '#6ee7b7',
+  fontSize: '2.5rem',
+  fontWeight: 'bold',
+  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+  marginBottom: '3rem',
+  textAlign: 'center',
+  transition: 'opacity 0.2s ease',
+  minHeight: '60px',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '0 20px'
+};
+
+const spinnerStyle = {
+  width: '60px',
+  height: '60px',
+  border: '4px solid rgba(238, 242, 255, 0.2)',
+  borderTop: '4px solid #eef2ff',
+  borderRadius: '50%',
+  animation: 'spin 0.8s linear infinite'
 };
 
 export default LoadingScreen;
