@@ -275,7 +275,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   position: absolute;
   right: 0;
   /* FIX: Explicitly set top to a value slightly higher than before */
-  top: 46%;   /* Adjusted from 'auto' to sit right below the fixed line */
+  top: 44%;   /* Adjusted from 'auto' to sit right below the fixed line */
   transform: translateY(-50%);
   
   max-width: 600px;
