@@ -300,7 +300,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 
 .name-section {
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -308,7 +307,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .mywork {
-  position: absolute;
+  position: relative;
   padding: 20px 32px;
   background-color: transparent;
   color: var(--white);
