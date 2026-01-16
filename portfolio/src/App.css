@@ -274,6 +274,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right2 {
   position: absolute;
   right: 0;
+  border-top: -6px;
   transform: translateY(-30%);
   max-width: 600px;
   margin-bottom: 10px;
