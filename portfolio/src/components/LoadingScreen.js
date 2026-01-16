@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
+// Move texts array OUTSIDE the component - it's a constant that never changes
+const LOADING_TEXTS = [
+  "Web Developer",
+  "Frontend Developer",
+  "Mobile Developer",
+  "React.js",
+  "Angular.js",
+  "Vue.js",
+  "React-native"
+];
+
 const LoadingScreen = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  
-  // Move texts array outside component to avoid dependency issues
-  const texts = [
-    "Web Developer",
-    "Frontend Developer",
-    "Mobile Developer",
-    "React.js",
-    "Angular.js",
-    "Vue.js",
-    "React-native"
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
     }, 500);
 
     return () => clearInterval(interval);
-  }, [texts.length]); // Add texts.length to dependencies
+  }, []); // Empty array is fine since LOADING_TEXTS is constant
 
   return (
     <div style={{
@@ -51,7 +51,7 @@ const LoadingScreen = () => {
         alignItems: 'center',
         padding: '0 20px'
       }}>
-        {texts[currentTextIndex]}
+        {LOADING_TEXTS[currentTextIndex]}
       </h1>
 
       {/* Loading Spinner */}
