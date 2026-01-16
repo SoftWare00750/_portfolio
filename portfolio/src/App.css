@@ -570,6 +570,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   border-radius: 2px;
 }
 
+#web-heading {
+  margin-bottom: 25px;
+}
+
 /* Projects Grid */
 .projects-grid {
   display: grid;
