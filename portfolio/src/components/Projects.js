@@ -13,7 +13,7 @@ export default function Projects() {
         
         {/* WEB SECTION */}
         <div className="project-category">
-          <h3 className="category-heading">Web Projects</h3>
+          <h3 id="web-heading" className="category-heading">Web Projects</h3>
           <div className="projects-grid">
             {webProjects.map((p) => (
               <div 
