@@ -16,47 +16,20 @@ function App() {
   useScrollAnimation();
 
   useEffect(() => {
-    // Set minimum loading time to 3 seconds
-    const minLoadTime = 3000;
-    const startTime = Date.now();
+    // Simulate loading time - adjust duration as needed
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3500); // Shows loading screen for 3.5 seconds
 
-    // Function to check if everything is ready
-    const checkIfReady = () => {
-      const elapsed = Date.now() - startTime;
-      const remainingTime = Math.max(0, minLoadTime - elapsed);
-
-      // Wait for minimum time AND document ready
-      setTimeout(() => {
-        setLoading(false);
-      }, remainingTime);
-    };
-
-    // Check document ready state
-    if (document.readyState === 'complete') {
-      // Already loaded
-      checkIfReady();
-    } else {
-      // Wait for load event
-      window.addEventListener('load', checkIfReady);
-      
-      // Fallback: force show after max 5 seconds
-      const maxWaitTimer = setTimeout(() => {
-        setLoading(false);
-      }, 5000);
-
-      return () => {
-        window.removeEventListener('load', checkIfReady);
-        clearTimeout(maxWaitTimer);
-      };
-    }
+    return () => clearTimeout(timer);
   }, []);
 
-  // CRITICAL: Show loading screen FIRST, before any content
+  // Show loading screen while loading
   if (loading) {
     return <LoadingScreen />;
   }
 
-  // Only show main content after loading completes
+  // Show main content after loading
   return (
     <div className="site">
       <Navbar />
