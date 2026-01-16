@@ -3,88 +3,96 @@ import React, { useState, useEffect } from 'react';
 // Move texts array OUTSIDE the component - it's a constant that never changes
 const LOADING_TEXTS = [
   "Web Developer",
-  "Frontend Developer",
-  "Mobile Developer",
-  "React.js",
-  "Angular.js",
-  "Vue.js",
-  "React-native"
-];
+    "Frontend Developer",
+      "Mobile Developer",
+        "React.js",
+          "Angular.js",
+            "Vue.js",
+              "React-native"
+              ];
 
-const LoadingScreen = () => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+              const LoadingScreen = () => {
+                const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
-    }, 500);
+                  useEffect(() => {
+                      const interval = setInterval(() => {
+                            setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
+                                }, 300); // Faster text rotation - changed from 500ms to 300ms
 
-    return () => clearInterval(interval);
-  }, []); // Empty array is fine since LOADING_TEXTS is constant
+                                    return () => clearInterval(interval);
+                                      }, []); // Empty array is fine since LOADING_TEXTS is constant
 
-  return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      background: 'linear-gradient(180deg, #071028 0%, #071827 100%)',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 9999,
-      overflow: 'hidden'
-    }}>
-      {/* Rotating Text */}
-      <h1 style={{
-        color: '#6ee7b7',
-        fontSize: '2.5rem',
-        fontWeight: 'bold',
-        fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-        marginBottom: '3rem',
-        textAlign: 'center',
-        transition: 'opacity 0.3s ease',
-        minHeight: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 20px'
-      }}>
-        {LOADING_TEXTS[currentTextIndex]}
-      </h1>
+                                        return (
+                                            <div style={{
+                                                  position: 'fixed',
+                                                        top: 0,
+                                                              left: 0,
+                                                                    width: '100vw',
+                                                                          height: '100vh',
+                                                                                background: 'linear-gradient(180deg, #071028 0%, #071827 100%)',
+                                                                                      display: 'flex',
+                                                                                            flexDirection: 'column',
+                                                                                                  justifyContent: 'center',
+                                                                                                        alignItems: 'center',
+                                                                                                              zIndex: 10000, // Increased z-index to ensure it's on top
+                                                                                                                    overflow: 'hidden',
+                                                                                                                          animation: 'fadeOut 0.5s ease-out 1.5s forwards' // Auto fade out after 1.5s
+                                                                                                                              }}>
+                                                                                                                                    {/* Rotating Text */}
+                                                                                                                                          <h1 style={{
+                                                                                                                                                  color: '#6ee7b7',
+                                                                                                                                                          fontSize: '2.5rem',
+                                                                                                                                                                  fontWeight: 'bold',
+                                                                                                                                                                          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                                                                                                                                                                                  marginBottom: '3rem',
+                                                                                                                                                                                          textAlign: 'center',
+                                                                                                                                                                                                  transition: 'opacity 0.2s ease', // Faster transition
+                                                                                                                                                                                                          minHeight: '60px',
+                                                                                                                                                                                                                  display: 'flex',
+                                                                                                                                                                                                                          alignItems: 'center',
+                                                                                                                                                                                                                                  padding: '0 20px'
+                                                                                                                                                                                                                                        }}>
+                                                                                                                                                                                                                                                {LOADING_TEXTS[currentTextIndex]}
+                                                                                                                                                                                                                                                      </h1>
 
-      {/* Loading Spinner */}
-      <div style={{
-        width: '60px',
-        height: '60px',
-        border: '4px solid rgba(238, 242, 255, 0.2)',
-        borderTop: '4px solid #eef2ff',
-        borderRadius: '50%',
-        animation: 'spin 1s linear infinite'
-      }}></div>
+                                                                                                                                                                                                                                                            {/* Loading Spinner */}
+                                                                                                                                                                                                                                                                  <div style={{
+                                                                                                                                                                                                                                                                          width: '60px',
+                                                                                                                                                                                                                                                                                  height: '60px',
+                                                                                                                                                                                                                                                                                          border: '4px solid rgba(238, 242, 255, 0.2)',
+                                                                                                                                                                                                                                                                                                  borderTop: '4px solid #eef2ff',
+                                                                                                                                                                                                                                                                                                          borderRadius: '50%',
+                                                                                                                                                                                                                                                                                                                  animation: 'spin 0.8s linear infinite' // Faster spin
+                                                                                                                                                                                                                                                                                                                        }}></div>
 
-      {/* Keyframes for spinner animation */}
-      <style>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
+                                                                                                                                                                                                                                                                                                                              {/* Keyframes for spinner animation and fade out */}
+                                                                                                                                                                                                                                                                                                                                    <style>{`
+                                                                                                                                                                                                                                                                                                                                            @keyframes spin {
+                                                                                                                                                                                                                                                                                                                                                      0% { transform: rotate(0deg); }
+                                                                                                                                                                                                                                                                                                                                                                100% { transform: rotate(360deg); }
+                                                                                                                                                                                                                                                                                                                                                                        }
 
-        @media (max-width: 768px) {
-          h1 {
-            font-size: 1.8rem !important;
-          }
-        }
+                                                                                                                                                                                                                                                                                                                                                                                @keyframes fadeOut {
+                                                                                                                                                                                                                                                                                                                                                                                          to {
+                                                                                                                                                                                                                                                                                                                                                                                                      opacity: 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                  visibility: hidden;
+                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 
-        @media (max-width: 480px) {
-          h1 {
-            font-size: 1.5rem !important;
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
+                                                                                                                                                                                                                                                                                                                                                                                                                                            @media (max-width: 768px) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      h1 {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-size: 1.8rem !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 
-export default LoadingScreen;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @media (max-width: 480px) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      h1 {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-size: 1.5rem !important;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          `}</style>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                };
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                export default LoadingScreen;
