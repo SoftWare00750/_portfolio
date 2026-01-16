@@ -22,63 +22,85 @@ const LoadingScreen = () => {
   }, []);
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      background: 'linear-gradient(180deg, #071028 0%, #071827 100%)',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 9999,
-      overflow: 'hidden'
-    }}>
+    <div className="loading-screen">
       {/* Rotating Text */}
-      <h1 style={{
-        color: '#6ee7b7',
-        fontSize: '4rem',
-        fontWeight: 'bold',
-        fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-        marginBottom: '3rem',
-        textAlign: 'center',
-        transition: 'opacity 0.3s ease',
-        minHeight: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 20px'
-      }}>
+      <h1 className="loading-text">
         {texts[currentTextIndex]}
       </h1>
 
       {/* Loading Spinner */}
-      <div style={{
-        width: '60px',
-        height: '60px',
-        border: '4px solid rgba(238, 242, 255, 0.2)',
-        borderTop: '4px solid #eef2ff',
-        borderRadius: '50%',
-        animation: 'spin 1s linear infinite'
-      }}></div>
+      <div className="loading-spinner"></div>
 
-      {/* Keyframes for spinner animation */}
+      {/* Inline styles to ensure they load immediately */}
       <style>{`
+        .loading-screen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: linear-gradient(180deg, #071028 0%, #071827 100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+          overflow: hidden;
+        }
+
+        .loading-text {
+          color: #6ee7b7;
+          font-size: 4rem;
+          font-weight: bold;
+          font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+          margin: 0;
+          margin-bottom: 3rem;
+          text-align: center;
+          min-height: 60px;
+          display: flex;
+          align-items: center;
+          padding: 0 20px;
+          animation: fadeText 0.5s ease-in-out;
+        }
+
+        .loading-spinner {
+          width: 60px;
+          height: 60px;
+          border: 4px solid rgba(238, 242, 255, 0.2);
+          border-top: 4px solid #eef2ff;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+
         @keyframes spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
 
+        @keyframes fadeText {
+          0% { opacity: 0.5; }
+          100% { opacity: 1; }
+        }
+
         @media (max-width: 768px) {
-          h1 {
-            font-size: 1.8rem !important;
+          .loading-text {
+            font-size: 1.8rem;
+          }
+          
+          .loading-spinner {
+            width: 50px;
+            height: 50px;
           }
         }
 
         @media (max-width: 480px) {
-          h1 {
-            font-size: 1.5rem !important;
+          .loading-text {
+            font-size: 1.5rem;
+          }
+          
+          .loading-spinner {
+            width: 45px;
+            height: 45px;
           }
         }
       `}</style>

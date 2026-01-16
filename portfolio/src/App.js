@@ -11,20 +11,43 @@ import useScrollAnimation from "./hooks/useScrollAnimation";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
 
   // Initialize scroll animations
   useScrollAnimation();
 
   useEffect(() => {
-    // Simulate loading time - adjust duration as needed
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3500); // Shows loading screen for 3.5 seconds
+    // Track when all assets are loaded
+    const handleLoad = () => {
+      setAssetsLoaded(true);
+    };
 
-    return () => clearTimeout(timer);
+    // Wait for window to fully load
+    if (document.readyState === 'complete') {
+      setAssetsLoaded(true);
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => window.removeEventListener('load', handleLoad);
   }, []);
 
-  // Show loading screen while loading
+  useEffect(() => {
+    if (assetsLoaded) {
+      // Minimum display time: 3.5 seconds
+      // Add 0.5s buffer to ensure loading screen is visible
+      const minDisplayTime = 3500;
+      const bufferTime = 500;
+      
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, minDisplayTime + bufferTime);
+
+      return () => clearTimeout(timer);
+    }
+  }, [assetsLoaded]);
+
+  // ALWAYS show loading screen first
   if (loading) {
     return <LoadingScreen />;
   }
