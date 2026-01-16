@@ -299,21 +299,28 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 
+/* Update the container to keep everything on the left */
 .name-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 50px; /* Space between name and button */
+  gap: 15px;            /* Reduced gap to control base spacing */
+  width: fit-content;   /* Keeps the container slim so it doesn't hit the right side */
 }
 
 .mywork {
-  position: absolute;
-  padding: 20px 32px;
+  position: relative;   /* Changed from absolute to keep it in the layout flow */
+  top: 40px;            /* This moves it DOWN specifically */
+  
+  /* Reduced Width/Footprint */
+  padding: 10px 22px;   /* Reduced from 20px 32px to make it more compact */
+  width: fit-content;   /* Ensures the button only takes up as much space as the text */
+  margin: 0;            /* Removes any stray margins pushing against other elements */
+  
   background-color: transparent;
   color: var(--white);
   border-radius: 120px;
-  transform: translateY(-50%);
-  font-size: 18px;
+  font-size: 16px;      /* Slightly smaller font for a cleaner look */
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease, transform 0.25s ease;
@@ -326,7 +333,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   background-color: var(--accent);
   border-color: var(--accent);
   color: var(--bg);
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Small lift on hover */
   box-shadow: 0 6px 20px rgba(110, 231, 183, 0.4);
 }
 
