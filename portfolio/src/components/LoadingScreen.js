@@ -74,6 +74,7 @@ const LoadingScreen = () => {
         @media (max-width: 768px) {
           h1 {
             font-size: 1.8rem !important;
+            margin-bottom: 4.5rem;
           }
         }
 
