@@ -258,7 +258,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right-fixed {
   position: absolute;
   right: 5px;
-  top: 3%;            /* This is the anchor point for the first line */
+  top: 14%;            /* This is the anchor point for the first line */
   transform: translateY(-50%);
   max-width: 1000px;
   font-size: 37px;
@@ -438,7 +438,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .project-card.mobile .project-media img {
   width: 100% !important; /* Make image fill the card width */
-  height: 96% !important;
+  height: 98% !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -489,7 +489,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .project-card.mobile .project-body {
   padding: 25px 15px;
   justify-content: space-evenly;
-  height: 96%;          /* Match card height */
+  height: 98%;          /* Match card height */
   width: 100%;           /* Match card width */
   margin-left: 0;        /* Reset offsets */
   margin-top: 0;         /* Reset offsets */
