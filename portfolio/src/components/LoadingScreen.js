@@ -23,9 +23,7 @@ const LoadingScreen = () => {
 
   return (
     <>
-      {/* 1. Global CSS for animations and media queries 
-          (In a real app, move this to a .css file) 
-      */}
+      {/* Global CSS for animations and media queries */}
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }
@@ -42,21 +40,28 @@ const LoadingScreen = () => {
         @media (max-width: 768px) {
           .loading-title {
             font-size: 1.8rem !important;
-            margin-bottom: 6rem !important;
+            margin-bottom: 2rem !important; /* Reduced from 6rem */
+            margin-top: -120px !important; /* Move text higher up */
           }
-            .spinnerStyle {
-             top: 10%;
-            }
+          
+          .spinnerStyle {
+            margin-top: -100px !important; /* Move spinner higher up */
+          }
         }
 
         @media (max-width: 480px) {
           .loading-title {
             font-size: 1.5rem !important;
+            margin-top: -140px !important; /* Move even higher on smaller screens */
+          }
+          
+          .spinnerStyle {
+            margin-top: -120px !important;
           }
         }
       `}</style>
 
-      {/* 2. Main Container */}
+      {/* Main Container */}
       <div style={containerStyle}>
         
         {/* Rotating Text */}
@@ -65,7 +70,7 @@ const LoadingScreen = () => {
         </h1>
 
         {/* Loading Spinner */}
-        <div style={spinnerStyle}></div>
+        <div className="spinnerStyle" style={spinnerStyle}></div>
         
       </div>
     </>
@@ -87,7 +92,6 @@ const containerStyle = {
   alignItems: 'center',
   zIndex: 10000,
   overflow: 'hidden',
-  // Use animation property here
   animation: 'fadeOut 0.5s ease-out 2s forwards' 
 };
 
