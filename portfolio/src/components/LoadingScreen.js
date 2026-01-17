@@ -42,8 +42,11 @@ const LoadingScreen = () => {
         @media (max-width: 768px) {
           .loading-title {
             font-size: 1.8rem !important;
-            margin-bottom: 5rem !important;
+            margin-bottom: 6rem !important;
           }
+            .spinnerStyle {
+             top: -10px;
+            }
         }
 
         @media (max-width: 480px) {
