@@ -41,7 +41,8 @@ const LoadingScreen = () => {
           .loading-title {
             font-size: 1.8rem !important;
             margin-bottom: 2rem !important; /* Reduced from 6rem */
-            margin-top: -210px !important; /* Move text higher up */
+            padding-top: 10px;
+            margin-top: -180px !important; /* Move text higher up */
             top: 90% !important;
           }
           
