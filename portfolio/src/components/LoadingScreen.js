@@ -42,7 +42,7 @@ const LoadingScreen = () => {
         @media (max-width: 768px) {
           .loading-title {
             font-size: 1.8rem !important;
-            margin-bottom: 2rem !important;
+            margin-bottom: 5rem !important;
           }
         }
 
