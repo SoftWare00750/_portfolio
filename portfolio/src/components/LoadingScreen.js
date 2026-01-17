@@ -45,7 +45,7 @@ const LoadingScreen = () => {
           }
           
           .spinnerStyle {
-            margin-top: -100px !important; /* Move spinner higher up */
+            margin-top: -60px !important; /* Move spinner higher up */
           }
         }
 

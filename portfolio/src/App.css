@@ -539,12 +539,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 /* Project Category Container */
 .project-category {
   margin-bottom: 80px;
-  margin-top: 40px;
-  padding-top: 20px;
-}
-
-.project-category:first-of-type {
-  margin-top: 50px; 
+  margin-top: 10px;
+  padding-top: 11px;
 }
 
 .project-category:last-child {
