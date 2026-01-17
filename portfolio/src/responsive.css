@@ -755,6 +755,7 @@
     width: 100%;
     max-width: 100%;
     aspect-ratio: 16/9;
+    margin-left: 2px;
   }
 
   /* MOBILE PROJECT CARDS - Smaller size */
