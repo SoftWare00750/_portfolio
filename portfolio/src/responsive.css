@@ -653,10 +653,11 @@
 
   .hero-name .first-name {
     display: block;
+    margin-bottom: -4px;
   }
 
   .hero-name .last-name {
-    margin-top: -12px;
+    margin-top: -11px;
     font-size: 52px;
     margin-left: 0;
     margin-right: 0;
