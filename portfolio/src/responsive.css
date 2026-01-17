@@ -695,6 +695,7 @@
   }
 
   .name-section {
+    margin-top: 10px;
     align-items: center;
     gap: 11px;
   }
