@@ -44,7 +44,7 @@ const LoadingScreen = () => {
             margin-bottom: 2rem !important; /* Reduced from 6rem */
             padding-top: 10px;
             margin-top: -180px !important; /* Move text higher up */
-            top: 90% !important;
+            top: 20% !important;
           }
           
           .spinnerStyle {
