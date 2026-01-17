@@ -41,7 +41,7 @@ const LoadingScreen = () => {
           .loading-title {
             font-size: 1.8rem !important;
             margin-bottom: 2rem !important; /* Reduced from 6rem */
-            margin-top: -120px !important; /* Move text higher up */
+            margin-top: -170px !important; /* Move text higher up */
           }
           
           .spinnerStyle {
