@@ -59,7 +59,7 @@ export default function Projects() {
             {gameProjects.map((p) => (
               <div 
                 key={p.id} 
-                className={`project-card ${p.type || 'game'}`}
+                className={`project-card ${p.type || 'web'}`}
               > 
                 <div className="project-media">
                   <img 
