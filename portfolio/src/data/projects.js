@@ -91,9 +91,19 @@ const projects = [
     link: "https://musicfestival.infinityfreeapp.com/",
     type: "web"
   },
-
+  
   {
     id: "proj-9",
+    title: "Stellar strike",
+    desc: "A space shooter game",
+    tech: ["React.js"],
+    image: "/assets/musicfestival.png",
+    link: "https://musicfestival.infinityfreeapp.com/",
+    type: "game"
+  },
+
+  {
+    id: "proj-10",
     title: "Food Discovery App, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
@@ -103,7 +113,7 @@ const projects = [
   },
 
   {
-    id: "proj-10",
+    id: "proj-11",
     title: "Social Media App, Hapyness",
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "Node.js"],
