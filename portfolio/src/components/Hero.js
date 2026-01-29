@@ -1,4 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
+const LOADING_TEXTS = [
+  "Web Developer",
+  "Frontend Developer",
+  "Mobile Developer",
+  "Game Developer"
+];
 
 export default function Hero() {
    const scrollToSection = (id) => {
@@ -7,6 +14,17 @@ export default function Hero() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
+    }, 6000); // Changed to 6000ms (6 seconds)
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="hero">
       <div className="hero-inner">
@@ -27,7 +45,7 @@ export default function Hero() {
             </div>
           <span className="hero-sub">
             <p className="hero-sub-right-fixed">
-              Frontend Developer 
+              {LOADING_TEXTS[currentTextIndex]}
             </p>
             <p className="hero-sub-right2">
               <span>I handle the development, deployment</span>
