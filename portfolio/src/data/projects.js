@@ -93,7 +93,7 @@ const projects = [
   },
   
   {
-    id: "proj-9",
+    id: "proj-8a",
     title: "Stellar strike",
     desc: "A space shooter game",
     tech: ["React.js"],
@@ -103,7 +103,7 @@ const projects = [
   },
 
   {
-    id: "proj-10",
+    id: "proj-9",
     title: "Food Discovery App, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
@@ -113,7 +113,7 @@ const projects = [
   },
 
   {
-    id: "proj-11",
+    id: "proj-10",
     title: "Social Media App, Hapyness",
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "Node.js"],
