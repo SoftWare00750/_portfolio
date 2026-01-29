@@ -91,16 +91,6 @@ const projects = [
     link: "https://musicfestival.infinityfreeapp.com/",
     type: "web"
   },
-  
-  {
-    id: "proj-8a",
-    title: "Stellar strike",
-    desc: "A space shooter game",
-    tech: ["React.js"],
-    image: "/assets/stellarstrike.png",
-    link: "https://stellarstrike.vercel.app/",
-    type: "game"
-  },
 
   {
     id: "proj-9",
