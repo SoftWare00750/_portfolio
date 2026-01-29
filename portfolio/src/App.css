@@ -390,14 +390,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   height: auto;
 }
 
-.project-card.game {
-  aspect-ratio: 16/9;
-  width: 122%;
-  gap: 10px;
-  border-radius: 13px;
-  height: auto;
-}
-
 /* Mobile projects - portrait */
 .project-card.mobile {
   aspect-ratio: 9/16;
@@ -619,14 +611,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Web projects - landscape */
 .project-card.web {
-  aspect-ratio: 16/9;
-  width: 122%;
-  gap: 10px;
-  border-radius: 13px;
-  height: auto;
-}
-
-.project-card.game {
   aspect-ratio: 16/9;
   width: 122%;
   gap: 10px;
