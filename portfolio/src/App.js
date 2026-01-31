@@ -12,24 +12,21 @@ import useScrollAnimation from "./hooks/useScrollAnimation";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  // Initialize scroll animations
-  useScrollAnimation();
+  // Pass loading state into the hook so it knows when to initialize
+  useScrollAnimation(loading);
 
   useEffect(() => {
-    // Reduced loading time to 2 seconds for faster experience
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Changed from 3500ms to 2000ms (2 seconds)
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="site">
-      {/* Show loading screen as overlay when loading */}
       {loading && <LoadingScreen />}
       
-      {/* Main content is always rendered but visible after loading */}
       <div style={{ 
         opacity: loading ? 0 : 1, 
         transition: 'opacity 0.5s ease-in-out',

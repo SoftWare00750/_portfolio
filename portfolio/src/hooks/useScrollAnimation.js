@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 
-export const useScrollAnimation = () => {
+export const useScrollAnimation = (loading) => {
   useEffect(() => {
+    // Don't run anything while the loading screen is still showing
+    if (loading) return;
+
     console.log('🔵 useScrollAnimation effect started');
     
-    // Animate navbar on page load
     const animateNavbar = () => {
       const navbar = document.querySelector('.navbar');
       if (navbar) {
@@ -12,7 +14,6 @@ export const useScrollAnimation = () => {
       }
     };
 
-    // Animate hero TEXT elements on page load (NOT the image)
     const animateHeroText = () => {
       const heroName = document.querySelector('.hero-name');
       const heroSubFixed = document.querySelector('.hero-sub-right-fixed');
@@ -29,9 +30,7 @@ export const useScrollAnimation = () => {
       }
     };
 
-    // Observer for scroll-triggered animations
     const createScrollObserver = () => {
-      // Standard observer options for most elements
       const standardObserverOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px',
@@ -44,11 +43,8 @@ export const useScrollAnimation = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate');
             console.log('✅ Animated:', entry.target.className);
-            
-            // Once animated, stop observing to prevent re-triggering
             standardObserver.unobserve(entry.target);
 
-            // For parent containers, animate children
             if (entry.target.classList.contains('about-grid')) {
               const aboutText = entry.target.querySelector('.about-text');
               const aboutImage = entry.target.querySelector('.about-image');
@@ -69,10 +65,9 @@ export const useScrollAnimation = () => {
         });
       }, standardObserverOptions);
 
-      // SPECIAL observer options ONLY for hero-image
       const heroImageObserverOptions = {
-        threshold: 0.3, // 30% of image must be visible
-        rootMargin: '0px 0px -200px 0px', // Must scroll 200px past bottom of viewport
+        threshold: 0.3,
+        rootMargin: '0px 0px -200px 0px',
       };
 
       const heroImageObserver = new IntersectionObserver((entries) => {
@@ -82,17 +77,14 @@ export const useScrollAnimation = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate');
             console.log('✅ Hero image animated with slide-down!');
-            // Stop observing after animation
             heroImageObserver.unobserve(entry.target);
           }
         });
       }, heroImageObserverOptions);
 
-      // Observe all section titles with standard observer
       const sectionTitles = document.querySelectorAll('.section-title');
       sectionTitles.forEach(title => standardObserver.observe(title));
 
-      // Observe specific sections with standard observer
       const projectsGrid = document.querySelector('.projects-grid');
       if (projectsGrid) standardObserver.observe(projectsGrid);
 
@@ -108,17 +100,10 @@ export const useScrollAnimation = () => {
       const footer = document.querySelector('.footer');
       if (footer) standardObserver.observe(footer);
 
-      // CRITICAL: Observe hero-image with its SPECIAL observer
       const heroImage = document.querySelector('.hero-image');
       if (heroImage) {
         console.log('🖼️ Hero image found, setting up SPECIAL observer for slide-down animation');
-        console.log('Image position:', {
-          top: heroImage.offsetTop,
-          height: heroImage.offsetHeight,
-          computedDisplay: window.getComputedStyle(heroImage).display,
-          computedTransform: window.getComputedStyle(heroImage).transform
-        });
-        heroImageObserver.observe(heroImage); // Use special observer
+        heroImageObserver.observe(heroImage);
       } else {
         console.error('❌ Hero image not found!');
       }
@@ -126,19 +111,18 @@ export const useScrollAnimation = () => {
       return { standardObserver, heroImageObserver };
     };
 
-    // Initialize animations after DOM is ready
+    // Now safe to run — loading is false, DOM is visible and stable
     const timer = setTimeout(() => {
       animateNavbar();
-      animateHeroText(); // Only text, not image
-      createScrollObserver(); // This will handle hero-image when scrolled to
+      animateHeroText();
+      createScrollObserver();
     }, 100);
 
-    // Cleanup function
     return () => {
       console.log('🔴 Cleanup running');
       clearTimeout(timer);
     };
-  }, []); // Empty dependency array - only run once
+  }, [loading]); // Re-run when loading changes from true → false
 };
 
 export default useScrollAnimation;
