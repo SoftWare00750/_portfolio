@@ -27,12 +27,17 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Lock in the animated state once the initial animation fires
+  // Lock in the animated state once useScrollAnimation adds .animate
   useEffect(() => {
-    if (textRef.current && textRef.current.classList.contains("animate")) {
-      setHasAnimated(true);
-    }
-  });
+    const check = setInterval(() => {
+      if (textRef.current && textRef.current.classList.contains("animate")) {
+        setHasAnimated(true);
+        clearInterval(check);
+      }
+    }, 50);
+
+    return () => clearInterval(check);
+  }, []);
 
   return (
     <section id="home" className="hero">
