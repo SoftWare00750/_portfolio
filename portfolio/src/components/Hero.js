@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 
 const LOADING_TEXTS = [
-  { text: "Web Developer",      className: "loading-text-web" },
-  { text: "Frontend Developer", className: "loading-text-frontend" },
-  { text: "Mobile Developer",   className: "loading-text-mobile" },
-  { text: "Game Developer",     className: "loading-text-game"}
+  "Web Developer",
+  "Frontend Developer",
+  "Mobile Developer",
+  "Game Developer"
 ];
 
 export default function Hero() {
