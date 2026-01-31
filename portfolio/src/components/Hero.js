@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 
 const LOADING_TEXTS = [
-  "Web Developer",
-  "Frontend Developer",
-  "Mobile Developer",
-  "Game Developer"
+  { text: "Web Developer",      className: "loading-text-web" },
+  { text: "Frontend Developer", className: "loading-text-frontend" },
+  { text: "Mobile Developer",   className: "loading-text-mobile" },
+  { text: "Game Developer",     className: "loading-text-game" }
 ];
 
 export default function Hero() {
@@ -44,8 +44,8 @@ export default function Hero() {
               </button>
             </div>
           <span className="hero-sub">
-            <p className="hero-sub-right-fixed">
-              {LOADING_TEXTS[currentTextIndex]}
+            <p className={`hero-sub-right-fixed ${LOADING_TEXTS[currentTextIndex].className}`}>
+              {LOADING_TEXTS[currentTextIndex].text}
             </p>
             <p className="hero-sub-right2">
               <span>I handle the development, deployment</span>
