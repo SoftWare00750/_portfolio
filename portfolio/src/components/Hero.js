@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const LOADING_TEXTS = [
   { text: "Web Developer", className: "loading-text-web" },
@@ -8,7 +8,7 @@ const LOADING_TEXTS = [
 ];
 
 export default function Hero() {
-   const scrollToSection = (id) => {
+  const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -16,6 +16,8 @@ export default function Hero() {
   };
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const textRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,6 +26,13 @@ export default function Hero() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Lock in the animated state once the initial animation fires
+  useEffect(() => {
+    if (textRef.current && textRef.current.classList.contains("animate")) {
+      setHasAnimated(true);
+    }
+  });
 
   return (
     <section id="home" className="hero">
@@ -37,26 +46,29 @@ export default function Hero() {
                 <span className="last-name">Otunla</span>
               </h1>
               <button
-              className="mywork" 
-              onClick={() => scrollToSection("projects")}
+                className="mywork"
+                onClick={() => scrollToSection("projects")}
               >
-               My Work
+                My Work
               </button>
             </div>
           <span className="hero-sub">
-            <p className={`hero-sub-right-fixed ${LOADING_TEXTS[currentTextIndex].className}`}>
+            <p
+              ref={textRef}
+              className={`hero-sub-right-fixed ${LOADING_TEXTS[currentTextIndex].className}${hasAnimated ? " animate" : ""}`}
+            >
               {LOADING_TEXTS[currentTextIndex].text}
             </p>
             <p className="hero-sub-right2">
               <span>I handle the development, deployment</span>
-              <br /> 
+              <br />
               <span>and maintenance of your Website and App's UI, start to finish.</span>
             </p>
           </span>
           </div>
-          <img 
-            src="/assets/coder.png" 
-            alt="coder" 
+          <img
+            src="/assets/coder.png"
+            alt="coder"
             className="hero-image"
             onError={(e) => {
               console.error('Hero image failed to load:', e.target.src);

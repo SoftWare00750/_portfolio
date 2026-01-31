@@ -197,6 +197,22 @@
   opacity: 1;
 }
 
+
+/* Once animated, disable transform transitions so text cycling doesn't re-trigger the slide */
+.hero-sub-right-fixed.animate {
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
+              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.hero-sub-right-fixed.animate.loading-text-web,
+.hero-sub-right-fixed.animate.loading-text-frontend,
+.hero-sub-right-fixed.animate.loading-text-mobile,
+.hero-sub-right-fixed.animate.loading-text-game {
+  opacity: 1;
+  transform: translateX(0);
+  transition: none; /* No animation when just swapping text */
+}
+
 /* =========================
    MOBILE OPTIMIZATIONS - SLIGHTLY SLOWER
    ========================= */
