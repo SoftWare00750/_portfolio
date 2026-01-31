@@ -271,6 +271,20 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   /* margin-bottom has no effect on absolute elements, removed for clarity */
 }
 
+.hero-sub-right-fixed.loading-text-web {
+  margin-left: -155px;
+}
+
+/* "Mobile Developer" — only 1 char shorter than Frontend, small shift */
+.hero-sub-right-fixed.loading-text-mobile {
+  margin-left: -38px;
+}
+
+/* "Game Developer" — 3 chars shorter, medium shift */
+.hero-sub-right-fixed.loading-text-game {
+  margin-left: -107px;
+}
+
 .hero-sub-right2 {
   position: absolute;
   right: 0;
@@ -289,27 +303,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   
   /* Removed invalid 'border-top: -6px' */
   margin-top: -5px;    /* Use negative margin-top to pull it even closer if needed */
-}
-
-/* ===== LOADING TEXT PER-VARIANT LEFT ALIGNMENT =====
-   .hero-sub-right-fixed is right-anchored with text-align: left.
-   "Frontend Developer" is the longest string and its left edge
-   already sits directly above .hero-sub-right2 — it is the reference.
-   Every shorter variant drifts rightward by the width of the missing
-   characters, so each gets a unique negative margin-left to pull its
-   left edge back to that same x-position.
-   ============================================================== */
-.hero-sub-right-fixed.loading-text-frontend {
-  margin-left: 0;
-}
-.hero-sub-right-fixed.loading-text-mobile {
-  margin-left: -38px;
-}
-.hero-sub-right-fixed.loading-text-game {
-  margin-left: -107px;
-}
-.hero-sub-right-fixed.loading-text-web {
-  margin-left: -155px;
 }
 
 .hero-image {
