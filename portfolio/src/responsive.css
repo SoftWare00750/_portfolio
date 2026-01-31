@@ -259,6 +259,22 @@
   .contact3 {
     font-size: 19px;
   }
+
+  .project-card.game {
+    width: 100%;
+  }
+
+  .project-card.game .project-media {
+    width: 100% !important;
+  }
+
+  .project-card.game .project-media img {
+    width: 100% !important;
+  }
+
+  .project-card.game .project-body {
+    width: 100%;
+  }
 }
 
 /* --- TABLETS (992px) --- ENHANCED FOR BETTER SCALING */
@@ -967,6 +983,46 @@
     margin: 0 auto !important;
   }
 
+  .project-card.game {
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .project-card.game .project-media {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .project-card.game .project-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .project-card.game .project-body {
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  .project-card.game .project-body h3 {
+    font-size: 18px;
+  }
+
+  .project-card.game .project-body p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .project-card.game .tech {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .project-card.game .link-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
   /* ... keep all other mobile styles below ... */
 
 
@@ -1171,6 +1227,11 @@
 
   .project-card.mobile {
     max-width: 240px;
+  }
+
+   .project-card.game {
+    aspect-ratio: auto;
+    height: 220px;
   }
 }
 

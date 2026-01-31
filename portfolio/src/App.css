@@ -277,7 +277,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Web Developer */
 .hero-sub-right-fixed.loading-text-web {
-  right: 35px;
+  right: 32px;
 }
 
 /* Mobile Developer — 1 char shorter than Frontend, small shift */
@@ -287,7 +287,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Game Developer — shorter, larger shift */
 .hero-sub-right-fixed.loading-text-game {
-  right: 37px;
+  right: 34px;
 }
 
 .hero-sub-right2 {
@@ -675,6 +675,30 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .project-card.mobile .link-button {
   padding: 10px 20px;
   font-size: 0.85rem;
+}
+
+/* Game projects - same size as web (landscape) */
+.project-card.game {
+  aspect-ratio: 16/9;
+  width: 122%;
+  gap: 10px;
+  border-radius: 13px;
+  height: auto;
+}
+
+.project-card.game .project-media {
+  width: 110% !important;
+  height: 100% !important;
+}
+
+.project-card.game .project-media img {
+  width: 93% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.project-card.game .project-body {
+  width: 93%;
 }
 
 /* Responsive */
