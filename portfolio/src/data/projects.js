@@ -93,6 +93,16 @@ const projects = [
   },
 
   {
+  id: 'game1',
+  type: 'game',
+  title: 'Stellar Strike',
+  desc: 'Space shooter game with 6 levels and epic boss battles',
+  tech: ['React', 'Canvas API', 'JavaScript'],
+  image: '/assets/stellarstrike.png',
+  link: 'https://stellarstrike.vercel.app/'
+  },
+
+  {
     id: "proj-9",
     title: "Food Discovery App, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
