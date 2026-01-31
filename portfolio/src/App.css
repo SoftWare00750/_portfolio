@@ -258,7 +258,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right-fixed {
   position: absolute;
   right: 5px;
-  top: 28%;  /* This is the anchor point for the first line */
+  top: 28%;
   transform: translateY(-50%);
   max-width: 1000px;
   font-size: 37px;
@@ -268,7 +268,26 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding-right: 78px;
   margin-right: 80px;
   font-weight: bold;
-  /* margin-bottom has no effect on absolute elements, removed for clarity */
+}
+
+/* Frontend Developer — longest text, baseline (no shift) */
+.hero-sub-right-fixed.loading-text-frontend {
+  right: 5px;
+}
+
+/* Web Developer */
+.hero-sub-right-fixed.loading-text-web {
+  right: 160px;
+}
+
+/* Mobile Developer — 1 char shorter than Frontend, small shift */
+.hero-sub-right-fixed.loading-text-mobile {
+  right: 43px;
+}
+
+/* Game Developer — shorter, larger shift */
+.hero-sub-right-fixed.loading-text-game {
+  right: 112px;
 }
 
 .hero-sub-right2 {
