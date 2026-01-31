@@ -277,7 +277,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Web Developer */
 .hero-sub-right-fixed.loading-text-web {
-  right: 40px;
+  right: 37px;
 }
 
 /* Mobile Developer — 1 char shorter than Frontend, small shift */
@@ -287,7 +287,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Game Developer — shorter, larger shift */
 .hero-sub-right-fixed.loading-text-game {
-  right: 41px;
+  right: 40px;
 }
 
 .hero-sub-right2 {
