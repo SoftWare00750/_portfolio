@@ -26,12 +26,6 @@
     font-size: 24px;
   }
 
-  /* loading-text shifts scaled up: 42/37 ≈ 1.135 */
-  .hero-sub-right-fixed.loading-text-frontend { margin-left: 0; }
-  .hero-sub-right-fixed.loading-text-mobile   { margin-left: -43px; }
-  .hero-sub-right-fixed.loading-text-game     { margin-left: -121px; }
-  .hero-sub-right-fixed.loading-text-web      { margin-left: -176px; }
-
   .projects-grid {
     max-width: 1600px;
     gap: 80px;
@@ -75,12 +69,6 @@
   .hero-sub-right2 {
     font-size: 20px;
   }
-
-  /* loading-text shifts: 36/37 ≈ 0.97 — effectively unchanged */
-  .hero-sub-right-fixed.loading-text-frontend { margin-left: 0; }
-  .hero-sub-right-fixed.loading-text-mobile   { margin-left: -37px; }
-  .hero-sub-right-fixed.loading-text-game     { margin-left: -104px; }
-  .hero-sub-right-fixed.loading-text-web      { margin-left: -151px; }
 
   .hero-image {
     height: 950px;
@@ -174,12 +162,6 @@
     font-size: 19px;
     margin-right: -70px;
   }
-
-  /* loading-text shifts scaled down: 33/37 ≈ 0.892 */
-  .hero-sub-right-fixed.loading-text-frontend { margin-left: 0; }
-  .hero-sub-right-fixed.loading-text-mobile   { margin-left: -34px; }
-  .hero-sub-right-fixed.loading-text-game     { margin-left: -95px; }
-  .hero-sub-right-fixed.loading-text-web      { margin-left: -138px; }
 
   .hero-image {
     height: 900px;
@@ -340,12 +322,6 @@
     font-size: 18px;
     margin-right: -60px;
   }
-
-  /* loading-text shifts scaled down: 30/37 ≈ 0.811 */
-  .hero-sub-right-fixed.loading-text-frontend { margin-left: 0; }
-  .hero-sub-right-fixed.loading-text-mobile   { margin-left: -31px; }
-  .hero-sub-right-fixed.loading-text-game     { margin-left: -87px; }
-  .hero-sub-right-fixed.loading-text-web      { margin-left: -126px; }
 
   .hero-image {
     height: 800px;
@@ -707,14 +683,6 @@
     margin: 0 auto;
     padding: 0 15px;
     line-height: 1.6;
-  }
-
-  /* hero is static + centered on mobile — all per-text shifts reset to zero */
-  .hero-sub-right-fixed.loading-text-frontend,
-  .hero-sub-right-fixed.loading-text-mobile,
-  .hero-sub-right-fixed.loading-text-game,
-  .hero-sub-right-fixed.loading-text-web {
-    margin-left: 0;
   }
 
   .hero-image {
@@ -1172,14 +1140,6 @@
     font-size: 14px;
   }
 
-  /* still static + centered — confirm all shifts stay zero */
-  .hero-sub-right-fixed.loading-text-frontend,
-  .hero-sub-right-fixed.loading-text-mobile,
-  .hero-sub-right-fixed.loading-text-game,
-  .hero-sub-right-fixed.loading-text-web {
-    margin-left: 0;
-  }
-
   .section-title {
     font-size: 28px;
   }
@@ -1295,14 +1255,6 @@
 
   .hero-sub-right2 {
     font-size: 13px;
-  }
-
-  /* landscape is also static + centered — all shifts zero */
-  .hero-sub-right-fixed.loading-text-frontend,
-  .hero-sub-right-fixed.loading-text-mobile,
-  .hero-sub-right-fixed.loading-text-game,
-  .hero-sub-right-fixed.loading-text-web {
-    margin-left: 0;
   }
 
   .hero-image {
