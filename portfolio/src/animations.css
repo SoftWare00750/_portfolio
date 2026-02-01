@@ -70,53 +70,97 @@
   transform: translateY(0);
 }
 
-/* Projects animations - Smooth slides */
+/* ================================================================
+   PROJECT CARDS - Covers ALL children (1-9+)
+   Pattern: odd positions slide from left, even from right,
+   with a stagger delay on the second card of each row.
+   ================================================================ */
+
 .project-card {
   opacity: 0;
   transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
               transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* proj-1: Top-left */
+/* --- Row 1 --- */
 .project-card:nth-child(1) {
   transform: translateX(-100px);
 }
-
 .project-card:nth-child(1).animate {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* proj-2: Bottom-right */
 .project-card:nth-child(2) {
   transform: translateX(100px);
 }
-
 .project-card:nth-child(2).animate {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.15s;
 }
 
-/* proj-3: Top-right */
+/* --- Row 2 --- */
 .project-card:nth-child(3) {
-  transform: translateX(100px);
+  transform: translateX(-100px);
 }
-
 .project-card:nth-child(3).animate {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* proj-4: Bottom-left */
 .project-card:nth-child(4) {
-  transform: translateX(-100px);
+  transform: translateX(100px);
 }
-
 .project-card:nth-child(4).animate {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.15s;
+}
+
+/* --- Row 3 --- */
+.project-card:nth-child(5) {
+  transform: translateX(-100px);
+}
+.project-card:nth-child(5).animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-card:nth-child(6) {
+  transform: translateX(100px);
+}
+.project-card:nth-child(6).animate {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+/* --- Row 4 --- */
+.project-card:nth-child(7) {
+  transform: translateX(-100px);
+}
+.project-card:nth-child(7).animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-card:nth-child(8) {
+  transform: translateX(100px);
+}
+.project-card:nth-child(8).animate {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+/* --- Row 5 (9th card, lone card on last row) --- */
+.project-card:nth-child(9) {
+  transform: translateX(-100px);
+}
+.project-card:nth-child(9).animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* About section animations - Smooth slides */
@@ -157,22 +201,26 @@
   transform: translateY(0);
 }
 
-/* Stagger delays for smooth cascade */
-.skill-item:nth-child(1) { transition-delay: 0.05s; }
-.skill-item:nth-child(2) { transition-delay: 0.1s; }
-.skill-item:nth-child(3) { transition-delay: 0.15s; }
-.skill-item:nth-child(4) { transition-delay: 0.2s; }
-.skill-item:nth-child(5) { transition-delay: 0.25s; }
-.skill-item:nth-child(6) { transition-delay: 0.3s; }
-.skill-item:nth-child(7) { transition-delay: 0.35s; }
-.skill-item:nth-child(8) { transition-delay: 0.4s; }
-.skill-item:nth-child(9) { transition-delay: 0.45s; }
+/* Stagger delays for smooth cascade — covers all 19 skills */
+.skill-item:nth-child(1)  { transition-delay: 0.05s; }
+.skill-item:nth-child(2)  { transition-delay: 0.1s; }
+.skill-item:nth-child(3)  { transition-delay: 0.15s; }
+.skill-item:nth-child(4)  { transition-delay: 0.2s; }
+.skill-item:nth-child(5)  { transition-delay: 0.25s; }
+.skill-item:nth-child(6)  { transition-delay: 0.3s; }
+.skill-item:nth-child(7)  { transition-delay: 0.35s; }
+.skill-item:nth-child(8)  { transition-delay: 0.4s; }
+.skill-item:nth-child(9)  { transition-delay: 0.45s; }
 .skill-item:nth-child(10) { transition-delay: 0.5s; }
 .skill-item:nth-child(11) { transition-delay: 0.55s; }
 .skill-item:nth-child(12) { transition-delay: 0.6s; }
 .skill-item:nth-child(13) { transition-delay: 0.65s; }
 .skill-item:nth-child(14) { transition-delay: 0.7s; }
 .skill-item:nth-child(15) { transition-delay: 0.75s; }
+.skill-item:nth-child(16) { transition-delay: 0.8s; }
+.skill-item:nth-child(17) { transition-delay: 0.85s; }
+.skill-item:nth-child(18) { transition-delay: 0.9s; }
+.skill-item:nth-child(19) { transition-delay: 0.95s; }
 
 /* Contact section - Smooth rise */
 .contact-container {
@@ -197,7 +245,6 @@
   opacity: 1;
 }
 
-
 /* Once animated, disable transform transitions so text cycling doesn't re-trigger the slide */
 .hero-sub-right-fixed.animate {
   transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
@@ -210,25 +257,25 @@
 .hero-sub-right-fixed.animate.loading-text-game {
   opacity: 1;
   transform: translateX(0);
-  transition: none; /* No animation when just swapping text */
+  transition: none;
 }
 
 /* =========================
-   MOBILE OPTIMIZATIONS - SLIGHTLY SLOWER
+   MOBILE OPTIMIZATIONS
    ========================= */
 @media (max-width: 768px) {
-  /* CRITICAL: Override navbar animations for mobile menu */
+  /* Force navbar always visible on mobile */
   .navbar {
-    transform: translateY(0) !important; /* Force navbar always visible on mobile */
-    transition-duration: 0s !important; /* Remove slide animation on mobile */
+    transform: translateY(0) !important;
+    transition-duration: 0s !important;
   }
-  
+
   .navbar.animate {
     transform: translateY(0) !important;
   }
 
-  /* CRITICAL: Disable ALL nav animations on mobile - let responsive.css handle it */
-  .nav {
+  .nav,
+  .nav.open {
     transform: none !important;
     animation: none !important;
     transition: max-height 0.4s ease, 
@@ -237,11 +284,7 @@
                 visibility 0.3s ease !important;
   }
 
-  .nav.open {
-    transform: none !important;
-  }
-
-  /* Reduce translation distances on mobile for hero */
+  /* Reduce translation distances on mobile */
   .hero-name {
     transform: translateX(-50px);
   }
@@ -255,18 +298,29 @@
     transform: translateY(-30px);
   }
   
-  /* All projects animate from bottom on mobile */
+  /* All project cards animate from bottom on mobile, no stagger */
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
-  .project-card:nth-child(4) {
+  .project-card:nth-child(4),
+  .project-card:nth-child(5),
+  .project-card:nth-child(6),
+  .project-card:nth-child(7),
+  .project-card:nth-child(8),
+  .project-card:nth-child(9) {
     transform: translateY(30px);
   }
   
   .project-card:nth-child(1).animate,
   .project-card:nth-child(2).animate,
   .project-card:nth-child(3).animate,
-  .project-card:nth-child(4).animate {
+  .project-card:nth-child(4).animate,
+  .project-card:nth-child(5).animate,
+  .project-card:nth-child(6).animate,
+  .project-card:nth-child(7).animate,
+  .project-card:nth-child(8).animate,
+  .project-card:nth-child(9).animate {
+    opacity: 1;
     transform: translateY(0);
     transition-delay: 0s;
   }
@@ -274,7 +328,6 @@
   .about-text {
     transform: translateY(30px);
   }
-  
   .about-text.animate {
     transform: translateY(0);
   }
@@ -282,7 +335,6 @@
   .about-image {
     transform: translateY(30px);
   }
-  
   .about-image.animate {
     transform: translateY(0);
   }
@@ -290,7 +342,6 @@
   .contact-container {
     transform: translateY(30px);
   }
-  
   .contact-container.animate {
     transform: translateY(0);
   }
@@ -299,58 +350,55 @@
     transform: translateY(-20px);
   }
   
-  /* Slightly slower mobile animations - 0.55s-0.7s */
+  /* Slightly slower mobile animations */
   .hero-name,
   .hero-sub-right-fixed,
   .hero-sub-right2 {
     transition-duration: 0.65s;
   }
-  
   .hero-image {
     transition-duration: 0.7s;
   }
-  
   .section-title {
     transition-duration: 0.6s;
   }
-  
   .project-card {
     transition-duration: 0.6s;
   }
-  
   .about-text,
   .about-image {
     transition-duration: 0.6s;
   }
-  
   .skill-item {
     transition-duration: 0.55s;
   }
-  
   .contact-container {
     transition-duration: 0.6s;
   }
-  
   .footer {
     transition-duration: 0.65s;
   }
   
-  /* Slightly reduced skill stagger delays on mobile */
-  .skill-item:nth-child(1) { transition-delay: 0.04s; }
-  .skill-item:nth-child(2) { transition-delay: 0.08s; }
-  .skill-item:nth-child(3) { transition-delay: 0.12s; }
-  .skill-item:nth-child(4) { transition-delay: 0.16s; }
-  .skill-item:nth-child(5) { transition-delay: 0.2s; }
-  .skill-item:nth-child(6) { transition-delay: 0.24s; }
-  .skill-item:nth-child(7) { transition-delay: 0.28s; }
-  .skill-item:nth-child(8) { transition-delay: 0.32s; }
-  .skill-item:nth-child(9) { transition-delay: 0.36s; }
+  /* Reduced skill stagger delays on mobile — covers all 19 */
+  .skill-item:nth-child(1)  { transition-delay: 0.04s; }
+  .skill-item:nth-child(2)  { transition-delay: 0.08s; }
+  .skill-item:nth-child(3)  { transition-delay: 0.12s; }
+  .skill-item:nth-child(4)  { transition-delay: 0.16s; }
+  .skill-item:nth-child(5)  { transition-delay: 0.2s; }
+  .skill-item:nth-child(6)  { transition-delay: 0.24s; }
+  .skill-item:nth-child(7)  { transition-delay: 0.28s; }
+  .skill-item:nth-child(8)  { transition-delay: 0.32s; }
+  .skill-item:nth-child(9)  { transition-delay: 0.36s; }
   .skill-item:nth-child(10) { transition-delay: 0.4s; }
   .skill-item:nth-child(11) { transition-delay: 0.44s; }
   .skill-item:nth-child(12) { transition-delay: 0.48s; }
   .skill-item:nth-child(13) { transition-delay: 0.52s; }
   .skill-item:nth-child(14) { transition-delay: 0.56s; }
   .skill-item:nth-child(15) { transition-delay: 0.6s; }
+  .skill-item:nth-child(16) { transition-delay: 0.64s; }
+  .skill-item:nth-child(17) { transition-delay: 0.68s; }
+  .skill-item:nth-child(18) { transition-delay: 0.72s; }
+  .skill-item:nth-child(19) { transition-delay: 0.76s; }
 }
 
 /* Reduced motion for accessibility */
