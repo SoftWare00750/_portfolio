@@ -22,7 +22,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
-    }, 6000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

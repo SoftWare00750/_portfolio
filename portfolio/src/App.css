@@ -230,9 +230,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .hero-sub-right-fixed.loading-text-frontend { right: 5px; }
-.hero-sub-right-fixed.loading-text-web      { right: 42px; }
+.hero-sub-right-fixed.loading-text-web      { right: 45px; }
 .hero-sub-right-fixed.loading-text-mobile   { right: 43px; }
-.hero-sub-right-fixed.loading-text-game     { right: 44px; }
+.hero-sub-right-fixed.loading-text-game     { right: 45px; }
 
 .hero-sub-right2 {
   position: absolute;
@@ -299,7 +299,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ================================================================
-   PROJECTS SECTION
+   PROJECTS SECTION - SIMPLIFIED AND DEBUGGED
    ================================================================ */
 
 #projects {
@@ -350,7 +350,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ================================================================
-   GRIDS
+   ALL GRIDS - ONE CONSISTENT APPROACH
    ================================================================ */
 
 .projects-grid {
@@ -359,16 +359,19 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding: 30px 0;
   max-width: 1400px;
   margin: 0 auto;
+  /* Default: 2 columns for web/game projects */
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
 }
 
+/* Mobile apps use 2 columns but cards are narrower */
 .projects-grid.mobile-grid {
   grid-template-columns: repeat(2, 260px);
   justify-content: center;
   gap: 40px;
 }
 
+/* Game grid - same as default but explicitly set for clarity */
 .projects-grid.game-grid {
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
@@ -376,21 +379,24 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ================================================================
-   PROJECT CARDS
+   PROJECT CARDS - ALL TYPES
    ================================================================ */
 
 .project-card {
+  /* Base styles for ALL cards */
   position: relative;
   background: rgba(2, 6, 23, 0.2);
   border-radius: 13px;
-  /* FIX: overflow MUST be hidden so the overlay clips to the card */
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   cursor: pointer;
   transition: transform 0.3s ease;
+  
+  /* CRITICAL: Make sure cards are visible */
   display: block;
-  /* Do NOT set opacity here — animations.css controls opacity for the enter animation */
+  opacity: 1;
+  visibility: visible;
 }
 
 .project-card:hover {
@@ -404,7 +410,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   aspect-ratio: 16 / 9;
 }
 
-/* Game cards - landscape 16:9 */
+/* Game cards - landscape 16:9 (same as web) */
 .project-card.game {
   width: 100%;
   max-width: 540px;
@@ -418,9 +424,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ================================================================
-   IMAGE LAYER
-   FIX: Must be position:absolute + inset:0 to fill the
-        aspect-ratio-sized card container.
+   IMAGE LAYER - Works for ALL card types
    ================================================================ */
 
 .project-media,
@@ -442,7 +446,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ================================================================
-   HOVER OVERLAY
+   HOVER OVERLAY - Works for ALL card types
    ================================================================ */
 
 .project-box {
@@ -469,7 +473,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
   
-  /* Center the content */
+  /* Flexbox for centering content */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -497,12 +501,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   line-height: 1.5;
 }
 
-/* Mobile card overlay — FIX: use 100% not 116%/119% */
+/* Mobile card overlay - tighter spacing */
 .project-card.mobile .project-body {
   padding: 15px;
   gap: 8px;
-  width: 100%;
-  height: 100%;
 }
 
 .project-card.mobile .project-body h3 {
