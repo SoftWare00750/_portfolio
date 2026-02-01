@@ -48,7 +48,8 @@ export default function About() {
           <h2 className="section-title">About</h2>
           <div className="about-grid">
             <div className="about-text">
-              <p>I'm a <span ref={textRef}
+              <p>I'm a <span 
+              ref={textRef}
               className={`devtitle ${LOADING_TEXTS[currentTextIndex].className}${hasAnimated ? " animate" : ""}`}>{LOADING_TEXTS[currentTextIndex].text}</span> experienced in building responsive websites, apps and games.</p>
               <p className="about2">I create modern web, mobile and game interfaces, I'm passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>
               <p>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwind CSS</span>, <span className="skills1">Javascript</span>, <span className="skills1">React</span>, <span className="skills1">Angular</span> and <span className="skills1">Vue</span> frameworks.</p>
