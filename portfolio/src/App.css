@@ -230,7 +230,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .hero-sub-right-fixed.loading-text-frontend { right: 5px; }
-.hero-sub-right-fixed.loading-text-web      { right: 43px; margin-left: 12px; }
+.hero-sub-right-fixed.loading-text-web      { right: 46px; margin-left: 12px; }
 .hero-sub-right-fixed.loading-text-mobile   { right: 43px; }
 .hero-sub-right-fixed.loading-text-game     { right: 45px; }
 
@@ -373,9 +373,17 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 /* Game grid - same as default but explicitly set for clarity */
 .projects-grid.game-grid {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   gap: 50px;
+}
+
+/* If there is only one child, change the grid to a single column and center it */
+.projects-grid.game-grid > :only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 500px; /* Optional: prevents a single card from stretching too wide */
 }
 
 /* ================================================================

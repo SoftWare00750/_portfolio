@@ -16,7 +16,7 @@ export default function About() {
      useEffect(() => {
        const interval = setInterval(() => {
          setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
-       }, 3000);
+       }, 2000);
    
        return () => clearInterval(interval);
      }, []);
