@@ -22,28 +22,6 @@ html {
   scroll-behavior: smooth !important;
 }
 
-html::-webkit-scrollbar {
-  width: 100%;
-  height: auto;
-}
-
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-html::-webkit-scrollbar-thumb {
-  background: auto;
-}
-
-html::-webkit-scrollbar-thumb:hover {
-  background: auto;
-}
-
-html {
-  scrollbar-width: 100%;
-  scrollbar-color: auto;
-}
-
 body {
   overflow: hidden;
   width: 100%;
@@ -61,11 +39,6 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-}
-
-::before,
-::after {
-  box-sizing: border-box;
 }
 
 section {
@@ -325,21 +298,29 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   box-shadow: 0 6px 20px rgba(110, 231, 183, 0.4);
 }
 
-/* ===== PROJECTS SECTION ===== */
+/* ================================================================
+   PROJECTS SECTION - SIMPLIFIED AND DEBUGGED
+   ================================================================ */
+
 #projects {
   margin-top: -60px;
   margin-bottom: 30px;
   padding: 40px 0;
 }
 
-#project-title { margin-bottom: 50px; }
+#project-title { 
+  margin-bottom: 50px; 
+}
 
 .project-category {
   margin-bottom: 80px;
   margin-top: 10px;
   padding-top: 11px;
 }
-.project-category:last-child { margin-bottom: 0; }
+
+.project-category:last-child { 
+  margin-bottom: 0; 
+}
 
 .category-heading {
   color: var(--accent);
@@ -368,94 +349,95 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: 20px;
 }
 
-/* ===== PROJECTS GRID - BASE ===== */
+/* ================================================================
+   ALL GRIDS - ONE CONSISTENT APPROACH
+   ================================================================ */
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 50px;
   padding: 30px 0;
-  justify-items: center;
-  align-items: start;
   max-width: 1400px;
   margin: 0 auto;
+  /* Default: 2 columns for web/game projects */
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
 }
 
-/* ===== GAME GRID ===== */
+/* Mobile apps use 2 columns but cards are narrower */
+.projects-grid.mobile-grid {
+  grid-template-columns: repeat(2, 260px);
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Game grid - same as default but explicitly set for clarity */
 .projects-grid.game-grid {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 600px));
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   gap: 50px;
 }
 
-/* ===== MOBILE GRID ===== */
-.projects-grid.mobile-grid {
-  grid-template-columns: repeat(auto-fit, 260px);
-  gap: 40px;
-  justify-content: center;
-  padding: 30px 0;
-}
+/* ================================================================
+   PROJECT CARDS - ALL TYPES
+   ================================================================ */
 
-/* ===== PROJECT CARD - BASE ===== */
 .project-card {
+  /* Base styles for ALL cards */
   position: relative;
+  background: rgba(2, 6, 23, 0.2);
+  border-radius: 13px;
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-  background: rgba(2, 6, 23, 0.2);
-  transition: transform 0.3s ease;
   backdrop-filter: blur(10px);
   cursor: pointer;
-  width: 100%;
-}
-
-.project-card:hover { 
-  transform: translateY(-5px); 
-}
-
-/* ===== WEB PROJECT CARDS ===== */
-.project-card.web {
-  aspect-ratio: 16/9;
-  border-radius: 13px;
-  max-width: 600px;
-}
-
-/* ===== GAME PROJECT CARDS ===== */
-.project-card.game {
-  aspect-ratio: 16/9;
-  border-radius: 13px;
-  max-width: 600px;
-  width: 100%;
-}
-
-/* ===== MOBILE PROJECT CARDS ===== */
-.project-card.mobile {
-  aspect-ratio: 9/16;
-  max-width: 260px;
-  border-radius: 13px;
-}
-
-/* ===== PROJECT MEDIA - IMAGES ===== */
-.project-media {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.project-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  transition: transform 0.3s ease;
+  
+  /* CRITICAL: Make sure cards are visible */
   display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Game media uses same structure */
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Web cards - landscape 16:9 */
+.project-card.web {
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 16 / 9;
+}
+
+/* Game cards - landscape 16:9 (same as web) */
+.project-card.game {
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 16 / 9;
+}
+
+/* Mobile cards - portrait 9:16 */
+.project-card.mobile {
+  width: 260px;
+  aspect-ratio: 9 / 16;
+}
+
+/* ================================================================
+   IMAGE LAYER - Works for ALL card types
+   ================================================================ */
+
+.project-media,
 .game-media {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
+.project-media img,
 .game-media img {
   width: 100%;
   height: 100%;
@@ -463,106 +445,176 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   display: block;
 }
 
-/* ===== PROJECT OVERLAY - HOVER STATE ===== */
+/* ================================================================
+   HOVER OVERLAY - Works for ALL card types
+   ================================================================ */
+
 .project-box {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .project-body {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(2, 6, 23, 0.92);
   color: var(--white);
   padding: 20px;
+  
+  /* Hidden by default */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  
+  /* Flexbox for centering content */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 10;
+  gap: 10px;
 }
 
+/* Show overlay on hover */
 .project-card:hover .project-body {
   opacity: 1;
   visibility: visible;
 }
 
+/* Overlay text */
 .project-body h3 {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 20px;
   color: var(--white);
 }
 
 .project-body p {
+  margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  margin-bottom: 12px;
 }
 
-/* Mobile card overlay adjustments */
+/* Mobile card overlay - tighter spacing */
 .project-card.mobile .project-body {
-  padding: 25px 15px;
-  justify-content: space-evenly;
+  padding: 15px;
+  gap: 8px;
 }
 
 .project-card.mobile .project-body h3 {
   font-size: 18px;
-  margin-bottom: 10px;
 }
 
 .project-card.mobile .project-body p {
   font-size: 13px;
   line-height: 1.4;
-  margin-bottom: 10px;
 }
 
-/* ===== TECH BADGES ===== */
+/* ================================================================
+   TECH BADGES
+   ================================================================ */
+
 .tech-list {
   display: flex;
-  gap: 8px;
   flex-wrap: wrap;
+  gap: 8px;
   justify-content: center;
-  margin: 12px 0;
+  margin: 10px 0;
 }
 
 .tech {
   font-size: 12px;
-  padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
+  color: var(--white);
 }
 
 .project-card.mobile .tech {
   font-size: 10px;
-  padding: 4px 6px;
+  padding: 4px 8px;
 }
 
-/* ===== LINK BUTTON ===== */
+/* ================================================================
+   LINK BUTTON
+   ================================================================ */
+
 .link-button {
-  background: var(--card, #1e293b);
-  color: var(--white, #fff);
-  padding: 0.5rem 1rem;
-  border-radius: 400px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-top: auto;
+  background: var(--card);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: none;
+  margin-top: auto;
 }
 
 .link-button:hover {
-  background: var(--accent, #6ee7b7);
+  background: var(--accent);
   color: #0f172a;
+  transform: scale(1.05);
 }
 
 .project-card.mobile .link-button {
   padding: 10px 20px;
-  font-size: 0.85rem;
+  font-size: 13px;
+}
+
+/* ================================================================
+   RESPONSIVE - Tablet
+   ================================================================ */
+
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .projects-grid.game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .project-card.web,
+  .project-card.game {
+    max-width: 100%;
+  }
+}
+
+/* ================================================================
+   RESPONSIVE - Mobile
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .projects-grid,
+  .projects-grid.game-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .projects-grid.mobile-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  
+  .project-card.web,
+  .project-card.game {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .project-card.mobile {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 /* ===== PROFILE CARD ===== */
