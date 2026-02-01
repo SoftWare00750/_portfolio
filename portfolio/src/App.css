@@ -272,9 +272,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .hero-sub-right-fixed.loading-text-frontend { right: 5px; }
-.hero-sub-right-fixed.loading-text-web      { right: 46px; margin-left: 12px; }
+.hero-sub-right-fixed.loading-text-web      { right: 46px; margin-left: 12px; text-align: left; }
 .hero-sub-right-fixed.loading-text-mobile   { right: 43px; }
-.hero-sub-right-fixed.loading-text-game     { right: 45px; }
+.hero-sub-right-fixed.loading-text-game     { right: 45px; text-align: left; }
 
 .hero-sub-right2 {
   position: absolute;
