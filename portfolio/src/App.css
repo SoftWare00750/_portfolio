@@ -679,7 +679,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .skills-list { display: flex; flex-wrap: wrap; gap: 4px; }
 .skills1     { font-weight: bold; color: var(--accent); }
-
+.devtitle { font-weight: bold; color: var(--white); }
 /* ===== SKILLS SECTION ===== */
 #skills { padding-top: 60px; margin-top: 130px; margin-bottom: -5px; }
 

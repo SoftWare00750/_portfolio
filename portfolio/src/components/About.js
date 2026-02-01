@@ -42,7 +42,7 @@ export default function About() {
             <div className="about-text">
               <p>I'm a <span 
               ref={textRef}
-              className={`devtitle ${LOADING_TEXTS[currentTextIndex].className}${hasAnimated ? " animate" : ""}`}>{LOADING_TEXTS[currentTextIndex].text}</span> experienced in building responsive websites, apps and games.</p>
+              className={`devtitle ${LOADING_TEXTS[currentTextIndex].className}${hasAnimated ? " animate" : ""}`}>{LOADING_TEXTS[currentTextIndex].text}</span> experienced in building <p>responsive websites, apps and games.</p></p>
               <p className="about2">I create modern web, mobile and game interfaces, I'm passionate about clean code, performance, and delivering reliable, user-focused solutions.</p>
               <p>Web Interfaces with <span className="skills1">Html</span>, <span className="skills1">CSS</span>, <span className="skills1">Tailwind CSS</span>, <span className="skills1">Javascript</span>, <span className="skills1">React</span>, <span className="skills1">Angular</span> and <span className="skills1">Vue</span> frameworks.</p>
               <p>Game Interfaces with <span className="skills1">Unity</span>, <span className="skills1">Godot</span>, <span className="skills1">React.js</span>, <span className="skills1">C#</span> and <span className="skills1">C++</span></p>
