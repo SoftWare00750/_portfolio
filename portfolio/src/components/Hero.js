@@ -67,7 +67,7 @@ export default function Hero() {
             <p className="hero-sub-right2">
               <span>I handle the development, deployment</span>
               <br />
-              <span>and maintenance of your Website and App's UI, start to finish.</span>
+              <span>and maintenance of your Website, Apps and Games UI, start to finish.</span>
             </p>
           </span>
           </div>

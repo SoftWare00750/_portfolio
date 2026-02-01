@@ -22,15 +22,7 @@ export default function Projects() {
                 className={`project-card ${p.type || 'web'}`}
               > 
                 <div className="project-media">
-                  <img 
-                    src={p.image} 
-                    alt={p.title}
-                    onLoad={() => console.log(`✅ LOADED: ${p.title} - ${p.image}`)}
-                    onError={(e) => {
-                      console.error(`❌ FAILED: ${p.title} - ${p.image}`);
-                      console.error('Full error:', e);
-                    }}
-                  />
+                  <img src={p.image} alt={p.title} />
                 </div>
                 <div className="project-box">
                   <div className="project-body">
@@ -52,26 +44,18 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* GAME SECTION */}
+        {/* GAME SECTION — uses its own .game-grid class */}
         {gameProjects.length > 0 && (
           <div className="project-category">
             <h3 className="category-heading">Game Projects</h3>
-            <div className="projects-grid">
+            <div className="projects-grid game-grid">
               {gameProjects.map((p) => (
                 <div 
                   key={p.id} 
                   className="project-card game"
                 > 
-                  <div className="project-media">
-                    <img 
-                      src={p.image} 
-                      alt={p.title}
-                      onLoad={() => console.log(`✅ LOADED: ${p.title} - ${p.image}`)}
-                      onError={(e) => {
-                        console.error(`❌ FAILED: ${p.title} - ${p.image}`);
-                        console.error('Full error:', e);
-                      }}
-                    />
+                  <div className="project-media game-media">
+                    <img src={p.image} alt={p.title} />
                   </div>
                   <div className="project-box">
                     <div className="project-body">
@@ -104,15 +88,7 @@ export default function Projects() {
                 className="project-card mobile"
               > 
                 <div className="project-media">
-                  <img 
-                    src={p.image} 
-                    alt={p.title}
-                    onLoad={() => console.log(`✅ LOADED: ${p.title} - ${p.image}`)}
-                    onError={(e) => {
-                      console.error(`❌ FAILED: ${p.title} - ${p.image}`);
-                      console.error('Full error:', e);
-                    }}
-                  />
+                  <img src={p.image} alt={p.title} />
                 </div>
                 <div className="project-box">
                   <div className="project-body">

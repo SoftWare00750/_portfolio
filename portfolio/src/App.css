@@ -109,7 +109,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   box-sizing: border-box;
   width: 99%;
   max-width: 100vw;
-  overflow: visible; /* Allow mobile dropdown to appear */
+  overflow: visible;
 }
 
 .nav-inner {
@@ -141,7 +141,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-size: 30px;
 }
 
-/* DESKTOP NAVIGATION - Visible on desktop only */
 .nav-desktop {
   margin-left: auto;
   display: flex;
@@ -196,15 +195,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: #62b6ff;
 }
 
-/* HAMBURGER - Hidden on desktop, shown on mobile */
-.hamburger {
-  display: none;
-}
-
-/* MOBILE DROPDOWN - Hidden on desktop, styled in responsive.css */
-.nav-mobile {
-  display: none;
-}
+.hamburger { display: none; }
+.nav-mobile { display: none; }
 
 /* ===== HERO SECTION ===== */
 #home {
@@ -226,9 +218,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   position: relative;
 }
 
-.hero-text1 {
-  margin-top: 50px;
-}
+.hero-text1 { margin-top: 50px; }
 
 .hero-name {
   font-size: 90px;
@@ -240,9 +230,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-right: -10px;
 }
 
-.hero-name .first-name {
-  display: block;
-}
+.hero-name .first-name { display: block; }
 
 .hero-name .last-name {
   display: block;
@@ -250,9 +238,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -35px;
   margin-right: -200px;
   letter-spacing: 2px;
-  text-shadow: 
-    2px 2px 0 #0a0a0a,
-    4px 4px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 0 #0a0a0a, 4px 4px 6px rgba(0,0,0,0.5);
 }
 
 .hero-sub-right-fixed {
@@ -270,44 +256,25 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-weight: bold;
 }
 
-/* Frontend Developer — longest text, baseline (no shift) */
-.hero-sub-right-fixed.loading-text-frontend {
-  right: 5px;
-}
-
-/* Web Developer */
-.hero-sub-right-fixed.loading-text-web {
-  right: 46px;
-}
-
-/* Mobile Developer — 1 char shorter than Frontend, small shift */
-.hero-sub-right-fixed.loading-text-mobile {
-  right: 43px;
-}
-
-/* Game Developer — shorter, larger shift */
-.hero-sub-right-fixed.loading-text-game {
-  right: 46px;
-}
+.hero-sub-right-fixed.loading-text-frontend { right: 5px; }
+.hero-sub-right-fixed.loading-text-web      { right: 48px; }
+.hero-sub-right-fixed.loading-text-mobile   { right: 43px; }
+.hero-sub-right-fixed.loading-text-game     { right: 36px; }
 
 .hero-sub-right2 {
   position: absolute;
   right: 0;
-  /* FIX: Explicitly set top to a value slightly higher than before */
-  top: 54%;   /* Adjusted from 'auto' to sit right below the fixed line */
+  top: 54%;
   transform: translateY(-50%);
-  
   max-width: 600px;
   color: var(--muted);
   text-align: left;
-  line-height: 1.3;    /* Tightened from 1.6 to reduce internal spacing */
+  line-height: 1.3;
   padding-right: 5px;
   margin-right: -80px;
   font-size: 21px;
   z-index: 11;
-  
-  /* Removed invalid 'border-top: -6px' */
-  margin-top: -5px;    /* Use negative margin-top to pull it even closer if needed */
+  margin-top: -5px;
 }
 
 .hero-image {
@@ -324,29 +291,24 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -50px;
 }
 
-
-/* Update the container to keep everything on the left */
 .name-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;            /* Reduced gap to control base spacing */
-  width: fit-content;   /* Keeps the container slim so it doesn't hit the right side */
+  gap: 15px;
+  width: fit-content;
 }
 
 .mywork {
-  position: relative;   /* Changed from absolute to keep it in the layout flow */
-  top: 40px;            /* This moves it DOWN specifically */
-  
-  /* Reduced Width/Footprint */
-  padding: 20px 29px;   /* Reduced from 20px 32px to make it more compact */
-  width: fit-content;   /* Ensures the button only takes up as much space as the text */
-  margin: 0;            /* Removes any stray margins pushing against other elements */
-  
+  position: relative;
+  top: 40px;
+  padding: 20px 29px;
+  width: fit-content;
+  margin: 0;
   background-color: transparent;
   color: var(--white);
   border-radius: 120px;
-  font-size: 16px;      /* Slightly smaller font for a cleaner look */
+  font-size: 16px;
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease, transform 0.25s ease;
@@ -359,214 +321,26 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   background-color: var(--accent);
   border-color: var(--accent);
   color: var(--bg);
-  transform: translateY(-3px); /* Small lift on hover */
+  transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(110, 231, 183, 0.4);
 }
 
-
-
 /* ===== PROJECTS SECTION ===== */
-#projects {
-  margin-top: -60px;
- 
-  padding: 40px 0;
-}
-
-#project-title {
-  margin-bottom: 50px;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 70px;
-  padding: 30px 0;
-  justify-items: center;
-  align-items: start;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.project-card {
-  position: relative;
-  overflow: visible !important;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-  background: rgba(2, 6, 23, 0.2);
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(10px);
-  cursor: pointer;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Web projects - landscape */
-.project-card.web {
-  aspect-ratio: 16/9;
-  width: 122%;
-  gap: 10px;
-  border-radius: 13px;
-  height: auto;
-}
-
-/* Mobile projects - portrait */
-.project-card.mobile {
-  aspect-ratio: 9/16;
-  max-width: 280px;
-  margin-left: -20px;
-  margin-top:  40px;
-  height: 390px;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-media {
-  width: 110% !important;
-  height: 100% !important;
-  position: relative;
-  overflow: visible !important;
-  display: block !important;
-  visibility: visible !important;
-  
-}
-
-.project-media img {
-  width: 93% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  max-width: none !important;
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-.project-card.mobile .project-media {
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.project-card.mobile .project-media img {
-  width: 100% !important; /* Make image fill the card width */
-  height: 100% !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  object-fit: cover !important;
-}
-
-/* Overlay on hover */
-.project-body {
-  position: absolute;
-  inset: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(2, 6, 23, 0.92);
-  color: var(--white);
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 10;
-  height: 100%;
-  width: 93%;
-}
-
-.project-card:hover .project-body {
-  opacity: 1;
-  visibility: visible;
-}
-
-.project-body h3 {
-  margin: 0 0 8px;
-  font-size: 20px;
-  color: var(--white);
-}
-
-.project-body p {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.project-card.mobile .project-body {
-  padding: 25px 15px;
-  justify-content: space-evenly;
-  height: 100%;          /* Match card height */
-  width: 100%;           /* Match card width */
-  margin-left: 0;        /* Reset offsets */
-  margin-top: 0;         /* Reset offsets */
-}
-
-.project-card.mobile .project-body h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.project-card.mobile .project-body p {
-  font-size: 13px;
-  line-height: 1.4;
-  flex-grow: 0;
-  margin-bottom: 10px;
-}
-
-/* Tech badges */
-.tech-list {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 12px 0;
-}
-
-.tech {
-  font-size: 12px;
-  padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-}
-
-.project-card.mobile .tech {
-  font-size: 10px;
-  padding: 4px 6px;
-}
-
-
-/* ===== PROJECTS SECTION WITH CATEGORIES ===== */
 #projects {
   margin-top: -60px;
   margin-bottom: 30px;
   padding: 40px 0;
 }
 
-/* Project Category Container */
+#project-title { margin-bottom: 50px; }
+
 .project-category {
   margin-bottom: 80px;
   margin-top: 10px;
   padding-top: 11px;
 }
+.project-category:last-child { margin-bottom: 0; }
 
-.project-category:last-child {
-  margin-bottom: 0;
-}
-
-/* Category Headings */
 .category-heading {
   color: var(--accent);
   font-size: 32px;
@@ -590,11 +364,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 #web-heading {
- padding-top: 40px;
- margin-top: 20px;
+  padding-top: 40px;
+  margin-top: 20px;
 }
 
-/* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -605,55 +378,159 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   max-width: 1400px;
   margin: 0 auto;
 }
-/* Mobile Grid - Centered layout for mobile cards */
+
 .projects-grid.mobile-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 260px); /* Fixed width for consistency */
-  gap: 5px;             /* Control the space here (smaller = closer) */
+  grid-template-columns: repeat(auto-fit, 260px);
+  gap: 5px;
   justify-content: center;
   padding: 30px 0;
 }
 
-/* Project Cards */
+/* ==============================================================
+   PROJECT CARD
+   position:relative = containing block for the two absolute layers.
+   aspect-ratio gives it shape.  overflow:hidden clips cleanly.
+   ============================================================== */
 .project-card {
   position: relative;
-  overflow: visible !important;
+  overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   background: rgba(2, 6, 23, 0.2);
   transition: transform 0.3s ease;
   backdrop-filter: blur(10px);
   cursor: pointer;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  width: 100%;
+}
+.project-card:hover { transform: translateY(-5px); }
+
+.project-card.web   { aspect-ratio: 16/9; border-radius: 13px; }
+
+/* ==============================================================
+   GAME GRID & GAME CARD
+   .game-grid constrains columns so game cards don't stretch to the
+   full width of the web grid.  The card fills its column and uses
+   aspect-ratio for shape.
+   ============================================================== */
+.game-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 540px));
+  justify-content: center;
+  gap: 50px;
 }
 
-/* Web projects - landscape */
-.project-card.web {
+.project-card.game {
   aspect-ratio: 16/9;
-  width: 122%;
-  gap: 10px;
   border-radius: 13px;
-  height: auto;
+  max-width: 540px;
+  width: 100%;
 }
 
-/* Mobile projects - portrait */
+/* game image layer — same absolute fill as .project-media,
+   kept as a separate class so game images can be tweaked alone */
+.game-media {
+  position: absolute;
+  inset: 0;
+}
+.game-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .project-card.mobile {
   aspect-ratio: 9/16;
-  max-width: 260px;      /* Match the grid column width */
-  margin-left: 0;        /* REMOVED the -20px margin that caused alignment issues */
-  margin-top: 20px;
+  max-width: 260px;
   height: 390px;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
+/* ==============================================================
+   LAYER 1 — image.  Absolutely fills the card.
+   ============================================================== */
+.project-media {
+  position: absolute;
+  inset: 0;
 }
 
-/* Link button */
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==============================================================
+   .project-box — the JSX wrapper around .project-body.
+   Absolutely fills the card so it occupies zero flow space and
+   so .project-body can position itself inside it correctly.
+   ============================================================== */
+.project-box {
+  position: absolute;
+  inset: 0;
+}
+
+/* ==============================================================
+   LAYER 2 — hover overlay.  Fills .project-box (which fills card).
+   ============================================================== */
+.project-body {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.92);
+  color: var(--white);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.project-card:hover .project-body {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-body h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.project-body p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.project-card.mobile .project-body {
+  padding: 25px 15px;
+  justify-content: space-evenly;
+}
+.project-card.mobile .project-body h3 { font-size: 18px; margin-bottom: 10px; }
+.project-card.mobile .project-body p  { font-size: 13px; line-height: 1.4; margin-bottom: 10px; }
+
+/* ===== TECH BADGES ===== */
+.tech-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.tech {
+  font-size: 12px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.project-card.mobile .tech { font-size: 10px; padding: 4px 6px; }
+
+/* ===== LINK BUTTON ===== */
 .link-button {
   background: var(--card, #1e293b);
   color: var(--white, #fff);
@@ -672,12 +549,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: #0f172a;
 }
 
-.project-card.mobile .link-button {
-  padding: 10px 20px;
-  font-size: 0.85rem;
-}
+.project-card.mobile .link-button { padding: 10px 20px; font-size: 0.85rem; }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -697,32 +570,14 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   box-shadow: 0 8px 30px rgba(2, 6, 23, .6);
 }
 
-.profile-card img {
-  width: 88px;
-  height: 88px;
-  border-radius: 10px;
-  object-fit: cover;
-}
+.profile-card img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; }
 
-.card-meta h3 {
-  margin: 0;
-  color: var(--white);
-  font-size: 18px;
-}
-
-.card-meta p {
-  margin: 4px 0 0;
-  color: var(--muted);
-}
+.card-meta h3 { margin: 0; color: var(--white); font-size: 18px; }
+.card-meta p  { margin: 4px 0 0; color: var(--muted); }
 
 /* ===== SECTIONS ===== */
-.section {
-  padding: 150px 0;
-}
-
-.section.alt {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
-}
+.section { padding: 150px 0; }
+.section.alt { background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); }
 
 .section-title {
   color: var(--white);
@@ -734,14 +589,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ===== ABOUT SECTION ===== */
-#about {
-  margin-top: -10px;
-  padding: 20px 0 60px;
-}
-
-.about {
-  margin-bottom: 14px;
-}
+#about { margin-top: -10px; padding: 20px 0 60px; }
+.about { margin-bottom: 14px; }
 
 .about-grid {
   display: grid;
@@ -752,13 +601,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: 5px;
 }
 
-.about-text {
-  margin-top: 18px;
-}
-
-.about2 {
-  margin-top: 15px;
-}
+.about-text { margin-top: 18px; }
+.about2     { margin-top: 15px; }
 
 .about-image {
   width: 220%;
@@ -774,23 +618,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: var(--muted);
 }
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.skills1 {
-  font-weight: bold;
-  color: var(--accent);
-}
+.skills-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.skills1     { font-weight: bold; color: var(--accent); }
 
 /* ===== SKILLS SECTION ===== */
-#skills {
-  padding-top: 60px;
-  margin-top: 130px;
-  margin-bottom: -5px;
-}
+#skills { padding-top: 60px; margin-top: 130px; margin-bottom: -5px; }
 
 .skills-grid {
   display: grid;
@@ -818,9 +650,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   transition: transform 0.3s ease;
 }
 
-.skill-item:hover .skill-icon {
-  transform: scale(1.1);
-}
+.skill-item:hover .skill-icon { transform: scale(1.1); }
 
 .skill-pill {
   background: var(--card, #1e293b);
@@ -834,10 +664,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-bottom: 20px;
 }
 
-.skill-item:hover .skill-pill {
-  background: var(--accent, #6ee7b7);
-  color: #0f172a;
-}
+.skill-item:hover .skill-pill { background: var(--accent, #6ee7b7); color: #0f172a; }
 
 /* ===== CONTACT SECTION ===== */
 #contact {
@@ -866,42 +693,14 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-#contact-header {
-  font-size: 44px;
-  font-weight: 900;
-  margin-top: -10px;
-  margin-bottom: 4px;
-}
+#contact-header { font-size: 44px; font-weight: 900; margin-top: -10px; margin-bottom: 4px; }
 
-.contact1,
-.contact2,
-.contact3 {
-  margin: 15px 0;
-  line-height: 1.6;
-  margin-bottom: 5px;
-}
+.contact1, .contact2, .contact3 { margin: 15px 0; line-height: 1.6; margin-bottom: 5px; }
+.contact1 { font-size: 24px; font-weight: 700; }
+.contact2 { font-size: 22px; font-weight: 600; }
+.contact3 { font-size: 20px; font-weight: 500; }
 
-.contact1 {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.contact2 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.contact3 {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.contact-buttons {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
+.contact-buttons { margin-top: 35px; display: flex; justify-content: center; gap: 30px; }
 
 .contact-btn {
   background-color: var(--bg);
@@ -915,11 +714,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   transition: all 0.3s ease;
 }
 
-.contact-btn:hover {
-  transform: translateY(-3px);
-  background-color: var(--bg);
-  color: var(--accent);
-}
+.contact-btn:hover { transform: translateY(-3px); }
 
 /* ===== CHAT BOX ===== */
 .chat-box {
@@ -936,116 +731,45 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   animation: fadeIn 0.4s ease;
 }
 
-.chat-box h2 {
-  margin-bottom: 10px;
-  color: #6ee7b7;
-  text-align: center;
-}
-
-.chat-box form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.chat-box h2 { margin-bottom: 10px; color: #6ee7b7; text-align: center; }
+.chat-box form { display: flex; flex-direction: column; gap: 8px; }
 
 .chat-box input {
-  width: 100%;
-  padding: 14px;
-  color: #6ee7b7;
-  background-color: rgba(7, 24, 39, 0.2);
-  border: 1px solid #0f1724b3;
-  border-radius: 6px;
-  font-size: 14px;
+  width: 100%; padding: 14px; color: #6ee7b7;
+  background-color: rgba(7,24,39,0.2); border: 1px solid #0f1724b3;
+  border-radius: 6px; font-size: 14px;
 }
 
 .chat-box textarea {
-  width: 100%;
-  height: 50%;
-  color: #6ee7b7;
-  background-color: rgba(7, 24, 39, 0.2);
-  padding: 14px;
-  border: 1px solid #0f1724b3;
-  border-radius: 6px;
-  font-size: 14px;
-  margin-bottom: 20px;
+  width: 100%; height: 50%; color: #6ee7b7;
+  background-color: rgba(7,24,39,0.2); padding: 14px;
+  border: 1px solid #0f1724b3; border-radius: 6px;
+  font-size: 14px; margin-bottom: 20px;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #6ee7b7 !important;
-  opacity: 1;
+input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 1; }
+
+.button-group { margin-bottom: 5px; display: flex; justify-content: center; gap: 15px; }
+
+.button1, .button2 {
+  padding: 14px 50px; border-radius: 6px; border: none;
+  background-color: #007bff; color: white; cursor: pointer; transition: 0.2s;
 }
 
-.button-group {
-  margin-bottom: 5px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  text-align: left;
-}
-
-.button1,
-.button2 {
-  padding: 14px 50px;
-  border-radius: 6px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.chat-box button:hover {
-  background-color: #0056b3;
-}
+.chat-box button:hover { background-color: #0056b3; }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== FOOTER ===== */
-.footer {
-  padding: -18px 0;
-  border-top: -2px solid rgba(255, 255, 255, 0.02);
-  color: var(--muted);
-  margin-top: -20px;
-}
+.footer { padding: 0; color: var(--muted); margin-top: -20px; }
+.footer .container { display: flex; justify-content: center; align-items: center; }
 
-.footer .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.socials { display: flex; justify-content: center; align-items: center; gap: 16px; }
 
-.socials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
+.social-link { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; }
 
-.social-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-
-.github-icon {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.2s ease;
-}
-
-.github-icon:hover {
-  transform: scale(1.1);
-}
+.github-icon { width: 30px; height: 30px; transition: transform 0.2s ease; }
+.github-icon:hover { transform: scale(1.1); }
