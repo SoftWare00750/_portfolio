@@ -368,10 +368,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: 20px;
 }
 
+/* ===== PROJECTS GRID - BASE ===== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 70px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
   padding: 30px 0;
   justify-items: center;
   align-items: start;
@@ -379,18 +380,22 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin: 0 auto;
 }
 
+/* ===== GAME GRID ===== */
+.projects-grid.game-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 600px));
+  justify-content: center;
+  gap: 50px;
+}
+
+/* ===== MOBILE GRID ===== */
 .projects-grid.mobile-grid {
   grid-template-columns: repeat(auto-fit, 260px);
-  gap: 5px;
+  gap: 40px;
   justify-content: center;
   padding: 30px 0;
 }
 
-/* ==============================================================
-   PROJECT CARD
-   position:relative = containing block for the two absolute layers.
-   aspect-ratio gives it shape.  overflow:hidden clips cleanly.
-   ============================================================== */
+/* ===== PROJECT CARD - BASE ===== */
 .project-card {
   position: relative;
   overflow: hidden;
@@ -401,54 +406,39 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   cursor: pointer;
   width: 100%;
 }
-.project-card:hover { transform: translateY(-5px); }
 
-.project-card.web   { aspect-ratio: 16/9; border-radius: 13px; }
-
-/* ==============================================================
-   GAME GRID & GAME CARD
-   .game-grid constrains columns so game cards don't stretch to the
-   full width of the web grid.  The card fills its column and uses
-   aspect-ratio for shape.
-   ============================================================== */
-.game-grid {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 540px));
-  justify-content: center;
-  gap: 50px;
+.project-card:hover { 
+  transform: translateY(-5px); 
 }
 
+/* ===== WEB PROJECT CARDS ===== */
+.project-card.web {
+  aspect-ratio: 16/9;
+  border-radius: 13px;
+  max-width: 600px;
+}
+
+/* ===== GAME PROJECT CARDS ===== */
 .project-card.game {
   aspect-ratio: 16/9;
   border-radius: 13px;
-  max-width: 540px;
+  max-width: 600px;
   width: 100%;
 }
 
-/* game image layer — same absolute fill as .project-media,
-   kept as a separate class so game images can be tweaked alone */
-.game-media {
-  position: absolute;
-  inset: 0;
-}
-.game-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
+/* ===== MOBILE PROJECT CARDS ===== */
 .project-card.mobile {
   aspect-ratio: 9/16;
   max-width: 260px;
-  height: 390px;
+  border-radius: 13px;
 }
 
-/* ==============================================================
-   LAYER 1 — image.  Absolutely fills the card.
-   ============================================================== */
+/* ===== PROJECT MEDIA - IMAGES ===== */
 .project-media {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .project-media img {
@@ -458,19 +448,27 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   display: block;
 }
 
-/* ==============================================================
-   .project-box — the JSX wrapper around .project-body.
-   Absolutely fills the card so it occupies zero flow space and
-   so .project-body can position itself inside it correctly.
-   ============================================================== */
+/* Game media uses same structure */
+.game-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.game-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== PROJECT OVERLAY - HOVER STATE ===== */
 .project-box {
   position: absolute;
   inset: 0;
 }
 
-/* ==============================================================
-   LAYER 2 — hover overlay.  Fills .project-box (which fills card).
-   ============================================================== */
 .project-body {
   position: absolute;
   inset: 0;
@@ -505,12 +503,22 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-bottom: 12px;
 }
 
+/* Mobile card overlay adjustments */
 .project-card.mobile .project-body {
   padding: 25px 15px;
   justify-content: space-evenly;
 }
-.project-card.mobile .project-body h3 { font-size: 18px; margin-bottom: 10px; }
-.project-card.mobile .project-body p  { font-size: 13px; line-height: 1.4; margin-bottom: 10px; }
+
+.project-card.mobile .project-body h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.project-card.mobile .project-body p {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
 
 /* ===== TECH BADGES ===== */
 .tech-list {
@@ -528,7 +536,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   border-radius: 6px;
 }
 
-.project-card.mobile .tech { font-size: 10px; padding: 4px 6px; }
+.project-card.mobile .tech {
+  font-size: 10px;
+  padding: 4px 6px;
+}
 
 /* ===== LINK BUTTON ===== */
 .link-button {
@@ -549,13 +560,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   color: #0f172a;
 }
 
-.project-card.mobile .link-button { padding: 10px 20px; font-size: 0.85rem; }
-
-@media (max-width: 1200px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-  }
+.project-card.mobile .link-button {
+  padding: 10px 20px;
+  font-size: 0.85rem;
 }
 
 /* ===== PROFILE CARD ===== */
