@@ -8,13 +8,6 @@ const LOADING_TEXTS = [
 ];
 
 export default function About() {
-
-   const scrollToSection = (id) => {
-       const element = document.getElementById(id);
-       if (element) {
-         element.scrollIntoView({ behavior: "smooth" });
-       }
-     };
    
      const [currentTextIndex, setCurrentTextIndex] = useState(0);
      const [hasAnimated, setHasAnimated] = useState(false);
