@@ -1,3 +1,5 @@
+ @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Pacifico&family=Satisfy&display=swap');
+
 :root {
   --bg: #0f1724;
   --card: #0b1220;
@@ -213,6 +215,46 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   letter-spacing: 2px;
   text-shadow: 2px 2px 0 #0a0a0a, 4px 4px 6px rgba(0,0,0,0.5);
 }
+
+middle-name {
+  /* Make it an overlay using absolute positioning */
+  position: absolute;
+  
+  /* Center it horizontally and vertically within hero-name */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Handwriting cursive font style - using Google Fonts */
+  font-family: 'Great Vibes', 'Dancing Script', 'Satisfy', 'Pacifico', 'Brush Script MT', cursive;
+  font-style: normal; /* Handwriting fonts already look cursive */
+  font-weight: 400;
+  
+  /* Ensure it appears above other elements */
+  z-index: 10;
+  
+  /* Remove it from normal document flow - won't affect other elements */
+  pointer-events: none; /* Optional: allows clicking through the overlay */
+  
+  /* Gold color styling */
+  color: #FFD700; /* Pure gold */
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 1;
+  
+  /* Much larger font size - spans over both first and last names */
+  font-size: 1.8em;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  white-space: nowrap; /* Prevents text wrapping */
+  
+  /* Add subtle text shadow for depth */
+  filter: drop-shadow(2px 2px 4px rgba(255, 215, 0, 0.4));
+}
+
+
 
 .hero-sub-right-fixed {
   position: absolute;

@@ -680,6 +680,10 @@
     text-align: center;
   }
 
+  .middle-name {
+    font-size: 1.5em; /* Even smaller on mobile */
+  }
+
   .hero-sub-right-fixed {
     position: static;
     transform: none;
@@ -1211,6 +1215,10 @@
   .hero-name .last-name {
     font-size: 44px;
     margin-top: -12px;
+  }
+
+  .middle-name {
+     font-size: 1.3em;
   }
 
   .hero-sub-right-fixed {

@@ -47,7 +47,8 @@ export default function Hero() {
             <div className="name-section">
               <h1 className="hero-name">
                 <span className="first-name">Oluwadamilola</span>
-                <br />
+                <span className="middle-name">Stephen</span>
+                <br /> 
                 <span className="last-name">Otunla</span>
               </h1>
               <button
