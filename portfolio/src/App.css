@@ -230,7 +230,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .hero-sub-right-fixed.loading-text-frontend { right: 5px; }
-.hero-sub-right-fixed.loading-text-web      { right: 45px; margin-right: -5px; }
+.hero-sub-right-fixed.loading-text-web      { right: 45px; margin-right: 17px; }
 .hero-sub-right-fixed.loading-text-mobile   { right: 43px; }
 .hero-sub-right-fixed.loading-text-game     { right: 45px; }
 
