@@ -237,8 +237,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   pointer-events: none; /* Optional: allows clicking through the overlay */
   
   /* Gold color styling */
-  color: #FFD700; /* Pure gold */
-  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+  color: #007bff; /* Pure gold */
+  background: linear-gradient(45deg, #007bff, #5500ff, #007bff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
