@@ -249,6 +249,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   line-height: 1.2;
   letter-spacing: 0.05em;
   white-space: nowrap; /* Prevents text wrapping */
+  text-shadow: none;
   
   /* Add subtle text shadow for depth */
   filter: drop-shadow(2px 2px 4px rgba(255, 215, 0, 0.4));
