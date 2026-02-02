@@ -238,7 +238,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   
   /* Gold color styling */
   color: #007bff; /* Pure gold */
-  background: linear-gradient(45deg, #007bff);
+  background: #007bff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
