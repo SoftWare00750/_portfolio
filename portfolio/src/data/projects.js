@@ -10,7 +10,8 @@ const projects = [
  
   },
 
-  {
+
+ {
     id: "proj-2",
     title: "Maglo Finance Web Application",
     desc: "Manage your finances, Monitor your profits and Create invoices for items.",
@@ -21,8 +22,20 @@ const projects = [
 
   },
 
+
   {
     id: "proj-3",
+    title: "Final Year Project - NRS Tax System Application ",
+    desc: "Tax System Application with Bell Lapadula Access Control                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      - Final year project ",
+    tech: ["React.js", "Tailwind Css", "Appwrite"],
+    image: "/assets/maglo.png",
+    link: "https://maglo-three.vercel.app/",
+    type: "web"
+
+  },
+
+  {
+    id: "proj-4",
     title: "Task Management App, Taskflow",
     desc: "Manage your Tasks, per day, per week, per month, per year.",
     tech: ["Vue.js", "Tailwind CSS"],
@@ -32,7 +45,7 @@ const projects = [
   },
 
   {
-    id: "proj-4",
+    id: "proj-4a",
     title: "Food Recipe Discovery Site, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app",
     tech: ["React.js", "CSS", "node.js"],
