@@ -25,11 +25,11 @@ const projects = [
 
   {
     id: "proj-3",
-    title: "Final Year Project - NRS Tax System Application ",
-    desc: "Tax System Application with Bell Lapadula Access Control                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      - Final year project ",
+    title: "B.sc Final Year Project - NRS Tax System Application ",
+    desc: "Tax System Application with Bell Lapadula Access Control-B.sc Final year project ",
     tech: ["React.js", "Tailwind Css", "Appwrite"],
-    image: "/assets/maglo.png",
-    link: "https://maglo-three.vercel.app/",
+    image: "/assets/nrs.png",
+    link: "https://nrs-tax-system.vercel.app/",
     type: "web"
 
   },
