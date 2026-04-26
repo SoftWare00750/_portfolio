@@ -1,308 +1,310 @@
 /* ==========================================
-   THEME SYSTEM — DARK (default) & LIGHT
-      ========================================== */
+   THEME SYSTEM — DARK (default) & LIGHT v2
+   ========================================== */
 
-      /* ── Dark mode: logo circle = blue (like "Stephen" name) ── */
-      .logo-circle {
-        background: #1a84f6 !important;
-          color: #ffffff !important;
-          }
+/* ──────────────────────────────────────────
+   DARK MODE BASE (default)
+   ────────────────────────────────────────── */
 
-          /* ── Dark mode: contact buttons = blue ── */
-          .contact-btn {
-            background-color: #1a84f6 !important;
-              color: #ffffff !important;
-                border: 2px solid transparent !important;
-                }
+/* Logo circle: accent bg, O is blue */
+.logo-circle {
+  background: var(--accent) !important;
+  color: #1a84f6 !important;
+}
 
-                .contact-btn:hover {
-                  background-color: #0d6fd4 !important;
-                    color: #ffffff !important;
-                      transform: translateY(-3px);
-                      }
+.logo-circle p {
+  color: #1a84f6 !important;
+}
 
-                      /* ── Theme toggle button ── */
-                      .theme-toggle {
-                        background: none;
-                          border: 2px solid rgba(110, 231, 183, 0.4);
-                            border-radius: 50%;
-                              width: 40px;
-                                height: 40px;
-                                  display: flex;
-                                    align-items: center;
-                                      justify-content: center;
-                                        cursor: pointer;
-                                          transition: all 0.3s ease;
-                                            padding: 0;
-                                              color: #6ee7b7;
-                                                flex-shrink: 0;
-                                                }
+/* Contact buttons: blue bg */
+.contact-btn {
+  background-color: #1a84f6 !important;
+  color: #ffffff !important;
+  border: 2px solid transparent !important;
+}
 
-                                                .theme-toggle:hover {
-                                                  background: rgba(110, 231, 183, 0.12);
-                                                    border-color: #6ee7b7;
-                                                      transform: rotate(20deg) scale(1.08);
-                                                        box-shadow: 0 0 12px rgba(110, 231, 183, 0.25);
-                                                        }
+.contact-btn:hover {
+  background-color: #0d6fd4 !important;
+  color: #ffffff !important;
+  transform: translateY(-3px);
+}
 
-                                                        .theme-toggle svg {
-                                                          width: 20px;
-                                                            height: 20px;
-                                                              display: block;
-                                                              }
+/* ── Theme toggle — sun is white in dark mode ── */
+.theme-toggle {
+  background: none;
+  border: 2px solid rgba(110, 231, 183, 0.4);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  color: #ffffff;
+  flex-shrink: 0;
+}
 
-                                                              /* ==========================================
-                                                                 LIGHT MODE OVERRIDES
-                                                                    ========================================== */
+.theme-toggle:hover {
+  background: rgba(110, 231, 183, 0.12);
+  border-color: #6ee7b7;
+  transform: rotate(20deg) scale(1.08);
+  box-shadow: 0 0 12px rgba(110, 231, 183, 0.25);
+}
 
-                                                                    /* ── Body & background ── */
-                                                                    [data-theme="light"] body {
-                                                                      background: linear-gradient(180deg, #f4f7fb 0%, #e8edf5 100%) !important;
-                                                                        color: #1a1a2e !important;
-                                                                        }
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
 
-                                                                        [data-theme="light"] .site {
-                                                                          background: transparent;
-                                                                          }
+/* ==========================================
+   LIGHT MODE
+   ========================================== */
 
-                                                                          /* ── Navbar ── */
-                                                                          [data-theme="light"] .navbar {
-                                                                            background-color: rgba(255, 255, 255, 0.88) !important;
-                                                                              box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-                                                                              }
+/* Body */
+[data-theme="light"] body {
+  background: linear-gradient(180deg, #f4f7fb 0%, #e8edf5 100%) !important;
+  color: #1a1a2e !important;
+}
 
-                                                                              [data-theme="light"] .nav-link {
-                                                                                color: #1a1a2e !important;
-                                                                                }
+/* Navbar: keep same dark bg as dark mode */
+[data-theme="light"] .navbar {
+  background-color: rgba(6, 23, 51, 0.85) !important;
+  backdrop-filter: blur(9px) !important;
+  box-shadow: none !important;
+}
 
-                                                                                [data-theme="light"] .nav-link:hover {
-                                                                                  color: #1a84f6 !important;
-                                                                                  }
+[data-theme="light"] .nav-link {
+  color: var(--accent) !important;
+}
 
-                                                                                  [data-theme="light"] .contact-button {
-                                                                                    background-color: #1779cf !important;
-                                                                                      color: #ffffff !important;
-                                                                                      }
+[data-theme="light"] .nav-link:hover {
+  color: #ffffff !important;
+}
 
-                                                                                      /* ── Logo circle: dark blue in light mode ── */
-                                                                                      [data-theme="light"] .logo-circle {
-                                                                                        background: #071028 !important;
-                                                                                          color: #ffffff !important;
-                                                                                          }
+/* Contact Me button text = accent */
+[data-theme="light"] .contact-button {
+  background-color: #1779cf !important;
+  color: var(--accent) !important;
+  border-color: transparent !important;
+}
 
-                                                                                          /* ── Theme toggle border in light mode ── */
-                                                                                          [data-theme="light"] .theme-toggle {
-                                                                                            border-color: rgba(7, 16, 40, 0.3) !important;
-                                                                                              color: #071028 !important;
-                                                                                              }
+[data-theme="light"] .contact-button:hover {
+  background-color: transparent !important;
+  border-color: #095190 !important;
+  color: #62b6ff !important;
+}
 
-                                                                                              [data-theme="light"] .theme-toggle:hover {
-                                                                                                background: rgba(7, 16, 40, 0.08) !important;
-                                                                                                  border-color: #071028 !important;
-                                                                                                    box-shadow: 0 0 12px rgba(7, 16, 40, 0.15) !important;
-                                                                                                    }
+/* Logo circle: accent bg, O = #002211 */
+[data-theme="light"] .logo-circle {
+  background: var(--accent) !important;
+  color: #002211 !important;
+}
 
-                                                                                                    /* ── Hero section text ── */
-                                                                                                    [data-theme="light"] .hero-name {
-                                                                                                      color: #071028 !important;
-                                                                                                      }
+[data-theme="light"] .logo-circle p {
+  color: #002211 !important;
+}
 
-                                                                                                      [data-theme="light"] .hero-name .first-name {
-                                                                                                        color: #071028 !important;
-                                                                                                        }
+/* Crescent moon icon = black */
+[data-theme="light"] .theme-toggle {
+  border-color: rgba(110, 231, 183, 0.5) !important;
+  color: #000000 !important;
+}
 
-                                                                                                        /* last-name stays accent green */
-                                                                                                        [data-theme="light"] .hero-name .last-name {
-                                                                                                          color: var(--accent) !important;
-                                                                                                            text-shadow: 2px 2px 0 rgba(0,0,0,0.05), 4px 4px 6px rgba(0,0,0,0.08) !important;
-                                                                                                            }
+[data-theme="light"] .theme-toggle:hover {
+  background: rgba(110, 231, 183, 0.12) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 12px rgba(110, 231, 183, 0.25) !important;
+}
 
-                                                                                                            [data-theme="light"] .hero-sub-right2 {
-                                                                                                              color: #333344 !important;
-                                                                                                              }
+/* Hero: "Otunla" last-name = dark blue */
+[data-theme="light"] .hero-name .last-name {
+  color: #071028 !important;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.06), 4px 4px 6px rgba(0,0,0,0.1) !important;
+}
 
-                                                                                                              [data-theme="light"] .mywork {
-                                                                                                                color: #071028 !important;
-                                                                                                                  border-color: #071028 !important;
-                                                                                                                  }
+[data-theme="light"] .hero-name .first-name {
+  color: #071028 !important;
+}
 
-                                                                                                                  [data-theme="light"] .mywork:hover {
-                                                                                                                    background-color: var(--accent) !important;
-                                                                                                                      border-color: var(--accent) !important;
-                                                                                                                        color: #071028 !important;
-                                                                                                                        }
+[data-theme="light"] .hero-name {
+  color: #071028 !important;
+}
 
-                                                                                                                        /* ── Section titles ── */
-                                                                                                                        [data-theme="light"] .section-title {
-                                                                                                                          color: #071028 !important;
-                                                                                                                            text-decoration-color: var(--accent) !important;
-                                                                                                                            }
+[data-theme="light"] .hero-sub-right2 {
+  color: #333344 !important;
+}
 
-                                                                                                                            [data-theme="light"] .category-heading {
-                                                                                                                              color: #1a84f6 !important;
-                                                                                                                              }
+[data-theme="light"] .mywork {
+  color: #071028 !important;
+  border-color: #071028 !important;
+}
 
-                                                                                                                              [data-theme="light"] .category-heading::after {
-                                                                                                                                background: #071028 !important;
-                                                                                                                                }
+[data-theme="light"] .mywork:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #071028 !important;
+}
 
-                                                                                                                                /* ── About section ── */
-                                                                                                                                [data-theme="light"] .about-text,
-                                                                                                                                [data-theme="light"] .about-text p,
-                                                                                                                                [data-theme="light"] .about2,
-                                                                                                                                [data-theme="light"] .about-grid p {
-                                                                                                                                  color: #1a1a2e !important;
-                                                                                                                                  }
+/* Hero LOADING_TEXTS = black */
+[data-theme="light"] .hero-sub-right-fixed,
+[data-theme="light"] .loading-text-web,
+[data-theme="light"] .loading-text-frontend,
+[data-theme="light"] .loading-text-mobile,
+[data-theme="light"] .loading-text-game {
+  color: #000000 !important;
+}
 
-                                                                                                                                  [data-theme="light"] .devtitle {
-                                                                                                                                    color: #071028 !important;
-                                                                                                                                    }
+/* Section titles */
+[data-theme="light"] .section-title {
+  color: #071028 !important;
+  text-decoration-color: var(--accent) !important;
+}
 
-                                                                                                                                    [data-theme="light"] .about-grid {
-                                                                                                                                      color: #1a1a2e !important;
-                                                                                                                                      }
+[data-theme="light"] .category-heading {
+  color: #1a84f6 !important;
+}
 
-                                                                                                                                      /* ── Skills section ── */
-                                                                                                                                      [data-theme="light"] .skill-pill {
-                                                                                                                                        background: #071028 !important;
-                                                                                                                                          color: #ffffff !important;
-                                                                                                                                          }
+[data-theme="light"] .category-heading::after {
+  background: #071028 !important;
+}
 
-                                                                                                                                          [data-theme="light"] .skill-item:hover .skill-pill {
-                                                                                                                                            background: var(--accent) !important;
-                                                                                                                                              color: #071028 !important;
-                                                                                                                                              }
+/* About section body text */
+[data-theme="light"] .about-text,
+[data-theme="light"] .about-text p,
+[data-theme="light"] .about2,
+[data-theme="light"] .about-grid p,
+[data-theme="light"] .about-grid {
+  color: #1a1a2e !important;
+}
 
-                                                                                                                                              [data-theme="light"] #skills {
-                                                                                                                                                background: transparent;
-                                                                                                                                                }
+/* devtitle rotating text = black */
+[data-theme="light"] .devtitle {
+  color: #000000 !important;
+}
 
-                                                                                                                                                [data-theme="light"] .section.alt {
-                                                                                                                                                  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
-                                                                                                                                                  }
+/* About accent .skills1 spans = blue */
+[data-theme="light"] .skills1 {
+  color: #1a84f6 !important;
+  font-weight: bold;
+}
 
-                                                                                                                                                  /* ── PROJECT CARDS: light grey overlay + black text on hover ── */
-                                                                                                                                                  [data-theme="light"] .project-body {
-                                                                                                                                                    background: rgba(230, 235, 242, 0.97) !important;
-                                                                                                                                                    }
+/* Skills pills = blue bg */
+[data-theme="light"] .skill-pill {
+  background: #1a84f6 !important;
+  color: #ffffff !important;
+}
 
-                                                                                                                                                    [data-theme="light"] .project-body h3 {
-                                                                                                                                                      color: #071028 !important;
-                                                                                                                                                      }
+[data-theme="light"] .skill-item:hover .skill-pill {
+  background: #0d6fd4 !important;
+  color: #ffffff !important;
+}
 
-                                                                                                                                                      [data-theme="light"] .project-body p {
-                                                                                                                                                        color: #1a1a2e !important;
-                                                                                                                                                        }
+/* Project cards overlay: light grey bg, black text */
+[data-theme="light"] .project-body {
+  background: rgba(230, 235, 242, 0.97) !important;
+}
 
-                                                                                                                                                        [data-theme="light"] .tech {
-                                                                                                                                                          background: rgba(7, 16, 40, 0.1) !important;
-                                                                                                                                                            color: #071028 !important;
-                                                                                                                                                            }
+[data-theme="light"] .project-body h3 {
+  color: #071028 !important;
+}
 
-                                                                                                                                                            [data-theme="light"] .link-button {
-                                                                                                                                                              background: #071028 !important;
-                                                                                                                                                                color: #ffffff !important;
-                                                                                                                                                                }
+[data-theme="light"] .project-body p {
+  color: #1a1a2e !important;
+}
 
-                                                                                                                                                                [data-theme="light"] .link-button:hover {
-                                                                                                                                                                  background: var(--accent) !important;
-                                                                                                                                                                    color: #071028 !important;
-                                                                                                                                                                    }
+[data-theme="light"] .tech {
+  background: rgba(7, 16, 40, 0.1) !important;
+  color: #071028 !important;
+}
 
-                                                                                                                                                                    /* ── Contact section ── */
-                                                                                                                                                                    /* contact-box background stays accent green */
-                                                                                                                                                                    [data-theme="light"] .contact-box {
-                                                                                                                                                                      background-color: var(--accent) !important;
-                                                                                                                                                                        color: #071028 !important;
-                                                                                                                                                                        }
+[data-theme="light"] .link-button {
+  background: #071028 !important;
+  color: #ffffff !important;
+}
 
-                                                                                                                                                                        [data-theme="light"] #contact-header {
-                                                                                                                                                                          color: #071028 !important;
-                                                                                                                                                                          }
+[data-theme="light"] .link-button:hover {
+  background: var(--accent) !important;
+  color: #071028 !important;
+}
 
-                                                                                                                                                                          [data-theme="light"] .contact1,
-                                                                                                                                                                          [data-theme="light"] .contact2,
-                                                                                                                                                                          [data-theme="light"] .contact3 {
-                                                                                                                                                                            color: #071028 !important;
-                                                                                                                                                                            }
+/* Contact box */
+[data-theme="light"] .contact-box {
+  background-color: var(--accent) !important;
+  color: #071028 !important;
+}
 
-                                                                                                                                                                            /* Contact buttons: dark blue in light mode */
-                                                                                                                                                                            [data-theme="light"] .contact-btn {
-                                                                                                                                                                              background-color: #071028 !important;
-                                                                                                                                                                                color: #ffffff !important;
-                                                                                                                                                                                  border-color: transparent !important;
-                                                                                                                                                                                  }
+[data-theme="light"] #contact-header,
+[data-theme="light"] .contact1,
+[data-theme="light"] .contact2,
+[data-theme="light"] .contact3 {
+  color: #071028 !important;
+}
 
-                                                                                                                                                                                  [data-theme="light"] .contact-btn:hover {
-                                                                                                                                                                                    background-color: #0d1f4a !important;
-                                                                                                                                                                                      color: #ffffff !important;
-                                                                                                                                                                                        transform: translateY(-3px);
-                                                                                                                                                                                        }
+/* Contact buttons dark blue */
+[data-theme="light"] .contact-btn {
+  background-color: #071028 !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
 
-                                                                                                                                                                                        /* ── Chat box ── */
-                                                                                                                                                                                        [data-theme="light"] .chat-box {
-                                                                                                                                                                                          background-color: rgba(255, 255, 255, 0.9) !important;
-                                                                                                                                                                                            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-                                                                                                                                                                                            }
+[data-theme="light"] .contact-btn:hover {
+  background-color: #0d1f4a !important;
+  color: #ffffff !important;
+  transform: translateY(-3px);
+}
 
-                                                                                                                                                                                            [data-theme="light"] .chat-box h2 {
-                                                                                                                                                                                              color: #071028 !important;
-                                                                                                                                                                                              }
+/* Chat box */
+[data-theme="light"] .chat-box {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
 
-                                                                                                                                                                                              [data-theme="light"] .chat-box input,
-                                                                                                                                                                                              [data-theme="light"] .chat-box textarea {
-                                                                                                                                                                                                background-color: rgba(7, 16, 40, 0.06) !important;
-                                                                                                                                                                                                  color: #071028 !important;
-                                                                                                                                                                                                    border-color: rgba(7, 16, 40, 0.2) !important;
-                                                                                                                                                                                                    }
+[data-theme="light"] .chat-box h2 {
+  color: #071028 !important;
+}
 
-                                                                                                                                                                                                    [data-theme="light"] input::placeholder,
-                                                                                                                                                                                                    [data-theme="light"] textarea::placeholder {
-                                                                                                                                                                                                      color: #5577aa !important;
-                                                                                                                                                                                                      }
+[data-theme="light"] .chat-box input,
+[data-theme="light"] .chat-box textarea {
+  background-color: rgba(7, 16, 40, 0.06) !important;
+  color: #071028 !important;
+  border-color: rgba(7, 16, 40, 0.2) !important;
+}
 
-                                                                                                                                                                                                      /* ── Footer ── */
-                                                                                                                                                                                                      [data-theme="light"] .footer {
-                                                                                                                                                                                                        color: #444455;
-                                                                                                                                                                                                        }
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #5577aa !important;
+}
 
-                                                                                                                                                                                                        /* ── Mobile dropdown nav ── */
-                                                                                                                                                                                                        [data-theme="light"] .nav-mobile {
-                                                                                                                                                                                                          background: rgba(255, 255, 255, 0.97) !important;
-                                                                                                                                                                                                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
-                                                                                                                                                                                                            }
+/* Footer */
+[data-theme="light"] .footer {
+  color: #444455;
+}
 
-                                                                                                                                                                                                            [data-theme="light"] .nav-mobile .nav-link {
-                                                                                                                                                                                                              color: #071028 !important;
-                                                                                                                                                                                                                border-bottom-color: rgba(7, 16, 40, 0.1) !important;
-                                                                                                                                                                                                                }
+/* Mobile dropdown nav: same dark bg as dark mode */
+[data-theme="light"] .nav-mobile {
+  background: rgba(23, 121, 207, 0.92) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
 
-                                                                                                                                                                                                                [data-theme="light"] .nav-mobile .nav-link:hover {
-                                                                                                                                                                                                                  background: rgba(7, 16, 40, 0.06) !important;
-                                                                                                                                                                                                                    color: #1a84f6 !important;
-                                                                                                                                                                                                                    }
+[data-theme="light"] .nav-mobile .nav-link {
+  color: #ffffff !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
 
-                                                                                                                                                                                                                    [data-theme="light"] .nav-mobile .contact-button {
-                                                                                                                                                                                                                      background-color: #071028 !important;
-                                                                                                                                                                                                                        color: #ffffff !important;
-                                                                                                                                                                                                                          border-color: #071028 !important;
-                                                                                                                                                                                                                          }
+[data-theme="light"] .nav-mobile .nav-link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--accent) !important;
+}
 
-                                                                                                                                                                                                                          /* ── Profile card if used ── */
-                                                                                                                                                                                                                          [data-theme="light"] .profile-card {
-                                                                                                                                                                                                                            background: linear-gradient(180deg, #dde6f0, #ccd8e8) !important;
-                                                                                                                                                                                                                              color: #071028 !important;
-                                                                                                                                                                                                                              }
+[data-theme="light"] .nav-mobile .contact-button {
+  background-color: var(--accent) !important;
+  color: #071028 !important;
+  border-color: var(--accent) !important;
+}
 
-                                                                                                                                                                                                                              [data-theme="light"] .card-meta h3 {
-                                                                                                                                                                                                                                color: #071028 !important;
-                                                                                                                                                                                                                                }
-
-                                                                                                                                                                                                                                [data-theme="light"] .card-meta p {
-                                                                                                                                                                                                                                  color: #334466 !important;
-                                                                                                                                                                                                                                  }
-
-                                                                                                                                                                                                                                  /* ── Scrollbar in light mode ── */
-                                                                                                                                                                                                                                  [data-theme="light"] ::-webkit-scrollbar-thumb {
-                                                                                                                                                                                                                                    background: #b0bcd0;
-                                                                                                                                                                                                                                    }
+[data-theme="light"] .section.alt {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+}

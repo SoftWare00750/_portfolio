@@ -9,4 +9,4 @@ import "./theme.css";   // ← dark / light mode theme system
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <App />
-    );
+);
