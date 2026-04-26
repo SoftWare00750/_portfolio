@@ -87,7 +87,7 @@
 /* Contact Me button text = accent */
 [data-theme="light"] .contact-button {
   background-color: #1779cf !important;
-  color: #002211 !important;
+  color: #ffffff !important;
   border-color: transparent !important;
 }
 
@@ -204,7 +204,7 @@
 
 /* Project cards overlay: light grey bg, black text */
 [data-theme="light"] .project-body {
-  background: rgba(230, 235, 242, 0.97) !important;
+  background: rgba(193, 196, 202, 0.97) !important;
 }
 
 [data-theme="light"] .project-body h3 {
@@ -251,7 +251,7 @@
 }
 
 [data-theme="light"] .contact-btn:hover {
-  background-color: #0d1f4a !important;
+  background-color: #1779cf !important;
   color: #ffffff !important;
   transform: translateY(-3px);
 }
