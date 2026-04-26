@@ -1,0 +1,308 @@
+/* ==========================================
+   THEME SYSTEM — DARK (default) & LIGHT
+      ========================================== */
+
+      /* ── Dark mode: logo circle = blue (like "Stephen" name) ── */
+      .logo-circle {
+        background: #1a84f6 !important;
+          color: #ffffff !important;
+          }
+
+          /* ── Dark mode: contact buttons = blue ── */
+          .contact-btn {
+            background-color: #1a84f6 !important;
+              color: #ffffff !important;
+                border: 2px solid transparent !important;
+                }
+
+                .contact-btn:hover {
+                  background-color: #0d6fd4 !important;
+                    color: #ffffff !important;
+                      transform: translateY(-3px);
+                      }
+
+                      /* ── Theme toggle button ── */
+                      .theme-toggle {
+                        background: none;
+                          border: 2px solid rgba(110, 231, 183, 0.4);
+                            border-radius: 50%;
+                              width: 40px;
+                                height: 40px;
+                                  display: flex;
+                                    align-items: center;
+                                      justify-content: center;
+                                        cursor: pointer;
+                                          transition: all 0.3s ease;
+                                            padding: 0;
+                                              color: #6ee7b7;
+                                                flex-shrink: 0;
+                                                }
+
+                                                .theme-toggle:hover {
+                                                  background: rgba(110, 231, 183, 0.12);
+                                                    border-color: #6ee7b7;
+                                                      transform: rotate(20deg) scale(1.08);
+                                                        box-shadow: 0 0 12px rgba(110, 231, 183, 0.25);
+                                                        }
+
+                                                        .theme-toggle svg {
+                                                          width: 20px;
+                                                            height: 20px;
+                                                              display: block;
+                                                              }
+
+                                                              /* ==========================================
+                                                                 LIGHT MODE OVERRIDES
+                                                                    ========================================== */
+
+                                                                    /* ── Body & background ── */
+                                                                    [data-theme="light"] body {
+                                                                      background: linear-gradient(180deg, #f4f7fb 0%, #e8edf5 100%) !important;
+                                                                        color: #1a1a2e !important;
+                                                                        }
+
+                                                                        [data-theme="light"] .site {
+                                                                          background: transparent;
+                                                                          }
+
+                                                                          /* ── Navbar ── */
+                                                                          [data-theme="light"] .navbar {
+                                                                            background-color: rgba(255, 255, 255, 0.88) !important;
+                                                                              box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+                                                                              }
+
+                                                                              [data-theme="light"] .nav-link {
+                                                                                color: #1a1a2e !important;
+                                                                                }
+
+                                                                                [data-theme="light"] .nav-link:hover {
+                                                                                  color: #1a84f6 !important;
+                                                                                  }
+
+                                                                                  [data-theme="light"] .contact-button {
+                                                                                    background-color: #1779cf !important;
+                                                                                      color: #ffffff !important;
+                                                                                      }
+
+                                                                                      /* ── Logo circle: dark blue in light mode ── */
+                                                                                      [data-theme="light"] .logo-circle {
+                                                                                        background: #071028 !important;
+                                                                                          color: #ffffff !important;
+                                                                                          }
+
+                                                                                          /* ── Theme toggle border in light mode ── */
+                                                                                          [data-theme="light"] .theme-toggle {
+                                                                                            border-color: rgba(7, 16, 40, 0.3) !important;
+                                                                                              color: #071028 !important;
+                                                                                              }
+
+                                                                                              [data-theme="light"] .theme-toggle:hover {
+                                                                                                background: rgba(7, 16, 40, 0.08) !important;
+                                                                                                  border-color: #071028 !important;
+                                                                                                    box-shadow: 0 0 12px rgba(7, 16, 40, 0.15) !important;
+                                                                                                    }
+
+                                                                                                    /* ── Hero section text ── */
+                                                                                                    [data-theme="light"] .hero-name {
+                                                                                                      color: #071028 !important;
+                                                                                                      }
+
+                                                                                                      [data-theme="light"] .hero-name .first-name {
+                                                                                                        color: #071028 !important;
+                                                                                                        }
+
+                                                                                                        /* last-name stays accent green */
+                                                                                                        [data-theme="light"] .hero-name .last-name {
+                                                                                                          color: var(--accent) !important;
+                                                                                                            text-shadow: 2px 2px 0 rgba(0,0,0,0.05), 4px 4px 6px rgba(0,0,0,0.08) !important;
+                                                                                                            }
+
+                                                                                                            [data-theme="light"] .hero-sub-right2 {
+                                                                                                              color: #333344 !important;
+                                                                                                              }
+
+                                                                                                              [data-theme="light"] .mywork {
+                                                                                                                color: #071028 !important;
+                                                                                                                  border-color: #071028 !important;
+                                                                                                                  }
+
+                                                                                                                  [data-theme="light"] .mywork:hover {
+                                                                                                                    background-color: var(--accent) !important;
+                                                                                                                      border-color: var(--accent) !important;
+                                                                                                                        color: #071028 !important;
+                                                                                                                        }
+
+                                                                                                                        /* ── Section titles ── */
+                                                                                                                        [data-theme="light"] .section-title {
+                                                                                                                          color: #071028 !important;
+                                                                                                                            text-decoration-color: var(--accent) !important;
+                                                                                                                            }
+
+                                                                                                                            [data-theme="light"] .category-heading {
+                                                                                                                              color: #1a84f6 !important;
+                                                                                                                              }
+
+                                                                                                                              [data-theme="light"] .category-heading::after {
+                                                                                                                                background: #071028 !important;
+                                                                                                                                }
+
+                                                                                                                                /* ── About section ── */
+                                                                                                                                [data-theme="light"] .about-text,
+                                                                                                                                [data-theme="light"] .about-text p,
+                                                                                                                                [data-theme="light"] .about2,
+                                                                                                                                [data-theme="light"] .about-grid p {
+                                                                                                                                  color: #1a1a2e !important;
+                                                                                                                                  }
+
+                                                                                                                                  [data-theme="light"] .devtitle {
+                                                                                                                                    color: #071028 !important;
+                                                                                                                                    }
+
+                                                                                                                                    [data-theme="light"] .about-grid {
+                                                                                                                                      color: #1a1a2e !important;
+                                                                                                                                      }
+
+                                                                                                                                      /* ── Skills section ── */
+                                                                                                                                      [data-theme="light"] .skill-pill {
+                                                                                                                                        background: #071028 !important;
+                                                                                                                                          color: #ffffff !important;
+                                                                                                                                          }
+
+                                                                                                                                          [data-theme="light"] .skill-item:hover .skill-pill {
+                                                                                                                                            background: var(--accent) !important;
+                                                                                                                                              color: #071028 !important;
+                                                                                                                                              }
+
+                                                                                                                                              [data-theme="light"] #skills {
+                                                                                                                                                background: transparent;
+                                                                                                                                                }
+
+                                                                                                                                                [data-theme="light"] .section.alt {
+                                                                                                                                                  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
+                                                                                                                                                  }
+
+                                                                                                                                                  /* ── PROJECT CARDS: light grey overlay + black text on hover ── */
+                                                                                                                                                  [data-theme="light"] .project-body {
+                                                                                                                                                    background: rgba(230, 235, 242, 0.97) !important;
+                                                                                                                                                    }
+
+                                                                                                                                                    [data-theme="light"] .project-body h3 {
+                                                                                                                                                      color: #071028 !important;
+                                                                                                                                                      }
+
+                                                                                                                                                      [data-theme="light"] .project-body p {
+                                                                                                                                                        color: #1a1a2e !important;
+                                                                                                                                                        }
+
+                                                                                                                                                        [data-theme="light"] .tech {
+                                                                                                                                                          background: rgba(7, 16, 40, 0.1) !important;
+                                                                                                                                                            color: #071028 !important;
+                                                                                                                                                            }
+
+                                                                                                                                                            [data-theme="light"] .link-button {
+                                                                                                                                                              background: #071028 !important;
+                                                                                                                                                                color: #ffffff !important;
+                                                                                                                                                                }
+
+                                                                                                                                                                [data-theme="light"] .link-button:hover {
+                                                                                                                                                                  background: var(--accent) !important;
+                                                                                                                                                                    color: #071028 !important;
+                                                                                                                                                                    }
+
+                                                                                                                                                                    /* ── Contact section ── */
+                                                                                                                                                                    /* contact-box background stays accent green */
+                                                                                                                                                                    [data-theme="light"] .contact-box {
+                                                                                                                                                                      background-color: var(--accent) !important;
+                                                                                                                                                                        color: #071028 !important;
+                                                                                                                                                                        }
+
+                                                                                                                                                                        [data-theme="light"] #contact-header {
+                                                                                                                                                                          color: #071028 !important;
+                                                                                                                                                                          }
+
+                                                                                                                                                                          [data-theme="light"] .contact1,
+                                                                                                                                                                          [data-theme="light"] .contact2,
+                                                                                                                                                                          [data-theme="light"] .contact3 {
+                                                                                                                                                                            color: #071028 !important;
+                                                                                                                                                                            }
+
+                                                                                                                                                                            /* Contact buttons: dark blue in light mode */
+                                                                                                                                                                            [data-theme="light"] .contact-btn {
+                                                                                                                                                                              background-color: #071028 !important;
+                                                                                                                                                                                color: #ffffff !important;
+                                                                                                                                                                                  border-color: transparent !important;
+                                                                                                                                                                                  }
+
+                                                                                                                                                                                  [data-theme="light"] .contact-btn:hover {
+                                                                                                                                                                                    background-color: #0d1f4a !important;
+                                                                                                                                                                                      color: #ffffff !important;
+                                                                                                                                                                                        transform: translateY(-3px);
+                                                                                                                                                                                        }
+
+                                                                                                                                                                                        /* ── Chat box ── */
+                                                                                                                                                                                        [data-theme="light"] .chat-box {
+                                                                                                                                                                                          background-color: rgba(255, 255, 255, 0.9) !important;
+                                                                                                                                                                                            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+                                                                                                                                                                                            }
+
+                                                                                                                                                                                            [data-theme="light"] .chat-box h2 {
+                                                                                                                                                                                              color: #071028 !important;
+                                                                                                                                                                                              }
+
+                                                                                                                                                                                              [data-theme="light"] .chat-box input,
+                                                                                                                                                                                              [data-theme="light"] .chat-box textarea {
+                                                                                                                                                                                                background-color: rgba(7, 16, 40, 0.06) !important;
+                                                                                                                                                                                                  color: #071028 !important;
+                                                                                                                                                                                                    border-color: rgba(7, 16, 40, 0.2) !important;
+                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                    [data-theme="light"] input::placeholder,
+                                                                                                                                                                                                    [data-theme="light"] textarea::placeholder {
+                                                                                                                                                                                                      color: #5577aa !important;
+                                                                                                                                                                                                      }
+
+                                                                                                                                                                                                      /* ── Footer ── */
+                                                                                                                                                                                                      [data-theme="light"] .footer {
+                                                                                                                                                                                                        color: #444455;
+                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                        /* ── Mobile dropdown nav ── */
+                                                                                                                                                                                                        [data-theme="light"] .nav-mobile {
+                                                                                                                                                                                                          background: rgba(255, 255, 255, 0.97) !important;
+                                                                                                                                                                                                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                            [data-theme="light"] .nav-mobile .nav-link {
+                                                                                                                                                                                                              color: #071028 !important;
+                                                                                                                                                                                                                border-bottom-color: rgba(7, 16, 40, 0.1) !important;
+                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                [data-theme="light"] .nav-mobile .nav-link:hover {
+                                                                                                                                                                                                                  background: rgba(7, 16, 40, 0.06) !important;
+                                                                                                                                                                                                                    color: #1a84f6 !important;
+                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                    [data-theme="light"] .nav-mobile .contact-button {
+                                                                                                                                                                                                                      background-color: #071028 !important;
+                                                                                                                                                                                                                        color: #ffffff !important;
+                                                                                                                                                                                                                          border-color: #071028 !important;
+                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                          /* ── Profile card if used ── */
+                                                                                                                                                                                                                          [data-theme="light"] .profile-card {
+                                                                                                                                                                                                                            background: linear-gradient(180deg, #dde6f0, #ccd8e8) !important;
+                                                                                                                                                                                                                              color: #071028 !important;
+                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                              [data-theme="light"] .card-meta h3 {
+                                                                                                                                                                                                                                color: #071028 !important;
+                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                [data-theme="light"] .card-meta p {
+                                                                                                                                                                                                                                  color: #334466 !important;
+                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                  /* ── Scrollbar in light mode ── */
+                                                                                                                                                                                                                                  [data-theme="light"] ::-webkit-scrollbar-thumb {
+                                                                                                                                                                                                                                    background: #b0bcd0;
+                                                                                                                                                                                                                                    }
