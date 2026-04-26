@@ -698,7 +698,7 @@
   .hero-sub-right2 {
     position: static;
     transform: none;
-    max-width: 130%;
+    width: 130%;
     font-size: 16px;
     text-align: center;
     margin: 0 auto;
