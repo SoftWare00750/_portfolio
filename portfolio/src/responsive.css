@@ -705,10 +705,10 @@
     line-height: 1.6;
   }
 
-.hero-sub-right-fixed.loading-text-frontend { padding-right: 70px; }
-.hero-sub-right-fixed.loading-text-web      { padding-right: 40px; }
-.hero-sub-right-fixed.loading-text-mobile   { padding-right: 40px; }
-.hero-sub-right-fixed.loading-text-game     { padding-right: 40px; }
+.hero-sub-right-fixed.loading-text-frontend { padding: 0 70px; }
+.hero-sub-right-fixed.loading-text-web      { padding: 0 40px; }
+.hero-sub-right-fixed.loading-text-mobile   { padding: 0 40px; }
+.hero-sub-right-fixed.loading-text-game     { padding: 0 40px; }
 
 
   .hero-image {
