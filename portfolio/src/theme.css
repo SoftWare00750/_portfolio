@@ -71,7 +71,7 @@
 
 /* Navbar: keep same dark bg as dark mode */
 [data-theme="light"] .navbar {
-  background-color: rgba(1, 21, 52, 0.9) !important;
+  background-color: rgba(1, 21, 52, 0.4) !important;
   backdrop-filter: blur(9px) !important;
   box-shadow: none !important;
 }
