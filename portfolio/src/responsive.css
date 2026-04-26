@@ -706,9 +706,9 @@
   }
 
 .hero-sub-right-fixed.loading-text-frontend { padding: 0 80px; }
-.hero-sub-right-fixed.loading-text-web      { padding: 0 80px; }
-.hero-sub-right-fixed.loading-text-mobile   { padding: 0 80px; }
-.hero-sub-right-fixed.loading-text-game     { padding: 0 80px; }
+.hero-sub-right-fixed.loading-text-web      { padding: 0 100px; }
+.hero-sub-right-fixed.loading-text-mobile   { padding: 0 90px; }
+.hero-sub-right-fixed.loading-text-game     { padding: 0 98px; }
 
 
   .hero-image {
