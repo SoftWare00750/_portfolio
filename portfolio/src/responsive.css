@@ -702,9 +702,9 @@
     font-size: 16px;
     text-align: center;
     margin: 5 auto;
-    padding: 0 5px;
+    padding: 0 32px;
     line-height: 1.6;
-    margin-right: 15px;
+    margin-right: 70px;
   }
 
  /* Rotating job-title text: centred, no per-class padding offsets */
