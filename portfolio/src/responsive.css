@@ -705,7 +705,7 @@
     line-height: 1.6;
   }
 
-.hero-sub-right-fixed.loading-text-frontend { padding-right: 30px; }
+.hero-sub-right-fixed.loading-text-frontend { padding-right: 70px; }
 .hero-sub-right-fixed.loading-text-web      { padding-right: 40px; }
 .hero-sub-right-fixed.loading-text-mobile   { padding-right: 40px; }
 .hero-sub-right-fixed.loading-text-game     { padding-right: 40px; }
