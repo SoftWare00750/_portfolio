@@ -48,7 +48,7 @@
 
 .theme-toggle:hover {
   background: rgba(110, 231, 183, 0.12);
-  border-color: #ffffff;
+  border-color: #1779cf;
   transform: rotate(20deg) scale(1.08);
   box-shadow: 0 0 12px rgba(110, 231, 183, 0.25);
 }
