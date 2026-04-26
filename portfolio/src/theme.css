@@ -9,7 +9,7 @@
 /* Logo circle: accent bg, O is blue */
 .logo-circle {
   background: var(--accent) !important;
-  color: #1a84f6 !important;
+  color: #094484 !important;
 }
 
 .logo-circle p {
@@ -32,7 +32,7 @@
 /* ── Theme toggle — sun is white in dark mode ── */
 .theme-toggle {
   background: none;
-  border: 2px solid rgba(110, 231, 183, 0.4);
+  border: 2px solid #ffffff;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -48,7 +48,7 @@
 
 .theme-toggle:hover {
   background: rgba(110, 231, 183, 0.12);
-  border-color: #6ee7b7;
+  border-color: #ffffff;
   transform: rotate(20deg) scale(1.08);
   box-shadow: 0 0 12px rgba(110, 231, 183, 0.25);
 }
@@ -71,7 +71,7 @@
 
 /* Navbar: keep same dark bg as dark mode */
 [data-theme="light"] .navbar {
-  background-color: rgba(6, 23, 51, 0.85) !important;
+  background-color: rgba(6, 23, 51, 0.4) !important;
   backdrop-filter: blur(9px) !important;
   box-shadow: none !important;
 }
@@ -87,7 +87,7 @@
 /* Contact Me button text = accent */
 [data-theme="light"] .contact-button {
   background-color: #1779cf !important;
-  color: var(--accent) !important;
+  color: #002211 !important;
   border-color: transparent !important;
 }
 
@@ -109,7 +109,7 @@
 
 /* Crescent moon icon = black */
 [data-theme="light"] .theme-toggle {
-  border-color: rgba(110, 231, 183, 0.5) !important;
+  border-color: #000000 !important;
   color: #000000 !important;
 }
 
@@ -193,7 +193,7 @@
 
 /* Skills pills = blue bg */
 [data-theme="light"] .skill-pill {
-  background: #1a84f6 !important;
+  background: #002211 !important;
   color: #ffffff !important;
 }
 
