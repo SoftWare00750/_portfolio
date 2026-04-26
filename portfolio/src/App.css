@@ -271,9 +271,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .hero-sub-right-fixed.loading-text-frontend { margin-right: 80px; }
-.hero-sub-right-fixed.loading-text-web      { margin-right: 90px; }
-.hero-sub-right-fixed.loading-text-mobile   { margin-right: 90px; }
-.hero-sub-right-fixed.loading-text-game     { margin-right: 90px; }
+.hero-sub-right-fixed.loading-text-web      { margin-right: 120px; }
+.hero-sub-right-fixed.loading-text-mobile   { margin-right: 100px; }
+.hero-sub-right-fixed.loading-text-game     { margin-right: 100px; }
 
 .hero-sub-right2 {
   position: absolute;
