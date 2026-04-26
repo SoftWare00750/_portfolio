@@ -714,12 +714,7 @@
     text-align: center;
   }
 
-  /* Each span becomes a centred inline block */
-  .hero-sub-right2  {
-    display: block;
-    text-align: center;
-    width: fit-content;
-  }
+  
 
   .hero-image {
     position: static;
