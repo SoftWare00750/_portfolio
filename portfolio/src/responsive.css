@@ -180,6 +180,8 @@
     margin: 0 auto;
   }
 
+  
+
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
@@ -543,34 +545,44 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* MOBILE DROPDOWN */
+  /* MOBILE DROPDOWN - Centered under hamburger, blue transparent background */
   .nav-mobile {
+    /* Position - centered under hamburger icon */
     position: fixed;
     top: 70px;
-    right: 20px;
-    left: auto;
-    width: 280px;
+    right: 20px; /* Align with hamburger position */
+    left: auto; /* Don't stretch full width */
+    width: 280px; /* Fixed width for centered dropdown */
     z-index: 98;
-    background: rgba(23, 121, 207, 0.92);
+    
+    /* Appearance - Blue transparent background */
+    background: rgba(23, 121, 207, 0.92); /* Blue with high transparency */
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     border-radius: 12px;
+    
+    /* Layout */
     display: flex;
     flex-direction: column;
     gap: 0;
+    
+    /* Hidden state */
     max-height: 0;
     padding: 0 20px;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: max-height 0.4s ease,
-                padding 0.4s ease,
+    transform: translateY(-10px); /* Slight upward animation */
+    
+    /* Smooth transition */
+    transition: max-height 0.4s ease, 
+                padding 0.4s ease, 
                 opacity 0.3s ease,
                 visibility 0.3s ease,
                 transform 0.3s ease;
   }
 
+  /* Mobile dropdown - OPEN state */
   .nav-mobile.open {
     max-height: 450px;
     padding: 20px;
@@ -578,13 +590,14 @@
     opacity: 1;
     visibility: visible;
     display: flex;
-    transform: translateY(0);
+    transform: translateY(0); /* Slide down animation */
   }
 
+  /* Mobile nav links - Left justified */
   .nav-mobile .nav-link {
     display: block;
     width: 100%;
-    text-align: left;
+    text-align: left; /* Left justified */
     font-size: 17px;
     padding: 14px 18px;
     margin: 0;
@@ -607,6 +620,7 @@
     color: var(--accent);
   }
 
+  /* Mobile contact button */
   .nav-mobile .contact-button {
     display: block;
     width: 100%;
@@ -667,11 +681,10 @@
   }
 
   .middle-name {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Even smaller on mobile */
   }
 
-  /* Rotating job-title text: centred, no per-class padding offsets */
-  .hero-sub-right-fixed {
+.hero-sub-right-fixed {
     position: static;
     transform: none;
     font-size: 24px;
@@ -682,6 +695,20 @@
     width: 100%;
   }
 
+  .hero-sub-right2 {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 25px;
+    line-height: 1.6;
+  }
+
+ /* Rotating job-title text: centred, no per-class padding offsets */
+  
+
   /* Remove any per-class padding overrides on mobile */
   .hero-sub-right-fixed.loading-text-frontend,
   .hero-sub-right-fixed.loading-text-web,
@@ -690,30 +717,6 @@
     padding: 0;
   }
 
-  /*
-   * Sub-description block: the two <span> lines sit inside a block-level
-   * container. Setting display:flex + flex-direction:column + align-items:center
-   * makes each span shrink-wrap its content and stack centred over each other,
-   * so "I handle the development, deployment" and the second line are both
-   * horizontally centred relative to themselves — not just the container.
-   */
-  .hero-sub-right2 {
-    position: static;
-    transform: none;
-    max-width: 100%;
-    width: 100%;
-    font-size: 16px;
-    margin: 0 auto;
-    padding: 0 10px;
-    line-height: 1.7;
-  }
-
-  /* Each span becomes a centred inline block */
-  .hero-sub-right2  {
-    display: block;
-    text-align: center;
-    width: fit-content;
-  }
 
   .hero-image {
     position: static;
@@ -737,17 +740,20 @@
     top: 13px;
   }
 
+
+
   /* ===== PROJECTS SECTION MOBILE ===== */
+ /* ===== PROJECTS SECTION MOBILE - NO HORIZONTAL SCROLL ===== */
   #projects {
     padding: 50px 0;
     margin-top: 0;
     margin-bottom: 0;
-    overflow: hidden;
+    overflow: hidden; /* Changed from overflow-x: hidden */
     width: 100%;
   }
 
   #projects .container {
-    overflow: hidden;
+    overflow: hidden; /* Changed from overflow-x: hidden */
     padding: 30px 15px;
     width: 100%;
   }
@@ -764,17 +770,18 @@
     padding: 0;
     justify-content: center;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: hidden; /* Changed from overflow-x: hidden */
     width: 100%;
     max-width: 100%;
   }
 
+  /* WEB PROJECT CARDS - Standard size */
   .project-card {
     width: 100%;
     max-width: 100%;
     margin: 0 auto !important;
     height: auto;
-    overflow: hidden;
+    overflow: hidden; /* Prevent any overflow */
   }
 
   .project-card.web {
@@ -784,15 +791,17 @@
     margin-left: 2px;
   }
 
+  /* MOBILE PROJECT CARDS - Smaller size */
   .project-card.mobile {
-    max-width: 240px;
+    max-width: 240px; /* Reduced from 280px */
     width: 240px;
     aspect-ratio: 9/16;
     height: auto;
     margin: 0 auto !important;
-    overflow: hidden;
+    overflow: hidden; /* Prevent overflow */
   }
 
+  /* Reset positioning for all projects */
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
@@ -808,11 +817,12 @@
     top: 0 !important;
   }
 
+  /* PROJECT MEDIA - Prevent overflow */
   .project-media {
     width: 100%;
     height: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Critical: prevent any overflow */
   }
 
   .project-media img {
@@ -822,6 +832,7 @@
     display: block;
   }
 
+  /* WEB PROJECT IMAGES */
   .project-card.web .project-media {
     width: 100%;
     height: 100%;
@@ -833,6 +844,7 @@
     object-fit: cover;
   }
 
+  /* MOBILE PROJECT IMAGES - Smaller */
   .project-card.mobile .project-media {
     width: 100%;
     height: 100%;
@@ -851,17 +863,19 @@
     margin: 0 auto;
     gap: 30px;
   }
-
   .project-card.game {
     aspect-ratio: 16/9;
     width: 100%;
     max-width: 100%;
     border-radius: 10px;
   }
-
   .game-media { position: absolute; inset: 0; }
   .game-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+  .project-card.mobile { max-width: 240px; width: 240px; aspect-ratio: 9/16; height: auto; margin: 0 auto !important; }
+
+
+  /* PROJECT OVERLAY - Perfect fit */
   .project-body {
     position: absolute;
     top: 0;
@@ -881,7 +895,7 @@
     align-items: center;
     text-align: center;
     z-index: 10;
-    overflow: hidden;
+    overflow: hidden; /* Prevent text overflow */
   }
 
   .project-card:hover .project-body {
@@ -889,6 +903,7 @@
     visibility: visible;
   }
 
+  /* WEB PROJECT OVERLAY */
   .project-card.web .project-body {
     padding: 20px 15px;
   }
@@ -904,39 +919,42 @@
     margin-bottom: 10px;
   }
 
+  /* MOBILE PROJECT OVERLAY - Smaller and fitted */
   .project-card.mobile .project-body {
-    padding: 12px 10px;
+    padding: 12px 10px; /* Reduced padding */
     justify-content: space-around;
-    width: 100%;
-    height: 100%;
-    margin: 0;
+    width: 100%; /* Exact fit */
+    height: 100%; /* Exact fit */
+    margin: 0; /* No overflow margins */
     left: 0;
     top: 0;
   }
 
   .project-card.mobile .project-body h3 {
-    font-size: 15px;
+    font-size: 15px; /* Slightly smaller */
     margin-bottom: 6px;
     line-height: 1.2;
   }
 
   .project-card.mobile .project-body p {
-    font-size: 12px;
+    font-size: 12px; /* Slightly smaller */
     line-height: 1.3;
     margin-bottom: 8px;
-    overflow: hidden;
+    overflow: hidden; /* Prevent text overflow */
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
     line-clamp: 3;
     -webkit-box-orient: vertical;
   }
 
+  /* Game overlay text */
   .game-grid .project-card.game .project-body      { padding: 20px 15px; }
   .game-grid .project-card.game .project-body h3   { font-size: 18px; }
   .game-grid .project-card.game .project-body p    { font-size: 13px; line-height: 1.4; }
   .game-grid .project-card.game .tech              { font-size: 10px; padding: 4px 6px; }
   .game-grid .project-card.game .link-button       { padding: 10px 20px; font-size: 0.85rem; }
 
+  /* TECH BADGES - Smaller on mobile projects */
   .tech-list {
     display: flex;
     gap: 4px;
@@ -951,10 +969,11 @@
   }
 
   .project-card.mobile .tech {
-    font-size: 9px;
+    font-size: 9px; /* Even smaller for mobile projects */
     padding: 3px 5px;
   }
 
+  /* LINK BUTTONS */
   .link-button {
     padding: 9px 16px;
     font-size: 13px;
@@ -962,8 +981,13 @@
   }
 
   .project-card.mobile .link-button {
-    padding: 8px 14px;
+    padding: 8px 14px; /* Slightly smaller */
     font-size: 12px;
+  }
+
+  #projects {
+    padding: 50px 0;
+    margin-top: 0;
   }
 
   .project-category {
@@ -980,15 +1004,31 @@
     height: 2px;
   }
 
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0;
+  }
+
   .projects-grid.mobile-grid {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 30px;
   }
 
+  .project-card.web {
+    width: 100%;
+  }
+
   .project-card.mobile {
     max-width: 280px;
     margin: 0 auto !important;
+  }
+
+  .project-card.game {
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: 10px;
   }
 
   .project-card.game .project-media {
@@ -1007,10 +1047,26 @@
     padding: 20px 15px;
   }
 
-  .project-card.game .project-body h3 { font-size: 18px; }
-  .project-card.game .project-body p  { font-size: 13px; line-height: 1.4; }
-  .project-card.game .tech            { font-size: 10px; padding: 4px 6px; }
-  .project-card.game .link-button     { padding: 10px 20px; font-size: 0.85rem; }
+  .project-card.game .project-body h3 {
+    font-size: 18px;
+  }
+
+  .project-card.game .project-body p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .project-card.game .tech {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .project-card.game .link-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+  /* ... keep all other mobile styles below ... */
+
 
   /* ===== ABOUT SECTION MOBILE ===== */
   #about {
@@ -1049,7 +1105,7 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-
+  
   #skills .section-title {
     margin-top: 0;
     margin-bottom: 30px;
@@ -1103,9 +1159,17 @@
     margin-top: 0;
   }
 
-  .contact1 { font-size: 18px; }
-  .contact2 { font-size: 17px; }
-  .contact3 { font-size: 15px; }
+  .contact1 {
+    font-size: 18px;
+  }
+
+  .contact2 {
+    font-size: 17px;
+  }
+
+  .contact3 {
+    font-size: 15px;
+  }
 
   .contact-buttons {
     flex-direction: column;
@@ -1167,7 +1231,7 @@
   }
 
   .middle-name {
-    font-size: 1.3em;
+     font-size: 1.3em;
   }
 
   .hero-sub-right-fixed {
@@ -1211,20 +1275,23 @@
     max-width: 240px;
   }
 
-  .project-card.game {
+   .project-card.game {
     aspect-ratio: auto;
     height: 220px;
   }
-
+  
+/* Web overlay text */
   .project-card.web .project-body       { padding: 20px 15px; }
   .project-card.web .project-body h3    { font-size: 18px; margin-bottom: 8px; }
   .project-card.web .project-body p     { font-size: 14px; line-height: 1.4; margin-bottom: 10px; }
 
+  /* Game overlay text */
   .game-grid .project-card.game .project-body      { padding: 20px 15px; }
   .game-grid .project-card.game .project-body h3   { font-size: 18px; }
   .game-grid .project-card.game .project-body p    { font-size: 13px; line-height: 1.4; }
   .game-grid .project-card.game .tech              { font-size: 10px; padding: 4px 6px; }
   .game-grid .project-card.game .link-button       { padding: 10px 20px; font-size: 0.85rem; }
+
 }
 
 /* --- EXTRA SMALL DEVICES (380px) --- */
@@ -1265,7 +1332,6 @@
     font-size: 11px;
     padding: 4px 8px;
   }
-
   .project-card.mobile {
     max-width: 200px;
     width: 200px;
@@ -1281,8 +1347,8 @@
 
   .project-card.mobile .project-body p {
     font-size: 10px;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    line-clamp: 2; /* Standard property for compatibility */
+    -webkit-line-clamp: 2; /* Limit to 2 lines on smallest screens */
   }
 }
 
