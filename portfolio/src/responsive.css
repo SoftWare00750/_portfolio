@@ -695,17 +695,16 @@
     width: 100%;
   }
 
-  .hero-sub-right2 {
+ .hero-sub-right2 {
     position: static;
     transform: none;
     width: 130%;
     font-size: 16px;
     text-align: center;
-    margin: 5 auto;
+    margin: 5px auto 5px 5px; /* Top, Right, Bottom, Left */
     padding: 0 32px;
     line-height: 1.6;
-    
-  }
+}
 
  /* Rotating job-title text: centred, no per-class padding offsets */
   
