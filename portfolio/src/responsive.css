@@ -701,7 +701,7 @@
     width: 130%;
     font-size: 16px;
     text-align: center;
-    margin: 5px auto 5px 5px; /* Top, Right, Bottom, Left */
+    margin: 5px auto 5px 2px; /* Top, Right, Bottom, Left */
     padding: 0 32px 0 33px;
     line-height: 1.6;
 }
