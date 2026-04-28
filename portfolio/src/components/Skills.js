@@ -21,21 +21,43 @@ import {
   DiVisualstudio,
   DiEclipse,
 } from "react-icons/di";
-import { SiKotlin, SiRedux, SiSpring, SiNeo4J, SiSketch } from "react-icons/si";
-
+import {
+  SiKotlin,
+  SiRedux,
+  SiSpring,
+  SiNeo4J,
+  SiAdobexd,
+} from "react-icons/si";
 
 // ── BarChart component + its CSS ─────────────────────────────────────────────
-// Both files live in the same components/ folder as Skills.js
 import BarChart from "./BarChart";
-import "./css/components/BarChart.css";
+import "./BarChart.css";
 
 // ── Skills data ───────────────────────────────────────────────────────────────
 import { languages, frameworks, tools } from "../data/skills";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Tiny fade-in hook — replaces react-reveal entirely.
-// Works with React 19 and needs zero extra packages.
-// ─────────────────────────────────────────────────────────────────────────────
+const skills = [
+  { name: "HTML", img: "/assets/html.png" },
+  { name: "CSS", img: "/assets/css.png" },
+  { name: "Tailwind CSS", img: "/assets/tailwind.png" },
+  { name: "Javascript", img: "/assets/javascript.png" },
+  { name: "React", img: "/assets/react.png" },
+  { name: "Angular", img: "/assets/angular.png" },
+  { name: "Vue", img: "/assets/vue1.png" },
+  { name: "React-native", img: "/assets/react-native.png" },
+  { name: "Expo", img: "/assets/expo.png" },
+  { name: "Vercel", img: "/assets/vercel.png" },
+  { name: "Networking ", img: "/assets/networking.png" },
+  { name: "CI/CD", img: "/assets/cicd.png" },
+  { name: "Docker", img: "/assets/docker.png" },
+  { name: "Git", img: "/assets/git.png" },
+  { name: "Github", img: "/assets/github.png" },
+  { name: "AWS", img: "/assets/aws.png" },
+  { name: "Wordpress", img: "/assets/wordpress.png" },
+  { name: "Webflow", img: "/assets/webflow.png" },
+  { name: "Shopify", img: "/assets/shopify.png" }
+];
+
 function useFadeIn(threshold = 0.1) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -62,149 +84,125 @@ function useFadeIn(threshold = 0.1) {
 }
 
 // ── Icon instances ────────────────────────────────────────────────────────────
-const js      = <IoLogoJavascript />;
-const python  = <IoLogoPython />;
-const java    = <FaJava />;
-const c       = <FaCodiepie />;
-const php     = <DiPhp />;
-const html    = <IoLogoHtml5 />;
-const kotlin  = <SiKotlin />;
-
-const react   = <FaReact />;
-const sql     = <AiOutlineConsoleSql />;
-const redux   = <SiRedux />;
-const jquery  = <DiJqueryLogo />;
-const spring  = <SiSpring />;
-const mongo   = <DiMongodb />;
-const neo4j   = <SiNeo4J />;
-
-const git     = <DiGit />;
+const js = <IoLogoJavascript />;
+const python = <IoLogoPython />;
+const java = <FaJava />;
+const c = <FaCodiepie />;
+const php = <DiPhp />;
+const html = <IoLogoHtml5 />;
+const kotlin = <SiKotlin />;
+const react = <FaReact />;
+const sql = <AiOutlineConsoleSql />;
+const redux = <SiRedux />;
+const jquery = <DiJqueryLogo />;
+const spring = <SiSpring />;
+const mongo = <DiMongodb />;
+const neo4j = <SiNeo4J />;
+const git = <DiGit />;
 const jenkins = <FaJenkins />;
-const docker  = <FaDocker />;
-const figma   = <FaFigma />;
-const xd = <SiSketch />;
-const vscode  = <DiVisualstudio />;
+const docker = <FaDocker />;
+const figma = <FaFigma />;
+const xd = <SiAdobexd />;
+const vscode = <DiVisualstudio />;
 const eclipse = <DiEclipse />;
-
-// ─────────────────────────────────────────────────────────────────────────────
 
 export function Skills() {
   const [activeChart, setActiveChart] = useState(1);
-  const { ref: fadeRef, visible }     = useFadeIn();
+  const { ref: fadeRef, visible } = useFadeIn();
 
   const navButtons = [
-    { id: 1, icon: <AiOutlineCode />,   label: "Languages" },
+    { id: 1, icon: <AiOutlineCode />, label: "Languages" },
     { id: 2, icon: <GrStackOverflow />, label: "Technologies" },
-    { id: 3, icon: <AiFillTool />,      label: "Tools" },
+    { id: 3, icon: <AiFillTool />, label: "Tools" },
   ];
 
   return (
-    <div
-      id="skills"
-      name="skills"
-      className="skills"
-      ref={fadeRef}
-      style={{
-        opacity:    visible ? 1 : 0,
-        transform:  visible ? "translateY(0)" : "translateY(28px)",
-        transition: "opacity 0.75s ease, transform 0.75s ease",
-      }}
-    >
-      {/* ── Section heading ── */}
-      <Row className="d-flex justify-content-center">
-        <h2 className="section-title" style={{ paddingTop: "1vw" }}>
-          Skills
-        </h2>
-      </Row>
-
-      {/* ── Textual summary ── */}
-      <Row className="d-flex justify-content-center">
-        <div className="p-5 skills-desc">
-          <p>
-            <strong>Languages:</strong> JavaScript, Python, Java, C, PHP,
-            HTML/CSS, Kotlin
-          </p>
-          <p>
-            <strong>Technologies:</strong> React, SQL, Redux, jQuery,
-            Spring, MongoDB, Neo4j
-          </p>
-          <p>
-            <strong>Tools:</strong> Git, Jenkins, Docker, Figma, Adobe XD,
-            VS Code, Eclipse
-          </p>
+    <div ref={fadeRef} className={visible ? "fade-in visible" : "fade-in"}>
+      {/* ── Icons Grid Section ── */}
+      <section id="skills" className="section alt">
+        <div className="container">
+          <h2 className="section-title">Skills</h2>
+          <div className="skills-grid">
+            {skills.map((s) => (
+              <div className="skill-item" key={s.name}>
+                <img src={s.img} alt={s.name} className="skill-icon" />
+                <div className="skill-pill">{s.name}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </Row>
+      </section>
 
       {/* ── Chart section ── */}
-      <Row>
-        {/* Left: category selector */}
-        <Col lg={6}>
-          <div className="skills">
-            <ButtonGroup vertical className="w-25 skills-buttons">
-              {navButtons.map(({ id, icon, label }) => (
-                <Button
-                  key={id}
-                  variant="skill"
-                  className={
-                    activeChart === id
-                      ? "text-decoration-none active-button"
-                      : "text-decoration-none btn-skill"
-                  }
-                  onClick={() => setActiveChart(id)}
-                >
-                  <div className="d-flex justify-content-center align-items-center gap-2">
-                    <h3 className="mb-0">{icon}</h3>
-                    <p className="button-text mb-0">{label}</p>
-                  </div>
-                </Button>
-              ))}
-            </ButtonGroup>
+      <div className="container mt-5">
+        <Row>
+          {/* Left: category selector */}
+          <Col lg={6}>
+            <div className="skills">
+              <ButtonGroup vertical className="w-25 skills-buttons">
+                {navButtons.map(({ id, icon, label }) => (
+                  <Button
+                    key={id}
+                    variant="skill"
+                    className={
+                      activeChart === id
+                        ? "text-decoration-none active-button"
+                        : "text-decoration-none btn-skill"
+                    }
+                    onClick={() => setActiveChart(id)}
+                  >
+                    <div className="d-flex justify-content-center align-items-center gap-2">
+                      <h3 className="mb-0">{icon}</h3>
+                      <p className="button-text mb-0">{label}</p>
+                    </div>
+                  </Button>
+                ))}
+              </ButtonGroup>
 
-            <p style={{ fontSize: "12px", marginTop: "0.75rem" }}>
-              Click one of the above to see my proficiency stats
-            </p>
-          </div>
-        </Col>
+              <p style={{ fontSize: "12px", marginTop: "0.75rem" }}>
+                Click one of the above to see my proficiency stats
+              </p>
+            </div>
+          </Col>
 
-        {/* Right: animated bar charts */}
-        <Col lg={6}>
-          <div className="barchart-group">
-            <Row className="d-flex justify-content-center">
+          {/* Right: animated bar charts */}
+          <Col lg={6}>
+            <div className="barchart-group">
+              <Row className="d-flex justify-content-center">
+                {/* Languages */}
+                <BarChart
+                  x={languages.x}
+                  height={languages.height}
+                  width={languages.width}
+                  logos={[js, python, java, c, php, html, kotlin]}
+                  data={languages.stats}
+                  visible={activeChart === 1}
+                />
 
-              {/* Languages */}
-              <BarChart
-                x={languages.x}
-                height={languages.height}
-                width={languages.width}
-                logos={[js, python, java, c, php, html, kotlin]}
-                data={languages.stats}
-                visible={activeChart === 1}
-              />
+                {/* Frameworks / Technologies */}
+                <BarChart
+                  x={frameworks.x}
+                  height={frameworks.height}
+                  width={frameworks.width}
+                  logos={[react, sql, redux, jquery, spring, mongo, neo4j]}
+                  data={frameworks.stats}
+                  visible={activeChart === 2}
+                />
 
-              {/* Frameworks / Technologies */}
-              <BarChart
-                x={frameworks.x}
-                height={frameworks.height}
-                width={frameworks.width}
-                logos={[react, sql, redux, jquery, spring, mongo, neo4j]}
-                data={frameworks.stats}
-                visible={activeChart === 2}
-              />
-
-              {/* Tools */}
-              <BarChart
-                x={tools.x}
-                height={tools.height}
-                width={tools.width}
-                logos={[git, jenkins, docker, figma, xd, vscode, eclipse]}
-                data={tools.stats}
-                visible={activeChart === 3}
-              />
-
-            </Row>
-          </div>
-        </Col>
-      </Row>
+                {/* Tools */}
+                <BarChart
+                  x={tools.x}
+                  height={tools.height}
+                  width={tools.width}
+                  logos={[git, jenkins, docker, figma, xd, vscode, eclipse]}
+                  data={tools.stats}
+                  visible={activeChart === 3}
+                />
+              </Row>
+            </div>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 }
