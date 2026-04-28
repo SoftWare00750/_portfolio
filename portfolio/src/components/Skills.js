@@ -31,7 +31,7 @@ import {
 
 // ── BarChart component + its CSS ─────────────────────────────────────────────
 import BarChart from "./BarChart";
-import "./BarChart.css";
+import "./css/components/BarChart.css";
 
 // ── Skills data ───────────────────────────────────────────────────────────────
 import { languages, frameworks, tools } from "../data/skills";
@@ -207,4 +207,4 @@ export function Skills() {
   );
 }
 
-export default Skills;
+export default Skills;y
