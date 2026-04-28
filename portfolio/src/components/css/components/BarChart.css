@@ -1,0 +1,102 @@
+/* BarChart.css — Light & Dark mode aware */
+
+:root {
+  --bar-color: #348AA7;
+  --bar-hover-opacity: 0.55;
+  --bar-bg: #004d66;
+  --label-fill: #ffffff;
+  --label-font-weight-normal: 300;
+  --label-font-weight-hover: 500;
+  --list-item-bg: #1e2330;
+  --list-item-color: #e0e6f0;
+  --chart-font: "Roboto", sans-serif;
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bar-color: #2176a0;
+    --bar-bg: #cce8f4;
+    --label-fill: #1a2a35;
+    --list-item-bg: #e8f4fb;
+    --list-item-color: #1a2a35;
+  }
+}
+
+/* Also support a [data-theme] toggle on <html> */
+html[data-theme="light"] {
+  --bar-color: #2176a0;
+  --bar-bg: #cce8f4;
+  --label-fill: #1a2a35;
+  --list-item-bg: #e8f4fb;
+  --list-item-color: #1a2a35;
+}
+
+html[data-theme="dark"] {
+  --bar-color: #348AA7;
+  --bar-bg: #004d66;
+  --label-fill: #ffffff;
+  --list-item-bg: #1e2330;
+  --list-item-color: #e0e6f0;
+}
+
+body {
+  font-family: var(--chart-font);
+}
+
+#menu {
+  margin-bottom: 20px;
+}
+#menu button {
+  margin: 10px;
+}
+
+/* ─── Bar Group ─────────────────────────────────────────────── */
+
+.bar-group .name-label {
+  text-anchor: end;
+  font-weight: var(--label-font-weight-normal);
+  fill: var(--label-fill);
+  transition: font-weight 0.2s;
+}
+
+.bar-group .value-label {
+  text-anchor: end;
+  fill: var(--label-fill);
+  font-weight: 400;
+}
+
+.bar-group rect {
+  transition: opacity 0.25s ease, fill 0.3s ease;
+}
+
+.bar-group:hover rect {
+  opacity: var(--bar-hover-opacity) !important;
+  fill: #5bbfe0;
+}
+
+.bar-group:hover .name-label {
+  font-weight: var(--label-font-weight-hover);
+}
+
+/* ─── Skill Logo List ───────────────────────────────────────── */
+
+.list-group-tech .list-group-item {
+  color: var(--list-item-color);
+  background-color: var(--list-item-bg);
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.list-group-tech .list-group-item:hover {
+  background-color: color-mix(in srgb, var(--list-item-bg) 80%, transparent);
+}
+
+/* ─── Responsive Bar Width ──────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .barchart-group svg {
+    width: 100%;
+    height: auto;
+  }
+}
