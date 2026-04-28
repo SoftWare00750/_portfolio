@@ -32,7 +32,7 @@ import {
 // ── BarChart component + its CSS ─────────────────────────────────────────────
 // Both files live in the same components/ folder as Skills.js
 import BarChart from "./BarChart";
-import "../css/components/BarChart.css";
+import "./css/components/BarChart.css";
 
 // ── Skills data ───────────────────────────────────────────────────────────────
 import { languages, frameworks, tools } from "../data/skills";

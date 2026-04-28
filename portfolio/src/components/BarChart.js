@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import NodeGroup from "react-move/NodeGroup";
-import "../css/components/BarChart.css"; // relative import — place BarChart.css next to BarChart.js
+import "./css/components/BarChart.css" ; // relative import — place BarChart.css next to BarChart.js
 
 let barHeight = 25;
 let barPadding = 2;
