@@ -21,13 +21,8 @@ import {
   DiVisualstudio,
   DiEclipse,
 } from "react-icons/di";
-import {
-  SiKotlin,
-  SiRedux,
-  SiSpring,
-  SiNeo4J,
-  SiAdobexd,
-} from "react-icons/si";
+import { SiKotlin, SiRedux, SiSpring, SiNeo4J, SiSketch } from "react-icons/si";
+
 
 // ── BarChart component + its CSS ─────────────────────────────────────────────
 // Both files live in the same components/ folder as Skills.js
@@ -87,7 +82,7 @@ const git     = <DiGit />;
 const jenkins = <FaJenkins />;
 const docker  = <FaDocker />;
 const figma   = <FaFigma />;
-const xd      = <SiAdobexd />;
+const xd = <SiSketch />;
 const vscode  = <DiVisualstudio />;
 const eclipse = <DiEclipse />;
 
