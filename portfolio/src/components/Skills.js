@@ -21,13 +21,9 @@ import {
   DiVisualstudio,
   DiEclipse,
 } from "react-icons/di";
-import {
-  SiKotlin,
-  SiRedux,
-  SiSpring,
-  SiNeo4J,
-  SiAdobexd,
-} from "react-icons/si";
+
+import { SiKotlin, SiRedux, SiSpring, SiNeo4J, SiSketch } from "react-icons/si";
+const xd = <SiSketch />;
 
 // ── BarChart component + its CSS ─────────────────────────────────────────────
 import BarChart from "./BarChart";
@@ -207,4 +203,4 @@ export function Skills() {
   );
 }
 
-export default Skills;y
+export default Skills;
