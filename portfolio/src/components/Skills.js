@@ -21,9 +21,7 @@ import {
   DiVisualstudio,
   DiEclipse,
 } from "react-icons/di";
-
 import { SiKotlin, SiRedux, SiSpring, SiNeo4J, SiSketch } from "react-icons/si";
-const xd = <SiSketch />;
 
 // ── BarChart component + its CSS ─────────────────────────────────────────────
 import BarChart from "./BarChart";
@@ -31,6 +29,9 @@ import "./css/components/BarChart.css";
 
 // ── Skills data ───────────────────────────────────────────────────────────────
 import { languages, frameworks, tools } from "../data/skills";
+
+// ── Icon instances ────────────────────────────────────────────────────────────
+const xd = <SiSketch />;
 
 const skills = [
   { name: "HTML", img: "/assets/html.png" },
@@ -79,7 +80,6 @@ function useFadeIn(threshold = 0.1) {
   return { ref, visible };
 }
 
-// ── Icon instances ────────────────────────────────────────────────────────────
 const js = <IoLogoJavascript />;
 const python = <IoLogoPython />;
 const java = <FaJava />;
@@ -164,7 +164,6 @@ export function Skills() {
           <Col lg={6}>
             <div className="barchart-group">
               <Row className="d-flex justify-content-center">
-                {/* Languages */}
                 <BarChart
                   x={languages.x}
                   height={languages.height}
@@ -173,8 +172,6 @@ export function Skills() {
                   data={languages.stats}
                   visible={activeChart === 1}
                 />
-
-                {/* Frameworks / Technologies */}
                 <BarChart
                   x={frameworks.x}
                   height={frameworks.height}
@@ -183,8 +180,6 @@ export function Skills() {
                   data={frameworks.stats}
                   visible={activeChart === 2}
                 />
-
-                {/* Tools */}
                 <BarChart
                   x={tools.x}
                   height={tools.height}
