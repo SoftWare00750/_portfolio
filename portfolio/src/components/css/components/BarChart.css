@@ -41,7 +41,7 @@ html[data-theme="dark"] {
 }
 
 body {
-  font-family: var(--chart-font);
+  font-family: "Roboto", sans-serif;
 }
 
 #menu {
@@ -51,52 +51,37 @@ body {
   margin: 10px;
 }
 
-/* ─── Bar Group ─────────────────────────────────────────────── */
-
 .bar-group .name-label {
   text-anchor: end;
-  font-weight: var(--label-font-weight-normal);
-  fill: var(--label-fill);
-  transition: font-weight 0.2s;
+  font-weight: 300;
+  fill: #fff;
 }
 
 .bar-group .value-label {
   text-anchor: end;
-  fill: var(--label-fill);
+  fill: #fff;
   font-weight: 400;
 }
 
 .bar-group rect {
-  transition: opacity 0.25s ease, fill 0.3s ease;
+  /* Hmmm... this conflicts with react-move's leave fade! */
+  /* transition: opacity 0.3s; */
 }
 
 .bar-group:hover rect {
-  opacity: var(--bar-hover-opacity) !important;
-  fill: #5bbfe0;
+  opacity: 0.5 !important;
 }
 
 .bar-group:hover .name-label {
-  font-weight: var(--label-font-weight-hover);
+  font-weight: 400;
 }
 
-/* ─── Skill Logo List ───────────────────────────────────────── */
-
 .list-group-tech .list-group-item {
-  color: var(--list-item-color);
-  background-color: var(--list-item-bg);
+  color: #fff;
+  background-color: #252934;
   border: none;
-  transition: background-color 0.2s;
 }
 
 .list-group-tech .list-group-item:hover {
-  background-color: color-mix(in srgb, var(--list-item-bg) 80%, transparent);
-}
-
-/* ─── Responsive Bar Width ──────────────────────────────────── */
-
-@media (max-width: 768px) {
-  .barchart-group svg {
-    width: 100%;
-    height: auto;
-  }
+  background-color: #252934;
 }
