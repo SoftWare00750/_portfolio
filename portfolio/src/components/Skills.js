@@ -98,9 +98,9 @@ const git = <DiGit />;
 const jenkins = <FaJenkins />;
 const docker = <FaDocker />;
 const figma = <FaFigma />;
-const xd = <SiAdobexd />;
 const vscode = <DiVisualstudio />;
 const eclipse = <DiEclipse />;
+const xd = <SiSketch />;
 
 export function Skills() {
   const [activeChart, setActiveChart] = useState(1);
