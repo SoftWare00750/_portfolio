@@ -9,7 +9,7 @@ export const languages = {
     { name: "C",          value: 65 },
     { name: "PHP",        value: 55 },
     { name: "HTML/CSS",   value: 85 },
-    { name: "Kotlin",     value: 50 },
+    { name: "Flutter",     value: 50 },
   ],
 };
 
@@ -18,7 +18,7 @@ export const frameworks = {  x: 0,           // SVG rect x offset
   height: 175,     // SVG rect height
   stats: [
     { name: "React", value: 90 },
-    { name: "React-nstive",     value: 80 },
+    { name: "React-native",     value: 80 },
     { name: "Angular",       value: 75 },
     { name: "Vue",          value: 65 },
     { name: "Tailwind CSS",   value: 55 },
@@ -33,9 +33,9 @@ export const tools      = {  width: 500,      // SVG rect width
     { name: "Git", value: 90 },
     { name: "Docker",     value: 80 },
     { name: "Figma",       value: 75 },
-    { name: "Vue",          value: 65 },
-    { name: "Vercel",   value: 55 },
-    { name: "Sql",   value: 85 },
-    { name: "MongoDB",     value: 50 },
+    { name: "Vscode",       value: 85 },
+    { name: "Vercel",          value: 65 },
+    { name: "Unity",       value: 70 },
+    { name: "Render",   value: 55 },
     { name: "AWS cloud",     value: 50 },
   ], };

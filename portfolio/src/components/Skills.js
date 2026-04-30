@@ -107,7 +107,7 @@ const toolLogos = [
   <DiGit />,
   <FaDocker />,
   <FaFigma />,
-  xd,
+   xd,
   <FaJenkins />,
   <DiVisualstudio />,
   <DiEclipse />,
