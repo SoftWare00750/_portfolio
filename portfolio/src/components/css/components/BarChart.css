@@ -85,3 +85,22 @@ body {
 .list-group-tech .list-group-item:hover {
   background-color: #252934;
 }
+
+/* Add at the bottom of your existing BarChart.css */
+
+.barchart-group {
+  width: 100%;
+  overflow: hidden;
+}
+
+.barchart-group svg {
+  display: block;
+  width: 100%;
+}
+
+.bar-group .name-label {
+  text-anchor: end;
+  font-weight: 400;
+  fill: var(--label-fill);
+  font-size: 13px;
+}

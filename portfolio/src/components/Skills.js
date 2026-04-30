@@ -1,200 +1,98 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
-// ── React Icons ─────────────────────────────────────────────────────────────
-import { AiOutlineCode, AiFillTool, AiOutlineConsoleSql } from "react-icons/ai";
-import { GrStackOverflow } from "react-icons/gr";
-import { IoLogoJavascript, IoLogoPython, IoLogoHtml5 } from "react-icons/io";
-import {
-  FaJava,
-  FaCodiepie,
-  FaReact,
-  FaJenkins,
-  FaDocker,
-  FaFigma,
-} from "react-icons/fa";
-import {
-  DiPhp,
-  DiJqueryLogo,
-  DiMongodb,
-  DiGit,
-  DiVisualstudio,
-  DiEclipse,
-} from "react-icons/di";
-import { SiKotlin, SiRedux, SiSpring, SiNeo4J, SiSketch } from "react-icons/si";
-
-// ── BarChart component + its CSS ─────────────────────────────────────────────
-import BarChart from "./BarChart";
-import "./css/components/BarChart.css";
-
-// ── Skills data ───────────────────────────────────────────────────────────────
-import { languages, frameworks, tools } from "../data/skills";
-
-// ── Icon instances ────────────────────────────────────────────────────────────
-const xd = <SiSketch />;
-
-const skills = [
-  { name: "HTML", img: "/assets/html.png" },
-  { name: "CSS", img: "/assets/css.png" },
-  { name: "Tailwind CSS", img: "/assets/tailwind.png" },
-  { name: "Javascript", img: "/assets/javascript.png" },
-  { name: "React", img: "/assets/react.png" },
-  { name: "Angular", img: "/assets/angular.png" },
-  { name: "Vue", img: "/assets/vue1.png" },
-  { name: "React-native", img: "/assets/react-native.png" },
-  { name: "Expo", img: "/assets/expo.png" },
-  { name: "Vercel", img: "/assets/vercel.png" },
-  { name: "Networking ", img: "/assets/networking.png" },
-  { name: "CI/CD", img: "/assets/cicd.png" },
-  { name: "Docker", img: "/assets/docker.png" },
-  { name: "Git", img: "/assets/git.png" },
-  { name: "Github", img: "/assets/github.png" },
-  { name: "AWS", img: "/assets/aws.png" },
-  { name: "Wordpress", img: "/assets/wordpress.png" },
-  { name: "Webflow", img: "/assets/webflow.png" },
-  { name: "Shopify", img: "/assets/shopify.png" }
+const LOADING_TEXTS = [
+  { text: "Web Developer", className: "loading-text-web" },
+  { text: "Frontend Developer", className: "loading-text-frontend" },
+  { text: "Mobile Developer", className: "loading-text-mobile" },
+  { text: "Game Developer", className: "loading-text-game" }
 ];
 
-function useFadeIn(threshold = 0.1) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+export default function About() {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % LOADING_TEXTS.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, visible };
-}
-
-const js = <IoLogoJavascript />;
-const python = <IoLogoPython />;
-const java = <FaJava />;
-const c = <FaCodiepie />;
-const php = <DiPhp />;
-const html = <IoLogoHtml5 />;
-const kotlin = <SiKotlin />;
-const react = <FaReact />;
-const sql = <AiOutlineConsoleSql />;
-const redux = <SiRedux />;
-const jquery = <DiJqueryLogo />;
-const spring = <SiSpring />;
-const mongo = <DiMongodb />;
-const neo4j = <SiNeo4J />;
-const git = <DiGit />;
-const jenkins = <FaJenkins />;
-const docker = <FaDocker />;
-const figma = <FaFigma />;
-const vscode = <DiVisualstudio />;
-const eclipse = <DiEclipse />;
-
-export function Skills() {
-  const [activeChart, setActiveChart] = useState(1);
-  const { ref: fadeRef, visible } = useFadeIn();
-
-  const navButtons = [
-    { id: 1, icon: <AiOutlineCode />, label: "Languages" },
-    { id: 2, icon: <GrStackOverflow />, label: "Technologies" },
-    { id: 3, icon: <AiFillTool />, label: "Tools" },
-  ];
+  useEffect(() => {
+    const check = setInterval(() => {
+      if (textRef.current && textRef.current.classList.contains("animate")) {
+        setHasAnimated(true);
+        clearInterval(check);
+      }
+    }, 50);
+    return () => clearInterval(check);
+  }, []);
 
   return (
-    <div ref={fadeRef} className={visible ? "fade-in visible" : "fade-in"}>
-      {/* ── Icons Grid Section ── */}
-      <section id="skills" className="section alt">
-        <div className="container">
-          <h2 className="section-title">Skills</h2>
-          <div className="skills-grid">
-            {skills.map((s) => (
-              <div className="skill-item" key={s.name}>
-                <img src={s.img} alt={s.name} className="skill-icon" />
-                <div className="skill-pill">{s.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <section id="about" className="section">
+      <div className="container">
+        <div className="about">
+          <h2 className="section-title">About</h2>
+          <div className="about-grid">
 
-      {/* ── Chart section ── */}
-      <div className="container mt-5">
-        <Row>
-          {/* Left: category selector */}
-          <Col lg={6}>
-            <div className="skills">
-              <ButtonGroup vertical className="w-25 skills-buttons">
-                {navButtons.map(({ id, icon, label }) => (
-                  <Button
-                    key={id}
-                    variant="skill"
-                    className={
-                      activeChart === id
-                        ? "text-decoration-none active-button"
-                        : "text-decoration-none btn-skill"
-                    }
-                    onClick={() => setActiveChart(id)}
-                  >
-                    <div className="d-flex justify-content-center align-items-center gap-2">
-                      <h3 className="mb-0">{icon}</h3>
-                      <p className="button-text mb-0">{label}</p>
-                    </div>
-                  </Button>
-                ))}
-              </ButtonGroup>
-
-              <p style={{ fontSize: "12px", marginTop: "0.75rem" }}>
-                Click one of the above to see my proficiency stats
+            {/* Text column */}
+            <div className="about-text" style={{ lineHeight: "1.45" }}>
+              <p style={{ marginBottom: "10px" }}>
+                I'm a{" "}
+                <span
+                  ref={textRef}
+                  className={`devtitle ${LOADING_TEXTS[currentTextIndex].className}${hasAnimated ? " animate" : ""}`}
+                >
+                  {LOADING_TEXTS[currentTextIndex].text}
+                </span>{" "}
+                experienced in building responsive websites, apps and games.
+              </p>
+              <p style={{ marginBottom: "10px" }}>
+                I create modern web, mobile and game interfaces, I'm passionate
+                about clean code, performance, and delivering reliable, user-focused solutions.
+              </p>
+              <p style={{ marginBottom: "8px" }}>
+                Web Interfaces with <span className="skills1">Html</span>,{" "}
+                <span className="skills1">CSS</span>,{" "}
+                <span className="skills1">Tailwind CSS</span>,{" "}
+                <span className="skills1">Javascript</span>,{" "}
+                <span className="skills1">React</span>,{" "}
+                <span className="skills1">Angular</span> and{" "}
+                <span className="skills1">Vue</span> frameworks.
+              </p>
+              <p style={{ marginBottom: "8px" }}>
+                Game Interfaces with <span className="skills1">Unity</span>,{" "}
+                <span className="skills1">Godot</span>,{" "}
+                <span className="skills1">React.js</span>,{" "}
+                <span className="skills1">C#</span> and{" "}
+                <span className="skills1">C++</span>
+              </p>
+              <p style={{ marginBottom: "0" }}>
+                Mobile Interfaces with <span className="skills1">React-native</span> for Cross platforms
               </p>
             </div>
-          </Col>
 
-          {/* Right: animated bar charts */}
-          <Col lg={6}>
-            <div className="barchart-group">
-              <Row className="d-flex justify-content-center">
-                <BarChart
-                  x={languages.x}
-                  height={languages.height}
-                  width={languages.width}
-                  logos={[js, python, java, c, php, html, kotlin]}
-                  data={languages.stats}
-                  visible={activeChart === 1}
-                />
-                <BarChart
-                  x={frameworks.x}
-                  height={frameworks.height}
-                  width={frameworks.width}
-                  logos={[react, sql, redux, jquery, spring, mongo, neo4j]}
-                  data={frameworks.stats}
-                  visible={activeChart === 2}
-                />
-                <BarChart
-                  x={tools.x}
-                  height={tools.height}
-                  width={tools.width}
-                  logos={[git, jenkins, docker, figma, xd, vscode, eclipse]}
-                  data={tools.stats}
-                  visible={activeChart === 3}
-                />
-              </Row>
+            {/* Image column — horizontal, natural aspect ratio */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <img
+                src="/assets/about1.png"
+                alt="about"
+                className="about-image"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxWidth: "420px",
+                  objectFit: "contain",
+                  display: "block",
+                  margin: "0",
+                }}
+              />
             </div>
-          </Col>
-        </Row>
+
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default Skills;
