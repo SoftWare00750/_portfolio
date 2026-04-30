@@ -1,29 +1,14 @@
-/* BarChart.css — Light & Dark mode aware */
+/* BarChart.css — Redesigned to match Image 3 layout */
 
+/* ── CSS Variables ── */
 :root {
   --bar-color: #348AA7;
-  --bar-hover-opacity: 0.55;
-  --bar-bg: #004d66;
+  --bar-bg: #1a3a4a;
   --label-fill: #ffffff;
-  --label-font-weight-normal: 300;
-  --label-font-weight-hover: 500;
   --list-item-bg: #1e2330;
   --list-item-color: #e0e6f0;
-  --chart-font: "Roboto", sans-serif;
 }
 
-/* Light mode overrides */
-@media (prefers-color-scheme: light) {
-  :root {
-    --bar-color: #2176a0;
-    --bar-bg: #cce8f4;
-    --label-fill: #1a2a35;
-    --list-item-bg: #e8f4fb;
-    --list-item-color: #1a2a35;
-  }
-}
-
-/* Also support a [data-theme] toggle on <html> */
 html[data-theme="light"] {
   --bar-color: #2176a0;
   --bar-bg: #cce8f4;
@@ -34,73 +19,140 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
   --bar-color: #348AA7;
-  --bar-bg: #004d66;
+  --bar-bg: #1a3a4a;
   --label-fill: #ffffff;
   --list-item-bg: #1e2330;
   --list-item-color: #e0e6f0;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
+/* ── Wrapper: fills the right column, centers content ── */
+.barchart-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
 }
 
-#menu {
-  margin-bottom: 20px;
-}
-#menu button {
-  margin: 10px;
+/* ── Main row: icons + svg side by side ── */
+.barchart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0;
+  /* give the whole chart a slight dark backdrop */
+  background: var(--bar-bg);
+  border-radius: 10px;
+  padding: 12px 16px 12px 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* ── Icon column ── */
+.barchart-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+  padding-top: 10px;
+  margin-right: 2px;
+}
+
+.barchart-icon-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;            /* matches BAR_HEIGHT */
+  width: 32px;
+  font-size: 1.25rem;
+  color: var(--label-fill);
+  opacity: 0.9;
+}
+
+/* ── SVG chart ── */
+.barchart-svg {
+  overflow: visible;
+  display: block;
+}
+
+/* ── Bar group: label + bar ── */
 .bar-group .name-label {
   text-anchor: end;
-  font-weight: 300;
-  fill: #fff;
-}
-
-.bar-group .value-label {
-  text-anchor: end;
-  fill: #fff;
+  font-size: 13px;
   font-weight: 400;
+  fill: var(--label-fill);
+  font-family: "Roboto", "Inter", sans-serif;
 }
 
 .bar-group rect {
-  /* Hmmm... this conflicts with react-move's leave fade! */
-  /* transition: opacity 0.3s; */
+  transition: opacity 0.2s ease;
 }
 
 .bar-group:hover rect {
-  opacity: 0.5 !important;
+  opacity: 0.7 !important;
 }
 
 .bar-group:hover .name-label {
-  font-weight: 400;
+  font-weight: 600;
+  fill: #6ee7b7;
 }
 
-.list-group-tech .list-group-item {
-  color: #fff;
-  background-color: #252934;
-  border: none;
+/* ── Skills section layout fixes ── */
+.skills {
+  padding: 0;
 }
 
-.list-group-tech .list-group-item:hover {
-  background-color: #252934;
+.skills-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* Add at the bottom of your existing BarChart.css */
-
-.barchart-group {
+/* Bootstrap button overrides for skill nav */
+.btn-skill {
+  background: transparent;
+  border: 1px solid rgba(110, 231, 183, 0.25);
+  color: #94a3b8;
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-align: left;
+  transition: all 0.2s ease;
   width: 100%;
-  overflow: hidden;
 }
 
-.barchart-group svg {
-  display: block;
+.btn-skill:hover {
+  background: rgba(110, 231, 183, 0.08);
+  color: #6ee7b7;
+  border-color: rgba(110, 231, 183, 0.5);
+}
+
+.active-button {
+  background: rgba(23, 121, 207, 0.25) !important;
+  border: 1px solid #1779cf !important;
+  color: #eef2ff !important;
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-align: left;
   width: 100%;
+  box-shadow: 0 2px 12px rgba(23, 121, 207, 0.2);
 }
 
-.bar-group .name-label {
-  text-anchor: end;
-  font-weight: 400;
-  fill: var(--label-fill);
-  font-size: 13px;
+.button-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .barchart-container {
+    padding: 10px 10px 10px 8px;
+  }
+
+  .barchart-icon-item {
+    font-size: 1rem;
+    width: 26px;
+  }
+
+  .bar-group .name-label {
+    font-size: 11px;
+  }
 }
