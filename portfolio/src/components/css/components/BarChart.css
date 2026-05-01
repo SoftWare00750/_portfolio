@@ -1,7 +1,5 @@
 /* =========================================================
-   BarChart.css — Matches screenshot style
-   Fixed-height container prevents layout shift between
-   categories. Scroll-in animation via .chart-visible.
+   BarChart.css — Responsive, animated, properly spaced
    ========================================================= */
 
 /* ── CSS Variables ── */
@@ -28,12 +26,16 @@ html[data-theme="dark"] {
 
 /* =========================================================
    CHART SECTION — scroll-in animation
+   margin-top pushes it away from the "Skills" heading
    ========================================================= */
 .skills-chart-section {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  margin-bottom: 10px;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* ↑ Increased top spacing between section title and chart ↑ */
+  margin-top: 3rem;
+  margin-bottom: 8px;
 }
 
 .skills-chart-section.chart-visible {
@@ -42,13 +44,22 @@ html[data-theme="dark"] {
 }
 
 /* =========================================================
-   FIXED-HEIGHT WRAPPER — prevents layout shift
-   Height = MAX_ITEMS(8) × BAR_HEIGHT(40) + 20 + padding
+   ROW — extra gap between buttons col and chart col
+   ========================================================= */
+.skills-chart-row {
+  /* Bootstrap Row already has negative margins; add col gap via padding */
+  --bs-gutter-x: 3rem !important;
+}
+
+/* =========================================================
+   FIXED-HEIGHT WRAPPER
    ========================================================= */
 .barchart-fixed-wrap {
   min-height: 360px;
   display: flex;
   align-items: flex-start;
+  /* Extra left padding so there's clear visual space from the buttons */
+  padding-left: 1.5rem;
 }
 
 /* =========================================================
@@ -64,14 +75,13 @@ html[data-theme="dark"] {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 0;
   background: var(--bar-bg);
   border-radius: 10px;
   padding: 12px 16px 12px 10px;
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
-  /* Consistent width regardless of data size */
   width: 100%;
   max-width: 480px;
+  transition: max-width 0.3s ease;
 }
 
 /* ── Icon column ── */
@@ -79,7 +89,6 @@ html[data-theme="dark"] {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 0;
   padding-top: 10px;
   margin-right: 2px;
   flex-shrink: 0;
@@ -89,7 +98,7 @@ html[data-theme="dark"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px; /* = BAR_HEIGHT */
+  height: 40px;
   width: 30px;
   font-size: 1.2rem;
   color: var(--icon-color);
@@ -100,6 +109,7 @@ html[data-theme="dark"] {
 .barchart-svg {
   display: block;
   flex-shrink: 0;
+  max-width: 100%;
 }
 
 /* ── Bar group labels ── */
@@ -116,18 +126,16 @@ html[data-theme="dark"] {
 .bar-group rect {
   transition: opacity 0.2s ease;
 }
-
 .bar-group:hover rect {
   opacity: 0.75 !important;
 }
-
 .bar-group:hover .name-label {
   font-weight: 600;
   fill: #6ee7b7;
 }
 
 /* =========================================================
-   CATEGORY BUTTONS (Bootstrap overrides)
+   CATEGORY BUTTONS
    ========================================================= */
 .skills {
   padding: 0;
@@ -176,11 +184,9 @@ html[data-theme="dark"] {
    SKILL ICONS SECTION (below chart)
    ========================================================= */
 .skills-icons-section {
-  margin-top: 40px;
+  margin-top: 48px;
 }
 
-/* Override the auto-fill grid from App.css with an explicit 5-column grid.
-   Double-class selector beats the single-class rules in App.css. */
 .skills-grid.skills-icons-grid,
 .skills-icons-grid {
   display: grid !important;
@@ -191,7 +197,6 @@ html[data-theme="dark"] {
   align-items: start !important;
 }
 
-/* Override heavy margin / size values from App.css */
 .skills-grid.skills-icons-grid .skill-item,
 .skills-icons-grid .skill-item {
   margin-right: 0 !important;
@@ -225,13 +230,18 @@ html[data-theme="dark"] {
   padding: 5px 10px !important;
 }
 
-/* ── Responsive ── */
+/* =========================================================
+   RESPONSIVE — Large (≤1100px)
+   ========================================================= */
 @media (max-width: 1100px) {
   .barchart-container {
     max-width: 100%;
   }
 }
 
+/* =========================================================
+   RESPONSIVE — Tablet (≤992px)
+   ========================================================= */
 @media (max-width: 992px) {
   .skills-grid.skills-icons-grid,
   .skills-icons-grid {
@@ -240,12 +250,46 @@ html[data-theme="dark"] {
 
   .barchart-fixed-wrap {
     min-height: 300px;
+    padding-left: 0;          /* remove left pad when stacked */
+  }
+
+  .barchart-container {
+    max-width: 100%;
+  }
+
+  /* Stack columns on tablet */
+  .skills-chart-row {
+    --bs-gutter-x: 1rem !important;
   }
 }
 
+/* =========================================================
+   RESPONSIVE — Mobile (≤768px)
+   ========================================================= */
 @media (max-width: 768px) {
+  .skills-chart-section {
+    margin-top: 2rem;
+  }
+
+  /* Allow the chart wrapper to scroll horizontally if needed
+     rather than overflowing the page */
+  .barchart-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .barchart-container {
     padding: 10px 10px 10px 8px;
+    max-width: none;   /* let it be as wide as the SVG needs */
+    min-width: 280px;
+  }
+
+  .barchart-fixed-wrap {
+    min-height: auto;
+    width: 100%;
+    padding-left: 0;
+    overflow-x: auto;
   }
 
   .barchart-icon-item {
@@ -257,8 +301,16 @@ html[data-theme="dark"] {
     font-size: 10.5px;
   }
 
-  .barchart-fixed-wrap {
-    min-height: 260px;
+  /* Force Bootstrap cols full-width on mobile */
+  .skills-chart-row > .col-lg-4,
+  .skills-chart-row > .col-md-5,
+  .skills-chart-row > .col-lg-8,
+  .skills-chart-row > .col-md-7 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .skills-grid.skills-icons-grid,
@@ -274,7 +326,27 @@ html[data-theme="dark"] {
   }
 }
 
+/* =========================================================
+   RESPONSIVE — Small Mobile (≤480px)
+   ========================================================= */
 @media (max-width: 480px) {
+  .barchart-container {
+    padding: 8px 8px 8px 6px;
+  }
+
+  .barchart-icon-item {
+    font-size: 0.9rem;
+    width: 20px;
+  }
+
+  .bar-group .name-label {
+    font-size: 9.5px;
+  }
+
+  .skills-chart-section {
+    margin-top: 1.5rem;
+  }
+
   .skills-grid.skills-icons-grid,
   .skills-icons-grid {
     grid-template-columns: repeat(3, 1fr) !important;

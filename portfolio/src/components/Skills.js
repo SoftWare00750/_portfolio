@@ -2,24 +2,21 @@ import React, { useState, useRef, useEffect } from "react";
 import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
 // ── Category nav icons ────────────────────────────────────
-import { AiOutlineCode, AiFillTool} from "react-icons/ai";
+import { AiOutlineCode, AiFillTool, AiOutlineConsoleSql } from "react-icons/ai";
 import { GrStackOverflow } from "react-icons/gr";
 
-// ── Language icons (order matches data/skills.js languages.stats) ──
-// JavaScript, Python, Java, C, PHP, HTML/CSS, Flutter
+// ── Language icons ──
 import { IoLogoJavascript, IoLogoPython, IoLogoHtml5 } from "react-icons/io";
 import { FaJava, FaCodiepie } from "react-icons/fa";
 import { DiPhp } from "react-icons/di";
 import { SiFlutter } from "react-icons/si";
 
-// ── Technology icons (order matches data/skills.js frameworks.stats) ──
-// React, React-native, Angular, Vue, Tailwind CSS, Sql, MongoDB
+// ── Technology icons ──
 import { FaReact } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
-import { SiAngular, SiVuedotjs, SiTailwindcss } from "react-icons/si";
+import { SiAngular, SiVuedotjs, SiTailwindcss, SiExpo } from "react-icons/si";
 
-// ── Tool icons (order matches data/skills.js tools.stats) ──
-// Git, Docker, Figma, Vscode, Vercel, Unity, Render, AWS cloud
+// ── Tool icons ──
 import { FaDocker, FaFigma, FaAws } from "react-icons/fa";
 import { DiGit, DiVisualstudio } from "react-icons/di";
 import { SiVercel, SiUnity } from "react-icons/si";
@@ -33,10 +30,10 @@ import "./css/components/BarChart.css";
 import { languages, frameworks, tools } from "../data/skills";
 
 // ── Constants ────────────────────────────────────────────
-const SKILLS_PER_ROW = 5; // matches 5-column grid
+const SKILLS_PER_ROW = 5;
 
-// ── Skill icons/pills list ────────────────────────────────
-const skills = [
+// ── All 19 skill icons/pills ──────────────────────────────
+const ALL_SKILLS = [
   { name: "HTML",         img: "/assets/html.png" },
   { name: "CSS",          img: "/assets/css.png" },
   { name: "Tailwind CSS", img: "/assets/tailwind.png" },
@@ -58,65 +55,47 @@ const skills = [
   { name: "Shopify",      img: "/assets/shopify.png" },
 ];
 
-// ── Bar-chart icon sets (one icon per stat, same order as skills.js) ──
+// ── Bar-chart icon sets ───────────────────────────────────
 
-// languages.stats: JavaScript, Python, Java, C, PHP, HTML/CSS, Flutter
+// languages: JavaScript, Python, Java, C, PHP, HTML/CSS, Flutter
 const langLogos = [
-  <IoLogoJavascript />,
-  <IoLogoPython />,
-  <FaJava />,
-  <FaCodiepie />,
-  <DiPhp />,
-  <IoLogoHtml5 />,
-  <SiFlutter />,
+  <IoLogoJavascript key="js" />,
+  <IoLogoPython key="py" />,
+  <FaJava key="java" />,
+  <FaCodiepie key="c" />,
+  <DiPhp key="php" />,
+  <IoLogoHtml5 key="html" />,
+  <SiFlutter key="flutter" />,
 ];
 
-// frameworks.stats: React, React-native, Angular, Vue, Tailwind CSS, Sql, MongoDB
+// technologies: React, React-native (SiExpo — distinct from React), Angular, Vue, Tailwind, SQL, MongoDB
 const techLogos = [
-  <FaReact />,
-  <FaReact style={{ opacity: 0.65 }} />,   // React Native (reuse React icon)
-  <SiAngular />,
-  <SiVuedotjs />,
-  <SiTailwindcss />,
-  <AiOutlineConsoleSql />,
-  <DiMongodb />,
+  <FaReact key="react" />,
+  <SiExpo key="rn" />,
+  <SiAngular key="angular" />,
+  <SiVuedotjs key="vue" />,
+  <SiTailwindcss key="tailwind" />,
+  <AiOutlineConsoleSql key="sql" />,
+  <DiMongodb key="mongo" />,
 ];
 
-// tools.stats: Git, Docker, Figma, Vscode, Vercel, Unity, Render, AWS cloud
+// tools: Git, Docker, Figma, VSCode, Vercel, Unity, Render, AWS
 const toolLogos = [
-  <DiGit />,
-  <FaDocker />,
-  <FaFigma />,
-  <DiVisualstudio />,
-  <SiVercel />,
-  <SiUnity />,
-  <MdCloud />,
-  <FaAws />,
+  <DiGit key="git" />,
+  <FaDocker key="docker" />,
+  <FaFigma key="figma" />,
+  <DiVisualstudio key="vscode" />,
+  <SiVercel key="vercel" />,
+  <SiUnity key="unity" />,
+  <MdCloud key="render" />,
+  <FaAws key="aws" />,
 ];
 
 // ── Chart category config ─────────────────────────────────
 const CHART_CATEGORIES = [
-  {
-    id: 1,
-    icon: <AiOutlineCode />,
-    label: "Languages",
-    data: languages.stats,
-    logos: langLogos,
-  },
-  {
-    id: 2,
-    icon: <GrStackOverflow />,
-    label: "Technologies",
-    data: frameworks.stats,
-    logos: techLogos,
-  },
-  {
-    id: 3,
-    icon: <AiFillTool />,
-    label: "Tools",
-    data: tools.stats,
-    logos: toolLogos,
-  },
+  { id: 1, icon: <AiOutlineCode />, label: "Languages",    data: languages.stats,  logos: langLogos },
+  { id: 2, icon: <GrStackOverflow />, label: "Technologies", data: frameworks.stats, logos: techLogos },
+  { id: 3, icon: <AiFillTool />,    label: "Tools",        data: tools.stats,      logos: toolLogos },
 ];
 
 // ── Show More button ──────────────────────────────────────
@@ -131,16 +110,18 @@ function ShowMoreButton({ onClick }) {
 
 // ── Main component ────────────────────────────────────────
 export function Skills() {
-  const [activeChart, setActiveChart]     = useState(1);
-  const [visibleSkills, setVisibleSkills] = useState(SKILLS_PER_ROW);
-  const [chartVisible, setChartVisible]   = useState(false);
+  const [activeChart, setActiveChart] = useState(1);
+
+  // Start showing 5 skills (row 1). Each click reveals 5 more.
+  const [visibleCount, setVisibleCount] = useState(SKILLS_PER_ROW);
+
+  const [chartVisible, setChartVisible] = useState(false);
   const chartRef = useRef(null);
 
-  // Scroll-into-view animation
+  // Animate chart section into view on scroll
   useEffect(() => {
     const el = chartRef.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -148,35 +129,34 @@ export function Skills() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   const activeCategory = CHART_CATEGORIES.find((c) => c.id === activeChart);
 
-  const handleShowMore = () =>
-    setVisibleSkills((v) => Math.min(v + SKILLS_PER_ROW, skills.length));
+  // Add one more row each click; cap at total
+  const handleShowMore = () => {
+    setVisibleCount((prev) => Math.min(prev + SKILLS_PER_ROW, ALL_SKILLS.length));
+  };
+
+  const hasMore = visibleCount < ALL_SKILLS.length;
 
   return (
     <section id="skills" className="section alt">
       <div className="container">
         <h2 className="section-title">Skills</h2>
 
-        {/* ════════════════════════════════════════
-            BAR CHART — comes FIRST
-            key={activeChart} forces remount so bars
-            re-animate from 0 on each category switch.
-            ════════════════════════════════════════ */}
+        {/* ── BAR CHART — animates in on scroll ── */}
         <div
           ref={chartRef}
           className={`skills-chart-section${chartVisible ? " chart-visible" : ""}`}
         >
-          <Row className="align-items-start g-3">
+          <Row className="align-items-start skills-chart-row" style={{ columnGap: "2rem" }}>
             {/* Left: category buttons */}
-            <Col lg={4} md={5} sm={12} className="mb-3 mb-md-0">
+            <Col lg={4} md={5} sm={12} className="mb-4 mb-md-0">
               <div className="skills">
                 <ButtonGroup vertical className="skills-buttons w-100">
                   {CHART_CATEGORIES.map(({ id, icon, label }) => (
@@ -197,18 +177,17 @@ export function Skills() {
                     </Button>
                   ))}
                 </ButtonGroup>
-
                 <p style={{ fontSize: "12px", marginTop: "0.75rem", color: "#94a3b8" }}>
                   Click on one of the above to see my proficiency stats
                 </p>
               </div>
             </Col>
 
-            {/* Right: bar chart — fixed-height wrapper prevents shifting */}
+            {/* Right: animated bar chart */}
             <Col lg={8} md={7} sm={12}>
               <div className="barchart-fixed-wrap">
                 <BarChart
-                  key={activeChart}             /* remount → fresh bar animation */
+                  key={activeChart}
                   data={activeCategory.data}
                   logos={activeCategory.logos}
                 />
@@ -217,14 +196,10 @@ export function Skills() {
           </Row>
         </div>
 
-        {/* ════════════════════════════════════════
-            SKILL ICONS — row-by-row show more
-            ════════════════════════════════════════ */}
+        {/* ── SKILL ICONS — show more row by row ── */}
         <div className="skills-icons-section">
-          {/* skills-grid is kept so useScrollAnimation can find it and add .animate
-              to skill-item elements (animations.css starts them at opacity:0) */}
           <div className="skills-grid skills-icons-grid">
-            {skills.slice(0, visibleSkills).map((s) => (
+            {ALL_SKILLS.slice(0, visibleCount).map((s) => (
               <div className="skill-item" key={s.name}>
                 <img src={s.img} alt={s.name} className="skill-icon" />
                 <div className="skill-pill">{s.name}</div>
@@ -232,9 +207,7 @@ export function Skills() {
             ))}
           </div>
 
-          {visibleSkills < skills.length && (
-            <ShowMoreButton onClick={handleShowMore} />
-          )}
+          {hasMore && <ShowMoreButton onClick={handleShowMore} />}
         </div>
       </div>
     </section>

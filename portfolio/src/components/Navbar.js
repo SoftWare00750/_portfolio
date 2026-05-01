@@ -25,15 +25,16 @@ const MoonIcon = () => (
 );
 
 export default function Navbar() {
-  const [open, setOpen]       = useState(false);
+  const [open, setOpen]         = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark]   = useState(true);
-  const navRef        = useRef(null);
-  const hamburgerRef  = useRef(null);
+  // ── DEFAULT THEME IS NOW LIGHT ──
+  const [isDark, setIsDark]     = useState(false);
+  const navRef       = useRef(null);
+  const hamburgerRef = useRef(null);
 
-  // Set initial theme attribute
+  // Apply light mode on first render
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", "dark");
+    document.documentElement.setAttribute("data-theme", "light");
   }, []);
 
   const toggleTheme = () => {
@@ -101,7 +102,6 @@ export default function Navbar() {
               onClick={() => scrollToSection("home")}
               style={{ cursor: "pointer" }}
             >
-              {/* Render as span so CSS color targets it cleanly */}
               <span style={{ color: "inherit", fontWeight: 800, fontSize: "30px" }}>O</span>
             </div>
 
@@ -111,6 +111,7 @@ export default function Navbar() {
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
               title={isDark ? "Light mode" : "Dark mode"}
             >
+              {/* In light mode show Moon (click to go dark); in dark mode show Sun (click to go light) */}
               {isDark ? <SunIcon /> : <MoonIcon />}
             </button>
           </div>
@@ -124,7 +125,7 @@ export default function Navbar() {
             <button className="contact-button" onClick={() => scrollToSection("contact")}>Contact Me</button>
           </nav>
 
-          {/* Hamburger */}
+          {/* Hamburger (mobile) */}
           <div
             ref={hamburgerRef}
             className={`hamburger ${open ? "active" : ""}`}
