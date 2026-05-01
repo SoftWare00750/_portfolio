@@ -93,25 +93,6 @@ const LoadingScreen = () => {
         animation: 'loadingFadeOut 0.5s ease-out 2s forwards',
       }}>
 
-        {/* Brand initial */}
-        <div style={{
-          width: 64,
-          height: 64,
-          borderRadius: '50%',
-          background: '#6ee7b7',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: 32,
-          fontWeight: 800,
-          color: isDark ? '#071028' : '#071028',
-          boxShadow: isDark
-            ? '0 0 24px rgba(110,231,183,0.35)'
-            : '0 0 24px rgba(23,121,207,0.25)',
-          flexShrink: 0,
-        }}>
-          O
-        </div>
 
         {/* Rotating text */}
         <h1
@@ -148,17 +129,6 @@ const LoadingScreen = () => {
           }}
         />
 
-        {/* Subtle tagline */}
-        <p style={{
-          color: isDark ? 'rgba(148,163,184,0.7)' : 'rgba(51,68,102,0.65)',
-          fontSize: '0.85rem',
-          margin: 0,
-          fontFamily: 'Inter, system-ui, sans-serif',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-        }}>
-          Portfolio Loading…
-        </p>
       </div>
     </>
   );
