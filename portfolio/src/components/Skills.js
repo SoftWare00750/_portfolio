@@ -5,21 +5,18 @@ import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
 import { AiOutlineCode, AiFillTool, AiOutlineConsoleSql } from "react-icons/ai";
 import { GrStackOverflow } from "react-icons/gr";
 
-// ── Language icons (order matches data/skills.js languages.stats) ──
-// JavaScript, Python, Java, C, PHP, HTML/CSS, Flutter
+// ── Language icons ────────────────────────────────────────
 import { IoLogoJavascript, IoLogoPython, IoLogoHtml5 } from "react-icons/io";
 import { FaJava, FaCodiepie } from "react-icons/fa";
 import { DiPhp } from "react-icons/di";
 import { SiFlutter } from "react-icons/si";
 
-// ── Technology icons (order matches data/skills.js frameworks.stats) ──
-// React, React-native, Angular, Vue, Tailwind CSS, Sql, MongoDB
-import { FaReact } from "react-icons/fa";
+// ── Technology icons ──────────────────────────────────────
+import { FaReact, FaDatabase } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { SiAngular, SiVuedotjs, SiTailwindcss } from "react-icons/si";
 
-// ── Tool icons (order matches data/skills.js tools.stats) ──
-// Git, Docker, Figma, Vscode, Vercel, Unity, Render, AWS cloud
+// ── Tool icons ────────────────────────────────────────────
 import { FaDocker, FaFigma, FaAws } from "react-icons/fa";
 import { DiGit, DiVisualstudio } from "react-icons/di";
 import { SiVercel, SiUnity } from "react-icons/si";
@@ -32,8 +29,8 @@ import "./css/components/BarChart.css";
 // ── Skills data ───────────────────────────────────────────
 import { languages, frameworks, tools } from "../data/skills";
 
-// ── Constants ────────────────────────────────────────────
-const SKILLS_PER_ROW = 5; // matches 5-column grid
+// ── Constants ─────────────────────────────────────────────
+const SKILLS_PER_ROW = 5;
 
 // ── Skill icons/pills list ────────────────────────────────
 const skills = [
@@ -58,7 +55,7 @@ const skills = [
   { name: "Shopify",      img: "/assets/shopify.png" },
 ];
 
-// ── Bar-chart icon sets (one icon per stat, same order as skills.js) ──
+// ── Bar-chart icon sets ───────────────────────────────────
 
 // languages.stats: JavaScript, Python, Java, C, PHP, HTML/CSS, Flutter
 const langLogos = [
@@ -71,14 +68,15 @@ const langLogos = [
   <SiFlutter />,
 ];
 
-// frameworks.stats: React, React-native, Angular, Vue, Tailwind CSS, Sql, MongoDB
+// frameworks.stats: React, React-native, Angular, Vue, Tailwind CSS, SQL, MongoDB
+// FIX: Added FaDatabase for SQL (was missing before)
 const techLogos = [
   <FaReact />,
-  <FaReact style={{ opacity: 0.65 }} />,   // React Native (reuse React icon)
+  <FaReact style={{ opacity: 0.65 }} />,
   <SiAngular />,
   <SiVuedotjs />,
   <SiTailwindcss />,
-  <AiOutlineConsoleSql />,
+  <FaDatabase />,       // ← SQL icon (was AiOutlineConsoleSql which wasn't rendering)
   <DiMongodb />,
 ];
 
@@ -132,6 +130,7 @@ function ShowMoreButton({ onClick }) {
 // ── Main component ────────────────────────────────────────
 export function Skills() {
   const [activeChart, setActiveChart]     = useState(1);
+  // FIX: Start with SKILLS_PER_ROW (5) so "Show more" reveals next 5
   const [visibleSkills, setVisibleSkills] = useState(SKILLS_PER_ROW);
   const [chartVisible, setChartVisible]   = useState(false);
   const chartRef = useRef(null);
@@ -148,7 +147,7 @@ export function Skills() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
     );
 
     observer.observe(el);
@@ -157,24 +156,31 @@ export function Skills() {
 
   const activeCategory = CHART_CATEGORIES.find((c) => c.id === activeChart);
 
-  const handleShowMore = () =>
-    setVisibleSkills((v) => Math.min(v + SKILLS_PER_ROW, skills.length));
+  // FIX: Show MORE button correctly increments by SKILLS_PER_ROW
+  const handleShowMore = () => {
+    setVisibleSkills((v) => {
+      const next = v + SKILLS_PER_ROW;
+      return next > skills.length ? skills.length : next;
+    });
+  };
+
+  const hasMore = visibleSkills < skills.length;
 
   return (
     <section id="skills" className="section alt">
       <div className="container">
-        <h2 className="section-title">Skills</h2>
+        {/* FIX: Added extra bottom margin to increase spacing below title */}
+        <h2 className="section-title" style={{ marginBottom: "48px" }}>Skills</h2>
 
         {/* ════════════════════════════════════════
-            BAR CHART — comes FIRST
-            key={activeChart} forces remount so bars
-            re-animate from 0 on each category switch.
+            BAR CHART — scroll-triggered animation
             ════════════════════════════════════════ */}
         <div
           ref={chartRef}
           className={`skills-chart-section${chartVisible ? " chart-visible" : ""}`}
         >
-          <Row className="align-items-start g-3">
+          {/* FIX: Added column gap to increase spacing between buttons and chart */}
+          <Row className="align-items-start g-4">
             {/* Left: category buttons */}
             <Col lg={4} md={5} sm={12} className="mb-3 mb-md-0">
               <div className="skills">
@@ -204,11 +210,12 @@ export function Skills() {
               </div>
             </Col>
 
-            {/* Right: bar chart — fixed-height wrapper prevents shifting */}
-            <Col lg={8} md={7} sm={12}>
+            {/* Right: bar chart */}
+            {/* FIX: Added paddingLeft for extra spacing from buttons column */}
+            <Col lg={8} md={7} sm={12} style={{ paddingLeft: "24px" }}>
               <div className="barchart-fixed-wrap">
                 <BarChart
-                  key={activeChart}             /* remount → fresh bar animation */
+                  key={activeChart}
                   data={activeCategory.data}
                   logos={activeCategory.logos}
                 />
@@ -221,8 +228,6 @@ export function Skills() {
             SKILL ICONS — row-by-row show more
             ════════════════════════════════════════ */}
         <div className="skills-icons-section">
-          {/* skills-grid is kept so useScrollAnimation can find it and add .animate
-              to skill-item elements (animations.css starts them at opacity:0) */}
           <div className="skills-grid skills-icons-grid">
             {skills.slice(0, visibleSkills).map((s) => (
               <div className="skill-item" key={s.name}>
@@ -232,7 +237,8 @@ export function Skills() {
             ))}
           </div>
 
-          {visibleSkills < skills.length && (
+          {/* FIX: Show the button only when there are more items to reveal */}
+          {hasMore && (
             <ShowMoreButton onClick={handleShowMore} />
           )}
         </div>
