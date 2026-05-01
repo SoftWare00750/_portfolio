@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
 // ── Category nav icons ────────────────────────────────────
-import { AiOutlineCode, AiFillTool, AiOutlineConsoleSql } from "react-icons/ai";
+import { AiOutlineCode, AiFillTool} from "react-icons/ai";
 import { GrStackOverflow } from "react-icons/gr";
 
 // ── Language icons (order matches data/skills.js languages.stats) ──
