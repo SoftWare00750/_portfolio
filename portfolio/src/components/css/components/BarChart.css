@@ -179,43 +179,50 @@ html[data-theme="dark"] {
   margin-top: 40px;
 }
 
-/* Override the old auto-fill grid with an explicit 5-column grid */
+/* Override the auto-fill grid from App.css with an explicit 5-column grid.
+   Double-class selector beats the single-class rules in App.css. */
+.skills-grid.skills-icons-grid,
 .skills-icons-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px 16px;
-  justify-items: center;
-  margin-top: 0;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 24px 16px !important;
+  justify-items: center !important;
+  margin-top: 0 !important;
+  align-items: start !important;
 }
 
-/* Override heavy margin from App.css on these items */
+/* Override heavy margin / size values from App.css */
+.skills-grid.skills-icons-grid .skill-item,
 .skills-icons-grid .skill-item {
   margin-right: 0 !important;
   margin-bottom: 0 !important;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
+.skills-grid.skills-icons-grid .skill-icon,
 .skills-icons-grid .skill-icon {
-  width: 68px;
-  height: 68px;
-  object-fit: contain;
-  margin-bottom: 0;
+  width: 68px !important;
+  height: 68px !important;
+  object-fit: contain !important;
+  margin-bottom: 0 !important;
   transition: transform 0.3s ease;
 }
 
+.skills-grid.skills-icons-grid .skill-item:hover .skill-icon,
 .skills-icons-grid .skill-item:hover .skill-icon {
   transform: scale(1.12);
 }
 
+.skills-grid.skills-icons-grid .skill-pill,
 .skills-icons-grid .skill-pill {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 0.78rem;
-  padding: 5px 10px;
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+  font-size: 0.78rem !important;
+  padding: 5px 10px !important;
 }
 
 /* ── Responsive ── */
@@ -226,8 +233,9 @@ html[data-theme="dark"] {
 }
 
 @media (max-width: 992px) {
+  .skills-grid.skills-icons-grid,
   .skills-icons-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 
   .barchart-fixed-wrap {
@@ -253,30 +261,35 @@ html[data-theme="dark"] {
     min-height: 260px;
   }
 
+  .skills-grid.skills-icons-grid,
   .skills-icons-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px 12px;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px 12px !important;
   }
 
+  .skills-grid.skills-icons-grid .skill-icon,
   .skills-icons-grid .skill-icon {
-    width: 56px;
-    height: 56px;
+    width: 56px !important;
+    height: 56px !important;
   }
 }
 
 @media (max-width: 480px) {
+  .skills-grid.skills-icons-grid,
   .skills-icons-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px 10px;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px 10px !important;
   }
 
+  .skills-grid.skills-icons-grid .skill-icon,
   .skills-icons-grid .skill-icon {
-    width: 48px;
-    height: 48px;
+    width: 48px !important;
+    height: 48px !important;
   }
 
+  .skills-grid.skills-icons-grid .skill-pill,
   .skills-icons-grid .skill-pill {
-    font-size: 0.7rem;
-    padding: 4px 8px;
+    font-size: 0.7rem !important;
+    padding: 4px 8px !important;
   }
 }

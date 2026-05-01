@@ -221,7 +221,9 @@ export function Skills() {
             SKILL ICONS — row-by-row show more
             ════════════════════════════════════════ */}
         <div className="skills-icons-section">
-          <div className="skills-icons-grid">
+          {/* skills-grid is kept so useScrollAnimation can find it and add .animate
+              to skill-item elements (animations.css starts them at opacity:0) */}
+          <div className="skills-grid skills-icons-grid">
             {skills.slice(0, visibleSkills).map((s) => (
               <div className="skill-item" key={s.name}>
                 <img src={s.img} alt={s.name} className="skill-icon" />
