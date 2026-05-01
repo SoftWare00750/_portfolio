@@ -1,39 +1,37 @@
 /* =========================================================
-   BarChart.css — Responsive, animated, properly spaced
+   BarChart.css — Desktop-first, fully responsive
    ========================================================= */
 
 /* ── CSS Variables ── */
 :root {
-  --bar-color: #2e8fa8;
-  --bar-bg:    #162535;
+  --bar-color:  #2e8fa8;
+  --bar-bg:     #162535;
   --label-fill: #d8e8f4;
   --icon-color: #a8cfe0;
 }
 
 html[data-theme="light"] {
-  --bar-color: #1e7a96;
-  --bar-bg:    #cde6f4;
+  --bar-color:  #1e7a96;
+  --bar-bg:     #cde6f4;
   --label-fill: #1a2a35;
   --icon-color: #1a5a75;
 }
 
 html[data-theme="dark"] {
-  --bar-color: #2e8fa8;
-  --bar-bg:    #162535;
+  --bar-color:  #2e8fa8;
+  --bar-bg:     #162535;
   --label-fill: #d8e8f4;
   --icon-color: #a8cfe0;
 }
 
 /* =========================================================
    CHART SECTION — scroll-in animation
-   margin-top pushes it away from the "Skills" heading
    ========================================================= */
 .skills-chart-section {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* ↑ Increased top spacing between section title and chart ↑ */
   margin-top: 3rem;
   margin-bottom: 8px;
 }
@@ -44,10 +42,9 @@ html[data-theme="dark"] {
 }
 
 /* =========================================================
-   ROW — extra gap between buttons col and chart col
+   BOOTSTRAP ROW GAP
    ========================================================= */
 .skills-chart-row {
-  /* Bootstrap Row already has negative margins; add col gap via padding */
   --bs-gutter-x: 3rem !important;
 }
 
@@ -55,20 +52,20 @@ html[data-theme="dark"] {
    FIXED-HEIGHT WRAPPER
    ========================================================= */
 .barchart-fixed-wrap {
-  min-height: 360px;
+  min-height: 380px;
   display: flex;
   align-items: flex-start;
-  /* Extra left padding so there's clear visual space from the buttons */
-  padding-left: 1.5rem;
+  padding-left: 1rem;
 }
 
 /* =========================================================
-   MAIN CHART CONTAINER
+   MAIN CHART CONTAINER  — desktop
    ========================================================= */
 .barchart-wrapper {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  overflow: visible;
 }
 
 .barchart-container {
@@ -76,12 +73,12 @@ html[data-theme="dark"] {
   flex-direction: row;
   align-items: flex-start;
   background: var(--bar-bg);
-  border-radius: 10px;
-  padding: 12px 16px 12px 10px;
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
-  width: 100%;
-  max-width: 480px;
-  transition: max-width 0.3s ease;
+  border-radius: 12px;
+  padding: 14px 20px 14px 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
+  width: fit-content;          /* shrink to content on desktop */
+  max-width: 100%;
+  transition: background 0.3s ease;
 }
 
 /* ── Icon column ── */
@@ -90,7 +87,7 @@ html[data-theme="dark"] {
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 10px;
-  margin-right: 2px;
+  margin-right: 4px;
   flex-shrink: 0;
 }
 
@@ -98,21 +95,19 @@ html[data-theme="dark"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  width: 30px;
-  font-size: 1.2rem;
+  height: 42px;     /* matches BAR_HEIGHT */
+  width: 32px;
+  font-size: 1.25rem;
   color: var(--icon-color);
-  opacity: 0.95;
 }
 
 /* ── SVG ── */
 .barchart-svg {
   display: block;
   flex-shrink: 0;
-  max-width: 100%;
 }
 
-/* ── Bar group labels ── */
+/* ── Labels ── */
 .bar-group .name-label {
   text-anchor: end;
   font-size: 12.5px;
@@ -122,17 +117,12 @@ html[data-theme="dark"] {
   letter-spacing: 0.01em;
 }
 
-/* ── Hover effects ── */
+/* ── Hover ── */
 .bar-group rect {
   transition: opacity 0.2s ease;
 }
-.bar-group:hover rect {
-  opacity: 0.75 !important;
-}
-.bar-group:hover .name-label {
-  font-weight: 600;
-  fill: #6ee7b7;
-}
+.bar-group:hover rect            { opacity: 0.75 !important; }
+.bar-group:hover .name-label    { font-weight: 600; fill: #6ee7b7; }
 
 /* =========================================================
    CATEGORY BUTTONS
@@ -187,6 +177,7 @@ html[data-theme="dark"] {
   margin-top: 48px;
 }
 
+/* Default 5-column grid */
 .skills-grid.skills-icons-grid,
 .skills-icons-grid {
   display: grid !important;
@@ -206,6 +197,18 @@ html[data-theme="dark"] {
   flex-direction: column !important;
   align-items: center !important;
   text-align: center !important;
+
+  /* Animate in when class is added */
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Animate class applied by JS */
+.skills-grid.skills-icons-grid .skill-item.animate,
+.skills-icons-grid .skill-item.animate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .skills-grid.skills-icons-grid .skill-icon,
@@ -231,77 +234,122 @@ html[data-theme="dark"] {
 }
 
 /* =========================================================
-   RESPONSIVE — Large (≤1100px)
+   LIGHT MODE — skill buttons + pills
+   ========================================================= */
+html[data-theme="light"] .btn-skill {
+  border-color: rgba(23, 121, 207, 0.25) !important;
+  color: #334455 !important;
+}
+html[data-theme="light"] .btn-skill:hover {
+  background: rgba(23, 121, 207, 0.08) !important;
+  color: #1779cf !important;
+  border-color: rgba(23, 121, 207, 0.5) !important;
+}
+html[data-theme="light"] .active-button {
+  background: rgba(23, 121, 207, 0.14) !important;
+  color: #071028 !important;
+}
+html[data-theme="light"] .button-text {
+  color: inherit;
+}
+
+/* =========================================================
+   RESPONSIVE — Large tablet  (≤ 1100px)
    ========================================================= */
 @media (max-width: 1100px) {
-  .barchart-container {
-    max-width: 100%;
+  .barchart-fixed-wrap {
+    padding-left: 0;
   }
 }
 
 /* =========================================================
-   RESPONSIVE — Tablet (≤992px)
+   RESPONSIVE — Tablet  (≤ 992px)
    ========================================================= */
 @media (max-width: 992px) {
-  .skills-grid.skills-icons-grid,
-  .skills-icons-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-  }
-
-  .barchart-fixed-wrap {
-    min-height: 300px;
-    padding-left: 0;          /* remove left pad when stacked */
-  }
-
-  .barchart-container {
-    max-width: 100%;
-  }
-
-  /* Stack columns on tablet */
+  /* stack the two Bootstrap cols */
   .skills-chart-row {
     --bs-gutter-x: 1rem !important;
   }
-}
 
-/* =========================================================
-   RESPONSIVE — Mobile (≤768px)
-   ========================================================= */
-@media (max-width: 768px) {
-  .skills-chart-section {
-    margin-top: 2rem;
-  }
-
-  /* Allow the chart wrapper to scroll horizontally if needed
-     rather than overflowing the page */
-  .barchart-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .barchart-container {
-    padding: 10px 10px 10px 8px;
-    max-width: none;   /* let it be as wide as the SVG needs */
-    min-width: 280px;
+  .skills-chart-row > [class*="col-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .barchart-fixed-wrap {
     min-height: auto;
     width: 100%;
     padding-left: 0;
+    /* allow horizontal scroll if chart is wider than screen */
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .barchart-wrapper {
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .barchart-container {
+    /* let it be as wide as the SVG needs */
+    min-width: 320px;
+    border-radius: 10px;
+    padding: 12px 14px 12px 10px;
+  }
+
+  .skills-grid.skills-icons-grid,
+  .skills-icons-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — Mobile  (≤ 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+  .skills-chart-section {
+    margin-top: 2rem;
+  }
+
+  .barchart-fixed-wrap {
+    min-height: auto;
+    overflow-x: auto;
+  }
+
+  .barchart-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;          /* room for scroll bar */
+  }
+
+  /* slight scroll hint shadow on right */
+  .barchart-wrapper::after {
+    content: '';
+    display: block;
+    min-width: 1px;
+  }
+
+  .barchart-container {
+    padding: 10px 12px 10px 8px;
+    min-width: 280px;
+    border-radius: 8px;
   }
 
   .barchart-icon-item {
     font-size: 1rem;
-    width: 24px;
+    width: 26px;
+    height: 42px;
   }
 
   .bar-group .name-label {
     font-size: 10.5px;
   }
 
-  /* Force Bootstrap cols full-width on mobile */
+  /* Force Bootstrap cols full-width */
   .skills-chart-row > .col-lg-4,
   .skills-chart-row > .col-md-5,
   .skills-chart-row > .col-lg-8,
@@ -327,16 +375,17 @@ html[data-theme="dark"] {
 }
 
 /* =========================================================
-   RESPONSIVE — Small Mobile (≤480px)
+   RESPONSIVE — Small Mobile  (≤ 480px)
    ========================================================= */
 @media (max-width: 480px) {
   .barchart-container {
-    padding: 8px 8px 8px 6px;
+    padding: 8px 10px 8px 6px;
+    min-width: 260px;
   }
 
   .barchart-icon-item {
     font-size: 0.9rem;
-    width: 20px;
+    width: 22px;
   }
 
   .bar-group .name-label {

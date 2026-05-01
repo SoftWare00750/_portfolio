@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
 // ── Category nav icons ────────────────────────────────────
@@ -56,46 +56,42 @@ const ALL_SKILLS = [
 ];
 
 // ── Bar-chart icon sets ───────────────────────────────────
-
-// languages: JavaScript, Python, Java, C, PHP, HTML/CSS, Flutter
 const langLogos = [
   <IoLogoJavascript key="js" />,
-  <IoLogoPython key="py" />,
-  <FaJava key="java" />,
-  <FaCodiepie key="c" />,
-  <DiPhp key="php" />,
-  <IoLogoHtml5 key="html" />,
-  <SiFlutter key="flutter" />,
+  <IoLogoPython     key="py" />,
+  <FaJava           key="java" />,
+  <FaCodiepie       key="c" />,
+  <DiPhp            key="php" />,
+  <IoLogoHtml5      key="html" />,
+  <SiFlutter        key="flutter" />,
 ];
 
-// technologies: React, React-native (SiExpo — distinct from React), Angular, Vue, Tailwind, SQL, MongoDB
 const techLogos = [
-  <FaReact key="react" />,
-  <SiExpo key="rn" />,
-  <SiAngular key="angular" />,
-  <SiVuedotjs key="vue" />,
-  <SiTailwindcss key="tailwind" />,
+  <FaReact          key="react" />,
+  <SiExpo           key="rn" />,
+  <SiAngular        key="angular" />,
+  <SiVuedotjs       key="vue" />,
+  <SiTailwindcss    key="tailwind" />,
   <AiOutlineConsoleSql key="sql" />,
-  <DiMongodb key="mongo" />,
+  <DiMongodb        key="mongo" />,
 ];
 
-// tools: Git, Docker, Figma, VSCode, Vercel, Unity, Render, AWS
 const toolLogos = [
-  <DiGit key="git" />,
-  <FaDocker key="docker" />,
-  <FaFigma key="figma" />,
-  <DiVisualstudio key="vscode" />,
-  <SiVercel key="vercel" />,
-  <SiUnity key="unity" />,
-  <MdCloud key="render" />,
-  <FaAws key="aws" />,
+  <DiGit            key="git" />,
+  <FaDocker         key="docker" />,
+  <FaFigma          key="figma" />,
+  <DiVisualstudio   key="vscode" />,
+  <SiVercel         key="vercel" />,
+  <SiUnity          key="unity" />,
+  <MdCloud          key="render" />,
+  <FaAws            key="aws" />,
 ];
 
 // ── Chart category config ─────────────────────────────────
 const CHART_CATEGORIES = [
-  { id: 1, icon: <AiOutlineCode />, label: "Languages",    data: languages.stats,  logos: langLogos },
-  { id: 2, icon: <GrStackOverflow />, label: "Technologies", data: frameworks.stats, logos: techLogos },
-  { id: 3, icon: <AiFillTool />,    label: "Tools",        data: tools.stats,      logos: toolLogos },
+  { id: 1, icon: <AiOutlineCode />,    label: "Languages",    data: languages.stats,  logos: langLogos },
+  { id: 2, icon: <GrStackOverflow />,  label: "Technologies", data: frameworks.stats, logos: techLogos },
+  { id: 3, icon: <AiFillTool />,       label: "Tools",        data: tools.stats,      logos: toolLogos },
 ];
 
 // ── Show More button ──────────────────────────────────────
@@ -110,15 +106,35 @@ function ShowMoreButton({ onClick }) {
 
 // ── Main component ────────────────────────────────────────
 export function Skills() {
-  const [activeChart, setActiveChart] = useState(1);
-
-  // Start showing 5 skills (row 1). Each click reveals 5 more.
-  const [visibleCount, setVisibleCount] = useState(SKILLS_PER_ROW);
-
-  const [chartVisible, setChartVisible] = useState(false);
+  const [activeChart, setActiveChart]     = useState(1);
+  const [visibleCount, setVisibleCount]   = useState(SKILLS_PER_ROW);
+  const [chartVisible, setChartVisible]   = useState(false);
   const chartRef = useRef(null);
 
-  // Animate chart section into view on scroll
+  // ── Animate new skill items into view ────────────────────
+  // Called after every render so newly-added items also get .animate
+  const animateVisibleItems = useCallback(() => {
+    const items = document.querySelectorAll(
+      ".skills-icons-grid .skill-item, .skills-icons-section .skill-item"
+    );
+    // Small delay so the DOM has painted the new items first
+    requestAnimationFrame(() => {
+      items.forEach((item, idx) => {
+        if (!item.classList.contains("animate")) {
+          // Stagger delay for the newly revealed items
+          const delay = (idx % SKILLS_PER_ROW) * 80;
+          setTimeout(() => item.classList.add("animate"), delay);
+        }
+      });
+    });
+  }, []);
+
+  // Trigger animation whenever visibleCount changes (show more clicked)
+  useEffect(() => {
+    animateVisibleItems();
+  }, [visibleCount, animateVisibleItems]);
+
+  // Chart scroll-in observer
   useEffect(() => {
     const el = chartRef.current;
     if (!el) return;
@@ -137,7 +153,6 @@ export function Skills() {
 
   const activeCategory = CHART_CATEGORIES.find((c) => c.id === activeChart);
 
-  // Add one more row each click; cap at total
   const handleShowMore = () => {
     setVisibleCount((prev) => Math.min(prev + SKILLS_PER_ROW, ALL_SKILLS.length));
   };
