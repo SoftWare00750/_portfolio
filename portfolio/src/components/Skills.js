@@ -15,6 +15,7 @@ import { SiFlutter } from "react-icons/si";
 
 // ── Technology icons ──
 import { FaReact } from "react-icons/fa";
+import { AiOutlineConsoleSql as SqlIcon } from "react-icons/ai";
 import { DiMongodb } from "react-icons/di";
 import { SiAngular, SiVuedotjs, SiTailwindcss, SiExpo } from "react-icons/si";
 
