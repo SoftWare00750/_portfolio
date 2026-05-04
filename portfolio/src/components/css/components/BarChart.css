@@ -61,7 +61,7 @@ html[data-theme="dark"] {
 .skills-chart-right {
   flex: 1 1 auto;       /* fills remaining space */
   min-width: 0;
-  padding-left: 13rem;
+  padding-left: 26rem;
 }
 
 /* =========================================================
