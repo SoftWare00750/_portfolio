@@ -24,23 +24,38 @@ const MoonIcon = () => (
   </svg>
 );
 
+// ── Read saved theme from localStorage, defaulting to "light" ──
+const getSavedTheme = () => {
+  try {
+    return localStorage.getItem("portfolio-theme") || "light";
+  } catch {
+    return "light";
+  }
+};
+
 export default function Navbar() {
   const [open, setOpen]         = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  // ── DEFAULT THEME IS NOW LIGHT ──
-  const [isDark, setIsDark]     = useState(false);
+  const [isDark, setIsDark]     = useState(() => getSavedTheme() === "dark");
   const navRef       = useRef(null);
   const hamburgerRef = useRef(null);
 
-  // Apply light mode on first render
+  // Apply saved (or default) theme on first render
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", "light");
+    const saved = getSavedTheme();
+    document.documentElement.setAttribute("data-theme", saved);
+    setIsDark(saved === "dark");
   }, []);
 
   const toggleTheme = () => {
     const next = isDark ? "light" : "dark";
     setIsDark(!isDark);
     document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("portfolio-theme", next);
+    } catch {
+      // localStorage unavailable — silently ignore
+    }
   };
 
   // Scroll detection
@@ -111,7 +126,6 @@ export default function Navbar() {
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
               title={isDark ? "Light mode" : "Dark mode"}
             >
-              {/* In light mode show Moon (click to go dark); in dark mode show Sun (click to go light) */}
               {isDark ? <SunIcon /> : <MoonIcon />}
             </button>
           </div>

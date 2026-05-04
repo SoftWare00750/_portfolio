@@ -2,14 +2,17 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
 // ── Category nav icons ────────────────────────────────────
-import { AiOutlineCode, AiFillTool, AiOutlineConsoleSql } from "react-icons/ai";
+import { AiOutlineCode, AiFillTool } from "react-icons/ai";
 import { GrStackOverflow } from "react-icons/gr";
+// Technologies icon — using SiStackoverflow-style layered stack
+import { MdLayers } from "react-icons/md";
 
 // ── Language icons ──
 import { IoLogoJavascript, IoLogoPython, IoLogoHtml5 } from "react-icons/io";
 import { FaJava, FaCodiepie } from "react-icons/fa";
 import { DiPhp } from "react-icons/di";
-import { SiFlutter } from "react-icons/si";
+import { SiFlutter, AiOutlineConsoleSql } from "react-icons/si";
+import { AiOutlineConsoleSql as SqlIcon } from "react-icons/ai";
 
 // ── Technology icons ──
 import { FaReact } from "react-icons/fa";
@@ -67,31 +70,32 @@ const langLogos = [
 ];
 
 const techLogos = [
-  <FaReact          key="react" />,
-  <SiExpo           key="rn" />,
-  <SiAngular        key="angular" />,
-  <SiVuedotjs       key="vue" />,
-  <SiTailwindcss    key="tailwind" />,
-  <AiOutlineConsoleSql key="sql" />,
-  <DiMongodb        key="mongo" />,
+  <FaReact    key="react" />,
+  <SiExpo     key="rn" />,
+  <SiAngular  key="angular" />,
+  <SiVuedotjs key="vue" />,
+  <SiTailwindcss key="tailwind" />,
+  <SqlIcon    key="sql" />,
+  <DiMongodb  key="mongo" />,
 ];
 
 const toolLogos = [
-  <DiGit            key="git" />,
-  <FaDocker         key="docker" />,
-  <FaFigma          key="figma" />,
-  <DiVisualstudio   key="vscode" />,
-  <SiVercel         key="vercel" />,
-  <SiUnity          key="unity" />,
-  <MdCloud          key="render" />,
-  <FaAws            key="aws" />,
+  <DiGit          key="git" />,
+  <FaDocker       key="docker" />,
+  <FaFigma        key="figma" />,
+  <DiVisualstudio key="vscode" />,
+  <SiVercel       key="vercel" />,
+  <SiUnity        key="unity" />,
+  <MdCloud        key="render" />,
+  <FaAws          key="aws" />,
 ];
 
 // ── Chart category config ─────────────────────────────────
+// Technologies now uses MdLayers icon (a proper layered-stack icon)
 const CHART_CATEGORIES = [
-  { id: 1, icon: <AiOutlineCode />,    label: "Languages",    data: languages.stats,  logos: langLogos },
-  { id: 2, icon: <GrStackOverflow />,  label: "Technologies", data: frameworks.stats, logos: techLogos },
-  { id: 3, icon: <AiFillTool />,       label: "Tools",        data: tools.stats,      logos: toolLogos },
+  { id: 1, icon: <AiOutlineCode />, label: "Languages",    data: languages.stats,  logos: langLogos },
+  { id: 2, icon: <MdLayers />,      label: "Technologies", data: frameworks.stats, logos: techLogos },
+  { id: 3, icon: <AiFillTool />,    label: "Tools",        data: tools.stats,      logos: toolLogos },
 ];
 
 // ── Show More button ──────────────────────────────────────
@@ -106,22 +110,19 @@ function ShowMoreButton({ onClick }) {
 
 // ── Main component ────────────────────────────────────────
 export function Skills() {
-  const [activeChart, setActiveChart]     = useState(1);
-  const [visibleCount, setVisibleCount]   = useState(SKILLS_PER_ROW);
-  const [chartVisible, setChartVisible]   = useState(false);
+  const [activeChart, setActiveChart]   = useState(1);
+  const [visibleCount, setVisibleCount] = useState(SKILLS_PER_ROW);
+  const [chartVisible, setChartVisible] = useState(false);
   const chartRef = useRef(null);
 
   // ── Animate new skill items into view ────────────────────
-  // Called after every render so newly-added items also get .animate
   const animateVisibleItems = useCallback(() => {
     const items = document.querySelectorAll(
       ".skills-icons-grid .skill-item, .skills-icons-section .skill-item"
     );
-    // Small delay so the DOM has painted the new items first
     requestAnimationFrame(() => {
       items.forEach((item, idx) => {
         if (!item.classList.contains("animate")) {
-          // Stagger delay for the newly revealed items
           const delay = (idx % SKILLS_PER_ROW) * 80;
           setTimeout(() => item.classList.add("animate"), delay);
         }
@@ -129,7 +130,6 @@ export function Skills() {
     });
   }, []);
 
-  // Trigger animation whenever visibleCount changes (show more clicked)
   useEffect(() => {
     animateVisibleItems();
   }, [visibleCount, animateVisibleItems]);
@@ -169,9 +169,14 @@ export function Skills() {
           ref={chartRef}
           className={`skills-chart-section${chartVisible ? " chart-visible" : ""}`}
         >
-          <Row className="align-items-start skills-chart-row" style={{ columnGap: "2rem" }}>
+          {/*
+            Use a plain flex row instead of Bootstrap's Row/Col so we can
+            guarantee side-by-side layout on desktop without Bootstrap
+            overriding column widths at certain breakpoints.
+          */}
+          <div className="skills-chart-row">
             {/* Left: category buttons */}
-            <Col lg={4} md={5} sm={12} className="mb-4 mb-md-0">
+            <div className="skills-chart-left">
               <div className="skills">
                 <ButtonGroup vertical className="skills-buttons w-100">
                   {CHART_CATEGORIES.map(({ id, icon, label }) => (
@@ -196,10 +201,10 @@ export function Skills() {
                   Click on one of the above to see my proficiency stats
                 </p>
               </div>
-            </Col>
+            </div>
 
             {/* Right: animated bar chart */}
-            <Col lg={8} md={7} sm={12}>
+            <div className="skills-chart-right">
               <div className="barchart-fixed-wrap">
                 <BarChart
                   key={activeChart}
@@ -207,8 +212,8 @@ export function Skills() {
                   logos={activeCategory.logos}
                 />
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
 
         {/* ── SKILL ICONS — show more row by row ── */}

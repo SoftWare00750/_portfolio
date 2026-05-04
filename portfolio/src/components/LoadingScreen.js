@@ -10,11 +10,21 @@ const LOADING_TEXTS = [
   "React-native"
 ];
 
+// ── Read saved theme from localStorage (same key as Navbar) ──
+const getSavedTheme = () => {
+  try {
+    return localStorage.getItem("portfolio-theme") || "light";
+  } catch {
+    return "light";
+  }
+};
+
 const LoadingScreen = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [isDark, setIsDark] = useState(true); // default dark until detected
+  // Initialise directly from localStorage so no flash of wrong theme
+  const [isDark, setIsDark] = useState(() => getSavedTheme() === "dark");
 
-  // Detect and follow theme changes
+  // Keep in sync if the attribute changes after mount (e.g. user toggles mid-load)
   useEffect(() => {
     const getTheme = () =>
       document.documentElement.getAttribute('data-theme') !== 'light';
@@ -42,8 +52,8 @@ const LoadingScreen = () => {
     ? 'linear-gradient(180deg, #071028 0%, #071827 100%)'
     : 'linear-gradient(180deg, #f4f7fb 0%, #e8edf5 100%)';
   const textColor = isDark ? '#6ee7b7' : '#1779cf';
-  const spinnerBorder      = isDark ? 'rgba(238,242,255,0.2)' : 'rgba(23,121,207,0.2)';
-  const spinnerTopColor    = isDark ? '#eef2ff' : '#1779cf';
+  const spinnerBorder   = isDark ? 'rgba(238,242,255,0.2)' : 'rgba(23,121,207,0.2)';
+  const spinnerTopColor = isDark ? '#eef2ff' : '#1779cf';
 
   return (
     <>
@@ -66,7 +76,6 @@ const LoadingScreen = () => {
           animation: loadingSpin 0.8s linear infinite;
         }
 
-        /* ── Responsive overrides ── */
         @media (max-width: 768px) {
           .loading-title  { font-size: 1.8rem !important; }
           .loading-spinner { width: 48px !important; height: 48px !important; }
@@ -76,7 +85,6 @@ const LoadingScreen = () => {
         }
       `}</style>
 
-      {/* Container */}
       <div style={{
         position: 'fixed',
         top: 0, left: 0,
@@ -92,7 +100,6 @@ const LoadingScreen = () => {
         transition: 'background 0.3s ease',
         animation: 'loadingFadeOut 0.5s ease-out 2s forwards',
       }}>
-
 
         {/* Rotating text */}
         <h1
