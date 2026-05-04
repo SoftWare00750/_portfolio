@@ -801,7 +801,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
  
 /* The skills section row (Bootstrap Row) */
 #skills .container .mt-5 {
-  margin-top: 2rem !important;
+  margin-top: 4rem !important;
   padding-bottom: 2rem;
 }
  
