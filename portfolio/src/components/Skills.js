@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { Row, Col, Button, ButtonGroup } from "react-bootstrap";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 // ── Category nav icons ────────────────────────────────────
 import { AiOutlineCode, AiFillTool } from "react-icons/ai";
-import { GrStackOverflow } from "react-icons/gr";
 // Technologies icon — using SiStackoverflow-style layered stack
 import { MdLayers } from "react-icons/md";
 
@@ -11,8 +10,8 @@ import { MdLayers } from "react-icons/md";
 import { IoLogoJavascript, IoLogoPython, IoLogoHtml5 } from "react-icons/io";
 import { FaJava, FaCodiepie } from "react-icons/fa";
 import { DiPhp } from "react-icons/di";
-import { SiFlutter, AiOutlineConsoleSql } from "react-icons/si";
-import { AiOutlineConsoleSql as SqlIcon } from "react-icons/ai";
+import { SiFlutter } from "react-icons/si";
+
 
 // ── Technology icons ──
 import { FaReact } from "react-icons/fa";
