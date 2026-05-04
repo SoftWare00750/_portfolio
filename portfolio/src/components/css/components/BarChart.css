@@ -42,10 +42,25 @@ html[data-theme="dark"] {
 }
 
 /* =========================================================
-   BOOTSTRAP ROW GAP
+   CHART ROW — side-by-side on desktop
    ========================================================= */
 .skills-chart-row {
-  --bs-gutter-x: 3rem !important;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
+.skills-chart-left {
+  flex: 0 0 200px;      /* fixed width for the button column */
+  min-width: 160px;
+  max-width: 220px;
+}
+
+.skills-chart-right {
+  flex: 1 1 auto;       /* fills remaining space */
+  min-width: 0;
 }
 
 /* =========================================================
@@ -266,24 +281,25 @@ html[data-theme="light"] .button-text {
    RESPONSIVE — Tablet  (≤ 992px)
    ========================================================= */
 @media (max-width: 992px) {
-  /* stack the two Bootstrap cols */
   .skills-chart-row {
-    --bs-gutter-x: 1rem !important;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .skills-chart-row > [class*="col-"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  .skills-chart-left {
+    max-width: 100%;
+    flex: none;
+    width: 100%;
+  }
+
+  .skills-chart-right {
+    width: 100%;
   }
 
   .barchart-fixed-wrap {
     min-height: auto;
     width: 100%;
     padding-left: 0;
-    /* allow horizontal scroll if chart is wider than screen */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -295,7 +311,6 @@ html[data-theme="light"] .button-text {
   }
 
   .barchart-container {
-    /* let it be as wide as the SVG needs */
     min-width: 320px;
     border-radius: 10px;
     padding: 12px 14px 12px 10px;
