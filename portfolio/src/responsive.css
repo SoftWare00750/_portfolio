@@ -786,10 +786,10 @@
   }
 
   .project-card.web {
+   aspect-ratio: 16/9;
     width: 100%;
     max-width: 100%;
-    aspect-ratio: 16/9;
-    margin-left: 2px;
+    border-radius: 10px;
   }
 
   /* MOBILE PROJECT CARDS - Smaller size */
@@ -905,33 +905,39 @@
   }
 
   /* WEB PROJECT OVERLAY */
+    .project-card.web .project-media {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .project-card.web .project-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
   .project-card.web .project-body {
+    width: 100%;
     padding: 20px 15px;
-    
   }
 
   .project-card.web .project-body h3 {
-   /* Original: 18px */
-   font-size: 10.4px;
-   /* Original: 8px */
-   margin-bottom: 4.4px;
- }
+    font-size: 18px;
+  }
 
- .project-card.web .project-body p {
-   /* Original: 14px */
-   font-size: 8.2px;
-   line-height: 1.4;
-   /* Original: 10px */
-   margin-bottom: 6px;
- }
+  .project-card.web .project-body p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
 
- /* Adding Button reduction (assuming standard button class) */
- .project-card.web .project-body button,
- .project-card.web .project-body .btn {
-   /* Typical buttons are ~16px; reduced to 12.8px */
-   font-size: 9.6px;
-   padding: 8px 16px; /* Adjust based on your original button padding */
- }
+  .project-card.web .tech {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .project-card.web .link-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
 
   /* MOBILE PROJECT OVERLAY - Smaller and fitted */
   .project-card.mobile .project-body {
@@ -1402,4 +1408,4 @@
   #contact {
     padding: 35px 0;
   }
-}
+}}
