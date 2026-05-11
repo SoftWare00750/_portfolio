@@ -907,11 +907,18 @@
   /* WEB PROJECT OVERLAY */
   .project-card.web .project-body {
     padding: 20px 15px;
+
+    /* Shrink the entire container by 20% */
+   transform: scale(0.8);
+   
+   /* Ensures the scaled content stays anchored to the top-left */
+   transform-origin: top left;
   }
 
   .project-card.web .project-body h3 {
     font-size: 18px;
     margin-bottom: 8px;
+
   }
 
   .project-card.web .project-body p {
