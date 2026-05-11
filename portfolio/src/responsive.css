@@ -180,12 +180,10 @@
     margin: 0 auto;
   }
 
-  
-
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
-  .project-card:nth-child(4)
+  .project-card:nth-child(4),
   .project-card:nth-child(5),
   .project-card:nth-child(6) {
     grid-column: auto;
@@ -293,7 +291,6 @@
     font-size: 28px;
   }
 
-  /* Keep desktop nav visible on tablets */
   .nav-desktop {
     display: flex;
     gap: 15px;
@@ -457,7 +454,6 @@
    MOBILE STYLES (768px and below) - DESKTOP UNAFFECTED
    ================================================================ */
 @media (max-width: 768px) {
-  /* ===== GLOBAL FIXES ===== */
   html,
   body {
     overflow-x: hidden;
@@ -479,19 +475,11 @@
     overflow-x: hidden;
   }
 
-  .site {
-    overflow-x: hidden;
-    width: 100%;
-    padding: 0 15px;
-  }
-
-  /* ===== MOBILE NAVBAR ===== */
   .navbar {
     padding: 0 20px;
     margin-left: 0;
     width: 100%;
     z-index: 100;
-    overflow: visible;
   }
 
   .nav-inner {
@@ -505,12 +493,10 @@
     font-size: 26px;
   }
 
-  /* HIDE desktop navigation on mobile */
   .nav-desktop {
     display: none !important;
   }
 
-  /* SHOW hamburger on mobile */
   .hamburger {
     display: flex !important;
     flex-direction: column;
@@ -532,7 +518,6 @@
     display: block;
   }
 
-  /* Hamburger animation to X */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
@@ -545,867 +530,267 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* MOBILE DROPDOWN - Centered under hamburger, blue transparent background */
   .nav-mobile {
-    /* Position - centered under hamburger icon */
     position: fixed;
     top: 70px;
-    right: 20px; /* Align with hamburger position */
-    left: auto; /* Don't stretch full width */
-    width: 280px; /* Fixed width for centered dropdown */
+    right: 20px;
+    width: 280px;
     z-index: 98;
-    
-    /* Appearance - Blue transparent background */
-    background: rgba(23, 121, 207, 0.92); /* Blue with high transparency */
+    background: rgba(23, 121, 207, 0.92);
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     border-radius: 12px;
-    
-    /* Layout */
     display: flex;
     flex-direction: column;
-    gap: 0;
-    
-    /* Hidden state */
     max-height: 0;
     padding: 0 20px;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px); /* Slight upward animation */
-    
-    /* Smooth transition */
-    transition: max-height 0.4s ease, 
-                padding 0.4s ease, 
-                opacity 0.3s ease,
-                visibility 0.3s ease,
-                transform 0.3s ease;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
   }
 
-  /* Mobile dropdown - OPEN state */
   .nav-mobile.open {
     max-height: 450px;
     padding: 20px;
-    gap: 3px;
     opacity: 1;
     visibility: visible;
-    display: flex;
-    transform: translateY(0); /* Slide down animation */
+    transform: translateY(0);
   }
 
-  /* Mobile nav links - Left justified */
   .nav-mobile .nav-link {
     display: block;
     width: 100%;
-    text-align: left; /* Left justified */
+    text-align: left;
     font-size: 17px;
     padding: 14px 18px;
-    margin: 0;
     color: var(--white);
-    background: transparent;
-    border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 6px;
   }
 
-  .nav-mobile .nav-link:last-of-type {
-    border-bottom: none;
-  }
-
-  .nav-mobile .nav-link:hover {
-    background: rgba(255, 255, 255, 0.15);
-    padding-left: 25px;
-    color: var(--accent);
-  }
-
-  /* Mobile contact button */
   .nav-mobile .contact-button {
     display: block;
     width: 100%;
     text-align: center;
     padding: 14px 20px;
-    margin: 12px 0 5px 0;
+    margin-top: 12px;
     background-color: var(--accent);
     color: var(--bg);
-    border: 2px solid var(--accent);
     border-radius: 120px;
-    cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-
-  .nav-mobile .contact-button:hover {
-    background-color: rgba(110, 231, 183, 0.2);
-    color: var(--accent);
-    border-color: var(--accent);
   }
 
   /* ===== HERO SECTION MOBILE ===== */
   #home {
     padding: 100px 0 60px;
-    margin-bottom: 0;
-    margin-top: 0;
-    z-index: 1;
-  }
-
-  .hero-inner {
-    padding: 0 20px;
-  }
-
-  .hero-text {
-    text-align: center;
   }
 
   .hero-name {
     font-size: 52px;
-    line-height: 1;
-    font-weight: bolder;
     text-align: center;
-    margin: 0 auto;
-  }
-
-  .hero-name .first-name {
-    display: block;
-    margin-bottom: -4px;
   }
 
   .hero-name .last-name {
-    margin-top: -11px;
     font-size: 52px;
-    margin-left: 0;
-    margin-right: 0;
     text-align: center;
+    margin-top: -11px;
   }
 
-  .middle-name {
-    font-size: 1.5em; /* Even smaller on mobile */
-  }
-
-.hero-sub-right-fixed {
+  .hero-sub-right-fixed {
     position: static;
-    transform: none;
     font-size: 24px;
     text-align: center;
-    margin: 25px auto 15px;
-    padding: 0;           /* uniform — no class-specific horizontal padding */
-    max-width: 100%;
     width: 100%;
+    margin: 25px auto 15px;
   }
 
- .hero-sub-right2 {
+  .hero-sub-right2 {
     position: static;
-    transform: none;
-    width: 130%;
     font-size: 16px;
     text-align: center;
-    margin: 7px auto 5px 2px; /* Top, Right, Bottom, Left */
+    width: 130%;
+    margin: 7px auto 5px 2px;
     padding: 0 32px 0 33px;
-    line-height: 1.6;
-    padding-right: 120px;
-}
-
- /* Rotating job-title text: centred, no per-class padding offsets */
-  
-
-  /* Remove any per-class padding overrides on mobile */
-  .hero-sub-right-fixed.loading-text-frontend,
-  .hero-sub-right-fixed.loading-text-web,
-  .hero-sub-right-fixed.loading-text-mobile,
-  .hero-sub-right-fixed.loading-text-game {
-    padding: 0;
   }
-
 
   .hero-image {
     position: static;
-    transform: none;
     margin: 40px auto 0;
     width: 100%;
     max-width: 350px;
     height: auto;
-    display: block;
   }
 
-  .name-section {
-    margin-top: 10px;
-    align-items: center;
-    gap: 11px;
-  }
-
-  .mywork {
-    padding: 12px 28px;
-    font-size: 16px;
-    top: 13px;
-  }
-
-
-
-  /* ===== PROJECTS SECTION MOBILE ===== */
- /* ===== PROJECTS SECTION MOBILE - NO HORIZONTAL SCROLL ===== */
+  /* ===== PROJECTS SECTION MOBILE - SYNCED WEB & GAME ===== */
   #projects {
     padding: 50px 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    overflow: hidden; /* Changed from overflow-x: hidden */
+    overflow: hidden;
     width: 100%;
-  }
-
-  #projects .container {
-    overflow: hidden; /* Changed from overflow-x: hidden */
-    padding: 30px 15px;
-    width: 100%;
-  }
-
-  .section-title {
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 30px;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 0;
-    justify-content: center;
     margin: 0 auto;
-    overflow: hidden; /* Changed from overflow-x: hidden */
-    width: 100%;
-    max-width: 100%;
   }
 
-  /* WEB PROJECT CARDS - Standard size */
-  .project-card {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto !important;
-    height: auto;
-    overflow: hidden; /* Prevent any overflow */
-  }
-
-  .project-card.web {
-   aspect-ratio: 16/9;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 10px;
-  }
-
-  /* MOBILE PROJECT CARDS - Smaller size */
-  .project-card.mobile {
-    max-width: 240px; /* Reduced from 280px */
-    width: 240px;
-    aspect-ratio: 9/16;
-    height: auto;
-    margin: 0 auto !important;
-    overflow: hidden; /* Prevent overflow */
-  }
-
-  /* Reset positioning for all projects */
-  .project-card:nth-child(1),
-  .project-card:nth-child(2),
-  .project-card:nth-child(3),
-  .project-card:nth-child(4),
-  #proj-9,
-  #proj-10 {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    position: static !important;
-    left: 0 !important;
-    top: 0 !important;
-  }
-
-  /* PROJECT MEDIA - Prevent overflow */
-  .project-media {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden; /* Critical: prevent any overflow */
-  }
-
-  .project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* WEB PROJECT IMAGES */
-  .project-card.web .project-media {
-    width: 100%;
-    height: 100%;
-  }
-
-  .project-card.web .project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* MOBILE PROJECT IMAGES - Smaller */
-  .project-card.mobile .project-media {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .project-card.mobile .project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .game-grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
-    gap: 30px;
-  }
+  /* Unified sizing for Web and Game Cards */
+  .project-card.web,
   .project-card.game {
     aspect-ratio: 16/9;
     width: 100%;
     max-width: 100%;
     border-radius: 10px;
+    margin: 0 auto !important;
+    position: relative;
+    overflow: hidden;
+    height: auto;
   }
-  .game-media { position: absolute; inset: 0; }
-  .game-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .project-card.mobile { max-width: 240px; width: 240px; aspect-ratio: 9/16; height: auto; margin: 0 auto !important; }
+  .project-card.web .project-media,
+  .project-card.game .project-media {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    overflow: hidden;
+  }
 
+  .project-card.web .project-media img,
+  .project-card.game .project-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+  }
 
-  /* PROJECT OVERLAY - Perfect fit */
-  .project-body {
+  /* Unified Overlay for Web and Game */
+  .project-card.web .project-body,
+  .project-card.game .project-body {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background: rgba(2, 6, 23, 0.92);
-    padding: 15px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
     z-index: 10;
-    overflow: hidden; /* Prevent text overflow */
   }
 
-  .project-card:hover .project-body {
+  .project-card.web:hover .project-body,
+  .project-card.game:hover .project-body {
     opacity: 1;
     visibility: visible;
   }
 
-  /* WEB PROJECT OVERLAY */
-    .project-card.web .project-media {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .project-card.web .project-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .project-card.web .project-body {
-    width: 100%;
-    padding: 20px 15px;
-  }
-
-  .project-card.web .project-body h3 {
-    font-size: 18px;
-  }
-
-  .project-card.web .project-body p {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  .project-card.web .tech {
-    font-size: 10px;
-    padding: 4px 6px;
-  }
-
-  .project-card.web .link-button {
-    padding: 10px 20px;
-    font-size: 0.85rem;
-
-  /* MOBILE PROJECT OVERLAY - Smaller and fitted */
-  .project-card.mobile .project-body {
-    padding: 12px 10px; /* Reduced padding */
-    justify-content: space-around;
-    width: 100%; /* Exact fit */
-    height: 100%; /* Exact fit */
-    margin: 0; /* No overflow margins */
-    left: 0;
-    top: 0;
-  }
-
-  .project-card.mobile .project-body h3 {
-    font-size: 15px; /* Slightly smaller */
-    margin-bottom: 6px;
-    line-height: 1.2;
-  }
-
-  .project-card.mobile .project-body p {
-    font-size: 12px; /* Slightly smaller */
-    line-height: 1.3;
-    margin-bottom: 8px;
-    overflow: hidden; /* Prevent text overflow */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
-
-  /* Game overlay text */
-  .game-grid .project-card.game .project-body      { padding: 20px 15px; }
-  .game-grid .project-card.game .project-body h3   { font-size: 18px; }
-  .game-grid .project-card.game .project-body p    { font-size: 13px; line-height: 1.4; }
-  .game-grid .project-card.game .tech              { font-size: 10px; padding: 4px 6px; }
-  .game-grid .project-card.game .link-button       { padding: 10px 20px; font-size: 0.85rem; }
-
-  /* TECH BADGES - Smaller on mobile projects */
-  .tech-list {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 8px 0;
-  }
-
-  .tech {
-    font-size: 10px;
-    padding: 4px 6px;
-  }
-
-  .project-card.mobile .tech {
-    font-size: 9px; /* Even smaller for mobile projects */
-    padding: 3px 5px;
-  }
-
-  /* LINK BUTTONS */
-  .link-button {
-    padding: 9px 16px;
-    font-size: 13px;
-    border-radius: 20px;
-  }
-
-  .project-card.mobile .link-button {
-    padding: 8px 14px; /* Slightly smaller */
-    font-size: 12px;
-  }
-
-  #projects {
-    padding: 50px 0;
-    margin-top: 0;
-  }
-
-  .project-category {
-    margin-bottom: 50px;
-  }
-
-  .category-heading {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-
-  .category-heading::after {
-    width: 60px;
-    height: 2px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0;
-  }
-
-  .projects-grid.mobile-grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 30px;
-  }
-
-  .project-card.web {
-    width: 100%;
-  }
-
-  .project-card.mobile {
-    max-width: 280px;
-    margin: 0 auto !important;
-  }
-
-  .project-card.game {
-    aspect-ratio: 16/9;
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .project-card.game .project-media {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .project-card.game .project-media img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .project-card.game .project-body {
-    width: 100%;
-    padding: 20px 15px;
-  }
-
+  /* Unified Typography for Web and Game */
+  .project-card.web .project-body h3,
   .project-card.game .project-body h3 {
     font-size: 18px;
+    margin-bottom: 8px;
   }
 
+  .project-card.web .project-body p,
   .project-card.game .project-body p {
     font-size: 13px;
     line-height: 1.4;
+    margin-bottom: 10px;
   }
 
+  .project-card.web .tech,
   .project-card.game .tech {
     font-size: 10px;
     padding: 4px 6px;
   }
 
+  .project-card.web .link-button,
   .project-card.game .link-button {
     padding: 10px 20px;
     font-size: 0.85rem;
+    border-radius: 20px;
   }
-  /* ... keep all other mobile styles below ... */
 
+  /* MOBILE Specific (Vertical) */
+  .project-card.mobile {
+    max-width: 240px;
+    width: 240px;
+    aspect-ratio: 9/16;
+    margin: 0 auto !important;
+  }
+
+  .project-card.mobile .project-body {
+    padding: 12px 10px;
+  }
 
   /* ===== ABOUT SECTION MOBILE ===== */
   #about {
     padding: 50px 0;
-    margin-top: 0;
   }
 
   .about-grid {
     grid-template-columns: 1fr;
-    width: 100%;
-    font-size: 16px;
-    gap: 25px;
-  }
-
-  .about-text {
     text-align: center;
-  }
-
-  .about-grid p {
-    text-align: center;
-    margin-bottom: 15px;
-    line-height: 1.7;
   }
 
   .about-image {
-    width: 100%;
     max-width: 280px;
-    height: auto;
     margin: 20px auto 0;
-    display: block;
   }
 
   /* ===== SKILLS SECTION MOBILE ===== */
   #skills {
     padding: 50px 0;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
-  #skills .section-title {
-    margin-top: 0;
-    margin-bottom: 30px;
-    text-align: center;
   }
 
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    justify-items: center;
-    padding: 0;
-    margin-top: 0;
-  }
-
-  .skill-item {
-    margin: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   .skill-icon {
     width: 80px;
     height: 80px;
-    margin-bottom: 10px;
-  }
-
-  .skill-pill {
-    font-size: 13px;
-    padding: 6px 12px;
-    margin-top: 0;
-    margin-bottom: 0;
-    white-space: nowrap;
   }
 
   /* ===== CONTACT SECTION MOBILE ===== */
-  #contact {
-    padding: 50px 0;
-    margin-top: 0;
-  }
-
   .contact-box {
     width: 90%;
-    max-width: 450px;
     padding: 40px 25px;
   }
 
   #contact-header {
     font-size: 32px;
-    margin-top: 0;
-  }
-
-  .contact1 {
-    font-size: 18px;
-  }
-
-  .contact2 {
-    font-size: 17px;
-  }
-
-  .contact3 {
-    font-size: 15px;
-  }
-
-  .contact-buttons {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
-  }
-
-  .contact-btn {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 15px;
-  }
-
-  /* ===== CHAT BOX MOBILE ===== */
-  .chat-box {
-    width: calc(100% - 30px);
-    max-width: 360px;
-    right: 15px;
-    left: 15px;
-    margin: 0 auto;
-    height: auto;
-    max-height: 400px;
-    padding: 18px;
-  }
-
-  /* ===== FOOTER MOBILE ===== */
-  .footer {
-    padding: 30px 0;
-    margin-top: 0;
-  }
-
-  .github-icon {
-    width: 32px;
-    height: 32px;
   }
 }
 
 /* --- MOBILE PORTRAIT (480px) --- */
 @media (max-width: 480px) {
-  .nav-mobile {
-    right: 15px;
-    width: calc(100% - 30px);
-    max-width: 260px;
-  }
-
-  .logo-circle {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-  }
-
-  .hero-name {
-    font-size: 44px;
-  }
-
-  .hero-name .last-name {
-    font-size: 44px;
-    margin-top: -12px;
-  }
-
-  .middle-name {
-     font-size: 1.3em;
-  }
-
-  .hero-sub-right-fixed {
-    font-size: 20px;
-  }
-
-  .hero-sub-right2 {
-    font-size: 14px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .skill-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .skill-pill {
-    font-size: 12px;
-    padding: 5px 10px;
-  }
-
-  .category-heading {
-    font-size: 24px;
-    margin-bottom: 25px;
-  }
-
-  .mywork {
-    padding: 10px 24px;
-    font-size: 15px;
-    margin-top: 8px;
-  }
-
-  .project-category {
-    margin-bottom: 40px;
-  }
-
-  .project-card.mobile {
-    max-width: 240px;
-  }
-
-   .project-card.game {
-    aspect-ratio: auto;
-    height: 220px;
-  }
+  .hero-name { font-size: 44px; }
+  .hero-name .last-name { font-size: 44px; }
+  .section-title { font-size: 28px; }
   
-/* Web overlay text */
-  .project-card.web .project-body       { padding: 20px 15px; }
-  .project-card.web .project-body h3    { font-size: 18px; margin-bottom: 8px; }
-  .project-card.web .project-body p     { font-size: 14px; line-height: 1.4; margin-bottom: 10px; }
-
-  /* Game overlay text */
-  .game-grid .project-card.game .project-body      { padding: 20px 15px; }
-  .game-grid .project-card.game .project-body h3   { font-size: 18px; }
-  .game-grid .project-card.game .project-body p    { font-size: 13px; line-height: 1.4; }
-  .game-grid .project-card.game .tech              { font-size: 10px; padding: 4px 6px; }
-  .game-grid .project-card.game .link-button       { padding: 10px 20px; font-size: 0.85rem; }
-
+  .project-card.web, .project-card.game {
+    height: 220px; /* Force consistent height if aspect-ratio behaves oddly on tiny screens */
+    aspect-ratio: auto;
+  }
 }
 
 /* --- EXTRA SMALL DEVICES (380px) --- */
 @media (max-width: 380px) {
-  .nav-mobile {
-    right: 10px;
-    width: calc(100% - 20px);
-    max-width: 240px;
-  }
-
-  .hero-name {
-    font-size: 38px;
-  }
-
-  .hero-name .last-name {
-    font-size: 38px;
-    margin-top: -10px;
-  }
-
-  .hero-sub-right-fixed {
-    font-size: 18px;
-  }
-
-  .hero-sub-right2 {
-    font-size: 13px;
-  }
-
-  .section-title {
-    font-size: 26px;
-  }
-
-  .skill-icon {
-    width: 65px;
-    height: 65px;
-  }
-
-  .skill-pill {
-    font-size: 11px;
-    padding: 4px 8px;
-  }
-  .project-card.mobile {
-    max-width: 200px;
-    width: 200px;
-  }
-
-  .project-card.mobile .project-body {
-    padding: 10px 8px;
-  }
-
-  .project-card.mobile .project-body h3 {
-    font-size: 13px;
-  }
-
-  .project-card.mobile .project-body p {
-    font-size: 10px;
-    line-clamp: 2; /* Standard property for compatibility */
-    -webkit-line-clamp: 2; /* Limit to 2 lines on smallest screens */
-  }
+  .hero-name { font-size: 38px; }
+  .project-card.mobile { width: 200px; }
 }
 
-/* --- LANDSCAPE MOBILE ORIENTATION --- */
+/* --- LANDSCAPE MOBILE --- */
 @media (max-height: 500px) and (orientation: landscape) {
-  #home {
-    padding: 100px 0 40px;
-    margin-bottom: 0;
-  }
-
-  .hero-name {
-    font-size: 40px;
-  }
-
-  .hero-name .last-name {
-    margin-top: -10px;
-    font-size: 40px;
-  }
-
-  .hero-sub-right-fixed {
-    font-size: 18px;
-    margin: 15px auto 10px;
-  }
-
-  .hero-sub-right2 {
-    font-size: 13px;
-  }
-
-  .hero-image {
-    max-width: 200px;
-    margin: 25px auto 0;
-  }
-
-  #projects,
-  #about,
-  #skills,
-  #contact {
-    padding: 35px 0;
-  }
-}}
+  .hero-name { font-size: 40px; }
+  .hero-image { max-width: 200px; }
+}
