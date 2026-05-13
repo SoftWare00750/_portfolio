@@ -36,6 +36,16 @@ const projects = [
 
   {
     id: "proj-4",
+    title: "Car Rental Application, Rent-A-Car",
+    desc: "Rent your cars, according to your taste and desire for your needs",
+    tech: ["Angular.js", "Tailwind CSS", ".Net"],
+    image: "/assets/renta-car.png",
+    link: "https://renta-car-six.vercel.app/",
+    type: "web"
+  },
+
+  {
+    id: "proj-5",
     title: "Task Management App, Taskflow",
     desc: "Manage your Tasks, per day, per week, per month, per year.",
     tech: ["Vue.js", "Tailwind CSS"],
@@ -45,7 +55,7 @@ const projects = [
   },
 
   {
-    id: "proj-4a",
+    id: "proj-5a",
     title: "Food Recipe Discovery Site, Dishcovery",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app",
     tech: ["React.js", "CSS", "node.js"],
@@ -55,7 +65,7 @@ const projects = [
   },
 
  {
-    id: "proj-4b",
+    id: "proj-5b",
     title: "Gym Website, Gymino",
     desc: "Learn about Gyms and register for a plan for ypur fitness",
     tech: ["React.js", "CSS",],
@@ -66,7 +76,7 @@ const projects = [
 
 
   {
-    id: "proj-5",
+    id: "proj-6",
     title: "Garage Website",
     desc: "View different Cars, and see information about them.",
     tech: ["React.js", "Css", "Html"],
@@ -76,7 +86,7 @@ const projects = [
   },
 
   {
-    id: "proj-6",
+    id: "proj-7a",
     title: "Nike Shoe store website",
     desc: "View different Nike shoes and purchase them.",
     tech: ["React.js", "Css", "Html"],
@@ -86,7 +96,7 @@ const projects = [
   },
 
   {
-    id: "proj-7",
+    id: "proj-7b",
     title: "E-commerce site, ShopHub",
     desc: "Shop and buy what you need",
     tech: ["Wordpress"],
@@ -96,7 +106,7 @@ const projects = [
   },
 
  {
-    id: "proj-8",
+    id: "proj-7c",
     title: "Advertisement website, MusicFestival",
     desc: "Check out information about the coming Music Festival",
     tech: ["Wordpress"],
