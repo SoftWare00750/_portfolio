@@ -25,7 +25,7 @@ const projects = [
 
   {
     id: "proj-3",
-    title: "B.sc Final Year Project - NRS Tax System Application ",
+    title: "NRS Tax System Application",
     desc: "Tax System Application with Bell Lapadula Access Control-B.sc Final year project ",
     tech: ["React.js", "Tailwind Css", "Appwrite"],
     image: "/assets/nrs.png",
