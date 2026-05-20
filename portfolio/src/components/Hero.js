@@ -60,8 +60,8 @@ export default function Hero() {
           <div className="hero-text1">
             <div className="name-section">
               <h1 className="hero-name">
-                <span className="first-name">Oluwadamilola</span>
-                <span className="middle-name">Stephen</span>
+                <span className="first-name">Stephen</span>
+                <span className="middle-name">O.</span>
                 <br />
                 <span className="last-name">Otunla</span>
               </h1>
@@ -91,7 +91,7 @@ export default function Hero() {
                       className="hero-menu-item"
                       onClick={() =>
                         window.open(
-                          "https://drive.google.com/your-resume-link",
+                          "https://drive.google.com/file/d/1CZydhqyrEKcl6eKwSMWSeMMej0unNsHo/view?usp=drivesdk",
                           "_blank"
                         )
                       }
