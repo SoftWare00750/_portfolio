@@ -60,8 +60,8 @@ export default function Hero() {
           <div className="hero-text1">
             <div className="name-section">
               <h1 className="hero-name">
-                <span className="first-name">Stephen</span>
-                <span className="middle-name">DammyWise</span>
+                <span className="first-name">Oluwadamilola</span>
+                <span className="middle-name">Stephen</span>
                 <br />
                 <span className="last-name">Otunla</span>
               </h1>
