@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import projects from "../data/projects";
 
 const WEB_INITIAL = 4;
-const WEB_PER_PAGE = 2;   // match your grid column count
+const WEB_PER_PAGE = 2;
 const GAME_PER_PAGE = 2;
 const MOBILE_PER_PAGE = 2;
 
@@ -16,17 +16,21 @@ function ShowMoreButton({ onClick }) {
 }
 
 export default function Projects() {
-  const webProjects    = projects.filter(p => p.type === 'web' || !p.type);
-  const mobileProjects = projects.filter(p => p.type === 'mobile');
-  const gameProjects   = projects.filter(p => p.type === 'game');
+  const webProjects    = projects.filter(p => p.type === "web" || !p.type);
+  const mobileProjects = projects.filter(p => p.type === "mobile");
+  const gameProjects   = projects.filter(p => p.type === "game");
 
   const [webVisible,    setWebVisible]    = useState(WEB_INITIAL);
   const [gameVisible,   setGameVisible]   = useState(GAME_PER_PAGE);
   const [mobileVisible, setMobileVisible] = useState(MOBILE_PER_PAGE);
 
-  const showMoreWeb    = () => setWebVisible(prev => Math.min(prev + WEB_PER_PAGE, webProjects.length));
-  const showMoreGame   = () => setGameVisible(prev => Math.min(prev + GAME_PER_PAGE, gameProjects.length));
-  const showMoreMobile = () => setMobileVisible(prev => Math.min(prev + MOBILE_PER_PAGE, mobileProjects.length));
+  const showMoreWeb    = () => setWebVisible(prev => prev + WEB_PER_PAGE);
+  const showMoreGame   = () => setGameVisible(prev => prev + GAME_PER_PAGE);
+  const showMoreMobile = () => setMobileVisible(prev => prev + MOBILE_PER_PAGE);
+
+  const visibleWebProjects    = webProjects.slice(0, webVisible);
+  const visibleGameProjects   = gameProjects.slice(0, gameVisible);
+  const visibleMobileProjects = mobileProjects.slice(0, mobileVisible);
 
   return (
     <section id="projects" className="section">
@@ -37,7 +41,7 @@ export default function Projects() {
         <div className="project-category">
           <h3 id="web-heading" className="category-heading">Web Projects</h3>
           <div className="projects-grid">
-            {webProjects.slice(0, webVisible).map((p) => (
+            {visibleWebProjects.map((p) => (
               <div key={p.id} id={p.id} className="project-card web">
                 <div className="project-media">
                   <img src={p.image} alt={p.title} />
@@ -57,7 +61,9 @@ export default function Projects() {
               </div>
             ))}
           </div>
-          {webVisible < webProjects.length && <ShowMoreButton onClick={showMoreWeb} />}
+          {webVisible < webProjects.length && (
+            <ShowMoreButton onClick={showMoreWeb} />
+          )}
         </div>
 
         {/* ── GAME PROJECTS ── */}
@@ -65,7 +71,7 @@ export default function Projects() {
           <div className="project-category">
             <h3 className="category-heading">Game Projects</h3>
             <div className="projects-grid game-grid">
-              {gameProjects.slice(0, gameVisible).map((p) => (
+              {visibleGameProjects.map((p) => (
                 <div key={p.id} id={p.id} className="project-card game">
                   <div className="project-media game-media">
                     <img src={p.image} alt={p.title} />
@@ -85,7 +91,9 @@ export default function Projects() {
                 </div>
               ))}
             </div>
-            {gameVisible < gameProjects.length && <ShowMoreButton onClick={showMoreGame} />}
+            {gameVisible < gameProjects.length && (
+              <ShowMoreButton onClick={showMoreGame} />
+            )}
           </div>
         )}
 
@@ -93,7 +101,7 @@ export default function Projects() {
         <div className="project-category">
           <h3 className="category-heading">Mobile Apps</h3>
           <div className="projects-grid mobile-grid">
-            {mobileProjects.slice(0, mobileVisible).map((p) => (
+            {visibleMobileProjects.map((p) => (
               <div key={p.id} id={p.id} className="project-card mobile">
                 <div className="project-media">
                   <img src={p.image} alt={p.title} />
@@ -113,7 +121,9 @@ export default function Projects() {
               </div>
             ))}
           </div>
-          {mobileVisible < mobileProjects.length && <ShowMoreButton onClick={showMoreMobile} />}
+          {mobileVisible < mobileProjects.length && (
+            <ShowMoreButton onClick={showMoreMobile} />
+          )}
         </div>
 
       </div>
