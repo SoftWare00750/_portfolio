@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import projects from "../data/projects";
 
-const PROJECTS_PER_PAGE = 2; // how many to reveal per "Show more" click for web (shows 4 first)
 const WEB_INITIAL = 4;
+const WEB_PER_PAGE = 2;   // keep as-is; change to 3 if your grid is 3-col
+const GAME_PER_PAGE = 2;
+const MOBILE_PER_PAGE = 2;
 
 function ShowMoreButton({ onClick }) {
   return (
@@ -22,9 +24,9 @@ export default function Projects() {
   const [gameVisible,   setGameVisible]   = useState(2);
   const [mobileVisible, setMobileVisible] = useState(2);
 
-  const showMoreWeb    = () => setWebVisible(v => Math.min(v + PROJECTS_PER_PAGE, webProjects.length));
-  const showMoreGame   = () => setGameVisible(v => Math.min(v + 2, gameProjects.length));
-  const showMoreMobile = () => setMobileVisible(v => Math.min(v + 2, mobileProjects.length));
+  const showMoreWeb    = () => setWebVisible(v => Math.min(v + WEB_PER_PAGE, webProjects.length));
+  const showMoreGame   = () => setGameVisible(v => Math.min(v + GAME_PER_PAGE, gameProjects.length));
+  const showMoreMobile = () => setMobileVisible(v => Math.min(v + MOBILE_PER_PAGE, mobileProjects.length));
 
   return (
     <section id="projects" className="section">
@@ -55,7 +57,9 @@ export default function Projects() {
               </div>
             ))}
           </div>
-          {webVisible < webProjects.length && <ShowMoreButton onClick={showMoreWeb} />}
+          {webVisible < webProjects.length && (
+            <ShowMoreButton onClick={showMoreWeb} />
+          )}
         </div>
 
         {/* ── GAME PROJECTS ── */}
@@ -83,7 +87,9 @@ export default function Projects() {
                 </div>
               ))}
             </div>
-            {gameVisible < gameProjects.length && <ShowMoreButton onClick={showMoreGame} />}
+            {gameVisible < gameProjects.length && (
+              <ShowMoreButton onClick={showMoreGame} />
+            )}
           </div>
         )}
 
@@ -111,7 +117,9 @@ export default function Projects() {
               </div>
             ))}
           </div>
-          {mobileVisible < mobileProjects.length && <ShowMoreButton onClick={showMoreMobile} />}
+          {mobileVisible < mobileProjects.length && (
+            <ShowMoreButton onClick={showMoreMobile} />
+          )}
         </div>
       </div>
     </section>
