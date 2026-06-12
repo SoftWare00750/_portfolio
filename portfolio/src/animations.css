@@ -2,206 +2,109 @@
    DESKTOP ANIMATIONS - SMOOTH & NATURAL
    ========================= */
 
-/* Navbar animation - Smooth slide down */
+/* Navbar */
 .navbar {
   transform: translateY(-100%);
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: fixed;
   will-change: transform;
 }
+.navbar.animate { transform: translateY(0); }
 
-.navbar.animate {
-  transform: translateY(0);
-}
-
-/* Hero animations - Smooth and natural */
+/* Hero name */
 .hero-name {
   opacity: 0;
   transform: translateX(-100px);
-  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.hero-name.animate { opacity: 1; transform: translateX(0); }
 
-.hero-name.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
+/* Hero subtitles */
 .hero-sub-right-fixed,
 .hero-sub-right2 {
   opacity: 0;
   transform: translateX(100px);
-  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, 
+  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
               transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
-
 .hero-sub-right-fixed.animate,
-.hero-sub-right2.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
+.hero-sub-right2.animate { opacity: 1; transform: translateX(0); }
 
-/* Hero image - Smooth natural slide */
+/* Hero image */
 .hero-image {
   opacity: 0;
   transform: translateY(-60px);
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s, 
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
               transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
   visibility: visible !important;
   display: block !important;
   min-height: 1px;
 }
+.hero-image.animate { opacity: 1; transform: translateY(0); }
 
-.hero-image.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Section titles - Smooth fade */
+/* Section titles */
 .section-title {
   opacity: 0;
   transform: translateY(-30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.section-title.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
+.section-title.animate { opacity: 1; transform: translateY(0); }
 
 /* ================================================================
-   PROJECT CARDS - Covers ALL children (1-9+)
-   Pattern: odd positions slide from left, even from right,
-   with a stagger delay on the second card of each row.
+   PROJECT CARDS
+   Default initial state — odd from left, even from right.
+   The .animate class (applied by JS) makes them fully visible.
    ================================================================ */
 
 .project-card {
   opacity: 0;
-  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* --- Row 1 --- */
-.project-card:nth-child(1) {
-  transform: translateX(-100px);
-}
-.project-card:nth-child(1).animate {
-  opacity: 1;
-  transform: translateX(0);
+/* Row directions */
+.project-card:nth-child(odd)  { transform: translateX(-100px); }
+.project-card:nth-child(even) { transform: translateX(100px); transition-delay: 0.15s; }
+
+/* ── THE CRITICAL FIX ──
+   Once .animate is added (either by IntersectionObserver on scroll-in,
+   OR by the Show More handler in Projects.js for in-viewport cards),
+   override EVERYTHING and make the card fully visible.
+   !important is necessary to beat the nth-child specificity above. */
+.project-card.animate {
+  opacity: 1 !important;
+  transform: translateX(0) translateY(0) !important;
+  transition-delay: 0s !important;
 }
 
-.project-card:nth-child(2) {
-  transform: translateX(100px);
-}
-.project-card:nth-child(2).animate {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.15s;
-}
-
-/* --- Row 2 --- */
-.project-card:nth-child(3) {
-  transform: translateX(-100px);
-}
-.project-card:nth-child(3).animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.project-card:nth-child(4) {
-  transform: translateX(100px);
-}
-.project-card:nth-child(4).animate {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.15s;
-}
-
-/* --- Row 3 --- */
-.project-card:nth-child(5) {
-  transform: translateX(-100px);
-}
-.project-card:nth-child(5).animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.project-card:nth-child(6) {
-  transform: translateX(100px);
-}
-.project-card:nth-child(6).animate {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.15s;
-}
-
-/* --- Row 4 --- */
-.project-card:nth-child(7) {
-  transform: translateX(-100px);
-}
-.project-card:nth-child(7).animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.project-card:nth-child(8) {
-  transform: translateX(100px);
-}
-.project-card:nth-child(8).animate {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.15s;
-}
-
-/* --- Row 5 (9th card, lone card on last row) --- */
-.project-card:nth-child(9) {
-  transform: translateX(-100px);
-}
-.project-card:nth-child(9).animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* About section animations - Smooth slides */
+/* About */
 .about-text {
   opacity: 0;
   transform: translateX(-80px);
-  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.about-text.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
+.about-text.animate { opacity: 1; transform: translateX(0); }
 
 .about-image {
   opacity: 0;
   transform: translateX(80px);
-  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s, 
+  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
               transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
+.about-image.animate { opacity: 1; transform: translateX(0); }
 
-.about-image.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Skills animations - Smooth cascading */
+/* Skills */
 .skill-item {
   opacity: 0;
   transform: translateY(-30px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.skill-item.animate { opacity: 1; transform: translateY(0); }
 
-.skill-item.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger delays for smooth cascade — covers all 19 skills */
 .skill-item:nth-child(1)  { transition-delay: 0.05s; }
 .skill-item:nth-child(2)  { transition-delay: 0.1s; }
 .skill-item:nth-child(3)  { transition-delay: 0.15s; }
@@ -222,35 +125,23 @@
 .skill-item:nth-child(18) { transition-delay: 0.9s; }
 .skill-item:nth-child(19) { transition-delay: 0.95s; }
 
-/* Contact section - Smooth rise */
+/* Contact */
 .contact-container {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.contact-container.animate { opacity: 1; transform: translateY(0); }
 
-.contact-container.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Footer - Smooth fade */
+/* Footer */
 .footer {
   opacity: 0;
   transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.footer.animate { opacity: 1; }
 
-.footer.animate {
-  opacity: 1;
-}
-
-/* Once animated, disable transform transitions so text cycling doesn't re-trigger the slide */
-.hero-sub-right-fixed.animate {
-  transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
-              transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
-}
-
+/* Prevent text-cycling on hero subtitle from re-triggering slide */
 .hero-sub-right-fixed.animate.loading-text-web,
 .hero-sub-right-fixed.animate.loading-text-frontend,
 .hero-sub-right-fixed.animate.loading-text-mobile,
@@ -264,122 +155,49 @@
    MOBILE OPTIMIZATIONS
    ========================= */
 @media (max-width: 768px) {
-  /* Force navbar always visible on mobile */
   .navbar {
     transform: translateY(0) !important;
     transition-duration: 0s !important;
   }
+  .navbar.animate { transform: translateY(0) !important; }
 
-  .navbar.animate {
-    transform: translateY(0) !important;
-  }
-
-  .nav,
-  .nav.open {
+  .nav, .nav.open {
     transform: none !important;
     animation: none !important;
-    transition: max-height 0.4s ease, 
-                padding 0.4s ease, 
+    transition: max-height 0.4s ease,
+                padding 0.4s ease,
                 opacity 0.3s ease,
                 visibility 0.3s ease !important;
   }
 
-  /* Reduce translation distances on mobile */
-  .hero-name {
-    transform: translateX(-50px);
-  }
-  
+  .hero-name              { transform: translateX(-50px); }
   .hero-sub-right-fixed,
-  .hero-sub-right2 {
-    transform: translateX(50px);
-  }
-  
-  .hero-image {
-    transform: translateY(-30px);
-  }
-  
-  /* All project cards animate from bottom on mobile, no stagger */
-  .project-card:nth-child(1),
-  .project-card:nth-child(2),
-  .project-card:nth-child(3),
-  .project-card:nth-child(4),
-  .project-card:nth-child(5),
-  .project-card:nth-child(6),
-  .project-card:nth-child(7),
-  .project-card:nth-child(8),
-  .project-card:nth-child(9) {
-    transform: translateY(30px);
-  }
-  
-  .project-card:nth-child(1).animate,
-  .project-card:nth-child(2).animate,
-  .project-card:nth-child(3).animate,
-  .project-card:nth-child(4).animate,
-  .project-card:nth-child(5).animate,
-  .project-card:nth-child(6).animate,
-  .project-card:nth-child(7).animate,
-  .project-card:nth-child(8).animate,
-  .project-card:nth-child(9).animate {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0s;
-  }
-  
-  .about-text {
-    transform: translateY(30px);
-  }
-  .about-text.animate {
-    transform: translateY(0);
-  }
-  
-  .about-image {
-    transform: translateY(30px);
-  }
-  .about-image.animate {
-    transform: translateY(0);
-  }
-  
-  .contact-container {
-    transform: translateY(30px);
-  }
-  .contact-container.animate {
-    transform: translateY(0);
-  }
-  
-  .skill-item {
-    transform: translateY(-20px);
-  }
-  
-  /* Slightly slower mobile animations */
+  .hero-sub-right2        { transform: translateX(50px); }
+  .hero-image             { transform: translateY(-30px); }
+
+  /* All project cards animate from bottom on mobile */
+  .project-card           { transform: translateY(30px); }
+  /* The universal .animate rule above still fires — no per-nth overrides needed */
+
+  .about-text             { transform: translateY(30px); }
+  .about-text.animate     { transform: translateY(0); }
+  .about-image            { transform: translateY(30px); }
+  .about-image.animate    { transform: translateY(0); }
+  .contact-container      { transform: translateY(30px); }
+  .contact-container.animate { transform: translateY(0); }
+  .skill-item             { transform: translateY(-20px); }
+
   .hero-name,
   .hero-sub-right-fixed,
-  .hero-sub-right2 {
-    transition-duration: 0.65s;
-  }
-  .hero-image {
-    transition-duration: 0.7s;
-  }
-  .section-title {
-    transition-duration: 0.6s;
-  }
-  .project-card {
-    transition-duration: 0.6s;
-  }
-  .about-text,
-  .about-image {
-    transition-duration: 0.6s;
-  }
-  .skill-item {
-    transition-duration: 0.55s;
-  }
-  .contact-container {
-    transition-duration: 0.6s;
-  }
-  .footer {
-    transition-duration: 0.65s;
-  }
-  
-  /* Reduced skill stagger delays on mobile — covers all 19 */
+  .hero-sub-right2        { transition-duration: 0.65s; }
+  .hero-image             { transition-duration: 0.7s; }
+  .section-title          { transition-duration: 0.6s; }
+  .project-card           { transition-duration: 0.6s; }
+  .about-text, .about-image { transition-duration: 0.6s; }
+  .skill-item             { transition-duration: 0.55s; }
+  .contact-container      { transition-duration: 0.6s; }
+  .footer                 { transition-duration: 0.65s; }
+
   .skill-item:nth-child(1)  { transition-delay: 0.04s; }
   .skill-item:nth-child(2)  { transition-delay: 0.08s; }
   .skill-item:nth-child(3)  { transition-delay: 0.12s; }
@@ -401,31 +219,15 @@
   .skill-item:nth-child(19) { transition-delay: 0.76s; }
 }
 
-/* Reduced motion for accessibility */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .navbar,
-  .hero-name,
-  .hero-sub-right-fixed,
-  .hero-sub-right2,
-  .hero-image,
-  .section-title,
-  .project-card,
-  .about-text,
-  .about-image,
-  .skill-item,
-  .contact-container,
-  .footer {
+  .navbar, .hero-name, .hero-sub-right-fixed, .hero-sub-right2,
+  .hero-image, .section-title, .project-card, .about-text,
+  .about-image, .skill-item, .contact-container, .footer {
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
-  
-  .navbar {
-    transform: translateY(0) !important;
-  }
-  
-  .nav,
-  .nav.open {
-    transition: none !important;
-  }
+  .navbar { transform: translateY(0) !important; }
+  .nav, .nav.open { transition: none !important; }
 }
