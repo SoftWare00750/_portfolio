@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import projects from "../data/projects";
 
-const WEB_INITIAL = 4;
+const WEB_INITIAL = 2;
 const WEB_PER_PAGE = 2;
 const GAME_PER_PAGE = 2;
 const MOBILE_PER_PAGE = 2;
@@ -40,7 +40,7 @@ export default function Projects() {
         {/* ── WEB PROJECTS ── */}
         <div className="project-category">
           <h3 id="web-heading" className="category-heading">Web Projects</h3>
-          <div className="projects-grid">
+          <div className="projects-grid"> 
             {visibleWebProjects.map((p) => (
               <div key={p.id} id={p.id} className="project-card web">
                 <div className="project-media">
