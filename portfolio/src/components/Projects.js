@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import projects from "../data/projects";
 
 const WEB_INITIAL = 2;
-const WEB_PER_PAGE = 2;
+const WEB_PER_PAGE = 10;
 const GAME_PER_PAGE = 2;
 const MOBILE_PER_PAGE = 2;
 
