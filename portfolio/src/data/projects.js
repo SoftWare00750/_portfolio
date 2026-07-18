@@ -50,7 +50,7 @@ const projects = [
     desc: "Rent your cars, according to your taste and desire for your needs",
     tech: ["Html", "Bootstrap CSS", "Javascript"],
     image: "/assets/accessbank.png",
-    link: "https://renta-car-six.vercel.app/",
+    link: "https://access-bank-clone.vercel.app/",
     type: "web"
   },
   
