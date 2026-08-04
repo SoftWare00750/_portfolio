@@ -1015,7 +1015,7 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   color: var(--accent);
   font-weight: 600;
   font-size: 15px;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
   user-select: none;
 }
 
