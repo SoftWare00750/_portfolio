@@ -794,10 +794,17 @@
   }
 
   .name-section {
-    margin-top: 10px;
+    position: static;
+    transform: none;
+    margin: 10px auto 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 11px;
-    margin-left: 6px;
   }
 
   .mywork {
