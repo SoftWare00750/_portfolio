@@ -164,13 +164,19 @@
   }
 
   .hero-image {
-    /* Was a flat 900px — now scales with the viewport instead of a fixed
-       number, and can grow larger (up to 1000px) on taller tablet windows
-       while shrinking safely on shorter ones instead of overflowing. */
-    height: clamp(650px, 62vh, 1000px);
-    max-width: 90%;
-    right: 50px;
-    left: 440px;
+    /* Bigger than before, and now scales with both viewport height AND
+       width (not just height), so it resizes smoothly with the page
+       instead of just growing/shrinking on one axis. */
+    height: clamp(700px, 64vh, 1050px);
+    width: auto;
+    max-width: clamp(320px, 46vw, 620px);
+    /* Centered: drop the fixed left/right pixel offsets and let the
+       image sit in the middle of .hero-text instead of being indented
+       toward one side. */
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #projects {
@@ -413,13 +419,19 @@
   }
 
   .hero-image {
-    /* Was a flat 800px — now scales with the viewport instead of a fixed
-       number, and can grow larger (up to 900px) on taller tablet windows
-       while shrinking safely on shorter ones instead of overflowing. */
-    height: clamp(550px, 58vh, 900px);
-    max-width: 90%;
-    right: 40px;
-    left: 380px;
+    /* Bigger than before, and now scales with both viewport height AND
+       width (not just height), so it resizes smoothly with the page
+       instead of just growing/shrinking on one axis. */
+    height: clamp(600px, 62vh, 950px);
+    width: auto;
+    max-width: clamp(300px, 48vw, 580px);
+    /* Centered: drop the fixed left/right pixel offsets and let the
+       image sit in the middle of .hero-text instead of being indented
+       toward one side. */
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #projects {

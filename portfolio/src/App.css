@@ -303,6 +303,19 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -5px;
 }
 
+/* ── Explicit pairing: once both elements have entered (.animate) and the
+   rotating title has landed on "Game Developer", lock .hero-sub-right2
+   directly under .hero-sub-right-fixed.loading-text-game using the exact
+   same top offset and right-edge margin as that state, rather than relying
+   on the base rule above to coincidentally match it. They're siblings in
+   the DOM (.hero-sub-right-fixed renders before .hero-sub-right2 inside
+   .hero-sub), so the general sibling combinator targets this pairing
+   without affecting the other three rotating states. */
+.hero-sub-right-fixed.loading-text-game.animate ~ .hero-sub-right2.animate {
+  top: calc(28% + 70px);
+  margin-right: 140px;
+}
+
 .hero-image {
   position: absolute;
   right: 60px;
