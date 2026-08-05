@@ -164,7 +164,11 @@
   }
 
   .hero-image {
-    height: 900px;
+    /* Was a flat 900px — now scales with the viewport instead of a fixed
+       number, and can grow larger (up to 1000px) on taller tablet windows
+       while shrinking safely on shorter ones instead of overflowing. */
+    height: clamp(650px, 62vh, 1000px);
+    max-width: 90%;
     right: 50px;
     left: 440px;
   }
@@ -331,7 +335,7 @@
     left: auto;
     right: auto;
     height: auto;
-    max-height: 58vh;
+    max-height: 64vh;
     width: auto;
     max-width: 90%;
     margin: 20px auto 0;
@@ -409,7 +413,11 @@
   }
 
   .hero-image {
-    height: 800px;
+    /* Was a flat 800px — now scales with the viewport instead of a fixed
+       number, and can grow larger (up to 900px) on taller tablet windows
+       while shrinking safely on shorter ones instead of overflowing. */
+    height: clamp(550px, 58vh, 900px);
+    max-width: 90%;
     right: 40px;
     left: 380px;
   }
@@ -615,7 +623,7 @@
     left: auto;
     right: auto;
     height: auto;
-    max-height: 55vh;
+    max-height: 60vh;
     width: auto;
     max-width: 85%;
     margin: 16px auto 0;
