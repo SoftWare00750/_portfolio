@@ -1299,9 +1299,18 @@
     margin-top: 0;
   }
 
-  .github-icon {
+  .social-icon {
     width: 32px;
     height: 32px;
+  }
+
+  .social-icon-circle {
+    width: 32px;
+    height: 32px;
+  }
+  .social-icon-circle .social-icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
