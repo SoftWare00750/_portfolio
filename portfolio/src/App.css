@@ -990,25 +990,36 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
 .social-icon { width: 30px; height: 30px; transition: transform 0.2s ease; }
 .social-icon:hover { transform: scale(1.1); }
 
-/* Circular badge wrapper for icons pulled from an icon CDN, so they match
-   the GitHub icon's black circular badge look even though the source SVGs
-   are plain glyphs with no background of their own. */
+/* Rounded-square badge wrapper for icons pulled from an icon CDN. Each badge
+   is tinted with its platform's own brand color (set inline via --brand-color)
+   so the row reads as "colored" rather than a flat monochrome row, with a
+   glowing lift-and-spin animation on hover. */
 .social-icon-circle {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 9px;
   background-color: #000;
-  transition: transform 0.2s ease;
+  box-shadow: 0 0 0 0 var(--brand-color, #000);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              filter 0.3s ease;
 }
-.social-icon-circle:hover { transform: scale(1.1); }
+.social-icon-circle:hover,
+.social-icon-circle:focus-visible {
+  transform: translateY(-4px) scale(1.15) rotate(8deg);
+  box-shadow: 0 6px 18px -2px var(--brand-color, #000),
+              0 0 0 4px color-mix(in srgb, var(--brand-color, #000) 25%, transparent);
+  filter: brightness(1.1);
+}
 .social-icon-circle .social-icon {
   width: 17px;
   height: 17px;
+  transition: transform 0.3s ease;
 }
-.social-icon-circle .social-icon:hover { transform: none; }
+.social-icon-circle:hover .social-icon { transform: scale(1.08); }
 
 /* ================================================================
    ADDITIONS.CSS  —  paste at the END of App.css (or import after)
