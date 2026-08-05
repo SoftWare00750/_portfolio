@@ -15,21 +15,21 @@ const SOCIAL_LINKS = [
   {
     id: "x",
     label: "X",
-    href: "https://x.com/your_username", // TODO: replace with your actual X (Twitter) profile URL
+    href: "https://x.com/Stephtunzzz", // TODO: replace with your actual X (Twitter) profile URL
     icon: "https://cdn.simpleicons.org/x/white",
     color: "#000000",
   },
   {
     id: "instagram",
     label: "Instagram",
-    href: "https://instagram.com/your_username", // TODO: replace with your actual Instagram profile URL
+    href: "https://instagram.com/dami_tunz", // TODO: replace with your actual Instagram profile URL
     icon: "https://cdn.simpleicons.org/instagram/white",
     color: "#E4405F",
   },
   {
     id: "whatsapp",
     label: "WhatsApp",
-    href: "https://wa.me/1234567890", // TODO: replace with your actual WhatsApp number/link
+    href: "https://wa.me/+2349125174767", // TODO: replace with your actual WhatsApp number/link
     icon: "https://cdn.simpleicons.org/whatsapp/white",
     color: "#25D366",
   },
