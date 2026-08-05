@@ -17,8 +17,19 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Sprite Graffiti webfont (sourced from CDN Fonts — no local font files) -->
-    <link href="https://fonts.cdnfonts.com/css/sprite-graffiti" rel="stylesheet" />
+    <!--
+      Graffiti display font (replaces "Sprite Graffiti").
+      "Sprite Graffiti" itself is a paid Fontfabric typeface that was previously
+      pulled from fonts.cdnfonts.com — that CDN serves it unreliably and the
+      glyphs render as a hollow/shadowed outline (looks "transparent") instead
+      of a solid fill. Permanent Marker is a genuine graffiti/marker-tag style
+      Google Font: fully solid, clearly legible at any size, and served
+      reliably from Google's own CDN with no local font files needed.
+    -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CRITICAL: Inline loading screen styles to prevent flash -->
     <style>
@@ -48,7 +59,7 @@
         color: #6ee7b7;
         font-size: 4rem;
         font-weight: bold;
-        font-family: 'Inter', system-ui, sans-serif;
+        font-family: 'Permanent Marker', 'Inter', system-ui, sans-serif;
         margin: 0 0 3rem 0;
         animation: pulse 1.5s ease-in-out infinite;
       }
