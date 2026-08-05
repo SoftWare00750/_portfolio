@@ -108,7 +108,7 @@ const LoadingScreen = () => {
             color: textColor,
             fontSize: '2.4rem',
             fontWeight: 700,
-            fontFamily: "'Sprite Graffiti', Inter, system-ui, sans-serif",
+            fontFamily: "'Permanent Marker', Inter, system-ui, sans-serif",
             margin: 0,
             textAlign: 'center',
             minHeight: 56,

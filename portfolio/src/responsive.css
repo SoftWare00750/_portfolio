@@ -571,6 +571,89 @@
   }
 }
 
+/* --- SMALL/MID TABLET LANDSCAPE (769px–992px, short viewport) ---
+   The ≤992px block above is written for the tall viewport a tablet has in
+   PORTRAIT mode (e.g. #home margin-bottom: 500px, #projects margin-top:
+   -350px, and an untouched position:absolute .hero-image with a fixed
+   400px "top" offset). Smaller tablets/phablets in LANDSCAPE (7"-8"
+   tablets, foldables, etc.) land in this same 769-992px width bucket but
+   are only ~600-800px tall, so those tall-viewport values overflow/clip
+   against the page's hidden overflow. This mirrors the fix already
+   applied above for 993px-1280px landscape tablets, placed after the
+   ≤992px block so it wins the cascade for this narrower width range. */
+@media (max-width: 992px) and (min-width: 769px) and (orientation: landscape) {
+  #home {
+    padding: 120px 0 50px;
+    margin-bottom: 40px;
+  }
+
+  .hero-name {
+    font-size: 52px;
+    line-height: 0.85;
+  }
+
+  .hero-name .last-name {
+    margin-top: -20px;
+  }
+
+  .hero-sub-right-fixed {
+    font-size: 22px;
+    max-width: 90%;
+    margin: 10px auto 8px;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .hero-sub-right2 {
+    font-size: 14px;
+    margin-right: 0;
+  }
+
+  .hero-image {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    height: auto;
+    max-height: 55vh;
+    width: auto;
+    max-width: 85%;
+    margin: 16px auto 0;
+    display: block;
+  }
+
+  #projects {
+    margin-top: 0;
+    padding: 35px 0;
+  }
+
+  #about,
+  #skills,
+  #contact {
+    padding: 35px 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 15px auto 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
 /* ================================================================
    MOBILE STYLES (768px and below) - DESKTOP UNAFFECTED
    ================================================================ */

@@ -1,433 +1,158 @@
-/* =========================================================
-   BarChart.css — Desktop-first, fully responsive
-   ========================================================= */
+import React, { Component } from "react";
+import NodeGroup from "react-move/NodeGroup";
+import "./css/components/BarChart.css";
 
-/* ── CSS Variables ── */
-:root {
-  --bar-color:  #2e8fa8;
-  --bar-bg:     #162535;
-  --label-fill: #d8e8f4;
-  --icon-color: #a8cfe0;
-}
+const BAR_HEIGHT   = 42;
+const BAR_PADDING  = 8;
+const MAX_ITEMS    = 8; // tallest category (tools) — prevents layout shift
 
-html[data-theme="light"] {
-  --bar-color:  #1e7a96;
-  --bar-bg:     #cde6f4;
-  --label-fill: #1a2a35;
-  --icon-color: #1a5a75;
-}
+// Responsive bar widths
+const getBarConfig = () => {
+  const w = window.innerWidth;
+  if (w <= 480)  return { maxBarWidth: 140, leftOffset: 100 };
+  if (w <= 768)  return { maxBarWidth: 170, leftOffset: 108 };
+  if (w <= 992)  return { maxBarWidth: 200, leftOffset: 112 };
+  return            { maxBarWidth: 300, leftOffset: 118 };
+};
 
-html[data-theme="dark"] {
-  --bar-color:  #2e8fa8;
-  --bar-bg:     #162535;
-  --label-fill: #d8e8f4;
-  --icon-color: #a8cfe0;
-}
+function BarGroup({ data, state, maxBarWidth }) {
+  const barH    = BAR_HEIGHT - BAR_PADDING;
+  const yMid    = BAR_HEIGHT * 0.5;
+  const barWidth = Math.max(0, (state.value / 100) * maxBarWidth * state.opacity);
 
-/* =========================================================
-   CHART SECTION — scroll-in animation
-   ========================================================= */
-.skills-chart-section {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  margin-top: 3rem;
-  margin-bottom: 8px;
-}
-
-.skills-chart-section.chart-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================================================
-   CHART ROW — side-by-side on desktop
-   ========================================================= */
-.skills-chart-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 3rem;
-  width: 100%;
+  return (
+    <g className="bar-group" transform={`translate(0, ${state.y})`}>
+      <text
+        className="name-label"
+        x="-10"
+        y={yMid}
+        alignmentBaseline="middle"
+        style={{ opacity: state.opacity }}
+      >
+        {data.name}
+      </text>
+      <rect
+        y={BAR_PADDING * 0.5}
+        width={barWidth}
+        height={barH}
+        rx={5}
+        ry={5}
+        style={{ fill: "var(--bar-color)", opacity: state.opacity }}
+      />
+    </g>
+  );
 }
 
-.skills-chart-left {
-  flex: 0 0 200px;      /* fixed width for the button column */
-  min-width: 160px;
-  max-width: 220px;
-}
+class BarChart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { config: getBarConfig() };
+    this.handleResize = this.handleResize.bind(this);
+  }
 
-.skills-chart-right {
-  flex: 1 1 auto;       /* fills remaining space */
-  min-width: 0;
-  padding-left: 25rem;
-}
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
 
-/* =========================================================
-   FIXED-HEIGHT WRAPPER
-   ========================================================= */
-.barchart-fixed-wrap {
-  min-height: 380px;
-  display: flex;
-  align-items: flex-start;
-  padding-left: 1rem;
-}
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
 
-/* =========================================================
-   MAIN CHART CONTAINER  — desktop
-   ========================================================= */
-.barchart-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  overflow: visible;
-}
+  handleResize() {
+    this.setState({ config: getBarConfig() });
+  }
 
-.barchart-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  background: var(--bar-bg);
-  border-radius: 12px;
-  padding: 14px 20px 14px 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
-  width: fit-content;          /* shrink to content on desktop */
-  max-width: 100%;
-  transition: background 0.3s ease;
-}
+  startTransition(d, i) {
+    return { value: 0, y: i * BAR_HEIGHT, opacity: 0 };
+  }
 
-/* ── Icon column ── */
-.barchart-icons {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 10px;
-  margin-right: 4px;
-  flex-shrink: 0;
-}
+  enterTransition(d, i) {
+    return {
+      value:   [d.value],
+      opacity: [1],
+      timing:  { duration: 550, delay: i * 100 },
+    };
+  }
 
-.barchart-icon-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 42px;     /* matches BAR_HEIGHT */
-  width: 32px;
-  font-size: 1.25rem;
-  color: var(--icon-color);
-}
+  updateTransition(d, i) {
+    return {
+      value:   [d.value],
+      y:       [i * BAR_HEIGHT],
+      opacity: [1],
+      timing:  { duration: 400, delay: i * 60 },
+    };
+  }
 
-/* ── SVG ── */
-.barchart-svg {
-  display: block;
-  flex-shrink: 0;
-}
+  leaveTransition() {
+    return { opacity: [0], timing: { duration: 180 } };
+  }
 
-/* ── Labels ── */
-.bar-group .name-label {
-  text-anchor: end;
-  font-size: 12.5px;
-  font-weight: 400;
-  fill: var(--label-fill);
-  font-family: 'Sprite Graffiti', Inter, Roboto, sans-serif;
-  letter-spacing: 0.01em;
-}
+  render() {
+    const { data, logos } = this.props;
+    const { maxBarWidth, leftOffset } = this.state.config;
 
-/* ── Hover ── */
-.bar-group rect {
-  transition: opacity 0.2s ease;
-}
-.bar-group:hover rect            { opacity: 0.75 !important; }
-.bar-group:hover .name-label    { font-weight: 600; fill: #6ee7b7; }
+    const svgWidth  = leftOffset + maxBarWidth + 16;
+    const svgHeight = MAX_ITEMS * BAR_HEIGHT + 20;
 
-/* =========================================================
-   CATEGORY BUTTONS
-   ========================================================= */
-.skills {
-  padding: 0;
-}
+    return (
+      <div className="barchart-wrapper">
+        <div className="barchart-container">
 
-.skills-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+          {/* Icon column */}
+          <div className="barchart-icons" style={{ height: svgHeight }}>
+            {logos && logos.map((logo, i) => (
+              <div key={i} className="barchart-icon-item">
+                {logo}
+              </div>
+            ))}
+          </div>
 
-.btn-skill {
-  background: transparent !important;
-  border: 1px solid rgba(110, 231, 183, 0.2) !important;
-  color: #94a3b8 !important;
-  border-radius: 8px !important;
-  padding: 11px 16px !important;
-  text-align: left !important;
-  transition: all 0.2s ease !important;
-  width: 100% !important;
-}
+          {/* SVG: labels + animated bars */}
+          <svg
+            className="barchart-svg"
+            width={svgWidth}
+            height={svgHeight}
+            style={{ overflow: "visible" }}
+          >
+            {/* Subtle background behind bar area */}
+            <rect
+              x={leftOffset}
+              y={4}
+              width={maxBarWidth}
+              height={svgHeight - 12}
+              rx={7}
+              ry={7}
+              style={{ fill: "rgba(255,255,255,0.04)" }}
+            />
 
-.btn-skill:hover {
-  background: rgba(110, 231, 183, 0.08) !important;
-  color: #6ee7b7 !important;
-  border-color: rgba(110, 231, 183, 0.45) !important;
-}
-
-.active-button {
-  background: rgba(23, 121, 207, 0.22) !important;
-  border: 1px solid #1779cf !important;
-  color: #eef2ff !important;
-  border-radius: 8px !important;
-  padding: 11px 16px !important;
-  text-align: left !important;
-  width: 100% !important;
-  box-shadow: 0 2px 14px rgba(23, 121, 207, 0.18) !important;
-}
-
-.button-text {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-/* =========================================================
-   SKILL ICONS SECTION (below chart)
-   ========================================================= */
-.skills-icons-section {
-  margin-top: 48px;
-}
-
-/* Default 5-column grid */
-.skills-grid.skills-icons-grid,
-.skills-icons-grid {
-  display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
-  gap: 24px 16px !important;
-  justify-items: center !important;
-  margin-top: 0 !important;
-  align-items: start !important;
-}
-
-.skills-grid.skills-icons-grid .skill-item,
-.skills-icons-grid .skill-item {
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-
-  /* Animate in when class is added */
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Animate class applied by JS */
-.skills-grid.skills-icons-grid .skill-item.animate,
-.skills-icons-grid .skill-item.animate {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.skills-grid.skills-icons-grid .skill-icon,
-.skills-icons-grid .skill-icon {
-  width: 68px !important;
-  height: 68px !important;
-  object-fit: contain !important;
-  margin-bottom: 0 !important;
-  transition: transform 0.3s ease;
-}
-
-.skills-grid.skills-icons-grid .skill-item:hover .skill-icon,
-.skills-icons-grid .skill-item:hover .skill-icon {
-  transform: scale(1.12);
-}
-
-.skills-grid.skills-icons-grid .skill-pill,
-.skills-icons-grid .skill-pill {
-  margin-top: 10px !important;
-  margin-bottom: 0 !important;
-  font-size: 0.78rem !important;
-  padding: 5px 10px !important;
-}
-
-/* =========================================================
-   LIGHT MODE — skill buttons + pills
-   ========================================================= */
-html[data-theme="light"] .btn-skill {
-  border-color: rgba(23, 121, 207, 0.25) !important;
-  color: #334455 !important;
-}
-html[data-theme="light"] .btn-skill:hover {
-  background: rgba(23, 121, 207, 0.08) !important;
-  color: #1779cf !important;
-  border-color: rgba(23, 121, 207, 0.5) !important;
-}
-html[data-theme="light"] .active-button {
-  background: rgba(23, 121, 207, 0.14) !important;
-  color: #071028 !important;
-}
-html[data-theme="light"] .button-text {
-  color: inherit;
-}
-
-/* =========================================================
-   RESPONSIVE — Large tablet  (≤ 1100px)
-   ========================================================= */
-@media (max-width: 1100px) {
-  .barchart-fixed-wrap {
-    padding-left: 0;
+            <g transform={`translate(${leftOffset}, 10)`}>
+              <NodeGroup
+                data={data}
+                keyAccessor={(d) => d.name}
+                start={this.startTransition}
+                enter={this.enterTransition}
+                update={this.updateTransition}
+                leave={this.leaveTransition}
+              >
+                {(nodes) => (
+                  <g>
+                    {nodes.map(({ key, data: d, state }) => (
+                      <BarGroup
+                        key={key}
+                        data={d}
+                        state={state}
+                        maxBarWidth={maxBarWidth}
+                      />
+                    ))}
+                  </g>
+                )}
+              </NodeGroup>
+            </g>
+          </svg>
+        </div>
+      </div>
+    );
   }
 }
 
-/* =========================================================
-   RESPONSIVE — Tablet  (≤ 992px)
-   ========================================================= */
-@media (max-width: 992px) {
-  .skills-chart-row {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .skills-chart-left {
-    max-width: 100%;
-    flex: none;
-    width: 100%;
-  }
-
-  .skills-chart-right {
-    width: 100%;
-    padding-left: 0; 
-  }
-
-  .barchart-fixed-wrap {
-    min-height: auto;
-    width: 100%;
-    padding-left: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .barchart-wrapper {
-    min-width: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .barchart-container {
-    min-width: 320px;
-    border-radius: 10px;
-    padding: 12px 14px 12px 10px;
-  }
-
-  .skills-grid.skills-icons-grid,
-  .skills-icons-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-  }
-}
-
-/* =========================================================
-   RESPONSIVE — Mobile  (≤ 768px)
-   ========================================================= */
-@media (max-width: 768px) {
-  .skills-chart-section {
-    margin-top: 2rem;
-  }
-
-  .barchart-fixed-wrap {
-    min-height: auto;
-    overflow-x: auto;
-  }
-
-  .barchart-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px;          /* room for scroll bar */
-  }
-
-  /* slight scroll hint shadow on right */
-  .barchart-wrapper::after {
-    content: '';
-    display: block;
-    min-width: 1px;
-  }
-
-  .barchart-container {
-    padding: 10px 12px 10px 8px;
-    min-width: 280px;
-    border-radius: 8px;
-  }
-
-  .barchart-icon-item {
-    font-size: 1rem;
-    width: 26px;
-    height: 42px;
-  }
-
-  .bar-group .name-label {
-    font-size: 10.5px;
-  }
-
-  /* Force Bootstrap cols full-width */
-  .skills-chart-row > .col-lg-4,
-  .skills-chart-row > .col-md-5,
-  .skills-chart-row > .col-lg-8,
-  .skills-chart-row > .col-md-7 {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .skills-grid.skills-icons-grid,
-  .skills-icons-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 18px 12px !important;
-  }
-
-  .skills-grid.skills-icons-grid .skill-icon,
-  .skills-icons-grid .skill-icon {
-    width: 56px !important;
-    height: 56px !important;
-  }
-}
-
-/* =========================================================
-   RESPONSIVE — Small Mobile  (≤ 480px)
-   ========================================================= */
-@media (max-width: 480px) {
-  .barchart-container {
-    padding: 8px 10px 8px 6px;
-    min-width: 260px;
-  }
-
-  .barchart-icon-item {
-    font-size: 0.9rem;
-    width: 22px;
-  }
-
-  .bar-group .name-label {
-    font-size: 9.5px;
-  }
-
-  .skills-chart-section {
-    margin-top: 1.5rem;
-  }
-
-  .skills-grid.skills-icons-grid,
-  .skills-icons-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 16px 10px !important;
-  }
-
-  .skills-grid.skills-icons-grid .skill-icon,
-  .skills-icons-grid .skill-icon {
-    width: 48px !important;
-    height: 48px !important;
-  }
-
-  .skills-grid.skills-icons-grid .skill-pill,
-  .skills-icons-grid .skill-pill {
-    font-size: 0.7rem !important;
-    padding: 4px 8px !important;
-  }
-}
+export default BarChart;
