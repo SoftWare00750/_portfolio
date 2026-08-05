@@ -303,6 +303,15 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -5px;
 }
 
+/* Once visible (.animate is added by useScrollAnimation.js), center the
+   paragraph's text instead of the default left alignment, matching the
+   centered heading above it (.hero-sub-right-fixed uses text-align: center)
+   so the two lines of copy read as evenly indented under that title rather
+   than hugging the left edge of the box. */
+.hero-sub-right2.animate {
+  text-align: center;
+}
+
 /* ── Explicit pairing: once both elements have entered (.animate) and the
    rotating title has landed on "Game Developer", lock .hero-sub-right2
    directly under .hero-sub-right-fixed.loading-text-game using the exact

@@ -341,9 +341,12 @@
     left: auto;
     right: auto;
     height: auto;
-    max-height: 64vh;
+    /* Bigger than before and scales with both viewport height AND width
+       via clamp(), matching the portrait tablet treatment above, so it
+       resizes smoothly with the page instead of sitting at a flat cap. */
+    max-height: clamp(420px, 72vh, 780px);
     width: auto;
-    max-width: 90%;
+    max-width: clamp(280px, 92vw, 640px);
     margin: 20px auto 0;
     display: block;
   }
@@ -635,9 +638,12 @@
     left: auto;
     right: auto;
     height: auto;
-    max-height: 60vh;
+    /* Bigger than before and scales with both viewport height AND width
+       via clamp(), matching the portrait tablet treatment above, so it
+       resizes smoothly with the page instead of sitting at a flat cap. */
+    max-height: clamp(360px, 68vh, 700px);
     width: auto;
-    max-width: 85%;
+    max-width: clamp(260px, 88vw, 560px);
     margin: 16px auto 0;
     display: block;
   }
