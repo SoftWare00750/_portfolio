@@ -308,11 +308,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
    without affecting the other three rotating states. Now that all four
    loading-text states share the same margin-right (140px), this rule is
    simply a guaranteed lock rather than a coincidental match. */
-.hero-sub-right-fixed.loading-text-game.animate ~ .hero-sub-right2.animate {
-  top: calc(28% + 70px);
-  margin-right: 140px;
-  text-align: center;
-}
+
 
 .hero-image {
   position: absolute;
