@@ -185,7 +185,7 @@
   .project-card:nth-child(1),
   .project-card:nth-child(2),
   .project-card:nth-child(3),
-  .project-card:nth-child(4)
+  .project-card:nth-child(4),
   .project-card:nth-child(5),
   .project-card:nth-child(6) {
     grid-column: auto;
@@ -289,6 +289,60 @@
   .project-card.web .project-body,
   .project-card.game .project-body {
     width: 100% !important;
+  }
+}
+
+/* --- TABLET LANDSCAPE (993px–1280px, short viewport) ---
+   The width-only breakpoint above assumes a tall viewport (like a narrow
+   desktop window). Real tablets in landscape (iPad, iPad Air, Surface,
+   etc.) are only ~700–850px tall, so the absolutely-positioned hero
+   image and the fixed vertical rhythm around it need to be reined in
+   with viewport-relative caps instead of the flat desktop pixel values,
+   or they overflow/clip against the hidden page overflow. */
+@media (max-width: 1280px) and (min-width: 993px) and (orientation: landscape) {
+  #home {
+    padding: 130px 0 60px;
+    margin-bottom: 60px;
+  }
+
+  .hero-name {
+    font-size: 58px;
+  }
+
+  .hero-name .last-name {
+    margin-top: -22px;
+  }
+
+  .hero-sub-right-fixed {
+    font-size: 24px;
+    margin: 10px auto 8px;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .hero-sub-right2 {
+    font-size: 15px;
+    margin-right: 0;
+  }
+
+  .hero-image {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    height: auto;
+    max-height: 58vh;
+    width: auto;
+    max-width: 90%;
+    margin: 20px auto 0;
+    display: block;
+  }
+
+  #projects,
+  #about,
+  #skills,
+  #contact {
+    padding: 40px 0;
   }
 }
 
