@@ -283,7 +283,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right-fixed.loading-text-mobile,
 .hero-sub-right-fixed.loading-text-game     { margin-right: 140px; }
 
-
+.hero-sub-right2 {
+  position: absolute;
+  right: 0;
+  top: 5;
+}
 
 /* Once visible (.animate is added by useScrollAnimation.js), the
    paragraph's own text is centre-aligned (indentation is centred within
