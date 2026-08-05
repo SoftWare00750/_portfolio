@@ -283,6 +283,18 @@
   color: #444455;
 }
 
+/* Show More buttons: transparent bg, dark blue text/border in light mode */
+[data-theme="light"] .show-more-wrap {
+  background: transparent !important;
+  color: #071028 !important;
+  border-color: #071028 !important;
+}
+
+[data-theme="light"] .show-more-wrap:hover {
+  background: #071028 !important;
+  color: #ffffff !important;
+}
+
 /* Mobile dropdown nav: same dark bg as dark mode */
 [data-theme="light"] .nav-mobile {
   background: rgba(23, 121, 207, 0.92) !important;
