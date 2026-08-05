@@ -286,7 +286,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right2 {
   position: absolute;
   right: 0;
-  top: 5;
+  top: 15;
 }
 
 /* Once visible (.animate is added by useScrollAnimation.js), the
