@@ -301,7 +301,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding-right: 5px;
   /* Match .hero-sub-right-fixed.loading-text-game's margin-right so the two
      line up on the same right edge, directly stacked. */
-  
+  margin-right: 140px;
+  font-size: 21px;
+  z-index: 11;
+  margin-top: -5px;
 }
 
 /* Once visible (.animate is added by useScrollAnimation.js), the
@@ -324,11 +327,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
    without affecting the other three rotating states. Now that all four
    loading-text states share the same margin-right (140px), this rule is
    simply a guaranteed lock rather than a coincidental match. */
-.hero-sub-right-fixed.loading-text-game.animate ~ .hero-sub-right2.animate {
-  top: calc(28% + 70px);
-  margin-right: 140px;
-  text-align: center;
-}
+
 
 .hero-image {
   position: absolute;
