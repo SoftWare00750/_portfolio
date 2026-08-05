@@ -185,8 +185,8 @@
      max) so it keeps scaling smoothly with both the width and height of
      the page rather than jumping to a flat fixed size. */
   .hero-image.animate {
-    height: clamp(760px, 70vh, 1150px);
-    max-width: clamp(360px, 52vw, 680px);
+    height: clamp(820px, 76vh, 1250px);
+    max-width: clamp(400px, 58vw, 760px);
   }
 
   #projects {
@@ -364,8 +364,8 @@
   /* Same increase applied once animated, still clamp()-based so it keeps
      scaling with the viewport instead of locking to one fixed size. */
   .hero-image.animate {
-    max-height: clamp(460px, 78vh, 860px);
-    max-width: clamp(300px, 96vw, 700px);
+    max-height: clamp(500px, 84vh, 940px);
+    max-width: clamp(320px, 98vw, 760px);
   }
 
   #projects,
@@ -458,8 +458,8 @@
      clamp()-based so the image keeps resizing responsively with both the
      viewport width and height instead of jumping to a fixed size. */
   .hero-image.animate {
-    height: clamp(650px, 68vh, 1000px);
-    max-width: clamp(320px, 52vw, 620px);
+    height: clamp(700px, 74vh, 1100px);
+    max-width: clamp(350px, 58vw, 680px);
   }
 
   #projects {
@@ -676,8 +676,8 @@
   /* Once animated, size up further — still clamp()-based, so it keeps
      scaling with the short landscape viewport instead of a fixed size. */
   .hero-image.animate {
-    max-height: clamp(400px, 74vh, 780px);
-    max-width: clamp(280px, 92vw, 620px);
+    max-height: clamp(440px, 80vh, 860px);
+    max-width: clamp(300px, 96vw, 680px);
   }
 
   #projects {

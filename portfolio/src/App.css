@@ -307,14 +307,14 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: -5px;
 }
 
-/* Once visible (.animate is added by useScrollAnimation.js), keep the
-   paragraph's own text left-aligned (indentation starts at the left edge
-   of its box) while the box itself stays shifted over to the right side
-   of the page — it inherits position: absolute; right: 0; margin-right:
-   140px from .hero-sub-right2 above, so "left" here describes the text
+/* Once visible (.animate is added by useScrollAnimation.js), the
+   paragraph's own text is centre-aligned (indentation is centred within
+   its box) while the box itself stays shifted over to the right side of
+   the page — it inherits position: absolute; right: 0; margin-right:
+   140px from .hero-sub-right2 above, so "centre" here describes the text
    flow inside the box, not the box's location on the page. */
 .hero-sub-right2.animate {
-  text-align: left;
+  text-align: center;
 }
 
 /* ── Explicit pairing: once both elements have entered (.animate) and the
@@ -330,7 +330,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right-fixed.loading-text-game.animate ~ .hero-sub-right2.animate {
   top: calc(28% + 70px);
   margin-right: 140px;
-  text-align: left;
+  text-align: center;
 }
 
 .hero-image {
