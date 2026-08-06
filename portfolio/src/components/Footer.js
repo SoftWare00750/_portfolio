@@ -22,8 +22,8 @@ const SOCIAL_LINKS = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    href: "https://linkedin.com/stephen-o", // TODO: replace with your actual Instagram profile URL
-    icon: "https://www.flaticon.com/free-icon/linkedin_3536505?term=linkedin&page=1&position=1&origin=tag&related_id=3536505",
+    href: "www.linkedin.com/in/stephen-o-2245401b7", // TODO: replace with your actual Instagram profile URL
+    icon: "https://icons8.com/icon/13930/linkedin",
     color: "#404be4",
   },
   {
