@@ -24,7 +24,7 @@ const SOCIAL_LINKS = [
     label: "LinkedIn",
     href: "https://linkedin.com/in/stephen-o-2245401b7", // TODO: replace with your actual Instagram profile URL
     icon: "https://img.icons8.com/color/48/linkedin.png",
-    color: "#2670e0",
+    color: "#2366ca",
   },
   {
     id: "instagram",
