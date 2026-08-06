@@ -20,6 +20,13 @@ const SOCIAL_LINKS = [
     color: "#000000",
   },
   {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://linkedin.com/stephen-o", // TODO: replace with your actual Instagram profile URL
+    icon: "https://cdn.simpleicons.org/linkedin/white",
+    color: "#404be4",
+  },
+  {
     id: "instagram",
     label: "Instagram",
     href: "https://instagram.com/dami_tunz", // TODO: replace with your actual Instagram profile URL
