@@ -91,7 +91,7 @@ export default function Hero() {
                       className="hero-menu-item"
                       onClick={() =>
                         window.open(
-                          "https://drive.google.com/file/d/1CZydhqyrEKcl6eKwSMWSeMMej0unNsHo/view?usp=drivesdk",
+                          "https://drive.google.com/file/d/1QKlaFGbnmbxp6U5X9f1jUHMsYDaaR4v_/view?usp=sharing",
                           "_blank"
                         )
                       }
