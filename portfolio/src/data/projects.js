@@ -151,7 +151,7 @@ const projects = [
   id: 'game2',
   type: 'game',
   title: 'X & O Tic-Tac Toe',
-  desc: 'Simple Tic-tac Toe Game'
+  desc: 'Simple Tic-tac Toe Game',
   tech: ['Angular.js', 'Canvas API', 'JavaScript'],
   image: '/assets/tictactoe.png',
   link: 'https://cross-fire-x-o.vercel.app/'
