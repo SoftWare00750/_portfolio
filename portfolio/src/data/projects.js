@@ -23,16 +23,17 @@ const projects = [
   },
 
 
-  {
+   {
     id: "proj-3",
-    title: "NRS Tax System Application",
-    desc: "Tax System Application with Bell Lapadula Access Control-B.sc Final year project ",
+    title: "Habit Tracker",
+    desc: "Habit Tracker Application, Track your habits ",
     tech: ["React.js", "Tailwind Css", "Appwrite"],
-    image: "/assets/nrs.png",
-    link: "https://nrs-tax-system.vercel.app/",
+    image: "/assets/habittracker.png",
+    link: "https://habit-tracker-pwa-psi.vercel.app/",
     type: "web"
 
   },
+
 
   {
     id: "proj-4",
@@ -52,6 +53,17 @@ const projects = [
     image: "/assets/accessbank.png",
     link: "https://access-bank-clone.vercel.app/",
     type: "web"
+  },
+
+    {
+    id: "proj-4b",
+    title: "NRS Tax System Application",
+    desc: "Tax System Application with Bell Lapadula Access Control-B.sc Final year project ",
+    tech: ["React.js", "Tailwind Css", "Appwrite"],
+    image: "/assets/nrs.png",
+    link: "https://nrs-tax-system.vercel.app/",
+    type: "web"
+
   },
   
   {
@@ -134,6 +146,27 @@ const projects = [
   image: '/assets/stellarstrike.png',
   link: 'https://stellarstrike.vercel.app/'
   },
+
+   {
+  id: 'game2',
+  type: 'game',
+  title: 'X & O Tic-Tac Toe',
+  desc: 'Simple Tic-tac Toe Game'
+  tech: ['Angular.js', 'Canvas API', 'JavaScript'],
+  image: '/assets/tictactoe.png',
+  link: 'https://cross-fire-x-o.vercel.app/'
+  },
+
+   {
+  id: 'game3',
+  type: 'game',
+  title: 'Drum Kit',
+  desc: 'Simple Drum Kit Game',
+  tech: ['React', 'Canvas API', 'JavaScript'],
+  image: '/assets/drumkit.png',
+  link: 'https://drum-kit-luqw.vercel.app//'
+  },
+
 
   {
     id: "proj-9",
