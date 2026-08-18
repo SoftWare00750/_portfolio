@@ -221,44 +221,27 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .middle-name {
-  /* Make it an overlay using absolute positioning */
   position: absolute;
-  
-  /* Center it horizontally and vertically within hero-name */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  
-  /* Handwriting cursive font style - using Google Fonts */
   font-family: 'Great Vibes', 'Dancing Script', 'Satisfy', 'Pacifico', 'Brush Script MT', cursive;
-  font-style: normal; /* Handwriting fonts already look cursive */
+  font-style: normal;
   font-weight: 400;
-  
-  /* Ensure it appears above other elements */
   z-index: 10;
-  
-  /* Remove it from normal document flow - won't affect other elements */
-  pointer-events: none; /* Optional: allows clicking through the overlay */
-  
-  /* Gold color styling */
-  color: #007bff; /* Pure gold */
+  pointer-events: none;
+  color: #007bff;
   background: #1a84f6f7;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   opacity: 1;
-  
-  /* Much larger font size - spans over both first and last names */
   font-size: 1.4em;
   line-height: 1.2;
   letter-spacing: 0.05em;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap;
   text-shadow: none;
-  
- 
 }
-
-
 
 .hero-sub-right-fixed {
   position: absolute;
@@ -274,10 +257,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   font-weight: bold;
 }
 
-/* All four rotating states share the same margin-right so the heading's
-   box never shifts position as the text cycles — only the word inside it
-   changes. (Previously each state had its own margin-right, which moved
-   the whole box left/right every 2s as the title rotated.) */
 .hero-sub-right-fixed.loading-text-frontend,
 .hero-sub-right-fixed.loading-text-web,
 .hero-sub-right-fixed.loading-text-mobile,
@@ -286,12 +265,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .hero-sub-right2 {
   position: absolute;
   right: 0;
-  /* Sit directly beneath .hero-sub-right-fixed's "game" state: its box is
-     vertically centered at top:28% (translateY(-50%)), roughly 55px tall
-     at font-size 37px/line-height 1.5, so its bottom edge lands near
-     28% + 28px. Adding this paragraph's own half-height (~27px, two lines
-     at 21px/1.3) plus a small gap keeps it locked right below that text
-     instead of drifting on an independently-tuned 54% offset. */
   top: calc(28% + 70px);
   transform: translateY(-50%);
   max-width: 600px;
@@ -299,35 +272,15 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   text-align: left;
   line-height: 1.3;
   padding-right: 5px;
-  /* Match .hero-sub-right-fixed.loading-text-game's margin-right so the two
-     line up on the same right edge, directly stacked. */
   margin-right: 140px;
   font-size: 21px;
   z-index: 11;
   margin-top: -5px;
 }
 
-/* Once visible (.animate is added by useScrollAnimation.js), the
-   paragraph's own text is centre-aligned (indentation is centred within
-   its box) while the box itself stays shifted over to the right side of
-   the page — it inherits position: absolute; right: 0; margin-right:
-   140px from .hero-sub-right2 above, so "centre" here describes the text
-   flow inside the box, not the box's location on the page. */
 .hero-sub-right2.animate {
   text-align: center;
 }
-
-/* ── Explicit pairing: once both elements have entered (.animate) and the
-   rotating title has landed on "Game Developer", lock .hero-sub-right2
-   directly under .hero-sub-right-fixed.loading-text-game using the exact
-   same top offset and right-edge margin as that state, rather than relying
-   on the base rule above to coincidentally match it. They're siblings in
-   the DOM (.hero-sub-right-fixed renders before .hero-sub-right2 inside
-   .hero-sub), so the general sibling combinator targets this pairing
-   without affecting the other three rotating states. Now that all four
-   loading-text states share the same margin-right (140px), this rule is
-   simply a guaranteed lock rather than a coincidental match. */
-
 
 .hero-image {
   position: absolute;
@@ -438,19 +391,18 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   padding: 30px 0;
   max-width: 1400px;
   margin: 0 auto;
-  /* Default: 2 columns for web/game projects */
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
 }
 
-/* Mobile apps use 2 columns but cards are narrower */
+/* Mobile apps grid updated to 3 columns */
 .projects-grid.mobile-grid {
-  grid-template-columns: repeat(2, 260px);
+  grid-template-columns: repeat(3, minmax(0, 260px));
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
 }
 
-/* Game grid - same as default but explicitly set for clarity */
+/* Game grid */
 .projects-grid.game-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -458,11 +410,10 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   gap: 50px;
 }
 
-/* If there is only one child, change the grid to a single column and center it */
 .projects-grid.game-grid > :only-child {
   grid-column: 1 / -1;
   justify-self: center;
-  max-width: 500px; /* Optional: prevents a single card from stretching too wide */
+  max-width: 500px;
 }
 
 /* ================================================================
@@ -470,7 +421,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
    ================================================================ */
 
 .project-card {
-  /* Base styles for ALL cards */
   position: relative;
   background: rgba(2, 6, 23, 0.2);
   border-radius: 13px;
@@ -479,8 +429,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   backdrop-filter: blur(10px);
   cursor: pointer;
   transition: transform 0.3s ease;
-  
-  /* CRITICAL: Make sure cards are visible */
   display: block;
   opacity: 1;
   visibility: visible;
@@ -490,28 +438,26 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   transform: translateY(-5px);
 }
 
-/* Web cards - landscape 16:9 */
 .project-card.web {
   width: 100%;
   max-width: 540px;
   aspect-ratio: 16 / 9;
 }
 
-/* Game cards - landscape 16:9 (same as web) */
 .project-card.game {
   width: 100%;
   max-width: 540px;
   aspect-ratio: 16 / 9;
 }
 
-/* Mobile cards - portrait 9:16 */
 .project-card.mobile {
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
   aspect-ratio: 9 / 16;
 }
 
 /* ================================================================
-   IMAGE LAYER - Works for ALL card types
+   IMAGE LAYER
    ================================================================ */
 
 .project-media,
@@ -533,7 +479,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 /* ================================================================
-   HOVER OVERLAY - Works for ALL card types
+   HOVER OVERLAY
    ================================================================ */
 
 .project-box {
@@ -554,13 +500,9 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   background: rgba(2, 6, 23, 0.92);
   color: var(--white);
   padding: 20px;
-  
-  /* Hidden by default */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
-  
-  /* Flexbox for centering content */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -569,13 +511,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   gap: 10px;
 }
 
-/* Show overlay on hover */
 .project-card:hover .project-body {
   opacity: 1;
   visibility: visible;
 }
 
-/* Overlay text */
 .project-body h3 {
   margin: 0;
   font-size: 20px;
@@ -588,19 +528,18 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   line-height: 1.5;
 }
 
-/* Mobile card overlay - tighter spacing */
 .project-card.mobile .project-body {
-  padding: 15px;
-  gap: 8px;
+  padding: 12px;
+  gap: 6px;
 }
 
 .project-card.mobile .project-body h3 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .project-card.mobile .project-body p {
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.3;
 }
 
 /* ================================================================
@@ -625,7 +564,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 
 .project-card.mobile .tech {
   font-size: 10px;
-  padding: 4px 8px;
+  padding: 3px 6px;
 }
 
 /* ================================================================
@@ -652,8 +591,8 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 }
 
 .project-card.mobile .link-button {
-  padding: 10px 20px;
-  font-size: 13px;
+  padding: 8px 16px;
+  font-size: 12px;
 }
 
 /* ================================================================
@@ -674,6 +613,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   .project-card.game {
     max-width: 100%;
   }
+
+  .projects-grid.mobile-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }
 
 /* ================================================================
@@ -687,9 +631,11 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
     gap: 30px;
   }
   
+  /* 3-column responsive layout for mobile apps grid */
   .projects-grid.mobile-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    gap: 12px;
   }
   
   .project-card.web,
@@ -700,7 +646,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   
   .project-card.mobile {
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
   }
 }
 
@@ -738,7 +684,6 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 #about { margin-top: -10px; padding: 20px 0 60px; }
 .about { margin-bottom: 14px; }
 
-/* ── About grid: text left, image right ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 340px;
@@ -748,50 +693,45 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   margin-top: 8px;
   align-items: center;
 }
- 
-/* ── About text: tighter line spacing ── */
+
 .about-text {
   margin-top: 10px;
   line-height: 1.5;
 }
- 
+
 .about-text p,
 .about-intro {
-  margin-bottom: 8px;     /* reduced from ~14-18px */
-  line-height: 1.5;       /* tighter line height */
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
- 
+
 .about2 {
   margin-top: 8px;
   margin-bottom: 8px;
   line-height: 1.5;
 }
- 
-/* ── About image wrapper: keeps image proportional ── */
+
 .about-image-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 320px;           /* fixed container height */
+  height: 320px;
   overflow: hidden;
   border-radius: 12px;
 }
- 
+
 .about-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;    /* keeps proportions - no stretching */
+  object-fit: contain;
   object-position: center;
-  /* Remove old margin overrides */
   margin: 0;
 }
- 
-/* ── Desktop only: extra spacing between about-text.animate and
-   about-image-wrap, shifting the image further to the right ── */
+
 @media (min-width: 993px) {
   .about-grid {
-    gap: 140px; /* was 40px, then 90px — widened further to push the image right */
+    gap: 140px;
   }
 
   .about-text.animate {
@@ -803,21 +743,20 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
   }
 }
 
-/* ── Responsive about ── */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
     width: 100%;
     gap: 24px;
   }
- 
+
   .about-image-wrap {
     height: 280px;
     max-width: 360px;
     margin: 0 auto;
   }
 }
- 
+
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -825,55 +764,50 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
     font-size: 16px;
     gap: 20px;
   }
- 
+
   .about-text {
     text-align: center;
   }
- 
+
   .about-text p,
   .about-intro {
     text-align: center;
   }
- 
+
   .about-image-wrap {
     height: 240px;
     max-width: 280px;
     margin: 0 auto;
   }
 }
- 
+
 /* ================================================================
-   BARCHART SECTION FIXES - Skills chart layout
+   BARCHART SECTION FIXES
    ================================================================ */
- 
-/* Container holding the left nav + right chart */
+
 .barchart-group {
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
- 
-/* The skills section row (Bootstrap Row) */
+
 #skills .container .mt-5 {
   margin-top: 5rem !important;
   padding-bottom: 2rem;
 }
- 
-/* Skills buttons column */
+
 .skills {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
- 
-/* Override Bootstrap button defaults for skill buttons */
+
 .btn.btn-skill,
 .btn.active-button {
   border-radius: 8px !important;
   text-align: left !important;
 }
- 
-/* Responsive barchart */
+
 @media (max-width: 768px) {
   .barchart-wrapper {
     overflow-x: auto;
@@ -891,6 +825,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, label {
 .skills-list { display: flex; flex-wrap: wrap; gap: 4px; }
 .skills1     { font-weight: bold; color: var(--accent); }
 .devtitle { font-weight: bold; color: var(--white); }
+
 /* ===== SKILLS SECTION ===== */
 #skills { padding-top: 60px; margin-top: 130px; margin-bottom: -5px; }
 
@@ -1044,10 +979,6 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
 .social-icon { width: 30px; height: 30px; transition: transform 0.2s ease; }
 .social-icon:hover { transform: scale(1.1); }
 
-/* Rounded-square badge wrapper for icons pulled from an icon CDN. Each badge
-   is tinted with its platform's own brand color (set inline via --brand-color)
-   so the row reads as "colored" rather than a flat monochrome row, with a
-   glowing lift-and-spin animation on hover. */
 .social-icon-circle {
   display: flex;
   align-items: center;
@@ -1076,16 +1007,10 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
 .social-icon-circle:hover .social-icon { transform: scale(1.08); }
 
 /* ================================================================
-   ADDITIONS.CSS  —  paste at the END of App.css (or import after)
-   Covers:
-     1. Show More button (projects + skills)
-     2. Hero X-menu button & dropdown
-     3. Mobile fix for proj-8 (and any card) visibility
+   ADDITIONS.CSS — Show More, Hero Menu & Mobile Fixes
    ================================================================ */
 
-/* ──────────────────────────────────────────
-   1. SHOW MORE BUTTON
-   ────────────────────────────────────────── */
+/* ── 1. SHOW MORE BUTTON ── */
 .show-more-wrap {
   display: flex;
   align-items: center;
@@ -1097,7 +1022,7 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   padding: 10px 22px;
   border-radius: 50px;
   border: 2px solid var(--accent);
-  background: transparent; /* override default <button> background */
+  background: transparent;
   color: var(--accent);
   font-weight: 600;
   font-size: 15px;
@@ -1127,16 +1052,13 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   letter-spacing: 0.4px;
 }
 
-/* ──────────────────────────────────────────
-   2. HERO X-MENU BUTTON & DROPDOWN
-   ────────────────────────────────────────── */
+/* ── 2. HERO X-MENU BUTTON & DROPDOWN ── */
 .hero-menu-wrap {
   position: relative;
   margin-top: 32px;
   width: fit-content;
 }
 
-/* The toggle button — same shape as old .mywork but now it's a hamburger/X */
 .hero-menu-btn {
   display: flex;
   flex-direction: column;
@@ -1161,7 +1083,6 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   transform: scale(1.06);
 }
 
-/* Bars — animate to X when open */
 .hm-bar {
   display: block;
   width: 22px;
@@ -1178,7 +1099,6 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
 
 .hero-menu-btn.open .hm-bar  { background: var(--accent); }
 
-/* Dropdown panel */
 .hero-menu-dropdown {
   position: absolute;
   top: calc(100% + 12px);
@@ -1210,7 +1130,7 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   font-size: 15px;
   font-weight: 600;
   padding: 11px 14px;
-  border-radius: 9px;
+  border-radius: 99px;
   cursor: pointer;
   text-align: left;
   transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
@@ -1226,7 +1146,7 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   font-size: 16px;
 }
 
-/* Light-mode tweaks for hero menu */
+/* Light-mode tweaks */
 [data-theme="light"] .hero-menu-btn {
   border-color: #071028;
 }
@@ -1258,22 +1178,16 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
   color: #071028;
 }
 
-/* ──────────────────────────────────────────
-   3. MOBILE FIX — proj-8 & all web cards
-      Force images inside ALL project-card.web
-      to fill and display correctly on mobile.
-   ────────────────────────────────────────── */
+/* ── 3. MOBILE FIX ── */
 @media (max-width: 768px) {
-  /* Guarantee every web card is a positioning context */
   .project-card.web {
     position: relative !important;
     overflow: hidden !important;
     display: block !important;
     visibility: visible !important;
-    opacity: 1;            /* animations.css will handle this via .animate */
+    opacity: 1;
   }
 
-  /* Force the media wrapper to fill the card */
   .project-card.web .project-media {
     position: absolute !important;
     top: 0 !important;
@@ -1284,7 +1198,6 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
     visibility: visible !important;
   }
 
-  /* Force the image to cover */
   .project-card.web .project-media img {
     position: absolute !important;
     top: 0 !important;
@@ -1298,7 +1211,6 @@ input::placeholder, textarea::placeholder { color: #6ee7b7 !important; opacity: 
     max-width: none !important;
   }
 
-  /* Same guarantee for game cards on mobile */
   .project-card.game {
     position: relative !important;
     overflow: hidden !important;
