@@ -186,7 +186,7 @@ const projects = [
     image: "/assets/hapyness.png",
     link: "https://www.dropbox.com/scl/fi/podixkq4crasma6mczn2i/Hapyness-android.apk?rlkey=ch8a7fevorcdbseeklpsj45us&st=22beqqrh&dl=0",
     type: "mobile"
-  }
+  },
 
   {
     id: "proj-11",
