@@ -174,7 +174,7 @@ const projects = [
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
     image: "/assets/dishcovery.png",
-    link: "https://www.dropbox.com/scl/fi/2imtqaf8uo9rmu34ynypf/Dishcovery-android.apk?rlkey=5btikx7obm275uj872rta7xsw&st=ngiucmuj&dl=0",
+    link: "https://www.dropbox.com/scl/fi/73pnp3g2pvxcyxlu1zkfl/Dishcovery.apk?rlkey=50nqkc56dxu6ukzp1lv1rqht2&st=yzv62jpu&dl=0",
     type: "mobile"
   },
 
