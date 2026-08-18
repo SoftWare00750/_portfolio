@@ -170,7 +170,7 @@ const projects = [
 
   {
     id: "proj-9",
-    title: "Food Discovery App, Dishcovery",
+    title: "Dishcovery, Food Discovery App ",
     desc: "Discover new recipes and track your favorite meals with this intuitive mobile app.",
     tech: ["React Native", "Expo", "Firebase"],
     image: "/assets/dishcovery.png",
@@ -180,13 +180,23 @@ const projects = [
 
   {
     id: "proj-10",
-    title: "Social Media App, Hapyness",
+    title: "Hapyness, Social Media App",
     desc: "Connect with friends and share your happy moments through this social platform.",
     tech: ["React Native", "Expo", "Node.js"],
     image: "/assets/hapyness.png",
     link: "https://www.dropbox.com/scl/fi/podixkq4crasma6mczn2i/Hapyness-android.apk?rlkey=ch8a7fevorcdbseeklpsj45us&st=22beqqrh&dl=0",
     type: "mobile"
   }
+
+  {
+    id: "proj-11",
+    title: "Oripio, Food Delivery App",
+    desc: "Order for Meals on the app and get them delivered",
+    tech: ["React Native", "Expo", "Node.js"],
+    image: "/assets/oripio2.png",
+    link: "https://www.dropbox.com/scl/fi/mymrhudqhvcd9ab2r5q0j/Oripio-android.apk?rlkey=zc4ts6mqlcg9nscx7i82i5rei&st=a4mgo80w&dl=0",
+    type: "mobile"
+  },
 ];
 
 export default projects;
