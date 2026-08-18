@@ -4,7 +4,7 @@ import projects from "../data/projects";
 const WEB_INITIAL = 4;
 const WEB_PER_PAGE = 2;
 const GAME_PER_PAGE = 2;
-const MOBILE_PER_PAGE = 2;
+const MOBILE_PER_PAGE = 3;
 
 function ShowMoreButton({ onClick }) {
   return (
