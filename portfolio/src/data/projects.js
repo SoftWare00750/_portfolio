@@ -197,6 +197,16 @@ const projects = [
     link: "https://www.dropbox.com/scl/fi/mymrhudqhvcd9ab2r5q0j/Oripio-android.apk?rlkey=zc4ts6mqlcg9nscx7i82i5rei&st=a4mgo80w&dl=0",
     type: "mobile"
   },
+
+  {
+    id: "proj-12",
+    title: "Novapay, Fintech App",
+    desc: "Fund and carry out transactions",
+    tech: ["Flutter", "Node.js"],
+    image: "/assets/novapay.png",
+    link: "https://www.dropbox.com/scl/fi/sr4mguln81dog5bwkdio5/novapay.apk?rlkey=xnbb2iokg8zuth4ux3hhw8d6w&st=nb850sjz&dl=0",
+    type: "mobile"
+  },
 ];
 
 export default projects;
