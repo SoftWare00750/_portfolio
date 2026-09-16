@@ -207,6 +207,16 @@ const projects = [
     link: "https://www.dropbox.com/scl/fi/sr4mguln81dog5bwkdio5/novapay.apk?rlkey=xnbb2iokg8zuth4ux3hhw8d6w&st=nb850sjz&dl=0",
     type: "mobile"
   },
+
+  {
+    id: "proj-12",
+    title: "Skybook, Ticketing App",
+    desc: "Check for flights and get tickets",
+    tech: ["Flutter", "Node.js"],
+    image: "/assets/skybookapp.png",
+    link: "https://www.dropbox.com/scl/fi/k0tfe389b9tb3kzzjajzt/skybook-app.apk?rlkey=metrtkxpvc2syikcyq0m2ncuw&st=9a4mogkj&dl=0"
+    type: "mobile"
+  },
 ];
 
 export default projects;
