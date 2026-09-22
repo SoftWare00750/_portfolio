@@ -214,7 +214,7 @@ const projects = [
     desc: "Check for flights and get tickets",
     tech: ["Flutter", "Node.js"],
     image: "/assets/skybookapp.png",
-    link: "https://www.dropbox.com/scl/fi/k0tfe389b9tb3kzzjajzt/skybook-app.apk?rlkey=metrtkxpvc2syikcyq0m2ncuw&st=9a4mogkj&dl=0"
+    link: "https://www.dropbox.com/scl/fi/k0tfe389b9tb3kzzjajzt/skybook-app.apk?rlkey=metrtkxpvc2syikcyq0m2ncuw&st=9a4mogkj&dl=0",
     type: "mobile"
   },
 ];
