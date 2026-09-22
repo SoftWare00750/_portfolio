@@ -209,7 +209,7 @@ const projects = [
   },
 
   {
-    id: "proj-12",
+    id: "proj-13",
     title: "Skybook, Ticketing App",
     desc: "Check for flights and get tickets",
     tech: ["Flutter", "Node.js"],
